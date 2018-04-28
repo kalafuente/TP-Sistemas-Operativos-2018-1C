@@ -26,9 +26,12 @@ int main() {
 
 	int serverSocket;
 	serverSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
-
+	int planificadorSocket = conectarseAlServidor(&idPlanificador,
+			&puertoPlanificador);
 	int enviar = 1;
-
+	pthread_t thread_id;
+	pthread_create(&thread_id, NULL, conexionPlanificador,
+			(void*) &planificadorSocket);
 
 	printf(
 			"Conectado al servidor. Bienvenido al sistema, ya puede enviar mensajes. Escriba 'exit' para salir\n");
@@ -37,14 +40,15 @@ int main() {
 
 
 	if (recibirmensaje(serverSocket)) {
-			printf("recibimensaje1");
+			printf("recibimensaje del coordinador");
 		}
 		if (recibirmensaje(serverSocket)) {
-			printf("recibimensaje2");
+			printf("recibimensaje del coordinador");
 		} else
-			printf("error al recibir");
+			printf("error ");
 
-		if (enviarmensaje("nos conectamos :)", serverSocket)) {
+		if (enviarmensaje("nos conectamos con el cordinador :)",
+				serverSocket)) {
 			printf("enviemensaje3");
 		}
 	
@@ -63,11 +67,9 @@ int main() {
 			enviarmensaje(message, serverSocket);
 		} // Solo envio si el usuario no quiere salir.
 		 */
-		char mensaje[PACKAGESIZE];
 
 		while (1) {
-		fgets(mensaje, PACKAGESIZE, stdin);
-		enviarmensaje(mensaje, serverSocket);
+
 		}
 		enviar = 0;
 	}
@@ -85,6 +87,41 @@ int main() {
 	config_destroy(config);
 	return 0;
 
+}
+
+void *conexionPlanificador(void *sock) {
+	int socketplanificador = *(int*) sock;
+	
+	if (recibirmensaje(socketplanificador)) {
+		printf("recibimensaje de sirplanificador");
+	}
+	if (recibirmensaje(socketplanificador)) {
+		printf("recibi another mensaje de sir planificador");
+	} else
+		printf("error al recibir");
+
+	if (enviarmensaje("nos conectamos sir planificador:)",
+			socketplanificador)) {
+		printf("envie mensaje a sir planificador");
+	}
+
+	// Confirmar que nos conectamo
+	/*
+
+	 fgets(message, PACKAGESIZE, stdin);	// Lee una linea en el stdin (lo que escribimos en la consola) hasta encontrar un \n (y lo incluye) o llegar a PACKAGESIZE.
+
+
+	 if (!strcmp(message, "exit\n"))
+
+	 enviar = 0;			// Chequeo que el usuario no quiera salir
+	 if (enviar) {
+
+	 enviarmensaje(message, serverSocket);
+	 } // Solo envio si el usuario no quiere salir.
+	 */
+
+	while (1)
+		;
 }
 
 

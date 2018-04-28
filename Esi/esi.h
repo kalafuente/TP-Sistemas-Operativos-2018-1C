@@ -10,6 +10,9 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <commons/config.h>
+#include <pthread.h>
+
+
 
 int conectarseAlServidor(char ** ip, char ** puerto);
 void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
@@ -24,12 +27,12 @@ void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
 	*puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
 	*idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
 	*puertoPlanificador = config_get_string_value(*config,
-			"PUERDO_PLANIFICADOR");
+			"PUERTO_PLANIFICADOR");
 
 }
 int recibirmensaje(int unsocket);
 int enviarmensaje(char*mensaje, int unsocket);
-
+void *conexionPlanificador(void *socketplanificador);
 
 typedef struct {
 	int id;

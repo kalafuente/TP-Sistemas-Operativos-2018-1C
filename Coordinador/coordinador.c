@@ -65,7 +65,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,
 			&addrlen))) {
-		printf("Cliente conectado. Esperando mensajes:\n");
+		puts("Cliente conectado. Esperando mensajes:\n");
 
 		if (pthread_create(&thread_id, NULL, manejadorDeConexiones,
 				(void*) &socketCliente) < 0) {
@@ -81,7 +81,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 		exit(1);
 	}
 
-	printf("Damos otra vuelta");
+	puts("Damos otra vuelta");
 }
 
 void *manejadorDeConexiones(void *socket_desc) {

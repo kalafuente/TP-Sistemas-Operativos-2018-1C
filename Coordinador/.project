@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>coordinador</name>
+	<name>Coordinador</name>
 	<comment></comment>
 	<projects>
+		<project>commons</project>
+		<project>manejoDeSocket</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -20,7 +22,6 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.cdt.core.cnature</nature>
-		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>

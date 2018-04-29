@@ -9,7 +9,7 @@ int conectarseAlServidor(char ** ip, char ** puerto);
 
 int conectarseAlServidor(char ** ip, char ** puerto) {
 	struct addrinfo hints;
-	struct addrinfo *serverInfo = malloc(sizeof(struct addrinfo));
+	struct addrinfo *serverInfo;
 
 	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC; // Permite que la maquina se encargue de verificar si usamos IPv4 o IPv6

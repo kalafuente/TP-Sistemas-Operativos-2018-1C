@@ -24,5 +24,7 @@ int conectarseAlServidor(char ** ip, char ** puerto) {
 	freeaddrinfo(serverInfo);	// No lo necesitamos mas
 
 	return serverSocket;
+	free (serverInfo);
+
 
 }

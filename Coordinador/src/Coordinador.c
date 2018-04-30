@@ -49,24 +49,22 @@ void crearServidorMultiHilo(int listenningSocket) {
 }
 
 void *manejadorDeConexiones(void *socket_desc) {
-	//Get the socket descriptor
 
 	int sock = *(int*) socket_desc;
 
 	//Send some messages to the client
 
-	if (enviarmensaje("Greetings! I am your connection handler, decime algo que te lo repito\n", sock))
-		printf("envie1\n");
+	if (enviarmensaje("Coordinador: Bienvenido a mi dominio()\n", sock))
+		printf("\n envie1");
 
 
 	if (recibirmensaje(sock)) {
-		printf("recibi1\n");
+		printf("\n recibi1");
 	}
 	else
 	{
-		printf("erroralrecibir");
+		printf("error al recibir");
 	}
-
 	//while ((read_size = recv(sock, client_message, 50, 0)) > 0) {
 	//end of string marker
 	/*for (int i = 0; i < 5; i++) {
@@ -76,11 +74,13 @@ void *manejadorDeConexiones(void *socket_desc) {
 	 recibirmensaje(sock);
 
 	 }*/
-
-	while (1) {
-		recibirmensaje(sock);
+	int estado = 1;
+	while (estado) {
+		estado = recibirmensaje(sock);
 	};
+	close(sock);
+	printf("\n termino el hilo");
+	return NULL;
 
 
 }
-

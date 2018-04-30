@@ -14,22 +14,12 @@
 
 
 
+
 int conectarseAlServidor(char ** ip, char ** puerto);
 void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
 		char ** idPlanificador, char ** puertoPlanificador, t_config ** config);
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
-		char ** idPlanificador, char ** puertoPlanificador, t_config ** config) {
 
-	*config = config_create(
-			"configuracion.config");
-	*ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
-	*puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
-	*idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
-	*puertoPlanificador = config_get_string_value(*config,
-			"PUERTO_PLANIFICADOR");
-
-}
 int recibirmensaje(int unsocket);
 int enviarmensaje(char*mensaje, int unsocket);
 void *conexionPlanificador(void *socketplanificador);

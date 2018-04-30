@@ -13,8 +13,8 @@
 #define PACKAGESIZE 1024	// Define cual va a ser el size maximo del paquete a enviar
 
 int main() {
+	t_config *config = malloc(sizeof(t_config));
 
-	t_config *config;
 	char *ipCoordi = malloc(sizeof(char) * 5);
 	char *puertoCoordi = malloc(sizeof(char) * 20);
 	char *idPlanificador = malloc(sizeof(char) * 20);
@@ -24,34 +24,32 @@ int main() {
 			&puertoPlanificador, &config);
 	printf("ipCoordi: %s", ipCoordi);
 
-	int serverSocket;
-	serverSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
+	int coordinadorSocket;
+	coordinadorSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
+
+
 	int planificadorSocket = conectarseAlServidor(&idPlanificador,
 			&puertoPlanificador);
-	int enviar = 1;
+
+
 	pthread_t thread_id;
 	pthread_create(&thread_id, NULL, conexionPlanificador,
 			(void*) &planificadorSocket);
 
+
+
 	printf(
 			"Conectado al servidor. Bienvenido al sistema, ya puede enviar mensajes. Escriba 'exit' para salir\n");
 
-	while (enviar) {
-
-
-	if (recibirmensaje(serverSocket)) {
+	if (recibirmensaje(coordinadorSocket)) {
 			printf("recibimensaje del coordinador");
-		}
-		if (recibirmensaje(serverSocket)) {
-			printf("recibimensaje del coordinador");
-		} else
-			printf("error ");
+	};
 
 		if (enviarmensaje("nos conectamos con el cordinador :)",
-				serverSocket)) {
-			printf("enviemensaje3");
-		}
-	
+				coordinadorSocket)) {
+		printf("enviemensaje3\n");
+	};
+
 	
 		// Confirmar que nos conectamo
 		/*
@@ -67,33 +65,56 @@ int main() {
 			enviarmensaje(message, serverSocket);
 		} // Solo envio si el usuario no quiere salir.
 		 */
+	char message[50];
+		int flag = 1;
+	printf("alcanzo esto\n");
 
-		while (1) {
+	while (flag) {
+		printf("entro al while \n");
 
+		fgets(message, 50, stdin);
+		if (!strcmp(message, "exit\n")) {
+			flag = 0;
 		}
-		enviar = 0;
+		if (flag)
+		{
+			enviarmensaje(message, coordinadorSocket);
+		}
 	}
 
 
 	printf("\n termine\n");
 
-
-
-	close(serverSocket);
 	free(ipCoordi);
 	free(puertoCoordi);
 	free(idPlanificador);
 	free(puertoPlanificador);
+	pthread_join(thread_id, NULL);
+	close(planificadorSocket);
+	close(coordinadorSocket);
 	config_destroy(config);
 	return 0;
 
 }
 
+void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
+		char ** idPlanificador, char ** puertoPlanificador, t_config ** config) {
+
+	*config = config_create("configuracion.config");
+	*ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
+	*puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
+	*idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
+	*puertoPlanificador = config_get_string_value(*config,
+			"PUERTO_PLANIFICADOR");
+
+}
+
 void *conexionPlanificador(void *sock) {
 	int socketplanificador = *(int*) sock;
-	
+	printf("\n inicio el hilo");
+
 	if (recibirmensaje(socketplanificador)) {
-		printf("recibimensaje de sirplanificador");
+		printf("\nrecibimensaje de sir planificador");
 	}
 	if (recibirmensaje(socketplanificador)) {
 		printf("recibi another mensaje de sir planificador");
@@ -104,7 +125,6 @@ void *conexionPlanificador(void *sock) {
 			socketplanificador)) {
 		printf("envie mensaje a sir planificador");
 	}
-
 	// Confirmar que nos conectamo
 	/*
 
@@ -119,9 +139,7 @@ void *conexionPlanificador(void *sock) {
 	 enviarmensaje(message, serverSocket);
 	 } // Solo envio si el usuario no quiere salir.
 	 */
-
-	while (1)
-		;
+	return NULL;
 }
 
 
@@ -146,8 +164,6 @@ int conectarseAlServidor(char ** ip, char ** puerto) {
 }
 int enviarmensaje(char*mensaje, int unsocket) {
 	ContentHeader * cabeza = malloc(sizeof(ContentHeader));
-	//char *message = malloc(1024);
-
 	cabeza->len = strlen(mensaje);
 
 	char *message = calloc(cabeza->len, sizeof(char));
@@ -186,4 +202,3 @@ int recibirmensaje(int unsocket) {
 	return 1;
 
 }
-

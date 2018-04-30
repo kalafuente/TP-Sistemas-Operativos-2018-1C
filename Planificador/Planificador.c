@@ -10,40 +10,39 @@
 
 
 #include "Planificador.h"
-#define PUERTO_DE_ESCUCHA "9192"
-#define IP_COORDINADOR "127.0.0.1"
-#define PUERTO_COORDINADOR "9191"
 #define PACKAGESIZE 1024
 int main(void) {
 
-	t_config *config;
-
-	int entradas = 100;
-
+	int entradas = 20;
 	char * puertoEscucha = malloc(sizeof(char) * 20);
 	char * ipcoordinador = malloc(sizeof(char) * 20);
 	char * puertocoordinador = malloc(sizeof(char) * 20);
-
+	t_config *config;
 	crearConfiguracion(&puertoEscucha, &ipcoordinador, &puertocoordinador,
 			&config);
 
-	int socketEscucha = crearServidor(&puertoEscucha, &entradas);
-	
-	pthread_t thread_id;
-	pthread_t hiloCoordinador;
-	struct sockaddr_in addr;
-	socklen_t addrlen = sizeof(addr);
-
-
+	//conexion coordinador
 	int socketCordi = conectarseAlServidor(&ipcoordinador, &puertocoordinador);
+
+	pthread_t hiloCoordinador;
+
 	pthread_create(&hiloCoordinador, NULL, comunicacionCoordinador,
 			(void*) &socketCordi);
 
+// conexion Esi´s
+	int socketEscucha = crearServidor(&puertoEscucha, &entradas);
+	pthread_t thread_id;
+	
+	struct sockaddr_in addr;
+	socklen_t addrlen = sizeof(addr);
+
 	int socketPersonal;
+
 
 	while ((socketPersonal = accept(socketEscucha, (struct sockaddr *) &addr,
 			&addrlen))) {
-		puts("Esi conectado. Esperando mensajes:\n");
+		puts(
+				"Esi conectado. aca no recibimos mas mensajes que los hardcodeados:\n");
 
 		if (pthread_create(&thread_id, NULL, manejaconexionconESI,
 				(void*) &socketPersonal) < 0) {
@@ -51,24 +50,27 @@ int main(void) {
 			exit(1);
 		}
 
-		puts("Manejador de conexiones asignado(Al ESI)");
+		if (socketPersonal < 0) {
+			perror("falló la aceptación");
+			exit(1);
+		}
+
+		puts("Planificador asignado(Al ESI)");
+
+
+
 
 	}
-
-
-
-
-	puts("!!!Hello World!!!");
 	//Hay que cambiar el coordinador sus entradas son de la configuracion a las instancias
-	pthread_join(thread_id, NULL);
-
-	puts("!!!Hello World!!!");
-
 	/* prints !!!Hello World!!! */
+	close(socketCordi);
+	close(socketEscucha);
 	free(puertoEscucha);
 	free(ipcoordinador);
 	free(puertocoordinador);
+		config_destroy(config);
 	return EXIT_SUCCESS;
+	
 }
 
 void *comunicacionCoordinador(void *sock) {
@@ -76,17 +78,21 @@ void *comunicacionCoordinador(void *sock) {
 	if (recibirmensaje(socketCordinador)) {
 		printf("Recibi mensaje del lord Coordinador");
 	}
-	if (recibirmensaje(socketCordinador)) {
-		printf("Recibi otro mensaje de lord Coordinador");
-	} else
-		printf("error al recibir");
 
 	if (enviarmensaje("Soy el planificador :)", socketCordinador)) {
 		printf("Envie mensaje a lord Coordinador");
 	}
 
-	while (1)
-		;
+		char message[PACKAGESIZE];
+		int flag = 1;
+		while (flag) {
+			fgets(message, PACKAGESIZE, stdin);
+			if (!strcmp(message, "exit\n"))
+				flag = 0;
+			if (flag)
+				enviarmensaje(message, socketCordinador);
+		}
+		return NULL;
 }
 
 void crearConfiguracion(char ** puertoescucha, char ** ipcordi,
@@ -137,6 +143,7 @@ void *manejaconexionconESI(void * socket_desc) {
 	} else {
 		printf("erroralrecibir");
 	}
+	
 	printf("termino el hilo");
 	//while ((read_size = recv(sock, client_message, 50, 0)) > 0) {
 	//end of string marker
@@ -148,9 +155,8 @@ void *manejaconexionconESI(void * socket_desc) {
 
 	 }*/
 
-	while (1) {
-	};
-
+	close(sock);
+	return NULL;
 }
 
 
@@ -219,4 +225,3 @@ int recibirmensaje(int unsocket) {
 	return 1;
 
 }
-

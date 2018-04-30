@@ -37,6 +37,7 @@ int main(void) {
 	free(algoritmo);
 	free(path);
 	free(nombre);
+	config_destroy(config);
 
 	return 0;
 

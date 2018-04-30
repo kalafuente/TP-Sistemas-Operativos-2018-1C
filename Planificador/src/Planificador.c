@@ -1,14 +1,3 @@
-/*
- ============================================================================
- Name        : Planificador.c
- Author      :
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-
-
 #include "Planificador.h"
 #define PACKAGESIZE 1024
 int main(void) {
@@ -29,7 +18,7 @@ int main(void) {
 	pthread_create(&hiloCoordinador, NULL, comunicacionCoordinador,
 			(void*) &socketCordi);
 
-// conexion Esi´s
+	//conexion Esi´s
 	int socketEscucha = crearSocketQueEscucha(&puertoEscucha, &entradas);
 	pthread_t thread_id;
 
@@ -41,11 +30,9 @@ int main(void) {
 
 	while ((socketPersonal = accept(socketEscucha, (struct sockaddr *) &addr,
 			&addrlen))) {
-		puts(
-				"Esi conectado. aca no recibimos mas mensajes que los hardcodeados:\n");
+		puts("Esi conectado. aca no recibimos mas mensajes que los hardcodeados:\n");
 
-		if (pthread_create(&thread_id, NULL, manejaconexionconESI,
-				(void*) &socketPersonal) < 0) {
+		if (pthread_create(&thread_id, NULL, manejaconexionconESI, (void*) &socketPersonal) < 0) {
 			perror("No se pudo crear el hilo");
 			exit(1);
 		}
@@ -56,19 +43,15 @@ int main(void) {
 		}
 
 		puts("Planificador asignado(Al ESI)");
-
-
-
-
 	}
 	//Hay que cambiar el coordinador sus entradas son de la configuracion a las instancias
-	/* prints !!!Hello World!!! */
+
 	close(socketCordi);
 	close(socketEscucha);
 	free(puertoEscucha);
 	free(ipcoordinador);
 	free(puertocoordinador);
-		config_destroy(config);
+	config_destroy(config);
 	return EXIT_SUCCESS;
 
 }
@@ -104,8 +87,6 @@ void crearConfiguracion(char ** puertoescucha, char ** ipcordi,
 
 }
 
-
-
 void *manejaconexionconESI(void * socket_desc) {
 	//Get the socket descriptor
 
@@ -138,8 +119,3 @@ void *manejaconexionconESI(void * socket_desc) {
 	close(sock);
 	return NULL;
 }
-
-
-
-
-

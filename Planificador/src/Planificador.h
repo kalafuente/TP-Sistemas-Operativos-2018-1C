@@ -15,14 +15,7 @@
 #include <manejoDeSockets/crearSocketQueEscucha.c>
 
 void *comunicacionCoordinador(void *socketCordinador);
-int conectarseAlServidor(char ** ip, char ** puerto);
-
 void crearConfiguracion(char ** puerto, char ** entradas, char ** tamanioEntradas, t_config ** config);
-
-int crearServidor(char ** puerto, int * entradas);
-int recibirmensaje(int unsocket);
-int enviarmensaje(char*mensaje, int unsocket);
-
 void *manejaconexionconESI(void * socket_desc);
 
 

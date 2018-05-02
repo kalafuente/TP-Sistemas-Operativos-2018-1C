@@ -14,6 +14,18 @@
 #include <manejoDeSockets/conectarseAlServidor.c>
 #include <manejoDeSockets/crearSocketQueEscucha.c>
 
+typedef struct planificador_config{
+	int entradas;
+	char * puertoEscucha;
+	char * ipCoordinador;
+	char * puertoCoordinador;
+
+}planificador_config;
+
+planificador_config * init_planificaorConfig();
+void crearConfiguracion2(planificador_config**,t_config**);
+void destroy_planificadorConfig(planificador_config*);
+
 void *comunicacionCoordinador(void *socketCordinador);
 void crearConfiguracion(char ** puerto, char ** entradas, char ** tamanioEntradas, t_config ** config);
 void *manejaconexionconESI(void * socket_desc);

@@ -12,6 +12,18 @@
 #include <pthread.h>
 #include <manejoDeSockets/enviarYRecibirMensaje.c>
 #include <manejoDeSockets/crearSocketQueEscucha.c>
+#include <commons/string.h>
+
+typedef struct coordinador_config {
+	char * puerto;
+	int entradas;
+	int tamanioEntradas;
+}coordinador_config;
+
+coordinador_config * init_coordConfig();
+
+void destroy_coordConfig(coordinador_config* coord);
+void crearConfiguracion2(coordinador_config** coord, t_config ** config);
 
 void crearConfiguracion(char ** puerto, int * entradas, int * tamanioEntradas,
 		t_config ** config);

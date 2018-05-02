@@ -6,6 +6,12 @@
 int main() {
 	t_config *config = malloc(sizeof(t_config));
 
+	/*
+	esi_config* esiConfig = init_esiConfig();
+	crearConfiguracion(&esiConfig,&config);
+
+
+	*/
 	char *ipCoordi = malloc(sizeof(char) * 5);
 	char *puertoCoordi = malloc(sizeof(char) * 20);
 	char *idPlanificador = malloc(sizeof(char) * 20);
@@ -14,6 +20,7 @@ int main() {
 	crearConfiguracion(&ipCoordi, &puertoCoordi, &idPlanificador, &puertoPlanificador, &config);
 
 	int coordinadorSocket;
+	//coordinadorSocket = conectarseAlServidor(&esiConfig->ipCoordi, &esiConfig->puertoCoordi);
 	coordinadorSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
 
 
@@ -74,6 +81,8 @@ int main() {
 	free(puertoCoordi);
 	free(idPlanificador);
 	free(puertoPlanificador);
+
+	//destroy_esiConfig(esiConfig);
 	pthread_join(thread_id, NULL);
 	close(planificadorSocket);
 	close(coordinadorSocket);
@@ -126,4 +135,35 @@ void *conexionPlanificador(void *sock) {
 	 */
 	return NULL;
 }
+/*
+void crearConfiguracion(esiConfig** esiConfig, t_config ** config) {
+
+	*config = config_create(
+			"configuracion.config");
+	(*esiConfig)->ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
+	(*esiConfig)->puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
+	(*esiConfig)->idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
+	(*esiConfig)->puertoPlanificador = config_get_string_value(*config,
+			"PUERTO_PLANIFICADOR");
+}
+
+void destroy_esiConfig(esiConfig * esi){
+
+	free(esi->idPlanificador);
+	free(esi->ipCoordi);
+	free(esi->puertoCoordi);
+	free(esi->puertoPlanificador);
+	free(esi);
+}
+
+esiConfig* init_esiConfig(){
+	esiConfig* esiConfig=malloc(sizeof(esiConfig));
+
+	esiConfig->ipCoordi = malloc(sizeof(char) * 5);
+	esiConfig->puertoCoordi = malloc(sizeof(char) * 20);
+	esiConfig->idPlanificador = malloc(sizeof(char) * 20);
+	esiConfig->puertoPlanificador = malloc(sizeof(char) * 5);
+	return esiConfig;
+}
+*/
 

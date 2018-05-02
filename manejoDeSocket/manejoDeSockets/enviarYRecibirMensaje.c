@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct {
+typedef struct ContentHeader {
 	int id;
 	int len;
 }__attribute__((packed)) ContentHeader;
@@ -15,12 +15,13 @@ int enviarmensaje(char*mensaje, int unsocket);
 int recibirmensaje(int unsocket);
 
 int enviarmensaje(char*mensaje, int unsocket) {
-	ContentHeader * cabeza = malloc(sizeof(ContentHeader));
+
+	ContentHeader * cabeza = (ContentHeader*) malloc(sizeof(ContentHeader));
 	//char *message = malloc(1024);
 
 	cabeza->len = strlen(mensaje);
 
-	char *message = calloc(cabeza->len, sizeof(char));
+	char *message = (char*)calloc(cabeza->len+1, sizeof(char));
 	strcpy(message, mensaje);
 
 	if (send(unsocket, cabeza, sizeof(ContentHeader), 0) <= 0) {

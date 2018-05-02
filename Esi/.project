@@ -3,6 +3,7 @@
 	<name>Esi</name>
 	<comment></comment>
 	<projects>
+		<project>manejoDeSocket</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,16 +1,26 @@
 #include "coordinador.h"
 
-int main() {
+int main(int argc, char **argv) {
 
 	t_config *config = malloc(sizeof(t_config));
-	char *puerto = malloc(sizeof(char) * 6);
+
+	/*char *puerto = malloc(sizeof(char) * 6);
 	int entradas;
 	int tamanioEntradas;
 	crearConfiguracion(&puerto, &entradas, &tamanioEntradas, &config);
-	int listenningSocket = crearSocketQueEscucha(&puerto, &entradas);
+*/
+
+
+
+	coordinador_config * coordConfig = init_coordConfig();
+	crearConfiguracion2(&coordConfig,&config);
+	//int listenningSocket = crearSocketQueEscucha(&puerto, &entradas);
+	int listenningSocket = crearSocketQueEscucha(&coordConfig->puerto, &coordConfig->entradas);
 	crearServidorMultiHilo(listenningSocket);
 	close(listenningSocket);
-	free(puerto);
+	//destroy_coordConfig(coordConfig);
+	//free(puerto);
+
 	config_destroy(config);
 	return 0;
 }
@@ -18,7 +28,7 @@ int main() {
 void crearConfiguracion(char ** puerto, int * entradas, int * tamanioEntradas,
 		t_config ** config) {
 	*config = config_create("configuracion.config");
-	*puerto = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
+	*puerto = config_get_string_value(*config,"PUERTO_DE_ESCUCHA");
 	*entradas = config_get_int_value(*config, "ENTRADAS");
 	*tamanioEntradas = config_get_int_value(*config, "TAMANIO_ENTRADAS");
 }
@@ -82,5 +92,30 @@ void *manejadorDeConexiones(void *socket_desc) {
 	printf("\n termino el hilo");
 	return NULL;
 
+
+}
+
+
+coordinador_config * init_coordConfig(){
+
+	coordinador_config* coord = (coordinador_config*)malloc(sizeof (coordinador_config));
+	coord->puerto=(char*)malloc(sizeof(char) * 6);
+	return coord;
+
+
+}
+
+void destroy_coordConfig(coordinador_config* coord){
+	free(coord->puerto);
+	free(coord);
+
+}
+
+void crearConfiguracion2(coordinador_config** coord, t_config ** config){
+
+	*config = config_create("configuracion.config");
+	(*coord)->puerto = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
+	(*coord)->entradas = config_get_int_value(*config, "ENTRADAS");
+	(*coord)->tamanioEntradas = config_get_int_value(*config, "TAMANIO_ENTRADAS");
 
 }

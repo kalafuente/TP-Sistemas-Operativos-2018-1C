@@ -2,24 +2,36 @@
 #define PACKAGESIZE 1024
 int main(void) {
 
-	int entradas = 20;
+	/*int entradas = 20;
 	char * puertoEscucha = malloc(sizeof(char) * 20);
 	char * ipcoordinador = malloc(sizeof(char) * 20);
 	char * puertocoordinador = malloc(sizeof(char) * 20);
+
 	t_config *config;
 	crearConfiguracion(&puertoEscucha, &ipcoordinador, &puertocoordinador,
 			&config);
 
 	//conexion coordinador
 	int socketCordi = conectarseAlServidor(&ipcoordinador, &puertocoordinador);
+	*/
 
+	planificador_config * planificadorConfig = init_planificaorConfig();
+	t_config * config;
+
+	crearConfiguracion2(&planificadorConfig,&config);
+	int socketCordi = conectarseAlServidor(&planificadorConfig->ipCoordinador,
+			&planificadorConfig->puertoCoordinador);
 	pthread_t hiloCoordinador;
 
 	pthread_create(&hiloCoordinador, NULL, comunicacionCoordinador,
 			(void*) &socketCordi);
 
 	//conexion Esi´s
-	int socketEscucha = crearSocketQueEscucha(&puertoEscucha, &entradas);
+	//int socketEscucha = crearSocketQueEscucha(&puertoEscucha, &entradas);
+
+	int socketEscucha = crearSocketQueEscucha(&planificadorConfig->puertoEscucha,
+			&planificadorConfig->entradas);
+
 	pthread_t thread_id;
 
 	struct sockaddr_in addr;
@@ -48,9 +60,11 @@ int main(void) {
 
 	close(socketCordi);
 	close(socketEscucha);
-	free(puertoEscucha);
+	/*free(puertoEscucha);
 	free(ipcoordinador);
 	free(puertocoordinador);
+	*/
+	destroy_planificadorConfig(planificadorConfig);
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
@@ -119,3 +133,27 @@ void *manejaconexionconESI(void * socket_desc) {
 	close(sock);
 	return NULL;
 }
+
+planificador_config * init_planificaorConfig(){
+	planificador_config * planificador = malloc(sizeof(planificador_config));
+	planificador->puertoEscucha = malloc(sizeof(char) * 20);
+	planificador->ipCoordinador = malloc(sizeof(char) * 20);
+	planificador->puertoCoordinador = malloc(sizeof(char) * 20);
+	planificador->entradas=20;
+	return planificador;
+}
+
+void crearConfiguracion2(planificador_config** planificador,t_config** config){
+	*config = config_create("configPlanificador");
+	(*planificador)->ipCoordinador = config_get_string_value(*config, "IP_COORDINADOR");
+	(*planificador)->puertoCoordinador = config_get_string_value(*config, "PUERTO_COORDINADOR");
+	(*planificador)->puertoEscucha = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
+}
+void destroy_planificadorConfig(planificador_config* planificador_config){
+	free(planificador_config->ipCoordinador);
+	free(planificador_config->puertoCoordinador);
+	free(planificador_config->puertoEscucha);
+	free(planificador_config);
+}
+
+

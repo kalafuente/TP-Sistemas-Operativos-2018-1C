@@ -15,7 +15,21 @@
 #include <manejoDeSockets/conectarseAlServidor.c>
 
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi, char ** idPlanificador, char ** puertoPlanificador, t_config ** config);
+typedef struct esi_config{
+	char *ipCoordi ;
+	char *puertoCoordi;
+	char *idPlanificador;
+	char *puertoPlanificador;
+}esi_config;
+
+/*void crearConfiguracion(esiConfig** esiConfig, t_config ** config);
+void destroy_esiConfig(esiConfig * esi);
+esiConfig* init_esiConfig();
+*/
+
+
+void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
+		char ** idPlanificador, char ** puertoPlanificador, t_config ** config);
 
 
 void *conexionPlanificador(void *socketplanificador);

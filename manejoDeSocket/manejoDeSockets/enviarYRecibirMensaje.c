@@ -16,12 +16,12 @@ int recibirmensaje(int unsocket);
 
 int enviarmensaje(char*mensaje, int unsocket) {
 
-	ContentHeader * cabeza = (ContentHeader*) malloc(sizeof(ContentHeader));
+	ContentHeader * cabeza = malloc(sizeof(ContentHeader));
 	//char *message = malloc(1024);
 
 	cabeza->len = strlen(mensaje);
 
-	char *message = (char*)calloc(cabeza->len+1, sizeof(char));
+	char *message = (char*)calloc(cabeza->len, sizeof(char));
 	strcpy(message, mensaje);
 
 	if (send(unsocket, cabeza, sizeof(ContentHeader), 0) <= 0) {

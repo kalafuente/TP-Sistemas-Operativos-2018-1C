@@ -18,11 +18,6 @@ int main(int argc, char **argv) {
 	recibirMensaje(logger, socketPlani);
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
 
-	//int socketPlanificador = conectarseAlServidor(logger,&esiConfig->ipPlanificador, &esiConfig->puertoPlanificador);
-	/*recibirMensaje(logger, socketPlanificador);
-	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlanificador);
-
-	recibirMensaje(logger, socketPlanificador);*/
 
 	close(socketCoordinador);
 	destroy_esiConfig(esiConfig);

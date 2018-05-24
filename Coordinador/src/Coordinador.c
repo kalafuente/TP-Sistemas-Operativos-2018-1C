@@ -1,36 +1,16 @@
 #include "coordinador.h"
 
 int main(int argc, char **argv) {
-
+	logger= crearLogger("loggerCoordi.log","loggerCoordi");
 	t_config *config = malloc(sizeof(t_config));
-
-	/*char *puerto = malloc(sizeof(char) * 6);
-	int entradas;
-	int tamanioEntradas;
-	crearConfiguracion(&puerto, &entradas, &tamanioEntradas, &config);
-*/
-
-
-
 	coordinador_config * coordConfig = init_coordConfig();
-	crearConfiguracion2(&coordConfig,&config);
-	//int listenningSocket = crearSocketQueEscucha(&puerto, &entradas);
+	crearConfiguracion(&coordConfig,&config);
 	int listenningSocket = crearSocketQueEscucha(&coordConfig->puerto, &coordConfig->entradas);
 	crearServidorMultiHilo(listenningSocket);
 	close(listenningSocket);
-	//destroy_coordConfig(coordConfig);
-	//free(puerto);
-
+	destroy_coordConfig(coordConfig);
 	config_destroy(config);
 	return 0;
-}
-
-void crearConfiguracion(char ** puerto, int * entradas, int * tamanioEntradas,
-		t_config ** config) {
-	*config = config_create("configuracion.config");
-	*puerto = config_get_string_value(*config,"PUERTO_DE_ESCUCHA");
-	*entradas = config_get_int_value(*config, "ENTRADAS");
-	*tamanioEntradas = config_get_int_value(*config, "TAMANIO_ENTRADAS");
 }
 
 void crearServidorMultiHilo(int listenningSocket) {
@@ -61,33 +41,33 @@ void crearServidorMultiHilo(int listenningSocket) {
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
+	int id;
+	enviarMensaje(logger, ID_COORDINADOR, "SoyCoordi", sock); //Saludamos
+	recibirIDyContenido(&id, logger, sock);
 
-	//Send some messages to the client
+	switch(id) {
 
-	if (enviarmensaje("Coordinador: Bienvenido a mi dominio()\n", sock))
-		printf("\n envie1");
+		case ID_ESI  :
+		printf("Se me conectó un ESI \n ");
+		recibirIDyContenido(&id, logger, sock);
+				   //Espero la instrucción proveniendo del ESI
+				   //char* instruccion =recibirIDyContenido(logger, sock, &id);
+				   //actualizarLogDeOperaciones();
+		break;
 
+		case ID_INSTANCIA :
+		printf("Se me conectó una Instancia \n ");
 
-	if (recibirmensaje(sock)) {
-		printf("\n recibi1");
-	}
-	else
-	{
-		printf("error al recibir");
-	}
-	//while ((read_size = recv(sock, client_message, 50, 0)) > 0) {
-	//end of string marker
-	/*for (int i = 0; i < 5; i++) {
-	 printf("Paso1");
+		break;
 
+			  // case ID_PLANIFICADOR:
+				//pasa plani
+				 //  break;
 
-	 recibirmensaje(sock);
-
-	 }*/
-	int estado = 1;
-	while (estado) {
-		estado = recibirmensaje(sock);
-	};
+			   //default : /* Optional */
+			   //Es alguien desconocido
+			   //statement(s);
+			}
 	close(sock);
 	printf("\n termino el hilo");
 	return NULL;
@@ -97,9 +77,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 
 coordinador_config * init_coordConfig(){
-
-	coordinador_config* coord = (coordinador_config*)malloc(sizeof (coordinador_config));
-	coord->puerto=(char*)malloc(sizeof(char) * 6);
+	coordinador_config* coord = calloc(1, sizeof (coordinador_config));
+	coord->puerto=calloc(4,sizeof(char));
 	return coord;
 
 
@@ -111,7 +90,7 @@ void destroy_coordConfig(coordinador_config* coord){
 
 }
 
-void crearConfiguracion2(coordinador_config** coord, t_config ** config){
+void crearConfiguracion(coordinador_config** coord, t_config ** config){
 
 	*config = config_create("configuracion.config");
 	(*coord)->puerto = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");

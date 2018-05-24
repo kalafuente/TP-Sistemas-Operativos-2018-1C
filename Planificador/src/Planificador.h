@@ -10,9 +10,7 @@
 #include <unistd.h>
 #include <commons/config.h>
 #include <pthread.h>
-#include <manejoDeSockets/enviarYRecibirMensaje.c>
-#include <manejoDeSockets/conectarseAlServidor.c>
-#include <manejoDeSockets/crearSocketQueEscucha.c>
+#include <manejoDeSockets/manejoDeSockets.c>
 
 typedef struct planificador_config{
 	int entradas;
@@ -22,14 +20,12 @@ typedef struct planificador_config{
 
 }planificador_config;
 
+t_log* logger;
 planificador_config * init_planificaorConfig();
-void crearConfiguracion2(planificador_config**,t_config**);
 void destroy_planificadorConfig(planificador_config*);
-
-void *comunicacionCoordinador(void *socketCordinador);
-void crearConfiguracion(char ** puerto, char ** entradas, char ** tamanioEntradas, t_config ** config);
-void *manejaconexionconESI(void * socket_desc);
-
+void crearServidorMultiHilo(int listenningSocket);
+void crearConfiguracion(planificador_config** planificador,t_config** config);
+void *manejadorDeConexiones(void *socket_desc);
 
 
 

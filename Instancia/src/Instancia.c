@@ -1,48 +1,17 @@
 #include "instancia.h"
 
-#define PACKAGESIZE 1024
 
 int main(void) {
 
+	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	t_config * config = malloc(sizeof(t_config));
-/*	char * ipCoordi = malloc(sizeof(char) * 6);
-	char * puertoCoordi = malloc(sizeof(char) * 4);
-	char * algoritmo = malloc(sizeof(char) * 4);
-	char * path = malloc(sizeof(char) * 23);
-	char * nombre = malloc(sizeof(char) * 10);
-	int intervalo;
-
-	crearConfiguracion(&ipCoordi, &puertoCoordi, &algoritmo, &path, &nombre,
-			&intervalo, &config);
-	int serverSocket;
-	serverSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
-*/
-
 	instancia_config * instanciaConfig = init_instanciaConfig();
-	crearConfiguracion2(&instanciaConfig, &config);
-	int serverSocket = conectarseAlServidor(&instanciaConfig->ipCoordi,
-			&instanciaConfig->puertoCoordi);
+	crearConfiguracion(&instanciaConfig, &config);
+	int socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi,&instanciaConfig->puertoCoordi);
+	recibirMensaje(logger, socketCoordinador);
+	enviarMensaje(logger, ID_INSTANCIA, "SOYINSTANCIA", socketCoordinador);
 
-	int enviar = 1;
-	printf("Conectado al servidor.");
-	while (enviar) {
-		recibirmensaje(serverSocket);
-		enviarmensaje("nos conectamos, soy instancia :)", serverSocket);
-		char mensaje[PACKAGESIZE];
-		while (1) {
-			fgets(mensaje, PACKAGESIZE, stdin);
-			enviarmensaje(mensaje, serverSocket);
-		}
-		enviar = 0;
-	}
-
-	printf("\n termine\n");
-	/*free(ipCoordi);
-	free(puertoCoordi);
-	free(algoritmo);
-	free(path);
-	free(nombre);
-*/
+	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
 	config_destroy(config);
 
@@ -50,19 +19,8 @@ int main(void) {
 
 }
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
-		char ** algoritmo, char ** path, char ** nombre, int * intervalo,
-		t_config ** config) {
-	*config = config_create("configuracionInstancia.config");
-	*ipCoordi = config_get_string_value(*config, "IP_COORDI");
-	*puertoCoordi = config_get_string_value(*config, "PUERTO_COORDI");
-	*algoritmo = config_get_string_value(*config, "ALGORITMO_DE_REEMPLAZO");
-	*path = config_get_string_value(*config, "PATH");
-	*nombre = config_get_string_value(*config, "NOMBRE");
-	*intervalo = config_get_int_value(*config, "INTERVALO_DUMP");
-}
 
-void crearConfiguracion2(instancia_config** instancia, t_config** config) {
+void crearConfiguracion(instancia_config** instancia, t_config** config) {
 
 	*config = config_create("configuracionInstancia.config");
 	(*instancia)->ipCoordi = config_get_string_value(*config, "IP_COORDI");
@@ -87,7 +45,6 @@ instancia_config * init_instanciaConfig() {
 
 void destroy_instanciaConfig(instancia_config * instancia) {
 	free(instancia->algoritmo);
-
 	free(instancia->ipCoordi);
 	free(instancia->nombre);
 	free(instancia->path);

@@ -11,8 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <commons/config.h>
-#include <manejoDeSockets/enviarYRecibirMensaje.c>
-#include <manejoDeSockets/conectarseAlServidor.c>
+#include <manejoDeSockets/manejoDeSockets.c>
 
 typedef struct instancia_config {
 	char * ipCoordi ;
@@ -23,14 +22,14 @@ typedef struct instancia_config {
 	int intervalo;
 } instancia_config;
 
+//------------Variables globales
+t_log* logger;
 
+//------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
-void crearConfiguracion2(instancia_config **, t_config**);
+void crearConfiguracion(instancia_config **, t_config**);
 void destroy_instanciaConfig(instancia_config*);
 
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
-		char ** algoritmo, char ** path, char ** nombre, int * intervalo,
-		t_config ** config);
 
 #endif /* INSTANCIA_H_ */

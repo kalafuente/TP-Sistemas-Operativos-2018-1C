@@ -1,40 +1,31 @@
+/*
+ * Esi.h
+ *
+ *  Created on: 2 may. 2018
+ *      Author: utnso
+ */
+#include <commons/config.h>
+#include <commons/log.h>
+#include <manejoDeSockets/manejoDeSockets.h>
 
 #ifndef ESI_H_
 #define ESI_H_
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-#include <commons/config.h>
-#include <pthread.h>
-#include <manejoDeSockets/enviarYRecibirMensaje.c>
-#include <manejoDeSockets/conectarseAlServidor.c>
-
 
 typedef struct esi_config{
 	char *ipCoordi ;
-	char *puertoCoordi;
-	char *idPlanificador;
-	char *puertoPlanificador;
+	char* puertoCoordi;
+	char *ipPlanificador;
+	char* puertoPlanificador;
 }esi_config;
 
-/*void crearConfiguracion(esiConfig** esiConfig, t_config ** config);
-void destroy_esiConfig(esiConfig * esi);
-esiConfig* init_esiConfig();
-*/
+t_log* logger;
 
+void crearConfiguracion(esi_config** esiConfig, t_config ** config);
+void destroy_esiConfig(esi_config * esi);
+esi_config* init_esiConfig();
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
-		char ** idPlanificador, char ** puertoPlanificador, t_config ** config);
-
-
-void *conexionPlanificador(void *socketplanificador);
-
-
+FILE* abrirScript(char **argv);
 
 
 #endif /* ESI_H_ */

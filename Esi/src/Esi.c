@@ -1,169 +1,69 @@
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "Esi.h"
 
-#define PACKAGESIZE 1024	// Define cual va a ser el size maximo del paquete a enviar
-
-int main() {
-	t_config *config = malloc(sizeof(t_config));
-
-	/*
-	esi_config* esiConfig = init_esiConfig();
-	crearConfiguracion(&esiConfig,&config);
+int main(int argc, char **argv) {
 
 
-	*/
-	char *ipCoordi = malloc(sizeof(char) * 5);
-	char *puertoCoordi = malloc(sizeof(char) * 20);
-	char *idPlanificador = malloc(sizeof(char) * 20);
-	char *puertoPlanificador = malloc(sizeof(char) * 5);
+	t_log* logger = crearLogger("loggerEsi.log", "loggerEsi");
+	t_config * config = calloc(1, sizeof(t_config));
+	esi_config * esiConfig = init_esiConfig();
 
-	crearConfiguracion(&ipCoordi, &puertoCoordi, &idPlanificador, &puertoPlanificador, &config);
+	crearConfiguracion(&esiConfig, &config);
+	int socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+	recibirMensaje(logger, socketCoordinador);
+	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
 
-	int coordinadorSocket;
-	//coordinadorSocket = conectarseAlServidor(&esiConfig->ipCoordi, &esiConfig->puertoCoordi);
-	coordinadorSocket = conectarseAlServidor(&ipCoordi, &puertoCoordi);
+	int socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
+	recibirMensaje(logger, socketPlani);
+	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
 
+	//int socketPlanificador = conectarseAlServidor(logger,&esiConfig->ipPlanificador, &esiConfig->puertoPlanificador);
+	/*recibirMensaje(logger, socketPlanificador);
+	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlanificador);
 
-	int planificadorSocket = conectarseAlServidor(&idPlanificador,&puertoPlanificador);
+	recibirMensaje(logger, socketPlanificador);*/
 
-
-	pthread_t thread_id;
-	pthread_create(&thread_id, NULL, conexionPlanificador,(void*) &planificadorSocket);
-
-
-
-	printf("Conectado al servidor. Bienvenido al sistema, ya puede enviar mensajes. Escriba 'exit' para salir\n");
-
-	if (recibirmensaje(coordinadorSocket)) {
-		printf("recibimensaje del coordinador");
-	};
-
-	if (enviarmensaje("Soy el esi y me he conectado contigo mi lord coordinador :)",coordinadorSocket)) {
-		printf("enviemensaje3\n");
-	};
-
-
-		// Confirmar que nos conectamo
-		/*
-
-		fgets(message, PACKAGESIZE, stdin);	// Lee una linea en el stdin (lo que escribimos en la consola) hasta encontrar un \n (y lo incluye) o llegar a PACKAGESIZE.
-
-
-		if (!strcmp(message, "exit\n"))
-
-			enviar = 0;			// Chequeo que el usuario no quiera salir
-		if (enviar) {
-
-			enviarmensaje(message, serverSocket);
-		} // Solo envio si el usuario no quiere salir.
-		 */
-	char message[50];
-		int flag = 1;
-	printf("alcanzo esto\n");
-
-	while (flag) {
-		printf("entro al while \n");
-
-		fgets(message, 50, stdin);
-		if (!strcmp(message, "exit\n")) {
-			flag = 0;
-		}
-		if (flag)
-		{
-			enviarmensaje(message, coordinadorSocket);
-		}
-	}
-
-
-	printf("\n termine\n");
-
-	free(ipCoordi);
-	free(puertoCoordi);
-	free(idPlanificador);
-	free(puertoPlanificador);
-
-	//destroy_esiConfig(esiConfig);
-	pthread_join(thread_id, NULL);
-	close(planificadorSocket);
-	close(coordinadorSocket);
+	close(socketCoordinador);
+	destroy_esiConfig(esiConfig);
 	config_destroy(config);
 	return 0;
 
 }
 
-void crearConfiguracion(char ** ipCoordi, char ** puertoCoordi,
-		char ** idPlanificador, char ** puertoPlanificador, t_config ** config) {
-
-	*config = config_create("configuracion.config");
-	*ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
-	*puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
-	*idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
-	*puertoPlanificador = config_get_string_value(*config,
-			"PUERTO_PLANIFICADOR");
-
-}
-
-void *conexionPlanificador(void *sock) {
-	int socketplanificador = *(int*) sock;
-	printf("\n inicio el hilo");
-
-	if (recibirmensaje(socketplanificador)) {
-		printf("\nrecibimensaje de sir planificador \n");
-	}
-	if (recibirmensaje(socketplanificador)) {
-		printf("recibi another mensaje de sir planificador \n");
-	} else
-		printf("error al recibir");
-
-	if (enviarmensaje("nos conectamos sir planificador, soy el esi para servirle \n",
-			socketplanificador)) {
-		printf("io esi, envie mensaje a sir planificador");
-	}
-	// Confirmar que nos conectamo
-	/*
-
-	 fgets(message, PACKAGESIZE, stdin);	// Lee una linea en el stdin (lo que escribimos en la consola) hasta encontrar un \n (y lo incluye) o llegar a PACKAGESIZE.
-
-
-	 if (!strcmp(message, "exit\n"))
-
-	 enviar = 0;			// Chequeo que el usuario no quiera salir
-	 if (enviar) {
-
-	 enviarmensaje(message, serverSocket);
-	 } // Solo envio si el usuario no quiere salir.
-	 */
-	return NULL;
-}
-/*
-void crearConfiguracion(esiConfig** esiConfig, t_config ** config) {
-
-	*config = config_create(
-			"configuracion.config");
+void crearConfiguracion(esi_config** esiConfig, t_config ** config) {
+	*config = config_create("configuracionEsi.config");
 	(*esiConfig)->ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
 	(*esiConfig)->puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
-	(*esiConfig)->idPlanificador = config_get_string_value(*config, "IP_PLANIFICADOR");
-	(*esiConfig)->puertoPlanificador = config_get_string_value(*config,
-			"PUERTO_PLANIFICADOR");
+	(*esiConfig)->ipPlanificador = config_get_string_value(*config,"IP_PLANIFICADOR");
+	(*esiConfig)->puertoPlanificador = config_get_string_value(*config, "PUERTO_PLANIFICADOR");
 }
 
-void destroy_esiConfig(esiConfig * esi){
+void destroy_esiConfig(esi_config * esi) {
 
-	free(esi->idPlanificador);
+	free(esi->ipPlanificador);
 	free(esi->ipCoordi);
 	free(esi->puertoCoordi);
 	free(esi->puertoPlanificador);
 	free(esi);
 }
 
-esiConfig* init_esiConfig(){
-	esiConfig* esiConfig=malloc(sizeof(esiConfig));
-
-	esiConfig->ipCoordi = malloc(sizeof(char) * 5);
-	esiConfig->puertoCoordi = malloc(sizeof(char) * 20);
-	esiConfig->idPlanificador = malloc(sizeof(char) * 20);
-	esiConfig->puertoPlanificador = malloc(sizeof(char) * 5);
+esi_config* init_esiConfig() {
+	esi_config* esiConfig = calloc(1, sizeof(esi_config));
+	esiConfig->ipCoordi = calloc(9, sizeof(char));
+	esiConfig->puertoCoordi = calloc(4, sizeof(char));
+	esiConfig->ipPlanificador = calloc(9, sizeof(char));
+	esiConfig->puertoPlanificador = calloc(4, sizeof(char));
 	return esiConfig;
 }
-*/
+
+FILE* abrirScript(char *argv[]) {
+	FILE * file;
+	file = fopen(argv[1], "r");
+	if (file == NULL) {
+		perror("Error al abrir el archivo: ");
+		exit(EXIT_FAILURE);
+	}
+	return file;
+}
 

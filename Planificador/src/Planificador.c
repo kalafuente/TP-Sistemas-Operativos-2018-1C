@@ -2,137 +2,21 @@
 #define PACKAGESIZE 1024
 int main(void) {
 
-	/*int entradas = 20;
-	char * puertoEscucha = malloc(sizeof(char) * 20);
-	char * ipcoordinador = malloc(sizeof(char) * 20);
-	char * puertocoordinador = malloc(sizeof(char) * 20);
-
-	t_config *config;
-	crearConfiguracion(&puertoEscucha, &ipcoordinador, &puertocoordinador,
-			&config);
-
-	//conexion coordinador
-	int socketCordi = conectarseAlServidor(&ipcoordinador, &puertocoordinador);
-	*/
-
+	logger = crearLogger("loggerPlani.log","loggerPlani");
 	planificador_config * planificadorConfig = init_planificaorConfig();
 	t_config * config;
+	crearConfiguracion(&planificadorConfig,&config);
+	int listenningSocket = crearSocketQueEscucha(&planificadorConfig->puertoEscucha, &planificadorConfig->entradas);
 
-	crearConfiguracion2(&planificadorConfig,&config);
-	int socketCordi = conectarseAlServidor(&planificadorConfig->ipCoordinador,
-			&planificadorConfig->puertoCoordinador);
-	pthread_t hiloCoordinador;
+	crearServidorMultiHilo(listenningSocket);
 
-	pthread_create(&hiloCoordinador, NULL, comunicacionCoordinador,
-			(void*) &socketCordi);
-
-	//conexion Esi´s
-	//int socketEscucha = crearSocketQueEscucha(&puertoEscucha, &entradas);
-
-	int socketEscucha = crearSocketQueEscucha(&planificadorConfig->puertoEscucha,
-			&planificadorConfig->entradas);
-
-	pthread_t thread_id;
-
-	struct sockaddr_in addr;
-	socklen_t addrlen = sizeof(addr);
-
-	int socketPersonal;
-
-
-	while ((socketPersonal = accept(socketEscucha, (struct sockaddr *) &addr,
-			&addrlen))) {
-		puts("Esi conectado. aca no recibimos mas mensajes que los hardcodeados:\n");
-
-		if (pthread_create(&thread_id, NULL, manejaconexionconESI, (void*) &socketPersonal) < 0) {
-			perror("No se pudo crear el hilo");
-			exit(1);
-		}
-
-		if (socketPersonal < 0) {
-			perror("falló la aceptación");
-			exit(1);
-		}
-
-		puts("Planificador asignado(Al ESI)");
-	}
-	//Hay que cambiar el coordinador sus entradas son de la configuracion a las instancias
-
-	close(socketCordi);
-	close(socketEscucha);
-	/*free(puertoEscucha);
-	free(ipcoordinador);
-	free(puertocoordinador);
-	*/
+	close(listenningSocket);
 	destroy_planificadorConfig(planificadorConfig);
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
 }
 
-void *comunicacionCoordinador(void *sock) {
-	int socketCordinador = *(int*) sock;
-	if (recibirmensaje(socketCordinador)) {
-		printf("Recibi mensaje del lord Coordinador");
-	}
-
-	if (enviarmensaje("Soy el planificador y me he conectado contido mi lord coordinador \n", socketCordinador)) {
-		printf("Yo, plani, envie mensaje a lord Coordinador \n");
-	}
-
-		char message[PACKAGESIZE];
-		int flag = 1;
-		while (flag) {
-			fgets(message, PACKAGESIZE, stdin);
-			if (!strcmp(message, "exit\n"))
-				flag = 0;
-			if (flag)
-				enviarmensaje(message, socketCordinador);
-		}
-		return NULL;
-}
-
-void crearConfiguracion(char ** puertoescucha, char ** ipcordi,
-		char ** puertocordi, t_config ** config) {
-	*config = config_create("configPlanificador");
-	*ipcordi = config_get_string_value(*config, "IP_COORDINADOR");
-	*puertocordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
-	*puertoescucha = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
-
-}
-
-void *manejaconexionconESI(void * socket_desc) {
-	//Get the socket descriptor
-
-	int sock = *(int*) socket_desc;
-
-	//Send some messages to the client
-
-	if (enviarmensaje("Yo soy el planificador \n", sock))
-		printf("Envie mensaje al esi\n");
-
-
-
-	if (recibirmensaje(sock)) {
-		printf("recibi mensaje del ESI\n");
-	} else {
-		printf("erroralrecibir");
-	}
-
-	printf("termino el hilo");
-	//while ((read_size = recv(sock, client_message, 50, 0)) > 0) {
-	//end of string marker
-	/*for (int i = 0; i < 5; i++) {
-	 printf("Paso1");
-
-
-	 recibirmensaje(sock);
-
-	 }*/
-
-	close(sock);
-	return NULL;
-}
 
 planificador_config * init_planificaorConfig(){
 	planificador_config * planificador = malloc(sizeof(planificador_config));
@@ -143,8 +27,8 @@ planificador_config * init_planificaorConfig(){
 	return planificador;
 }
 
-void crearConfiguracion2(planificador_config** planificador,t_config** config){
-	*config = config_create("configPlanificador");
+void crearConfiguracion(planificador_config** planificador,t_config** config){
+	*config = config_create("configPlanificador.config");
 	(*planificador)->ipCoordinador = config_get_string_value(*config, "IP_COORDINADOR");
 	(*planificador)->puertoCoordinador = config_get_string_value(*config, "PUERTO_COORDINADOR");
 	(*planificador)->puertoEscucha = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
@@ -156,4 +40,63 @@ void destroy_planificadorConfig(planificador_config* planificador_config){
 	free(planificador_config);
 }
 
+void crearServidorMultiHilo(int listenningSocket) {
+	struct sockaddr_in addr;
+	socklen_t addrlen = sizeof(addr);
+	int socketCliente;
+	pthread_t thread_id;
 
+	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
+		puts("Cliente conectado. Esperando mensajes prueba:\n");
+
+		if (pthread_create(&thread_id, NULL, manejadorDeConexiones, (void*) &socketCliente) < 0) {
+			perror("No se pudo crear el hilo");
+			exit(1);
+		}
+
+		puts("Manejador de conexiones asignado");
+	}
+
+	if (socketCliente < 0) {
+		perror("falló la aceptación");
+		exit(1);
+	}
+
+	puts("Damos otra vuelta");
+}
+
+void *manejadorDeConexiones(void *socket_desc) {
+
+	int sock = *(int*) socket_desc;
+	int id;
+	enviarMensaje(logger, ID_PLANIFICADOR, "SoyPlani", sock); //Saludamos
+	recibirIDyContenido(&id, logger, sock);
+
+	switch(id) {
+
+		case ID_ESI  :
+		printf("Se me conectó un ESI \n ");
+		recibirIDyContenido(&id, logger, sock);
+				   //Espero la instrucción proveniendo del ESI
+				   //char* instruccion =recibirIDyContenido(logger, sock, &id);
+				   //actualizarLogDeOperaciones();
+		break;
+
+			  // case ID_INSTANCIA :
+			     //pasa lo que pasa con la instacia
+			    //  break; /* optional */
+
+			  // case ID_PLANIFICADOR:
+				//pasa plani
+				 //  break;
+
+			   //default : /* Optional */
+			   //Es alguien desconocido
+			   //statement(s);
+			}
+	close(sock);
+	printf("\n termino el hilo");
+	return NULL;
+
+
+}

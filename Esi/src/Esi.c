@@ -1,22 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Esi.h"
+#include <parsi/parser.h>
 
 int main(int argc, char **argv) {
 
 
-	t_log* logger = crearLogger("loggerEsi.log", "loggerEsi");
-	t_config * config = calloc(1, sizeof(t_config));
-	esi_config * esiConfig = init_esiConfig();
+	 logger = crearLogger("loggerEsi.log", "loggerEsi");
+	 config = calloc(1, sizeof(t_config));
+	 esiConfig = init_esiConfig();
 
 	crearConfiguracion(&esiConfig, &config);
-	int socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+	conectarseAlCoordinador();
+	conectarseAlPlanificador();
+	/*int socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
 	recibirMensaje(logger, socketCoordinador);
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
 
 	int socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
 	recibirMensaje(logger, socketPlani);
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
+*/
+
+
+	FILE* script = fopen("script.txt","r");
+	char*line=NULL;
+	size_t len=0;
+	ssize_t read;
+
+	while ((read = getline(&line, &len, script)) != -1) {
+	        t_esi_operacion parsed = parse(line);
+	        enviarMensajeGenerico(logger,sizeof(parsed),ID_ESI,&parsed,socketCoordinador);
+
+	        destruir_operacion(parsed);
+	}
+
+	fclose(script);
+	free(line);
 
 
 	close(socketCoordinador);
@@ -60,5 +80,18 @@ FILE* abrirScript(char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 	return file;
+}
+
+void conectarseAlCoordinador(){
+	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+	recibirMensaje(logger, socketCoordinador);
+	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
+}
+
+void conectarseAlPlanificador(){
+	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
+	recibirMensaje(logger, socketPlani);
+	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
+
 }
 

@@ -19,13 +19,22 @@ typedef struct esi_config{
 	char* puertoPlanificador;
 }esi_config;
 
-t_log* logger;
 
 void crearConfiguracion(esi_config** esiConfig, t_config ** config);
 void destroy_esiConfig(esi_config * esi);
 esi_config* init_esiConfig();
-
+void conectarseAlCoordinador();
+void conectarseAlPlanificador();
 FILE* abrirScript(char **argv);
 
+
+//VARIABLES GLOBALES
+t_log* logger;
+esi_config * esiConfig;
+t_config* config;
+FILE* script;
+
+int socketCoordinador;
+int socketPlani;
 
 #endif /* ESI_H_ */

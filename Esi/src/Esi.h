@@ -4,6 +4,7 @@
  *  Created on: 2 may. 2018
  *      Author: utnso
  */
+
 #include <commons/config.h>
 #include <commons/log.h>
 #include <manejoDeSockets/manejoDeSockets.h>
@@ -20,18 +21,23 @@ typedef struct esi_config{
 }esi_config;
 
 
+void crearConfiguracion();
+void destroy_esiConfig();
+void init_esiConfig();
+void conectarseAlCoordinador();
+void conectarseAlPlanificador();
+void abrirScript(char **argv);
+
+/*
 void crearConfiguracion(esi_config** esiConfig, t_config ** config);
 void destroy_esiConfig(esi_config * esi);
 esi_config* init_esiConfig();
-void conectarseAlCoordinador();
-void conectarseAlPlanificador();
-FILE* abrirScript(char **argv);
-
+*/
 
 //VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;
-t_config* config;
+//t_config* config;
 FILE* script;
 
 int socketCoordinador;

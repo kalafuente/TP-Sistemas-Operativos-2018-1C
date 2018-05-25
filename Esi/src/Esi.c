@@ -5,14 +5,16 @@
 
 int main(int argc, char **argv) {
 
-
-	 logger = crearLogger("loggerEsi.log", "loggerEsi");
-	 config = calloc(1, sizeof(t_config));
-	 esiConfig = init_esiConfig();
-
-	crearConfiguracion(&esiConfig, &config);
+	abrirScript(argv);
+	logger = crearLogger("loggerEsi.log", "loggerEsi");
+	crearConfiguracion();
 	conectarseAlCoordinador();
 	conectarseAlPlanificador();
+	//config = calloc(1, sizeof(t_config));
+	//esiConfig = init_esiConfig();
+
+	//crearConfiguracion(&esiConfig, &config);
+
 	/*int socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
 	recibirMensaje(logger, socketCoordinador);
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
@@ -23,7 +25,7 @@ int main(int argc, char **argv) {
 */
 
 
-	FILE* script = fopen("script.txt","r");
+
 	char*line=NULL;
 	size_t len=0;
 	ssize_t read;
@@ -40,13 +42,41 @@ int main(int argc, char **argv) {
 
 
 	close(socketCoordinador);
+	close(socketPlani);
 	destroy_esiConfig(esiConfig);
-	config_destroy(config);
+	//config_destroy(config);
 	return 0;
 
 }
+void destroy_esiConfig() {
 
-void crearConfiguracion(esi_config** esiConfig, t_config ** config) {
+	free(esiConfig->ipPlanificador);
+	free(esiConfig->ipCoordi);
+	free(esiConfig->puertoCoordi);
+	free(esiConfig->puertoPlanificador);
+	free(esiConfig);
+}
+
+
+void init_esiConfig() {
+	esiConfig = calloc(1, sizeof(esi_config));
+	esiConfig->ipCoordi = calloc(9, sizeof(char));
+	esiConfig->puertoCoordi = calloc(4, sizeof(char));
+	esiConfig->ipPlanificador = calloc(9, sizeof(char));
+	esiConfig->puertoPlanificador = calloc(4, sizeof(char));
+
+}
+void crearConfiguracion(){
+	t_config *config = config_create("configuracionEsi.config");
+	init_esiConfig();
+	esiConfig->ipCoordi = strdup(config_get_string_value(config, "IP_COORDINADOR"));
+	esiConfig->puertoCoordi = strdup(config_get_string_value(config, "PUERTO_COORDINADOR"));
+	esiConfig->ipPlanificador = strdup(config_get_string_value(config,"IP_PLANIFICADOR"));
+	esiConfig->puertoPlanificador = strdup(config_get_string_value(config, "PUERTO_PLANIFICADOR"));
+	config_destroy(config);
+}
+
+/*void crearConfiguracion(esi_config** esiConfig, t_config ** config) {
 	*config = config_create("configuracionEsi.config");
 	(*esiConfig)->ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
 	(*esiConfig)->puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
@@ -71,15 +101,15 @@ esi_config* init_esiConfig() {
 	esiConfig->puertoPlanificador = calloc(4, sizeof(char));
 	return esiConfig;
 }
+*/
+void abrirScript(char *argv[]) {
 
-FILE* abrirScript(char *argv[]) {
-	FILE * file;
-	file = fopen(argv[1], "r");
-	if (file == NULL) {
+	script = fopen(argv[1], "r");
+	if (script == NULL) {
 		perror("Error al abrir el archivo: ");
 		exit(EXIT_FAILURE);
 	}
-	return file;
+
 }
 
 void conectarseAlCoordinador(){

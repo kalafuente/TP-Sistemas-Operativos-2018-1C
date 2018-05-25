@@ -19,7 +19,23 @@ int main(int argc, char **argv) {
 	while ((read = getline(&line, &len, script)) != -1) {
 
 	        * parsed = parse(line);
+<<<<<<< HEAD
+
+	        switch (parsed->keyword){
+	        case GET:
+	        	enviarMensaje(logger,1,parsed->argumentos.GET.clave,socketCoordinador);
+				break;
+	        case SET:
+	        	enviarMensaje(logger,2,parsed->argumentos.SET.clave,socketCoordinador);
+	        	enviarMensaje(logger,2,parsed->argumentos.SET.valor,socketCoordinador);
+	        	break;
+	        case STORE:
+	        	enviarMensaje(logger,3,parsed->argumentos.STORE.clave,socketCoordinador);
+	        	break;
+	        }
+=======
 	        enviarMensajeGenerico(logger,sizeof(t_esi_operacion),ID_ESI,parsed,socketCoordinador);
+>>>>>>> cfa8c1ee1fefe7d2957189b0df3b93feb0dd7c9f
 
 	        destruir_operacion(*parsed);
 	}
@@ -112,4 +128,6 @@ void conectarseAlPlanificador(){
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
 
 }
+
+
 

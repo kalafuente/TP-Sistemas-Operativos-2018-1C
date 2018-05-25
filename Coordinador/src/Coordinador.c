@@ -49,6 +49,34 @@ void *manejadorDeConexiones(void *socket_desc) {
 	switch(id) {
 
 		case ID_ESI  :
+<<<<<<< HEAD
+					cantEsi++;
+					log_info(logger, "Se me conectó un Esi");
+
+					char * clave = calloc(1,sizeof(char*));
+					char * valor = calloc(1,sizeof(char*));
+					clave = recibirIDyContenido(&id, logger, sock);
+
+					switch(id){
+					case 1:
+						printf("clave: %s", clave);
+						break;
+					case 2:
+						printf("la clave es: %s", clave);
+						valor = recibirIDyContenido(&id, logger, sock);
+						printf("el valor es: %s", valor);
+						break;
+
+					case 3:
+						printf("la clave es: %s", clave);
+						break;
+					}
+
+
+					//logOperaciones(contenido);
+					free(clave);
+					free(valor);
+=======
 		cantEsi++;
 		log_info(logger, "Se me conectó un Esi");
 
@@ -61,6 +89,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		//logOperaciones(contenido);
 		free(contenido);
 
+>>>>>>> cfa8c1ee1fefe7d2957189b0df3b93feb0dd7c9f
 		break;
 
 		case ID_INSTANCIA :

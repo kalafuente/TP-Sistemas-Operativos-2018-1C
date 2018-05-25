@@ -10,35 +10,23 @@ int main(int argc, char **argv) {
 	crearConfiguracion();
 	conectarseAlCoordinador();
 	conectarseAlPlanificador();
-	//config = calloc(1, sizeof(t_config));
-	//esiConfig = init_esiConfig();
-
-	//crearConfiguracion(&esiConfig, &config);
-
-	/*int socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
-	recibirMensaje(logger, socketCoordinador);
-	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
-
-	int socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
-	recibirMensaje(logger, socketPlani);
-	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
-*/
-
-
+	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
 
 	char*line=NULL;
 	size_t len=0;
 	ssize_t read;
 
 	while ((read = getline(&line, &len, script)) != -1) {
-	        t_esi_operacion parsed = parse(line);
-	        enviarMensajeGenerico(logger,sizeof(parsed),ID_ESI,&parsed,socketCoordinador);
 
-	        destruir_operacion(parsed);
+	        * parsed = parse(line);
+	        enviarMensajeGenerico(logger,sizeof(t_esi_operacion),ID_ESI,parsed,socketCoordinador);
+
+	        destruir_operacion(*parsed);
 	}
 
 	fclose(script);
 	free(line);
+	free (parsed);
 
 
 	close(socketCoordinador);

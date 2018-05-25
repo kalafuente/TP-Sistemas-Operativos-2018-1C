@@ -12,6 +12,8 @@
 #include <pthread.h>
 #include <manejoDeSockets/manejoDeSockets.h>
 #include <commons/string.h>
+#include <parsi/parser.h>
+#include <commons/log.h>
 
 typedef struct coordinador_config {
 	char * puerto;
@@ -19,8 +21,14 @@ typedef struct coordinador_config {
 	int tamanioEntradas;
 }coordinador_config;
 
+//----VARIABLES GLOBALES
 t_log* logger;
+t_log* logDeOperaciones;
+int cantEsi;
 
+//-----DECLARACION FUNCIONES
+
+void logOperaciones(t_esi_operacion * operacion);
 coordinador_config * init_coordConfig();
 
 void destroy_coordConfig(coordinador_config* coord);

@@ -18,6 +18,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 	socklen_t addrlen = sizeof(addr);
 	int socketCliente;
 	pthread_t thread_id;
+	cantEsi=0;
 
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
 		puts("Cliente conectado. Esperando mensajes prueba:\n");
@@ -48,11 +49,18 @@ void *manejadorDeConexiones(void *socket_desc) {
 	switch(id) {
 
 		case ID_ESI  :
-		printf("Se me conectó un ESI \n ");
-		recibirIDyContenido(&id, logger, sock);
-				   //Espero la instrucción proveniendo del ESI
-				   //char* instruccion =recibirIDyContenido(logger, sock, &id);
-				   //actualizarLogDeOperaciones();
+		cantEsi++;
+		log_info(logger, "Se me conectó un Esi");
+
+		t_esi_operacion * contenido = calloc(1,sizeof(t_esi_operacion));
+		contenido = (t_esi_operacion *)recibirIDyContenido(&id, logger, sock);
+
+
+
+		printf("todobien");
+		logOperaciones(contenido);
+		free(contenido);
+
 		break;
 
 		case ID_INSTANCIA :
@@ -72,6 +80,10 @@ void *manejadorDeConexiones(void *socket_desc) {
 	printf("\n termino el hilo");
 	return NULL;
 
+
+}
+
+void logOperaciones(t_esi_operacion* operacion){
 
 }
 

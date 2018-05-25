@@ -54,11 +54,11 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		t_esi_operacion * contenido = calloc(1,sizeof(t_esi_operacion));
 		contenido = (t_esi_operacion *)recibirIDyContenido(&id, logger, sock);
-
-
-
 		printf("todobien");
-		logOperaciones(contenido);
+
+		printf("clave: %s",contenido->argumentos.GET.clave);
+
+		//logOperaciones(contenido);
 		free(contenido);
 
 		break;
@@ -84,6 +84,18 @@ void *manejadorDeConexiones(void *socket_desc) {
 }
 
 void logOperaciones(t_esi_operacion* operacion){
+
+	switch (operacion->keyword){
+	case GET:
+		log_info(logDeOperaciones, "ESI GER");
+		break;
+	case SET:
+		log_info(logDeOperaciones, "ESI SER");
+		break;
+	case STORE:
+		log_info(logDeOperaciones, "ESI STORE");
+		break;
+	}
 
 }
 

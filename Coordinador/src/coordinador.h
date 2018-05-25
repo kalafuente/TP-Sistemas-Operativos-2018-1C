@@ -28,7 +28,7 @@ int cantEsi;
 
 //-----DECLARACION FUNCIONES
 
-void logOperaciones(t_esi_operacion * operacion);
+
 coordinador_config * init_coordConfig();
 
 void destroy_coordConfig(coordinador_config* coord);

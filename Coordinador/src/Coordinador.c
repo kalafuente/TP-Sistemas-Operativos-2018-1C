@@ -2,6 +2,7 @@
 
 int main(int argc, char **argv) {
 	logger= crearLogger("loggerCoordi.log","loggerCoordi");
+	logDeOperaciones = crearLogger("logDeOperaciones.log", "logDeOperaciones");
 	t_config *config = malloc(sizeof(t_config));
 	coordinador_config * coordConfig = init_coordConfig();
 	crearConfiguracion(&coordConfig,&config);
@@ -46,12 +47,12 @@ void *manejadorDeConexiones(void *socket_desc) {
 	enviarMensaje(logger, ID_COORDINADOR, "SoyCoordi", sock); //Saludamos
 	recibirIDyContenido(&id, logger, sock);
 
+	char operacion[80];
 	switch(id) {
 
 		case ID_ESI  :
 					log_info(logger, "Se me conectó un Esi");
 					cantEsi++;
-					log_info(logger, "Se me conectó un Esi");
 
 					char * clave = calloc(1,sizeof(char*));
 					char * valor = calloc(1,sizeof(char*));
@@ -59,29 +60,27 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 					switch(id){
 					case 1:
-						printf("clave: %s", clave);
+
+						sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
+						log_info(logDeOperaciones, operacion);
 						break;
 					case 2:
-						printf("la clave es: %s", clave);
 						valor = recibirIDyContenido(&id, logger, sock);
-						printf("el valor es: %s", valor);
+						sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
+						log_info(logDeOperaciones, operacion);
 						break;
 
 					case 3:
-						printf("la clave es: %s", clave);
+						sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
+						log_info(logDeOperaciones, operacion);
 						break;
 					}
 
 
-					//logOperaciones(contenido);
 					free(clave);
 					free(valor);
 
 
-
-		printf("todobien");
-
-		//logOperaciones(contenido)
 
 		break;
 
@@ -105,21 +104,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
-void logOperaciones(t_esi_operacion* operacion){
-
-	switch (operacion->keyword){
-	case GET:
-		log_info(logDeOperaciones, "ESI GER");
-		break;
-	case SET:
-		log_info(logDeOperaciones, "ESI SER");
-		break;
-	case STORE:
-		log_info(logDeOperaciones, "ESI STORE");
-		break;
-	}
-
-}
 
 
 coordinador_config * init_coordConfig(){

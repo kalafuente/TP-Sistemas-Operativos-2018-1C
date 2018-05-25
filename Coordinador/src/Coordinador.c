@@ -49,7 +49,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 	switch(id) {
 
 		case ID_ESI  :
-<<<<<<< HEAD
+					log_info(logger, "Se me conectó un Esi");
 					cantEsi++;
 					log_info(logger, "Se me conectó un Esi");
 
@@ -76,20 +76,13 @@ void *manejadorDeConexiones(void *socket_desc) {
 					//logOperaciones(contenido);
 					free(clave);
 					free(valor);
-=======
-		cantEsi++;
-		log_info(logger, "Se me conectó un Esi");
 
-		t_esi_operacion * contenido = calloc(1,sizeof(t_esi_operacion));
-		contenido = (t_esi_operacion *)recibirIDyContenido(&id, logger, sock);
+
+
 		printf("todobien");
 
-		printf("clave: %s",contenido->argumentos.GET.clave);
+		//logOperaciones(contenido)
 
-		//logOperaciones(contenido);
-		free(contenido);
-
->>>>>>> cfa8c1ee1fefe7d2957189b0df3b93feb0dd7c9f
 		break;
 
 		case ID_INSTANCIA :

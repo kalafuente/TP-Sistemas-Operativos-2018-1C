@@ -19,7 +19,6 @@ int main(int argc, char **argv) {
 	while ((read = getline(&line, &len, script)) != -1) {
 
 	        * parsed = parse(line);
-<<<<<<< HEAD
 
 	        switch (parsed->keyword){
 	        case GET:
@@ -33,9 +32,6 @@ int main(int argc, char **argv) {
 	        	enviarMensaje(logger,3,parsed->argumentos.STORE.clave,socketCoordinador);
 	        	break;
 	        }
-=======
-	        enviarMensajeGenerico(logger,sizeof(t_esi_operacion),ID_ESI,parsed,socketCoordinador);
->>>>>>> cfa8c1ee1fefe7d2957189b0df3b93feb0dd7c9f
 
 	        destruir_operacion(*parsed);
 	}

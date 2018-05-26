@@ -43,7 +43,6 @@ void crearServidorMultiHilo(int listenningSocket) {
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
-	int id;
 	char operacion[80];
 
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
@@ -60,15 +59,14 @@ void *manejadorDeConexiones(void *socket_desc) {
 		char * clave = calloc(1,sizeof(char*));
 		char * valor = calloc(1,sizeof(char*));
 		recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-
+		clave = recibirContenido(logger, sock);
 		switch(instruccion){
 		case INSTRUCCION_GET:
-			clave = recibirIDyContenido(&id, logger, sock);
 			sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
 			log_info(logDeOperaciones, operacion);
 			break;
 		case INSTRUCCION_SET:
-
+			valor = recibirContenido(logger, sock);
 			sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
 			log_info(logDeOperaciones, operacion);
 			break;

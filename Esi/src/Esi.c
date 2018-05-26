@@ -26,18 +26,18 @@ int main(int argc, char **argv) {
 	        switch (parsed->keyword){
 	        case GET:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-	        	enviarChar(logger,1,parsed->argumentos.GET.clave,socketCoordinador);
+	        	enviarChar(logger, parsed->argumentos.GET.clave,socketCoordinador);
 
 	        	//enviarMensaje(logger,100, & parsed->argumentos.GET.clave,socketCoordinador);
 				break;
 	        case SET:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-	        	enviarMensaje(logger,100,&parsed->argumentos.SET.clave,socketCoordinador);
-	        	enviarMensaje(logger,100,&parsed->argumentos.SET.valor,socketCoordinador);
+	        	enviarChar(logger, parsed->argumentos.SET.clave,socketCoordinador);
+	        	enviarChar(logger,parsed->argumentos.SET.valor,socketCoordinador);
 	        	break;
 	        case STORE:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-	        	enviarMensaje(logger,100,&parsed->argumentos.STORE.clave,socketCoordinador);
+	        	enviarChar(logger,parsed->argumentos.STORE.clave,socketCoordinador);
 	        	break;
 	        }
 

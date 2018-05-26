@@ -56,13 +56,13 @@ int crearSocketQueEscucha(char ** puerto, int * entradas) {
 
 
 
-int enviarChar(t_log* logger, int id, char*mensaje, int unsocket) {
+int enviarChar(t_log* logger, char*mensaje, int unsocket) {
 
 	log_info(logger, "Enviando mensaje con enviarMensaje"); //Indicamos que vamos a enviar el mensaje
 
 	ContentHeader * cabeza = calloc(1, sizeof(ContentHeader));
 
-	cabeza->id=id;
+
 	cabeza->len = strlen(mensaje); //Indicamos que la longitud es la del mensaje (incluyendo el fin de string)
 
 	//char *message = calloc(cabeza->len, sizeof(char));
@@ -151,7 +151,7 @@ int recibirMensaje(t_log* logger, int unsocket) {
 
 }
 */
-void * recibirIDyContenido(int * id, t_log * logger, int socket) {
+void * recibirContenido(t_log * logger, int socket) {
 
   log_info(logger, "recibirIDyContenido: Esperando el encabezado del contenido(%ld bytes)", sizeof(ContentHeader));
 
@@ -160,8 +160,6 @@ void * recibirIDyContenido(int * id, t_log * logger, int socket) {
   if (recv(socket, cabeza, sizeof(ContentHeader), 0) <= 0) {
     exitWithError(logger, socket, "No se pudo recibir el encabezado del contenido", cabeza);
   }
-
-  *id= cabeza->id;
 
   log_info(logger, "Esperando el contenido (%d bytes)", cabeza->len);
 

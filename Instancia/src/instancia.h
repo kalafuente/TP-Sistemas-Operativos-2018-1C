@@ -72,6 +72,6 @@ void crearConfiguracion(instancia_config *, t_config*);
 void destroy_instanciaConfig(instancia_config*);
 void imprimirConfiguracion(instancia_config* instancia);
 void conectarseAlCoordinador();
-
+void recibirConfiguracionDeEntradas();
 
 #endif /* INSTANCIA_H_ */

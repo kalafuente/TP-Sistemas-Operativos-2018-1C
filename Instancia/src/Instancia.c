@@ -66,17 +66,33 @@ int main(void) {
 	instanciaConfig = init_instanciaConfig();
 	crearConfiguracion(instanciaConfig, config);
 	imprimirConfiguracion(instanciaConfig);
-
-
-
-
 	conectarseAlCoordinador();
+	recibirConfiguracionDeEntradas();
 
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
 	config_destroy(config);
 
 	return 0;
+
+}
+
+void recibirConfiguracionDeEntradas(){
+	int cantidadEntradas;
+	int tamanio;
+
+
+	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
+
+	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador)){
+
+		recibirMensaje(logger,sizeof(int),&cantidadEntradas,socketCoordinador);
+		printf("cantidadEntradas: %d\n", cantidadEntradas);
+		recibirMensaje(logger,sizeof(int),&tamanio,socketCoordinador);
+		printf("tamanio: %d\n", tamanio);
+	}
+
+
 
 }
 

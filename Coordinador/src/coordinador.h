@@ -27,6 +27,7 @@ typedef struct coordinador_config {
 t_log* logger;
 t_log* logDeOperaciones;
 int cantEsi;
+coordinador_config * coordConfig;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 

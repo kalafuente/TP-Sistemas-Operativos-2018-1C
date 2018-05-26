@@ -7,14 +7,15 @@ int main(int argc, char **argv) {
 	//----------ARCHIVO DE CONFIGURACION
 
 	t_config *config = config_create("configuracion.config");
-	coordinador_config * coordConfig = init_coordConfig();
+	coordConfig = init_coordConfig();
 	crearConfiguracion(coordConfig,config);
 
-	//---------ARCHIVO DE CONFIGURACION
-
+	//---------CREO MI SERVIDOR
 
 	int listenningSocket = crearSocketQueEscucha(&coordConfig->puerto, &coordConfig->entradas);
 	crearServidorMultiHilo(listenningSocket);
+
+	//---------CIERRO TODO
 	close(listenningSocket);
 	destroy_coordConfig(coordConfig);
 	config_destroy(config);
@@ -60,37 +61,54 @@ void *manejadorDeConexiones(void *socket_desc) {
 	PROTOCOLO_HANDSHAKE_CLIENTE handshake;
 	PROTOCOLO_INSTRUCCIONES instruccion;
 
+	//----------RECIBO SALUDO DE LOS DEMÁS----------
 	recibirMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshake,sock);
+
+	//----------IDENTIFICO A QUIEN SE ME CONECTA
 	switch(handshake){
+
+	//----------SI SE ME CONECTA INSTANCIA ENTONCES
 	case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
-		printf("Se me conectó instancia");
+		log_info(logger, "Se me conectó una Instancia");
+		//------le mando su configuracion
+
+		PROTOCOLO_COORDINADOR_A_INSTANCIA entradas = ENTRADAS;
+		enviarMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,sock);
+		enviarMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&(coordConfig->entradas),sock);
+
+		log_info(logger, "Envie cantidad de entradas a la instancia");
+		enviarMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&(coordConfig->tamanioEntradas),sock);
+		log_info(logger, "Envie tamanaño de entradas a la instancia");
+
 		break;
+
+	//----------SI SE ME CONECTA ESI ENTONCES
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
-						cantEsi++;
-						char * clave = calloc(1,sizeof(char*));
-						char * valor = calloc(1,sizeof(char*));
-						recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-						clave = recibirContenido(logger, sock);
-						switch(instruccion){
-						case INSTRUCCION_GET:
+		cantEsi++;
+		char * clave = calloc(1,sizeof(char*));
+		char * valor = calloc(1,sizeof(char*));
+		recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
+		clave = recibirContenido(logger, sock);
+		switch(instruccion){
+			case INSTRUCCION_GET:
 							sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
 							log_info(logDeOperaciones, operacion);
 							break;
-						case INSTRUCCION_SET:
+			case INSTRUCCION_SET:
 							valor = recibirContenido(logger, sock);
 							sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
 							log_info(logDeOperaciones, operacion);
 							break;
 
-						case INSTRUCCION_STORE:
+			case INSTRUCCION_STORE:
 							sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
 							log_info(logDeOperaciones, operacion);
 							break;
-						}
-						free(clave);
-						free(valor);
-						break;
+		}
+		free(clave);
+		free(valor);
+		break;
 
 	}
 

@@ -126,7 +126,7 @@ void conectarseAlCoordinador(){
 void conectarseAlPlanificador(){
 	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
 	PROTOCOLO_ESI_A_PLANIFICADOR protocolo = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
-	recibirMensaje(logger,sizeof(PROTOCOLO_ESI_A_PLANIFICADOR))
+	recibir
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
 
 }

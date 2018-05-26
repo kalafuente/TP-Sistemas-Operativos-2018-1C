@@ -95,41 +95,6 @@ int enviarMensaje(t_log* logger, int id, char*mensaje, int unsocket) {
 
 
 
-int librocket_enviarMensaje(int sockfd, const void * datos, size_t bytesAenviar,
-		t_log* t_log) {
-
-	int bytes_enviados = send(sockfd, datos, bytesAenviar, 0);
-
-	if (bytes_enviados == -1) { //ERROR
-		perror("send:");
-		log_info(t_log, "No se pudieron enviar datos");
-		return -1;
-	} else if (bytes_enviados == 0) { //conexion cerrada
-		char* mensaje = string_new();
-		string_append(&mensaje, "Se desconecto el cliente con el socket  ");
-		string_append(&mensaje, sockfd);
-		log_info(t_log, mensaje);
-		free(mensaje);
-		return 0;
-	} else if (bytes_enviados < bytesAenviar) {
-		char* mensaje = malloc(200);
-		sprintf(mensaje, "Se enviaron %d bytes de %d esperados", bytes_enviados,
-				bytesAenviar);
-		log_error(t_log, mensaje);
-		log_error(t_log,
-				"Entrando en recursion para enviar mensaje completo \n");
-		free(mensaje);
-		int nuevosBytes = bytesAenviar - bytes_enviados;
-		librocket_enviarMensaje(sockfd, datos + bytes_enviados, nuevosBytes,
-				t_log);
-	} else if (bytes_enviados == bytesAenviar) {
-
-		return bytes_enviados;
-	}
-
-	return bytes_enviados;
-
-}
 
 int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int unsocket) {
 
@@ -289,7 +254,7 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 
 
 
-int enviarMensaje(int unsocket, const void* msg,, size_t len,t_log* logger ){
+int enviarMensaje(int unsocket, const void* msg, size_t len,t_log* logger ){
 	int total=0;
 	size_t bytes_left =len;
 	while(total<len){

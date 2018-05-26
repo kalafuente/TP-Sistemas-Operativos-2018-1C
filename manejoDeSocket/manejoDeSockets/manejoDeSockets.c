@@ -155,7 +155,7 @@ int recibirMensaje(t_log* logger, int unsocket) {
 */
 void * recibirContenido(t_log * logger, int socket) {
 
-  log_info(logger, "recibirIDyContenido: Esperando el encabezado del contenido(%ld bytes)", sizeof(ContentHeader));
+  log_info(logger, "recibirContenido: Esperando el encabezado del contenido(%ld bytes)", sizeof(ContentHeader));
 
   ContentHeader * cabeza = (ContentHeader*) malloc(sizeof(ContentHeader));
 

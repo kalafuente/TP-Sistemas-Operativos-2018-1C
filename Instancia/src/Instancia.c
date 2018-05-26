@@ -63,29 +63,14 @@ int main(void) {
 
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	t_config * config = config_create("configuracionInstancia.config");
-	instancia_config * instanciaConfig = init_instanciaConfig();
+	instanciaConfig = init_instanciaConfig();
 	crearConfiguracion(instanciaConfig, config);
 	imprimirConfiguracion(instanciaConfig);
-	int socketCoordinador = 0;
 
-	while(socketCoordinador == 0)
-	{
-		log_info(logger, "Intento conectarme al Coordinador\n");
-		socketCoordinador = conectarseAlServidor(logger,&(instanciaConfig->ipCoordi), &(instanciaConfig->puertoCoordi));
 
-		if(socketCoordinador == -1)
-		{
-			log_error(logger, "Conexion fallida, ingresar algo para reintentar\n");
-			char texto[10];
-			fgets(texto, 10, stdin);
-			socketCoordinador = 0;
-			break;
-		}
-	}
 
-	log_info(logger, "Conexion exitosa!");
-	//recibirMensaje(logger, socketCoordinador);
-	//enviarMensaje(logger, ID_INSTANCIA, "SOYINSTANCIA", socketCoordinador);
+
+	conectarseAlCoordinador();
 
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
@@ -93,6 +78,32 @@ int main(void) {
 
 	return 0;
 
+}
+
+void conectarseAlCoordinador(){
+
+	socketCoordinador = 0;
+
+	while(socketCoordinador == 0)
+				{
+					log_info(logger, "Intento conectarme al Coordinador\n");
+					socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
+					if(socketCoordinador == -1)
+					{
+						log_error(logger, "Conexion fallida, ingresar algo para reintentar\n");
+						char texto[10];
+						fgets(texto, 10, stdin);
+						socketCoordinador = 0;
+						break;
+					}
+				}
+
+	log_info(logger, "Conexion exitosa!");
+
+	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
+	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
+	PROTOCOLO_HANDSHAKE_CLIENTE handshakeINSTANCIA = HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR;
+	enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeINSTANCIA,socketCoordinador);
 }
 
 

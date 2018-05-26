@@ -50,6 +50,7 @@ void destroy_instanciaConfig(instancia_config*);
 #include <commons/config.h>
 #include <commons/string.h>
 #include <manejoDeSockets/manejoDeSockets.c>
+#include <protocolos/protocolos.h>
 
 typedef struct instancia_config {
 	char * ipCoordi ;
@@ -62,12 +63,15 @@ typedef struct instancia_config {
 
 //------------Variables globales
 t_log* logger;
+int socketCoordinador;
+instancia_config * instanciaConfig;
 
 //------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
 void crearConfiguracion(instancia_config *, t_config*);
 void destroy_instanciaConfig(instancia_config*);
 void imprimirConfiguracion(instancia_config* instancia);
+void conectarseAlCoordinador();
 
 
 #endif /* INSTANCIA_H_ */

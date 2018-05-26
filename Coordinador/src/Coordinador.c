@@ -52,44 +52,47 @@ void *manejadorDeConexiones(void *socket_desc) {
 	int sock = *(int*) socket_desc;
 	char operacion[80];
 
+	//----------LA EDUCACIÓN ANTE TODO, VAMOS A SALUDAR A TODO AQUEL QUE SE CONECTE A MÍ----------
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
 	enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES), &handshakeCoordi , sock); //Saludamos
-	PROTOCOLO_ESI_A_COORDINADOR handshakeESI;
-	//PROTOCOLO_INSTANCIA_A_COORDINADOR handshakeInstancia;
 
-	if (recibirMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,sock)){
+	//----------VAMOS A PREPARARME PARA RECIBIR SALUDOS DE LOS DEMÁS----------
+	PROTOCOLO_HANDSHAKE_CLIENTE handshake;
+	PROTOCOLO_INSTRUCCIONES instruccion;
 
-		PROTOCOLO_INSTRUCCIONES instruccion;
-
+	recibirMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshake,sock);
+	switch(handshake){
+	case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
+		printf("Se me conectó instancia");
+		break;
+	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
-		cantEsi++;
-		char * clave = calloc(1,sizeof(char*));
-		char * valor = calloc(1,sizeof(char*));
-		recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-		clave = recibirContenido(logger, sock);
-		switch(instruccion){
-		case INSTRUCCION_GET:
-			sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
-			log_info(logDeOperaciones, operacion);
-			break;
-		case INSTRUCCION_SET:
-			valor = recibirContenido(logger, sock);
-			sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
-			log_info(logDeOperaciones, operacion);
-			break;
+						cantEsi++;
+						char * clave = calloc(1,sizeof(char*));
+						char * valor = calloc(1,sizeof(char*));
+						recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
+						clave = recibirContenido(logger, sock);
+						switch(instruccion){
+						case INSTRUCCION_GET:
+							sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
+							log_info(logDeOperaciones, operacion);
+							break;
+						case INSTRUCCION_SET:
+							valor = recibirContenido(logger, sock);
+							sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
+							log_info(logDeOperaciones, operacion);
+							break;
 
-		case INSTRUCCION_STORE:
-			sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
-			log_info(logDeOperaciones, operacion);
-			break;
-		}
-		free(clave);
-		free(valor);
+						case INSTRUCCION_STORE:
+							sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
+							log_info(logDeOperaciones, operacion);
+							break;
+						}
+						free(clave);
+						free(valor);
+						break;
 
-	} //else{
-		//recibirMensaje(logger,sizeof(PROTOCOLO_INSTANCIA_A_COORDINADOR),&handshakeInstancia,sock)
-	//}
-
+	}
 
 	close(sock);
 	printf("\n termino el hilo");

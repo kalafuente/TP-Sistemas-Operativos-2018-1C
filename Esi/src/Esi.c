@@ -105,10 +105,11 @@ void conectarseAlCoordinador(){
 	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
 	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
-	PROTOCOLO_ESI_A_COORDINADOR handshakeESI = HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,socketCoordinador);
+	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI = HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
+	enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeESI,socketCoordinador);
 }
 
+/*
 void conectarseAlPlanificador(){
 	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
@@ -118,5 +119,6 @@ void conectarseAlPlanificador(){
 
 }
 
+*/
 
 

@@ -55,8 +55,8 @@ int crearSocketQueEscucha(char ** puerto, int * entradas) {
 
 
 
-/*
-int enviarMensaje(t_log* logger, int id, char*mensaje, int unsocket) {
+
+int enviarChar(t_log* logger, int id, char*mensaje, int unsocket) {
 
 	log_info(logger, "Enviando mensaje con enviarMensaje"); //Indicamos que vamos a enviar el mensaje
 
@@ -88,11 +88,6 @@ int enviarMensaje(t_log* logger, int id, char*mensaje, int unsocket) {
 
 	return 1;
 }
-
-*/
-
-
-
 
 
 
@@ -254,7 +249,7 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 
 
 
-int enviarMensaje(int unsocket, const void* msg, size_t len,t_log* logger ){
+int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 	int total=0;
 	size_t bytes_left =len;
 	while(total<len){
@@ -276,7 +271,7 @@ return 1;
 }
 
 
-int recibirMensaje(int unsocket,void* buffer, size_t len ,t_log* logger){
+int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 	int bytesHeader = recv(unsocket, buffer, len, 0);
 
 	while(bytesHeader<len){

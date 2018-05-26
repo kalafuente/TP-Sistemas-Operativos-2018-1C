@@ -3,16 +3,13 @@
 #include "Esi.h"
 #include <parsi/parser.h>
 
-
 int main(int argc, char **argv) {
 
 	abrirScript(argv);
 	logger = crearLogger("loggerEsi.log", "loggerEsi");
 	crearConfiguracion();
 	conectarseAlCoordinador();
-	conectarseAlPlanificador();
-
-	/*
+	//conectarseAlPlanificador();
 	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
 
 	char*line=NULL;
@@ -22,17 +19,25 @@ int main(int argc, char **argv) {
 	while ((read = getline(&line, &len, script)) != -1) {
 
 	        * parsed = parse(line);
+	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
+        	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
+        	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
 
 	        switch (parsed->keyword){
 	        case GET:
-	        	enviarMensaje(logger,1,parsed->argumentos.GET.clave,socketCoordinador);
+	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
+	        	enviarChar(logger,1,parsed->argumentos.GET.clave,socketCoordinador);
+
+	        	//enviarMensaje(logger,100, & parsed->argumentos.GET.clave,socketCoordinador);
 				break;
 	        case SET:
-	        	enviarMensaje(logger,2,parsed->argumentos.SET.clave,socketCoordinador);
-	        	enviarMensaje(logger,2,parsed->argumentos.SET.valor,socketCoordinador);
+	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
+	        	enviarMensaje(logger,100,&parsed->argumentos.SET.clave,socketCoordinador);
+	        	enviarMensaje(logger,100,&parsed->argumentos.SET.valor,socketCoordinador);
 	        	break;
 	        case STORE:
-	        	enviarMensaje(logger,3,parsed->argumentos.STORE.clave,socketCoordinador);
+	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
+	        	enviarMensaje(logger,100,&parsed->argumentos.STORE.clave,socketCoordinador);
 	        	break;
 	        }
 
@@ -43,7 +48,7 @@ int main(int argc, char **argv) {
 	fclose(script);
 	free(line);
 	free (parsed);
-*/
+
 
 	close(socketCoordinador);
 	close(socketPlani);
@@ -80,32 +85,7 @@ void crearConfiguracion(){
 	config_destroy(config);
 }
 
-/*void crearConfiguracion(esi_config** esiConfig, t_config ** config) {
-	*config = config_create("configuracionEsi.config");
-	(*esiConfig)->ipCoordi = config_get_string_value(*config, "IP_COORDINADOR");
-	(*esiConfig)->puertoCoordi = config_get_string_value(*config, "PUERTO_COORDINADOR");
-	(*esiConfig)->ipPlanificador = config_get_string_value(*config,"IP_PLANIFICADOR");
-	(*esiConfig)->puertoPlanificador = config_get_string_value(*config, "PUERTO_PLANIFICADOR");
-}
 
-void destroy_esiConfig(esi_config * esi) {
-
-	free(esi->ipPlanificador);
-	free(esi->ipCoordi);
-	free(esi->puertoCoordi);
-	free(esi->puertoPlanificador);
-	free(esi);
-}
-
-esi_config* init_esiConfig() {
-	esi_config* esiConfig = calloc(1, sizeof(esi_config));
-	esiConfig->ipCoordi = calloc(9, sizeof(char));
-	esiConfig->puertoCoordi = calloc(4, sizeof(char));
-	esiConfig->ipPlanificador = calloc(9, sizeof(char));
-	esiConfig->puertoPlanificador = calloc(4, sizeof(char));
-	return esiConfig;
-}
-*/
 void abrirScript(char *argv[]) {
 
 	script = fopen(argv[1], "r");
@@ -118,16 +98,18 @@ void abrirScript(char *argv[]) {
 
 void conectarseAlCoordinador(){
 	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
-
-	recibirMensaje(logger, socketCoordinador);
-	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
+	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
+	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
+	PROTOCOLO_ESI_A_COORDINADOR handshakeESI = HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
+	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,socketCoordinador);
 }
 
 void conectarseAlPlanificador(){
 	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
-	PROTOCOLO_ESI_A_PLANIFICADOR protocolo = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
-	recibir
-	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
+	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
+	recibirMensaje(logger,sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),&handshakePlani,socketPlani);
+	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
+	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,socketPlani);
 
 }
 

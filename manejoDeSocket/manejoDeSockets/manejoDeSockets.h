@@ -25,10 +25,10 @@ typedef struct ContentHeader {
 t_log* crearLogger(char*archivo, char*nombre);
 int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int unsocket);
 void exitWithError(t_log* logger, int socket, char* error_msg, void * buffer);
-/*int enviarMensaje(t_log* logger, int id, char*mensaje, int unsocket);
-int recibirMensaje(t_log* logger,size_t, int unsocket);*/
-int recibirMensaje(int unsocket,void* buffer, size_t len ,t_log* logger);
-int enviarMensaje(int unsocket, const void* msg,size_t len,t_log* logger );
+int enviarChar(t_log* logger, int id, char*mensaje, int unsocket);
+/*int recibirMensaje(t_log* logger,size_t, int unsocket);*/
+int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket);
+int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket);
 int crearSocketQueEscucha(char ** puerto, int * entradas);
 int conectarseAlServidor(t_log* logger, char ** ip, char ** puerto);
 t_log* crearLogger(char* nombreDelArchivo, char* nombreAMostrar);

@@ -11,6 +11,7 @@
 #include <commons/config.h>
 #include <pthread.h>
 #include <manejoDeSockets/manejoDeSockets.h>
+#include <protocolos/protocolos.h>
 #include <commons/string.h>
 #include <parsi/parser.h>
 #include <commons/log.h>

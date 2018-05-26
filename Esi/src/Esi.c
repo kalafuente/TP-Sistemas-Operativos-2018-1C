@@ -33,6 +33,7 @@ int main(int argc, char **argv) {
 	        	break;
 	        }
 
+
 	        destruir_operacion(*parsed);
 	}
 

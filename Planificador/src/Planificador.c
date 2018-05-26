@@ -70,13 +70,13 @@ void *manejadorDeConexiones(void *socket_desc) {
 	int sock = *(int*) socket_desc;
 	int id;
 	enviarMensaje(logger, ID_PLANIFICADOR, "SoyPlani", sock); //Saludamos
-	recibirIDyContenido(&id, logger, sock);
+	//recibirIDyContenido(&id, logger, sock); Se cambiaron varias cosas de nuestra biblioteca asi que rompe. VER
 
 	switch(id) {
 
 		case ID_ESI  :
 		printf("Se me conectó un ESI \n ");
-		recibirIDyContenido(&id, logger, sock);
+		//recibirIDyContenido(&id, logger, sock); IDEM ARRIBA
 				   //Espero la instrucción proveniendo del ESI
 				   //char* instruccion =recibirIDyContenido(logger, sock, &id);
 				   //actualizarLogDeOperaciones();

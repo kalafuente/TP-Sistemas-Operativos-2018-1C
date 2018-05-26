@@ -1,0 +1,15 @@
+[INFO] 05:51:20:167 loggerInstancia/(5792:5792): Intento conectarme al Coordinador
+
+[ERROR] 05:51:20:168 loggerInstancia/(5792:5792): No me pude conectar al servidor
+[INFO] 05:52:51:550 loggerInstancia/(5874:5874): Intento conectarme al Coordinador
+
+[ERROR] 05:52:51:550 loggerInstancia/(5874:5874): No me pude conectar al servidor
+[ERROR] 05:52:51:550 loggerInstancia/(5874:5874): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 05:52:55:605 loggerInstancia/(5874:5874): Conexion exitosa!
+[INFO] 05:53:17:365 loggerInstancia/(5899:5899): Intento conectarme al Coordinador
+
+[ERROR] 05:53:17:396 loggerInstancia/(5899:5899): No me pude conectar al servidor
+[ERROR] 05:53:17:397 loggerInstancia/(5899:5899): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 05:53:20:291 loggerInstancia/(5899:5899): Conexion exitosa!

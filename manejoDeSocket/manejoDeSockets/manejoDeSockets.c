@@ -22,7 +22,9 @@ int conectarseAlServidor(t_log* logger, char ** ip, char ** puerto) {
 	int resultado = connect(serverSocket, serverInfo->ai_addr, serverInfo->ai_addrlen);
 	freeaddrinfo(serverInfo);	// No lo necesitamos mas
 	if (resultado < 0){
-			exitWithError(logger, serverSocket, "No me pude conectar al servidor", NULL);
+			//exitWithError(logger, serverSocket, "No me pude conectar al servidor", NULL);
+			log_error(logger, "No me pude conectar al servidor");
+			return -1;
 		}
 
 	return serverSocket;

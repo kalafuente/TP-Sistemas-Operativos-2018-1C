@@ -7,7 +7,16 @@ int main(int argc, char **argv) {
 
 	abrirScript(argv);
 	logger = crearLogger("loggerEsi.log", "loggerEsi");
-	crearConfiguracion();
+
+	//-------ARCHIVO DE CONFIGURACION
+
+	t_config *config = config_create("configuracionEsi.config");
+	esi_config * esiConfig = init_esiConfig();
+	crearConfiguracion(esiConfig, config);
+
+	//-------ARCHIVO DE CONFIGURACION
+
+
 	conectarseAlCoordinador();
 	//conectarseAlPlanificador();
 	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
@@ -53,10 +62,26 @@ int main(int argc, char **argv) {
 	close(socketCoordinador);
 	close(socketPlani);
 	destroy_esiConfig(esiConfig);
-	//config_destroy(config);
+	config_destroy(config);
 	return 0;
 
 }
+
+esi_config * init_esiConfig() {
+	esiConfig = malloc(sizeof(esi_config));
+	esiConfig->ipCoordi = string_new();
+	esiConfig->puertoCoordi = string_new();
+	esiConfig->ipPlanificador = string_new();
+	esiConfig->puertoPlanificador = string_new();
+	return esiConfig;
+}
+void crearConfiguracion(esi_config* esiConfig, t_config* config){
+	string_append(&(esiConfig->ipCoordi), config_get_string_value(config, "IP_COORDINADOR"));
+	string_append(&(esiConfig->puertoCoordi), config_get_string_value(config, "PUERTO_COORDINADOR"));
+	string_append(&(esiConfig->ipPlanificador), config_get_string_value(config, "IP_PLANIFICADOR"));
+	string_append(&(esiConfig->puertoPlanificador), config_get_string_value(config, "PUERTO_PLANIFICADOR"));
+}
+
 void destroy_esiConfig() {
 
 	free(esiConfig->ipPlanificador);
@@ -65,26 +90,6 @@ void destroy_esiConfig() {
 	free(esiConfig->puertoPlanificador);
 	free(esiConfig);
 }
-
-
-void init_esiConfig() {
-	esiConfig = calloc(1, sizeof(esi_config));
-	esiConfig->ipCoordi = calloc(9, sizeof(char));
-	esiConfig->puertoCoordi = calloc(4, sizeof(char));
-	esiConfig->ipPlanificador = calloc(9, sizeof(char));
-	esiConfig->puertoPlanificador = calloc(4, sizeof(char));
-
-}
-void crearConfiguracion(){
-	t_config *config = config_create("configuracionEsi.config");
-	init_esiConfig();
-	esiConfig->ipCoordi = strdup(config_get_string_value(config, "IP_COORDINADOR"));
-	esiConfig->puertoCoordi = strdup(config_get_string_value(config, "PUERTO_COORDINADOR"));
-	esiConfig->ipPlanificador = strdup(config_get_string_value(config,"IP_PLANIFICADOR"));
-	esiConfig->puertoPlanificador = strdup(config_get_string_value(config, "PUERTO_PLANIFICADOR"));
-	config_destroy(config);
-}
-
 
 void abrirScript(char *argv[]) {
 

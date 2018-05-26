@@ -24,25 +24,18 @@ typedef struct esi_config{
 }esi_config;
 
 
-void crearConfiguracion();
+void crearConfiguracion(esi_config* esiConfig, t_config* config);
 void destroy_esiConfig();
-void init_esiConfig();
+esi_config * init_esiConfig();
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
 void abrirScript(char **argv);
 
-/*
-void crearConfiguracion(esi_config** esiConfig, t_config ** config);
-void destroy_esiConfig(esi_config * esi);
-esi_config* init_esiConfig();
-*/
 
-//VARIABLES GLOBALES
+//------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;
-//t_config* config;
 FILE* script;
-
 int socketCoordinador;
 int socketPlani;
 

@@ -289,7 +289,7 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 
 
 
-int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
+int enviarMensaje(int unsocket, const void* msg,, size_t len,t_log* logger ){
 	int total=0;
 	size_t bytes_left =len;
 	while(total<len){
@@ -311,7 +311,7 @@ return 1;
 }
 
 
-int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
+int recibirMensaje(int unsocket,void* buffer, size_t len ,t_log* logger){
 	int bytesHeader = recv(unsocket, buffer, len, 0);
 
 	while(bytesHeader<len){

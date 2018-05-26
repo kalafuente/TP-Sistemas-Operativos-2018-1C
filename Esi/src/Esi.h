@@ -9,6 +9,7 @@
 #include <commons/log.h>
 #include <manejoDeSockets/manejoDeSockets.h>
 #include <string.h>
+#include <protocolos.h>
 
 #ifndef ESI_H_
 #define ESI_H_

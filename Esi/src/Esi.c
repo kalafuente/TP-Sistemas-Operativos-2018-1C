@@ -3,6 +3,7 @@
 #include "Esi.h"
 #include <parsi/parser.h>
 
+
 int main(int argc, char **argv) {
 
 	abrirScript(argv);
@@ -10,6 +11,8 @@ int main(int argc, char **argv) {
 	crearConfiguracion();
 	conectarseAlCoordinador();
 	conectarseAlPlanificador();
+
+	/*
 	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
 
 	char*line=NULL;
@@ -40,7 +43,7 @@ int main(int argc, char **argv) {
 	fclose(script);
 	free(line);
 	free (parsed);
-
+*/
 
 	close(socketCoordinador);
 	close(socketPlani);
@@ -115,13 +118,15 @@ void abrirScript(char *argv[]) {
 
 void conectarseAlCoordinador(){
 	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+
 	recibirMensaje(logger, socketCoordinador);
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketCoordinador);
 }
 
 void conectarseAlPlanificador(){
 	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
-	recibirMensaje(logger, socketPlani);
+	PROTOCOLO_ESI_A_PLANIFICADOR protocolo = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
+	recibirMensaje(logger,sizeof(PROTOCOLO_ESI_A_PLANIFICADOR))
 	enviarMensaje(logger, ID_ESI, "SOYESI", socketPlani);
 
 }

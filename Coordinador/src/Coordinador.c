@@ -3,9 +3,16 @@
 int main(int argc, char **argv) {
 	logger= crearLogger("loggerCoordi.log","loggerCoordi");
 	logDeOperaciones = crearLogger("logDeOperaciones.log", "logDeOperaciones");
-	t_config *config = malloc(sizeof(t_config));
+
+	//----------ARCHIVO DE CONFIGURACION
+
+	t_config *config = config_create("configuracion.config");
 	coordinador_config * coordConfig = init_coordConfig();
-	crearConfiguracion(&coordConfig,&config);
+	crearConfiguracion(coordConfig,config);
+
+	//---------ARCHIVO DE CONFIGURACION
+
+
 	int listenningSocket = crearSocketQueEscucha(&coordConfig->puerto, &coordConfig->entradas);
 	crearServidorMultiHilo(listenningSocket);
 	close(listenningSocket);
@@ -93,25 +100,21 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 
 
+//*************************************FUNCIONES PARA EL ARCHIVO DE CONFIGURACION*************************************
 coordinador_config * init_coordConfig(){
-	coordinador_config* coord = calloc(1, sizeof (coordinador_config));
-	coord->puerto=calloc(4,sizeof(char));
-	return coord;
-
-
+	coordinador_config* coordinadorConfig = malloc(sizeof (coordinador_config));
+	coordinadorConfig->puerto=string_new();
+	coordinadorConfig->entradas=0;
+	coordinadorConfig->tamanioEntradas=0;
+	return coordinadorConfig;
+}
+void crearConfiguracion(coordinador_config* coordinador, t_config* config){
+	string_append(&(coordinador->puerto), config_get_string_value(config, "PUERTO_DE_ESCUCHA"));
+	coordinador->entradas = config_get_int_value(config, "ENTRADAS");
+	coordinador->tamanioEntradas = config_get_int_value(config, "TAMANIO_ENTRADAS");
+}
+void destroy_coordConfig(coordinador_config* coordinadorConfig){
+	free(coordinadorConfig->puerto);
+	free(coordinadorConfig);
 }
 
-void destroy_coordConfig(coordinador_config* coord){
-	free(coord->puerto);
-	free(coord);
-
-}
-
-void crearConfiguracion(coordinador_config** coord, t_config ** config){
-
-	*config = config_create("configuracion.config");
-	(*coord)->puerto = config_get_string_value(*config, "PUERTO_DE_ESCUCHA");
-	(*coord)->entradas = config_get_int_value(*config, "ENTRADAS");
-	(*coord)->tamanioEntradas = config_get_int_value(*config, "TAMANIO_ENTRADAS");
-
-}

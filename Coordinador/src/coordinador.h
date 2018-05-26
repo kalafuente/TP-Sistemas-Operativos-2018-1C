@@ -22,18 +22,20 @@ typedef struct coordinador_config {
 	int tamanioEntradas;
 }coordinador_config;
 
-//----VARIABLES GLOBALES
+//---------------------------VARIABLES GLOBALES-----------------------------
+
 t_log* logger;
 t_log* logDeOperaciones;
 int cantEsi;
 
-//-----DECLARACION FUNCIONES
+//---------------------------DECLARACION FUNCIONES-----------------------------
 
-
+//-----------Archivo De Confuguracion
 coordinador_config * init_coordConfig();
-
 void destroy_coordConfig(coordinador_config* coord);
-void crearConfiguracion(coordinador_config** coord, t_config ** config);
+void crearConfiguracion(coordinador_config* coordinador, t_config* config);
+
+//-----------Sockets
 int crearServidor(char ** puerto, int * entradas);
 void crearServidorMultiHilo(int listenningSocket);
 void *manejadorDeConexiones(void *socket_desc);

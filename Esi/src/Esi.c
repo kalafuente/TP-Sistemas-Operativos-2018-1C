@@ -16,48 +16,59 @@ int main(int argc, char **argv) {
 
 	//-------ARCHIVO DE CONFIGURACION
 
-
 	conectarseAlCoordinador();
-	//conectarseAlPlanificador();
-	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
+	conectarseAlPlanificador();
+	t_esi_operacion * parsed = calloc(1, sizeof(t_esi_operacion));
 
-	char*line=NULL;
-	size_t len=0;
+	char*line = NULL;
+	size_t len = 0;
 	ssize_t read;
+	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
 
 	while ((read = getline(&line, &len, script)) != -1) {
+		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+				&mensajeDelPlani, socketPlani);
 
-	        * parsed = parse(line);
-	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
-        	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
-        	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
+		*parsed = parse(line);
+		PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
+		PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
+		PROTOCOLO_INSTRUCCIONES store = INSTRUCCION_STORE;
+		PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN; //FALTA DAR EL ASIGNAR A RESULTADO EL VALOR CORRECTO SEGUN LO QUE OCURRA CON LA SENTENCIA
+		switch (parsed->keyword) {
+		case GET:
+			enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &get,
+					socketCoordinador);
+			enviarChar(logger, parsed->argumentos.GET.clave, socketCoordinador);
+			enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&resultado, socketPlani);
 
-	        switch (parsed->keyword){
-	        case GET:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-	        	enviarChar(logger, parsed->argumentos.GET.clave,socketCoordinador);
+			//enviarMensaje(logger,100, & parsed->argumentos.GET.clave,socketCoordinador);
+			break;
+		case SET:
+			enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &set,
+					socketCoordinador);
+			enviarChar(logger, parsed->argumentos.SET.clave, socketCoordinador);
+			enviarChar(logger, parsed->argumentos.SET.valor, socketCoordinador);
+			enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&resultado, socketPlani);
+			break;
+		case STORE:
+			enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &store,
+					socketCoordinador);
+			enviarChar(logger, parsed->argumentos.STORE.clave,
+					socketCoordinador);
+			enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&resultado, socketPlani);
 
-	        	//enviarMensaje(logger,100, & parsed->argumentos.GET.clave,socketCoordinador);
-				break;
-	        case SET:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-	        	enviarChar(logger, parsed->argumentos.SET.clave,socketCoordinador);
-	        	enviarChar(logger,parsed->argumentos.SET.valor,socketCoordinador);
-	        	break;
-	        case STORE:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-	        	enviarChar(logger,parsed->argumentos.STORE.clave,socketCoordinador);
-	        	break;
-	        }
+			break;
+		}
 
-
-	        destruir_operacion(*parsed);
+		destruir_operacion(*parsed);
 	}
 
 	fclose(script);
 	free(line);
-	free (parsed);
-
+	free(parsed);
 
 	close(socketCoordinador);
 	close(socketPlani);
@@ -75,11 +86,15 @@ esi_config * init_esiConfig() {
 	esiConfig->puertoPlanificador = string_new();
 	return esiConfig;
 }
-void crearConfiguracion(esi_config* esiConfig, t_config* config){
-	string_append(&(esiConfig->ipCoordi), config_get_string_value(config, "IP_COORDINADOR"));
-	string_append(&(esiConfig->puertoCoordi), config_get_string_value(config, "PUERTO_COORDINADOR"));
-	string_append(&(esiConfig->ipPlanificador), config_get_string_value(config, "IP_PLANIFICADOR"));
-	string_append(&(esiConfig->puertoPlanificador), config_get_string_value(config, "PUERTO_PLANIFICADOR"));
+void crearConfiguracion(esi_config* esiConfig, t_config* config) {
+	string_append(&(esiConfig->ipCoordi),
+			config_get_string_value(config, "IP_COORDINADOR"));
+	string_append(&(esiConfig->puertoCoordi),
+			config_get_string_value(config, "PUERTO_COORDINADOR"));
+	string_append(&(esiConfig->ipPlanificador),
+			config_get_string_value(config, "IP_PLANIFICADOR"));
+	string_append(&(esiConfig->puertoPlanificador),
+			config_get_string_value(config, "PUERTO_PLANIFICADOR"));
 }
 
 void destroy_esiConfig() {
@@ -101,24 +116,28 @@ void abrirScript(char *argv[]) {
 
 }
 
-void conectarseAlCoordinador(){
-	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+void conectarseAlCoordinador() {
+	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,
+			&esiConfig->puertoCoordi);
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
-	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
-	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI = HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeESI,socketCoordinador);
+	recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),
+			&handshakeCoordi, socketCoordinador);
+	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI =
+			HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
+	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakeESI,
+			socketCoordinador);
 }
 
-/*
-void conectarseAlPlanificador(){
-	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
+void conectarseAlPlanificador() {
+	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
+			&esiConfig->puertoPlanificador);
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
-	recibirMensaje(logger,sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),&handshakePlani,socketPlani);
-	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,socketPlani);
+	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+			&handshakePlani, socketPlani);
+	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI =
+			HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &handshakeESI,
+			socketPlani);
 
 }
-
-*/
-
 

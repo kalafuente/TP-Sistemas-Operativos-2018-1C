@@ -16,14 +16,14 @@ int main(int argc, char **argv) {
 
 	//-------ARCHIVO DE CONFIGURACION
 
-
 	conectarseAlCoordinador();
-	//conectarseAlPlanificador();
+	conectarseAlPlanificador();
+	t_esi_operacion * parsed = calloc(1, sizeof(t_esi_operacion));
 
-
-	char*line=NULL;
-	size_t len=0;
+	char*line = NULL;
+	size_t len = 0;
 	ssize_t read;
+	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
 
 	while ((read = getline(&line, &len, script)) != -1) {
 
@@ -71,11 +71,15 @@ esi_config * init_esiConfig() {
 	esiConfig->puertoPlanificador = string_new();
 	return esiConfig;
 }
-void crearConfiguracion(esi_config* esiConfig, t_config* config){
-	string_append(&(esiConfig->ipCoordi), config_get_string_value(config, "IP_COORDINADOR"));
-	string_append(&(esiConfig->puertoCoordi), config_get_string_value(config, "PUERTO_COORDINADOR"));
-	string_append(&(esiConfig->ipPlanificador), config_get_string_value(config, "IP_PLANIFICADOR"));
-	string_append(&(esiConfig->puertoPlanificador), config_get_string_value(config, "PUERTO_PLANIFICADOR"));
+void crearConfiguracion(esi_config* esiConfig, t_config* config) {
+	string_append(&(esiConfig->ipCoordi),
+			config_get_string_value(config, "IP_COORDINADOR"));
+	string_append(&(esiConfig->puertoCoordi),
+			config_get_string_value(config, "PUERTO_COORDINADOR"));
+	string_append(&(esiConfig->ipPlanificador),
+			config_get_string_value(config, "IP_PLANIFICADOR"));
+	string_append(&(esiConfig->puertoPlanificador),
+			config_get_string_value(config, "PUERTO_PLANIFICADOR"));
 }
 
 void destroy_esiConfig() {
@@ -97,24 +101,28 @@ void abrirScript(char *argv[]) {
 
 }
 
-void conectarseAlCoordinador(){
-	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,&esiConfig->puertoCoordi);
+void conectarseAlCoordinador() {
+	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,
+			&esiConfig->puertoCoordi);
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
-	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
-	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI = HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeESI,socketCoordinador);
+	recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),
+			&handshakeCoordi, socketCoordinador);
+	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI =
+			HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
+	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakeESI,
+			socketCoordinador);
 }
 
-/*
-void conectarseAlPlanificador(){
-	socketPlani= conectarseAlServidor(logger, &esiConfig->ipPlanificador,&esiConfig->puertoPlanificador);
+void conectarseAlPlanificador() {
+	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
+			&esiConfig->puertoPlanificador);
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
-	recibirMensaje(logger,sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),&handshakePlani,socketPlani);
-	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI = HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_COORDINADOR),&handshakeESI,socketPlani);
+	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+			&handshakePlani, socketPlani);
+	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI =
+			HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &handshakeESI,
+			socketPlani);
 
 }
-
-*/
-
 

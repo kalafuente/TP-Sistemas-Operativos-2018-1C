@@ -10,8 +10,8 @@ int main(int argc, char **argv) {
 
 	//-------ARCHIVO DE CONFIGURACION
 
-	t_config *config = config_create("configuracionEsi.config");
-	esi_config * esiConfig = init_esiConfig();
+	config = config_create("configuracionEsi.config");
+	 esiConfig = init_esiConfig();
 	crearConfiguracion(esiConfig, config);
 
 	//-------ARCHIVO DE CONFIGURACION
@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
 	conectarseAlCoordinador();
 	//conectarseAlPlanificador();
-	t_esi_operacion * parsed = calloc(1,sizeof(t_esi_operacion ));
+
 
 	char*line=NULL;
 	size_t len=0;
@@ -27,37 +27,33 @@ int main(int argc, char **argv) {
 
 	while ((read = getline(&line, &len, script)) != -1) {
 
-	        * parsed = parse(line);
+	        t_esi_operacion parsed = parse(line);
 	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
         	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
         	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
 
-	        switch (parsed->keyword){
+	        switch (parsed.keyword){
 	        case GET:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-	        	enviarChar(logger, parsed->argumentos.GET.clave,socketCoordinador);
-
-	        	//enviarMensaje(logger,100, & parsed->argumentos.GET.clave,socketCoordinador);
+	        	enviarString(logger,parsed.argumentos.GET.clave,socketCoordinador);
 				break;
 	        case SET:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-	        	enviarChar(logger, parsed->argumentos.SET.clave,socketCoordinador);
-	        	enviarChar(logger,parsed->argumentos.SET.valor,socketCoordinador);
+	        	enviarString(logger, parsed.argumentos.SET.clave,socketCoordinador);
+	        	enviarString(logger,parsed.argumentos.SET.valor,socketCoordinador);
 	        	break;
 	        case STORE:
 	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-	        	enviarChar(logger,parsed->argumentos.STORE.clave,socketCoordinador);
+	        	enviarString(logger,parsed.argumentos.STORE.clave,socketCoordinador);
 	        	break;
 	        }
 
 
-	        destruir_operacion(*parsed);
+	        destruir_operacion(parsed);
 	}
 
 	fclose(script);
 	free(line);
-	free (parsed);
-
 
 	close(socketCoordinador);
 	close(socketPlani);

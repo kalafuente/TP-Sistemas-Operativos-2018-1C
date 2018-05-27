@@ -4,7 +4,7 @@
  *  Created on: 2 may. 2018
  *      Author: utnso
  */
-
+#include <commons/string.h>
 #include <commons/config.h>
 #include <commons/log.h>
 #include <manejoDeSockets/manejoDeSockets.h>
@@ -35,6 +35,7 @@ void abrirScript(char **argv);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;
+t_config *config;
 FILE* script;
 int socketCoordinador;
 int socketPlani;

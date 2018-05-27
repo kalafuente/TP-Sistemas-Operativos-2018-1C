@@ -57,7 +57,7 @@ int crearSocketQueEscucha(char ** puerto, int * entradas) {
 
 
 
-
+/*
 int enviarChar(t_log* logger, char*mensaje, int unsocket) {
 
 	log_info(logger, "Enviando mensaje con enviarMensaje"); //Indicamos que vamos a enviar el mensaje
@@ -91,8 +91,8 @@ int enviarChar(t_log* logger, char*mensaje, int unsocket) {
 	return 1;
 }
 
-
-
+*/
+/*
 int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int unsocket) {
 
 	log_info(logger, "Enviando mensaje"); //Indicamos que vamos a enviar el mensaje
@@ -124,6 +124,8 @@ int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int 
 	return 1;
 }
 /*
+ */
+/*
 int recibirMensaje(t_log* logger, int unsocket) {
 	ContentHeader * cabeza = calloc(1, sizeof(ContentHeader));
 
@@ -153,6 +155,8 @@ int recibirMensaje(t_log* logger, int unsocket) {
 
 }
 */
+
+/*
 void * recibirContenido(t_log * logger, int socket) {
 
   log_info(logger, "recibirContenido: Esperando el encabezado del contenido(%ld bytes)", sizeof(ContentHeader));
@@ -177,7 +181,7 @@ void * recibirContenido(t_log * logger, int socket) {
   return buf;
 }
 
-
+*/
 void exitWithError(t_log* logger, int socket, char* error_msg, void * buffer) {
 
 	//Si el mensaje existe lo liberamos
@@ -247,6 +251,24 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 
 
 
+int enviarString(t_log *logger,char* msg,int unsocket){
+	int total =0;
+	size_t len = strlen(msg);
+	total+=enviarMensaje(logger,sizeof(len),&len,unsocket);
+	total+=enviarMensaje(logger,len,msg,unsocket);
+	return total;
+}
+
+
+char* recibirString(t_log *logger,char*buf,int unsocket){
+	int len;
+	recibirMensaje(logger,sizeof(int),&len,unsocket);
+	char* buffer;
+	recibirMensaje(logger,len,buffer,unsocket);
+	return buffer;
+}
+
+
 
 
 int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
@@ -262,10 +284,11 @@ int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 		if(total==0){
 			log_info(logger,"Se cerro la conexion");
 		}
+		log_info(logger,"Se enviaron %d bytes",total);
 		bytes_left-=total;
 	}
 log_info(logger,"Se envio el mensaje");
-return 1;
+return total;
 
 
 }
@@ -273,6 +296,7 @@ return 1;
 
 int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 	int bytesHeader = recv(unsocket, buffer, len, 0);
+	log_info(logger,"Se recibieron %d bytes",bytesHeader);
 
 	while(bytesHeader<len){
 		if(bytesHeader ==-1){
@@ -282,11 +306,11 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 		if(bytesHeader ==0){
 			return 0;
 		}
+		log_info(logger,"Se recibieron %d bytes",bytesHeader);
 		bytesHeader+=recv(unsocket,buffer+bytesHeader,len-bytesHeader,0);
 
 	}
 	log_info(logger,"Se recibieron los datos");
 	return bytesHeader;
 }
-
 

@@ -86,17 +86,20 @@ void *manejadorDeConexiones(void *socket_desc) {
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
-		char * clave = calloc(1,sizeof(char*));
-		char * valor = calloc(1,sizeof(char*));
+		char * clave; //= calloc(1,sizeof(char*));
+		char * valor; //= calloc(1,sizeof(char*));
 		recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-		clave = recibirContenido(logger, sock);
+		//clave = recibirContenido(logger, sock);
+		clave=recibirString(logger,clave,sock);
+		//recibirMensaje(logger,100,clave,sock);
 		switch(instruccion){
 			case INSTRUCCION_GET:
 							sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
 							log_info(logDeOperaciones, operacion);
 							break;
 			case INSTRUCCION_SET:
-							valor = recibirContenido(logger, sock);
+							//valor = recibirContenido(logger, sock);
+							recibirString(logger,valor,sock);
 							sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
 							log_info(logDeOperaciones, operacion);
 							break;

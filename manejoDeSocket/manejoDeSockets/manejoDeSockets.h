@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <commons/log.h>
-
+#include <commons/string.h>
+#include <strings.h>
 
 
 #ifndef BIBLIOTECA_MANEJODESOCKETS_H_
@@ -35,6 +36,8 @@ t_log* crearLogger(char* nombreDelArchivo, char* nombreAMostrar);
 int conectarAlServidor(t_log* logger, char * ip, char * puerto);
 void exitGracefully(t_log* logger, int valorDeRetorno);
 void * recibirContenido(t_log * logger, int socket);
+int enviarString(t_log *logger,char*msg,int unsocket);
+char* recibirString(t_log *logger,char*buf,int unsocket);
 
 
 #endif /* BIBLIOTECA_MANEJODESOCKETS_H_ */

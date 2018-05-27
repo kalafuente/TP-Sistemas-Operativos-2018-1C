@@ -26,7 +26,7 @@ typedef struct ContentHeader {
 t_log* crearLogger(char*archivo, char*nombre);
 int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int unsocket);
 void exitWithError(t_log* logger, int socket, char* error_msg, void * buffer);
-int enviarChar(t_log* logger, char*mensaje, int unsocket);
+int enviarString(t_log* logger, char*mensaje, int unsocket);
 /*int recibirMensaje(t_log* logger,size_t, int unsocket);*/
 int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket);
 int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket);
@@ -36,8 +36,5 @@ t_log* crearLogger(char* nombreDelArchivo, char* nombreAMostrar);
 int conectarAlServidor(t_log* logger, char * ip, char * puerto);
 void exitGracefully(t_log* logger, int valorDeRetorno);
 void * recibirContenido(t_log * logger, int socket);
-int enviarString(t_log *logger,char*msg,int unsocket);
-char* recibirString(t_log *logger,char*buf,int unsocket);
-
 
 #endif /* BIBLIOTECA_MANEJODESOCKETS_H_ */

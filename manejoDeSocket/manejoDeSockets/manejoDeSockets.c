@@ -57,22 +57,28 @@ int crearSocketQueEscucha(char ** puerto, int * entradas) {
 
 
 
-/*
-int enviarChar(t_log* logger, char*mensaje, int unsocket) {
 
-	log_info(logger, "Enviando mensaje con enviarMensaje"); //Indicamos que vamos a enviar el mensaje
+int enviarString(t_log* logger, char*mensaje, int unsocket) {
 
 	ContentHeader * cabeza = calloc(1, sizeof(ContentHeader));
 
 
 	cabeza->len = strlen(mensaje); //Indicamos que la longitud es la del mensaje (incluyendo el fin de string)
+	if(enviarMensaje(logger,sizeof(ContentHeader),cabeza,unsocket)<=0){
+		exitWithError(logger, unsocket, "No se pudo enviar el header", cabeza);
+				return 0;
+	}
 
+	if(enviarMensaje(logger,cabeza->len,mensaje,unsocket)<=0){
+		exitWithError(logger, unsocket, "No se pudo enviar el mensaje", cabeza);
+		return 0;
+	}
 	//char *message = calloc(cabeza->len, sizeof(char));
 	//strcpy(message, mensaje);
 	//No hace falta
 
 
-	//Intentamos enviar el header
+	/*//Intentamos enviar el header
 	if (send(unsocket, cabeza, sizeof(ContentHeader), 0) <= 0) {
 		//exitWithError(logger, unsocket, "No se pudo enviar el header", cabeza);
 		return 0;
@@ -83,15 +89,14 @@ int enviarChar(t_log* logger, char*mensaje, int unsocket) {
 		//exitWithError(logger, unsocket, "No se pudo enviar el mensaje", cabeza);
 		return 0;
 	}
-
-	log_info(logger, "Se envió el msj");
+*/
 	free(cabeza);
 	//free(message);
 
 	return 1;
 }
 
-*/
+
 /*
 int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int unsocket) {
 
@@ -156,32 +161,40 @@ int recibirMensaje(t_log* logger, int unsocket) {
 }
 */
 
-/*
+
 void * recibirContenido(t_log * logger, int socket) {
 
   log_info(logger, "recibirContenido: Esperando el encabezado del contenido(%ld bytes)", sizeof(ContentHeader));
 
   ContentHeader * cabeza = (ContentHeader*) malloc(sizeof(ContentHeader));
-
+/*
   if (recv(socket, cabeza, sizeof(ContentHeader), 0) <= 0) {
     exitWithError(logger, socket, "No se pudo recibir el encabezado del contenido", cabeza);
   }
-
-  log_info(logger, "Esperando el contenido (%d bytes)", cabeza->len);
+*/
+  if(recibirMensaje(logger,sizeof(ContentHeader),cabeza,socket)<=0){
+	  exitWithError(logger, socket, "No se pudo recibir el encabezado del contenido", cabeza);
+  }
+//  log_info(logger, "Esperando el contenido (%d bytes)", cabeza->len);
 
   void * buf = calloc(sizeof(char), cabeza->len + 1);
+  /*
   if (recv(socket, buf, cabeza->len, MSG_WAITALL) <= 0) {
     free(buf);
     exitWithError(logger, socket, "Error recibiendo el contenido", cabeza);
   }
+*/
+  if(recibirMensaje(logger,cabeza->len,buf,socket)<=0){
+	  free(buf);
 
+  }
 
-  log_info(logger, "Contenido recibido '%s'", (char*) buf);
+  //log_info(logger, "Contenido recibido '%s'", (char*) buf);
   free(cabeza);
   return buf;
 }
 
-*/
+
 void exitWithError(t_log* logger, int socket, char* error_msg, void * buffer) {
 
 	//Si el mensaje existe lo liberamos
@@ -251,22 +264,6 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 
 
 
-int enviarString(t_log *logger,char* msg,int unsocket){
-	int total =0;
-	size_t len = strlen(msg);
-	total+=enviarMensaje(logger,sizeof(len),&len,unsocket);
-	total+=enviarMensaje(logger,len,msg,unsocket);
-	return total;
-}
-
-
-char* recibirString(t_log *logger,char*buf,int unsocket){
-	int len;
-	recibirMensaje(logger,sizeof(int),&len,unsocket);
-	char* buffer;
-	recibirMensaje(logger,len,buffer,unsocket);
-	return buffer;
-}
 
 
 

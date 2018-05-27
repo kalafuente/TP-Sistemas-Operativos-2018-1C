@@ -32,21 +32,21 @@ int main(int argc, char **argv) {
         	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
         	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
 
-	        switch (parsed.keyword){
-	        case GET:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-	        	enviarString(logger,parsed.argumentos.GET.clave,socketCoordinador);
-				break;
-	        case SET:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-	        	enviarString(logger, parsed.argumentos.SET.clave,socketCoordinador);
-	        	enviarString(logger,parsed.argumentos.SET.valor,socketCoordinador);
-	        	break;
-	        case STORE:
-	        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-	        	enviarString(logger,parsed.argumentos.STORE.clave,socketCoordinador);
-	        	break;
-	        }
+        	switch (parsed.keyword){
+        		        case GET:
+        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
+        		        	enviarString(logger, parsed.argumentos.GET.clave,socketCoordinador);
+        					break;
+        		        case SET:
+        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
+        		        	enviarString(logger, parsed.argumentos.SET.clave,socketCoordinador);
+        		        	enviarString(logger,parsed.argumentos.SET.valor,socketCoordinador);
+        		        	break;
+        		        case STORE:
+        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
+        		        	enviarString(logger,parsed.argumentos.STORE.clave,socketCoordinador);
+        		        	break;
+        		        }
 
 
 	        destruir_operacion(parsed);

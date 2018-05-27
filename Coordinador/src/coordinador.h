@@ -49,6 +49,7 @@ void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 
 void recibirInstruccion(int sock);
+void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);
 void crearServidorMultiHilo(int listenningSocket);

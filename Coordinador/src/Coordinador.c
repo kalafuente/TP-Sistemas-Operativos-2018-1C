@@ -106,24 +106,35 @@ void recibirInstruccion(int sock){
 
 			switch(instruccion){
 				case INSTRUCCION_GET:
-								sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
-								log_info(logDeOperaciones, operacion);
-								break;
+					registrarLogDeOperaciones(operacion,"GET", clave,"0");
+					break;
 				case INSTRUCCION_SET:
-								valor = recibirContenido(logger, sock);
-								sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
-								log_info(logDeOperaciones, operacion);
-								break;
+					valor = recibirContenido(logger, sock);
+					registrarLogDeOperaciones(operacion,"SET", clave,valor);
+					break;
 
 				case INSTRUCCION_STORE:
-								sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
-								log_info(logDeOperaciones, operacion);
-								break;
+					registrarLogDeOperaciones(operacion, "STORE", clave,"0");
+				break;
 	free(clave);
 	free(valor);
 }
 }
 
+void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
+
+	if (!(strcmp(valor,"0")==0)){
+		sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
+		log_info(logDeOperaciones, operacion);
+	}
+	else
+	{
+		sprintf(operacion, "ESI % d %s %s", cantEsi,instruccion,clave);
+		log_info(logDeOperaciones, operacion);
+
+	}
+
+}
 void registrarInstancia(int sock){
 	instancia registrarInstancia;
 	registrarInstancia.socket=sock;
@@ -132,6 +143,9 @@ void registrarInstancia(int sock){
 	registrarInstancia.tamanioOcupado=0;
 	list_add(listaDeInstancias,&registrarInstancia);
 	log_info(logger,"Se registro instancia");
+
+	printf("instancias registradas: %d \n", list_size(listaDeInstancias));
+
 
 }
 

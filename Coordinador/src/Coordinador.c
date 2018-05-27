@@ -84,28 +84,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
-		char * clave = calloc(1,sizeof(char*));
-		char * valor = calloc(1,sizeof(char*));
-		recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-		clave = recibirContenido(logger, sock);
-		switch(instruccion){
-			case INSTRUCCION_GET:
-							sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
-							log_info(logDeOperaciones, operacion);
-							break;
-			case INSTRUCCION_SET:
-							valor = recibirContenido(logger, sock);
-							sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
-							log_info(logDeOperaciones, operacion);
-							break;
-
-			case INSTRUCCION_STORE:
-							sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
-							log_info(logDeOperaciones, operacion);
-							break;
-		}
-		free(clave);
-		free(valor);
+		registrarLogDeOperaciones(sock, instruccion, operacion);
 		break;
 
 	}
@@ -115,6 +94,31 @@ void *manejadorDeConexiones(void *socket_desc) {
 	return NULL;
 
 
+}
+
+void registrarLogDeOperaciones(int sock, PROTOCOLO_INSTRUCCIONES instruccion, char operacion[]){
+	char * clave = calloc(1,sizeof(char*));
+	char * valor = calloc(1,sizeof(char*));
+	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
+			clave = recibirContenido(logger, sock);
+			switch(instruccion){
+				case INSTRUCCION_GET:
+								sprintf(operacion, "ESI % d GET %s", cantEsi,clave);
+								log_info(logDeOperaciones, operacion);
+								break;
+				case INSTRUCCION_SET:
+								valor = recibirContenido(logger, sock);
+								sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
+								log_info(logDeOperaciones, operacion);
+								break;
+
+				case INSTRUCCION_STORE:
+								sprintf(operacion, "ESI % d STORE %s", cantEsi,clave);
+								log_info(logDeOperaciones, operacion);
+								break;
+	free(clave);
+	free(valor);
+}
 }
 
 void registrarInstancia(int sock){

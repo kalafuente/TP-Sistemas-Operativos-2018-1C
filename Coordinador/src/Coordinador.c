@@ -57,7 +57,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
-	char operacion[80];
+
 
 	//----------LA EDUCACIÓN ANTE TODO, VAMOS A SALUDAR A TODO AQUEL QUE SE CONECTE A MÍ----------
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
@@ -65,7 +65,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 	//----------VAMOS A PREPARARME PARA RECIBIR SALUDOS DE LOS DEMÁS----------
 	PROTOCOLO_HANDSHAKE_CLIENTE handshake;
-	PROTOCOLO_INSTRUCCIONES instruccion;
 
 	//----------RECIBO SALUDO DE LOS DEMÁS----------
 	recibirMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshake,sock);
@@ -84,7 +83,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
-		recibirInstruccion(sock, instruccion, operacion);
+		recibirInstruccion(sock);
 		break;
 
 	}
@@ -96,7 +95,9 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
-void recibirInstruccion(int sock, PROTOCOLO_INSTRUCCIONES instruccion, char operacion[]){
+void recibirInstruccion(int sock){
+	char operacion[80];
+	PROTOCOLO_INSTRUCCIONES instruccion;
 	char * clave = calloc(1,sizeof(char*));
 	char * valor = calloc(1,sizeof(char*));
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);

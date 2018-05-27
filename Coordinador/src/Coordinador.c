@@ -84,7 +84,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
-		registrarLogDeOperaciones(sock, instruccion, operacion);
+		recibirInstruccion(sock, instruccion, operacion);
 		break;
 
 	}
@@ -96,7 +96,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
-void registrarLogDeOperaciones(int sock, PROTOCOLO_INSTRUCCIONES instruccion, char operacion[]){
+void recibirInstruccion(int sock, PROTOCOLO_INSTRUCCIONES instruccion, char operacion[]){
 	char * clave = calloc(1,sizeof(char*));
 	char * valor = calloc(1,sizeof(char*));
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);

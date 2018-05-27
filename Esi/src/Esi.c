@@ -32,34 +32,38 @@ int main(int argc, char **argv) {
 	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
         	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
         	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
-        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
 
+        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
+/*
         	switch (parsed.keyword){
         		        case GET:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-        		        	enviarString(logger, parsed.argumentos.GET.clave,socketCoordinador);
-        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-        		        						&resultado, socketPlani);
+        		        	enviarString2(logger, parsed.argumentos.GET.clave,socketCoordinador);
+        		        	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+        		        		//				&resultado, socketPlani);
+        		        	enviarResultado(resultado);
         					break;
         		        case SET:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-        		        	enviarString(logger, parsed.argumentos.SET.clave,socketCoordinador);
-        		        	enviarString(logger,parsed.argumentos.SET.valor,socketCoordinador);
-        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-        		        						&resultado, socketPlani);
+        		        	enviarString2(logger, parsed.argumentos.SET.clave,socketCoordinador);
+        		        	enviarString2(logger,parsed.argumentos.SET.valor,socketCoordinador);
+        		        	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+        		        		//				&resultado, socketPlani);
+        		        	enviarResultado(resultado);
         		        	break;
         		        case STORE:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-        		        	enviarString(logger,parsed.argumentos.STORE.clave,socketCoordinador);
-        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-        		        						&resultado, socketPlani);
+        		        	enviarString2(logger,parsed.argumentos.STORE.clave,socketCoordinador);
+        		        	enviarResultado(resultado);
         		        	break;
-        		        }
+        		        }*/
 
+        	enviarInstruccion(parsed);
 
 	        destruir_operacion(parsed);
 	}
 
+	enviarResultado(TERMINE);
 	fclose(script);
 	free(line);
 
@@ -134,4 +138,38 @@ void conectarseAlPlanificador() {
 
 }
 
+void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR protocolo){
+	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&protocolo,socketPlani);
+}
+
+
+
+void enviarInstruccion(t_esi_operacion parsed){
+	PROTOCOLO_INSTRUCCIONES instruccion;
+	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
+	switch (parsed.keyword){
+	        		        case GET:
+	        		        	instruccion=INSTRUCCION_GET;
+	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
+	        		        	enviarString2(logger, parsed.argumentos.GET.clave,socketCoordinador);
+	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+	        		        						&resultado, socketPlani);
+	        					break;
+	        		        case SET:
+	        		        	instruccion=INSTRUCCION_SET;
+	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
+	        		        	enviarString2(logger, parsed.argumentos.SET.clave,socketCoordinador);
+	        		        	enviarString2(logger,parsed.argumentos.SET.valor,socketCoordinador);
+	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+	        		        						&resultado, socketPlani);
+	        		        	break;
+	        		        case STORE:
+	        		        	instruccion=INSTRUCCION_STORE;
+	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
+	        		        	enviarString2(logger,parsed.argumentos.STORE.clave,socketCoordinador);
+	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+	        		        						&resultado, socketPlani);
+	        		        	break;
+	        		        }
+}
 

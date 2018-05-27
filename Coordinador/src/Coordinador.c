@@ -104,7 +104,7 @@ void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	char * clave = calloc(1,sizeof(char*));
 	char * valor = calloc(1,sizeof(char*));
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-	clave = recibirContenido(logger, sock);
+	clave = recibirContenido2(logger, sock);
 
 			switch(instruccion){
 				case INSTRUCCION_GET:
@@ -117,7 +117,7 @@ void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 					instruccionAGuardar->valor="0";
 					break;
 				case INSTRUCCION_SET:
-					valor = recibirContenido(logger, sock);
+					valor = recibirContenido2(logger, sock);
 					registrarLogDeOperaciones(operacion,"SET", clave,valor);
 
 					//guardo instruccion

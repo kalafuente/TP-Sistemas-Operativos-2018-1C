@@ -263,9 +263,24 @@ int recibirSaludo(t_log* logger, int socket, char * saludo){
 }
 
 
+void enviarString2(t_log* logger, char*mensaje, int unsocket){
+	int32_t len= strlen(mensaje);
+	enviarMensaje(logger,sizeof(len),&len,unsocket);
+	enviarMensaje(logger,len,mensaje,unsocket);
+}
 
+char* recibirContenido2(t_log * logger, int socket){
+	int32_t len;
+	recibirMensaje(logger,sizeof(len),&len,socket);
+	char*msg=calloc(1,len+1);
+	if(recibirMensaje(logger,len,msg,socket)<=0){
+		free(msg);
+		return msg;
 
-
+	}
+	msg[len]='\0';
+	return msg;
+}
 
 
 int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
@@ -274,12 +289,13 @@ int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 	while(total<len){
 		total+=send(unsocket,msg+total,bytes_left,0);
 		if(total==-1){
-			perror("No se pudo enviar el mensaje");
-			log_info(logger,"Fallo el envio de mensajes");
+			log_error(logger,"ERROR AL ENVIAR");
 			return -1;
 		}
 		if(total==0){
-			log_info(logger,"Se cerro la conexion");
+			log_error(logger,"SE CORTO LA CONEXION");
+			return 0;
+		//	exitWithError(logger,unsocket,"Se cerró la conexión",NULL);
 		}
 		log_info(logger,"Se enviaron %d bytes",total);
 		bytes_left-=total;
@@ -292,19 +308,22 @@ return total;
 
 
 int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
-	int bytesHeader = recv(unsocket, buffer, len, 0);
-	log_info(logger,"Se recibieron %d bytes",bytesHeader);
-
+	int bytesHeader =0;
+	//log_info(logger,"Se recibieron %d bytes",bytesHeader);
 	while(bytesHeader<len){
+		bytesHeader+=recv(unsocket,buffer+bytesHeader,len-bytesHeader,0);
 		if(bytesHeader ==-1){
-			log_error(logger,"Error al recibir datos");
+			log_error(logger,"ERROR AL RECIBIR");
 			return -1;
+			//exitWithError(logger,unsocket,"No se pudo enviar el mensaje",buffer);
 		}
 		if(bytesHeader ==0){
+			log_error(logger,"SE CORTO LA CONEXION");
 			return 0;
+			//exitWithError(logger,unsocket,"Se cerro la conexion",buffer);
 		}
 		log_info(logger,"Se recibieron %d bytes",bytesHeader);
-		bytesHeader+=recv(unsocket,buffer+bytesHeader,len-bytesHeader,0);
+
 
 	}
 	log_info(logger,"Se recibieron los datos");

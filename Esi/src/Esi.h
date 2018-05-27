@@ -10,7 +10,7 @@
 #include <manejoDeSockets/manejoDeSockets.h>
 #include <protocolos/protocolos.h>
 #include <string.h>
-
+#include <parsi/parser.h>
 
 #ifndef ESI_H_
 #define ESI_H_
@@ -30,7 +30,8 @@ esi_config * init_esiConfig();
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
 void abrirScript(char **argv);
-
+void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
+void enviarInstruccion(t_esi_operacion);
 
 //------------------VARIABLES GLOBALES
 t_log* logger;

@@ -61,6 +61,7 @@ int main(void) {
 		duracionRafaga++;
 //IF (es con desalojo&llego un nuevo esi)devolver a la lista&&Salir del while------------------------------------------------------------------------------------------------------------
 	}
+	//estadoEsi=recibirResultado(esiActual);
 	switch (estadoEsi) {
 	case BLOQUEADO:
 

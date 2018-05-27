@@ -37,4 +37,9 @@ int conectarAlServidor(t_log* logger, char * ip, char * puerto);
 void exitGracefully(t_log* logger, int valorDeRetorno);
 void * recibirContenido(t_log * logger, int socket);
 
+void enviarString2(t_log* logger, char*mensaje, int unsocket);
+char* recibirContenido2(t_log * logger, int socket);
+
+
+
 #endif /* BIBLIOTECA_MANEJODESOCKETS_H_ */

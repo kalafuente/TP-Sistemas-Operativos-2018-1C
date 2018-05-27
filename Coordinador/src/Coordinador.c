@@ -85,7 +85,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 		cantEsi++;
 
 		recibirInstruccion(sock);
-
 		break;
 
 	}

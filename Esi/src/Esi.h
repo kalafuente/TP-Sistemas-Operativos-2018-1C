@@ -32,6 +32,7 @@ void conectarseAlPlanificador();
 void abrirScript(char **argv);
 void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
 void enviarInstruccion(t_esi_operacion);
+void procesarScript();
 
 //------------------VARIABLES GLOBALES
 t_log* logger;

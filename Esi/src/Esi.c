@@ -18,12 +18,12 @@ int main(int argc, char **argv) {
 
 	conectarseAlCoordinador();
 	conectarseAlPlanificador();
+	procesarScript();
 
-	char*line = NULL;
+/*	char*line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
-
 	while ((read = getline(&line, &len, script)) != -1) {
 		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 						&mensajeDelPlani, socketPlani);
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
         	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
         	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
 
-        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
+        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;*/
 /*
         	switch (parsed.keyword){
         		        case GET:
@@ -58,15 +58,17 @@ int main(int argc, char **argv) {
         		        	break;
         		        }*/
 
-        	enviarInstruccion(parsed);
+  /*     	enviarInstruccion(parsed);
 
 	        destruir_operacion(parsed);
 	}
+*/
+	/*enviarResultado(TERMINE);
 
-	enviarResultado(TERMINE);
+
 	fclose(script);
 	free(line);
-
+*/
 	close(socketCoordinador);
 	close(socketPlani);
 	destroy_esiConfig(esiConfig);
@@ -173,3 +175,26 @@ void enviarInstruccion(t_esi_operacion parsed){
 	        		        }
 }
 
+
+void procesarScript(){
+	char*line = NULL;
+	size_t len = 0;
+	ssize_t read;
+	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
+
+		while ((read = getline(&line, &len, script)) != -1) {
+			recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+							&mensajeDelPlani, socketPlani);
+
+		        t_esi_operacion parsed = parse(line);
+
+
+	        	enviarInstruccion(parsed);
+
+		        destruir_operacion(parsed);
+		}
+
+		enviarResultado(TERMINE);
+		fclose(script);
+		free(line);
+}

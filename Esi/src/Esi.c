@@ -17,8 +17,7 @@ int main(int argc, char **argv) {
 	//-------ARCHIVO DE CONFIGURACION
 
 	conectarseAlCoordinador();
-	conectarseAlPlanificador();
-	t_esi_operacion * parsed = calloc(1, sizeof(t_esi_operacion));
+	//conectarseAlPlanificador();
 
 	char*line = NULL;
 	size_t len = 0;
@@ -112,7 +111,7 @@ void conectarseAlCoordinador() {
 	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakeESI,
 			socketCoordinador);
 }
-
+/*
 void conectarseAlPlanificador() {
 	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
 			&esiConfig->puertoPlanificador);
@@ -126,3 +125,4 @@ void conectarseAlPlanificador() {
 
 }
 
+*/

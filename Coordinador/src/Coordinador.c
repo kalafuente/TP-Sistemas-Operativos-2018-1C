@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
 	//---------CREACION DE ESTRUCTURAS NECESARIAS
 
 	listaDeInstancias= list_create();
+	cantEsi=0;
 
 	//---------CREO MI SERVIDOR
 
@@ -33,7 +34,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 	socklen_t addrlen = sizeof(addr);
 	int socketCliente;
 	pthread_t thread_id;
-	cantEsi=0;
+
 
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
 		puts("Cliente conectado. Esperando mensajes prueba:\n");
@@ -57,7 +58,7 @@ void crearServidorMultiHilo(int listenningSocket) {
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
-
+	instruccion instruccionAGuardar;
 
 	//----------LA EDUCACIÓN ANTE TODO, VAMOS A SALUDAR A TODO AQUEL QUE SE CONECTE A MÍ----------
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
@@ -72,19 +73,20 @@ void *manejadorDeConexiones(void *socket_desc) {
 	//----------IDENTIFICO A QUIEN SE ME CONECTA
 	switch(handshake){
 
-	//----------SI SE ME CONECTA INSTANCIA ENTONCES
+
 	case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
 		log_info(logger, "Se me conectó una Instancia");
 		mandarConfiguracionAInstancia(sock);
 		registrarInstancia(sock);
 		break;
 
-	//----------SI SE ME CONECTA ESI ENTONCES
+
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
+		recibirInstruccion(sock, &instruccionAGuardar);
+		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
 
-		recibirInstruccion(sock);
 		break;
 
 	}
@@ -96,25 +98,44 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
-void recibirInstruccion(int sock){
+void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	char operacion[80];
 	PROTOCOLO_INSTRUCCIONES instruccion;
 	char * clave = calloc(1,sizeof(char*));
 	char * valor = calloc(1,sizeof(char*));
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-			clave = recibirContenido(logger, sock);
+	clave = recibirContenido(logger, sock);
 
 			switch(instruccion){
 				case INSTRUCCION_GET:
 					registrarLogDeOperaciones(operacion,"GET", clave,"0");
+
+					//guardo instruccion
+					instruccionAGuardar->instruccion= INSTRUCCION_GET;
+					instruccionAGuardar->clave= string_new();
+					instruccionAGuardar->clave=clave;
+					instruccionAGuardar->valor="0";
 					break;
 				case INSTRUCCION_SET:
 					valor = recibirContenido(logger, sock);
 					registrarLogDeOperaciones(operacion,"SET", clave,valor);
+
+					//guardo instruccion
+					instruccionAGuardar->instruccion= INSTRUCCION_SET;
+					instruccionAGuardar->clave= string_new();
+					instruccionAGuardar->clave=clave;
+					instruccionAGuardar->valor=string_new();
+					instruccionAGuardar->valor=valor;
 					break;
 
 				case INSTRUCCION_STORE:
 					registrarLogDeOperaciones(operacion, "STORE", clave,"0");
+
+					//guardo instruccion
+					instruccionAGuardar->instruccion= INSTRUCCION_STORE;
+					instruccionAGuardar->clave= string_new();
+					instruccionAGuardar->clave=clave;
+					instruccionAGuardar->valor="0";
 				break;
 	free(clave);
 	free(valor);
@@ -123,17 +144,12 @@ void recibirInstruccion(int sock){
 
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
 
-	if (!(strcmp(valor,"0")==0)){
+	if (!(strcmp(valor,"0")==0))
 		sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
-		log_info(logDeOperaciones, operacion);
-	}
 	else
-	{
 		sprintf(operacion, "ESI % d %s %s", cantEsi,instruccion,clave);
-		log_info(logDeOperaciones, operacion);
 
-	}
-
+	log_info(logDeOperaciones, operacion);
 }
 void registrarInstancia(int sock){
 	instancia registrarInstancia;

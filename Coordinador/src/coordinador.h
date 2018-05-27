@@ -24,6 +24,11 @@ typedef struct coordinador_config {
 	int tamanioEntradas;
 }coordinador_config;
 
+typedef struct instruccion {
+	PROTOCOLO_INSTRUCCIONES instruccion;
+	char * clave;
+	char * valor;
+}instruccion;
 typedef struct instancia{
 	int socket;
 	int cantEntradas;
@@ -48,7 +53,7 @@ void crearConfiguracion(coordinador_config* coordinador, t_config* config);
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 
-void recibirInstruccion(int sock);
+void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

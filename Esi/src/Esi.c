@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 	//-------ARCHIVO DE CONFIGURACION
 
 	conectarseAlCoordinador();
-	//conectarseAlPlanificador();
+	conectarseAlPlanificador();
 
 	char*line = NULL;
 	size_t len = 0;
@@ -25,25 +25,34 @@ int main(int argc, char **argv) {
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
 
 	while ((read = getline(&line, &len, script)) != -1) {
+		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+						&mensajeDelPlani, socketPlani);
 
 	        t_esi_operacion parsed = parse(line);
 	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
         	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
         	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
+        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
 
         	switch (parsed.keyword){
         		        case GET:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
         		        	enviarString(logger, parsed.argumentos.GET.clave,socketCoordinador);
+        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+        		        						&resultado, socketPlani);
         					break;
         		        case SET:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
         		        	enviarString(logger, parsed.argumentos.SET.clave,socketCoordinador);
         		        	enviarString(logger,parsed.argumentos.SET.valor,socketCoordinador);
+        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+        		        						&resultado, socketPlani);
         		        	break;
         		        case STORE:
         		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
         		        	enviarString(logger,parsed.argumentos.STORE.clave,socketCoordinador);
+        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+        		        						&resultado, socketPlani);
         		        	break;
         		        }
 
@@ -111,7 +120,7 @@ void conectarseAlCoordinador() {
 	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakeESI,
 			socketCoordinador);
 }
-/*
+
 void conectarseAlPlanificador() {
 	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
 			&esiConfig->puertoPlanificador);
@@ -125,4 +134,4 @@ void conectarseAlPlanificador() {
 
 }
 
-*/
+

@@ -315,6 +315,18 @@ int procesarSentencias()
 
 void procesarGET()
 {
+	int32_t longitudKey = 41; //Es un valor fijo que contempla el fin de string
+	char key[longitudKey];
+
+	log_info(logger, "La sentencia es GET. Pedimos la clave\n");
+
+	if(recibirMensaje(logger, longitudKey, key, socketCoordinador) <= 0)
+	{
+		log_error(logger, "Imposible recibir clave\n"); //No tendria que pasar. Si nos llega GET atras deberia estar la clave
+
+		return;
+	}
+
 
 }
 

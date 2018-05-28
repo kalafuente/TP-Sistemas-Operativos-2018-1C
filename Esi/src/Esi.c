@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 	procesarScript();
 
 	cerrarConexion();
-
+	killEsi();
 	return 0;
 
 }

@@ -59,7 +59,8 @@ void destroy_instanciaConfig(instancia_config * instancia) {
 #include "instancia.h"
 
 
-int main(void) {
+int main(void)
+{
 
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	t_config * config = config_create("configuracionInstancia.config");
@@ -77,42 +78,42 @@ int main(void) {
 
 }
 
-void recibirConfiguracionDeEntradas(){
-	int cantidadEntradas;
-	int tamanio;
+void recibirConfiguracionDeEntradas()
+{
+	int cantidadEntradas = 0;
+	int tamanio = 0;
 
 
 	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
 
-	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador)){
-
+	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador))
+	{
 		recibirMensaje(logger,sizeof(int),&cantidadEntradas,socketCoordinador);
 		printf("cantidadEntradas: %d\n", cantidadEntradas);
 		recibirMensaje(logger,sizeof(int),&tamanio,socketCoordinador);
 		printf("tamanio: %d\n", tamanio);
 	}
 
-
-
 }
 
-void conectarseAlCoordinador(){
+void conectarseAlCoordinador()
+{
 
 	socketCoordinador = 0;
 
 	while(socketCoordinador == 0)
-				{
-					log_info(logger, "Intento conectarme al Coordinador\n");
-					socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
-					if(socketCoordinador == -1)
-					{
-						log_error(logger, "Conexion fallida, ingresar algo para reintentar\n");
-						char texto[10];
-						fgets(texto, 10, stdin);
-						socketCoordinador = 0;
-						break;
-					}
-				}
+	{
+		log_info(logger, "Intento conectarme al Coordinador\n");
+		socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
+		if(socketCoordinador == -1)
+		{
+			log_error(logger, "Conexion fallida, ingresar algo para reintentar\n");
+			char texto[10];
+			fgets(texto, 10, stdin);
+			socketCoordinador = 0;
+			break; //Solo para probar, despues aca se puede hacer otra cosa
+		}
+	}
 
 	log_info(logger, "Conexion exitosa!");
 
@@ -123,7 +124,8 @@ void conectarseAlCoordinador(){
 }
 
 
-void crearConfiguracion(instancia_config* instancia, t_config* config) {
+void crearConfiguracion(instancia_config* instancia, t_config* config)
+{
 
 	//config = config_create("configuracionInstancia.config");
 	/*instancia->ipCoordi = config_get_string_value(config, "IP_COORDI");
@@ -141,7 +143,8 @@ void crearConfiguracion(instancia_config* instancia, t_config* config) {
 	instancia->intervalo = config_get_int_value(config, "INTERVALO_DUMP");
 
 }
-instancia_config * init_instanciaConfig() {
+instancia_config * init_instanciaConfig()
+{
 
 	instancia_config * instanciaConfig = malloc(sizeof(instancia_config));
 	/*instanciaConfig->ipCoordi = malloc(50);
@@ -162,7 +165,8 @@ instancia_config * init_instanciaConfig() {
 }
 
 
-void destroy_instanciaConfig(instancia_config * instancia) {
+void destroy_instanciaConfig(instancia_config * instancia)
+{
 	free(instancia->algoritmo);
 	free(instancia->ipCoordi);
 	free(instancia->nombre);

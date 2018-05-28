@@ -13,3 +13,25 @@
 [ERROR] 05:53:17:397 loggerInstancia/(5899:5899): Conexion fallida, ingresar algo para reintentar
 
 [INFO] 05:53:20:291 loggerInstancia/(5899:5899): Conexion exitosa!
+[INFO] 01:30:28:569 loggerInstancia/(4377:4377): Intento conectarme al Coordinador
+
+[ERROR] 01:30:28:604 loggerInstancia/(4377:4377): No me pude conectar al servidor
+[ERROR] 01:30:28:606 loggerInstancia/(4377:4377): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 01:30:35:518 loggerInstancia/(4377:4377): Conexion exitosa!
+[ERROR] 01:30:35:520 loggerInstancia/(4377:4377): ERROR AL RECIBIR
+[ERROR] 01:30:35:523 loggerInstancia/(4377:4377): ERROR AL ENVIAR
+[ERROR] 01:30:35:524 loggerInstancia/(4377:4377): ERROR AL RECIBIR
+[ERROR] 01:30:35:525 loggerInstancia/(4377:4377): ERROR AL RECIBIR
+[ERROR] 01:30:35:526 loggerInstancia/(4377:4377): ERROR AL RECIBIR
+[INFO] 01:41:14:520 loggerInstancia/(4659:4659): Intento conectarme al Coordinador
+
+[ERROR] 01:41:14:550 loggerInstancia/(4659:4659): No me pude conectar al servidor
+[ERROR] 01:41:14:551 loggerInstancia/(4659:4659): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 01:41:19:549 loggerInstancia/(4659:4659): Conexion exitosa!
+[ERROR] 01:41:19:550 loggerInstancia/(4659:4659): ERROR AL RECIBIR
+[ERROR] 01:41:19:555 loggerInstancia/(4659:4659): ERROR AL ENVIAR
+[ERROR] 01:41:19:560 loggerInstancia/(4659:4659): ERROR AL RECIBIR
+[ERROR] 01:41:19:560 loggerInstancia/(4659:4659): ERROR AL RECIBIR
+[ERROR] 01:41:19:561 loggerInstancia/(4659:4659): ERROR AL RECIBIR

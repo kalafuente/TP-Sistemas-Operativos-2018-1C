@@ -52,8 +52,8 @@ void destroy_coordConfig(coordinador_config* coord);
 void crearConfiguracion(coordinador_config* coordinador, t_config* config);
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
-
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
+void procesarInstruccion(instruccion instruccion);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

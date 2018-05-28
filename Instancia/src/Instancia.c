@@ -68,7 +68,9 @@ int main(void)
 	crearConfiguracion(instanciaConfig, config);
 	imprimirConfiguracion(instanciaConfig);
 	conectarseAlCoordinador();
+	handShakeConElCoordinador();
 	recibirConfiguracionDeEntradas();
+	imprimirConfiguracionDeEntradas();
 
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
@@ -78,27 +80,39 @@ int main(void)
 
 }
 
-void recibirConfiguracionDeEntradas()
+int recibirConfiguracionDeEntradas()
 {
-	int cantidadEntradas = 0;
-	int tamanio = 0;
-
-
 	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
 
-	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador))
+	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador) <= 0)
 	{
-		recibirMensaje(logger,sizeof(int),&cantidadEntradas,socketCoordinador);
-		printf("cantidadEntradas: %d\n", cantidadEntradas);
-		recibirMensaje(logger,sizeof(int),&tamanio,socketCoordinador);
-		printf("tamanio: %d\n", tamanio);
+		log_error(logger, "No se pudo recibir la configuracion de las Entradas\n");
+
+		return -1;
 	}
+
+	if(recibirMensaje(logger,sizeof(int32_t),&cantidadEntradas,socketCoordinador) <= 0)
+	{
+		log_error(logger, "No se pudo establecer la cantidad de entradas\n");
+
+		return -1;
+	}
+
+	if(recibirMensaje(logger,sizeof(int32_t),&tamanioEntrada,socketCoordinador) <= 0 )
+	{
+		log_error(logger, "No se pudo establecer el tamanio de las entradas\n");
+
+		return -1;
+	}
+
+	log_info(logger, "La configuracion de las Entradas se recibio correctamente!\n");
+
+	return 1;
 
 }
 
-void conectarseAlCoordinador()
+int conectarseAlCoordinador()
 {
-
 	socketCoordinador = 0;
 
 	while(socketCoordinador == 0)
@@ -117,10 +131,33 @@ void conectarseAlCoordinador()
 
 	log_info(logger, "Conexion exitosa!");
 
+	return 1;
+
+}
+
+int handShakeConElCoordinador()
+{
+	log_info(logger, "Intentando establecer un handshake con el Coordinador\n");
+
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
-	recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador);
+
+	if(recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador) <= 0)
+	{
+		log_error(logger, "Handshake fallido\n");
+		return -1;
+	}
+
 	PROTOCOLO_HANDSHAKE_CLIENTE handshakeINSTANCIA = HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR;
-	enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeINSTANCIA,socketCoordinador);
+
+	if(enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeINSTANCIA,socketCoordinador) <= 0)
+	{
+		log_error(logger, "Handshake fallido\n");
+		return -1;
+	}
+
+	log_info(logger, "Handshake Exitoso!\n");
+
+	return 1;
 }
 
 
@@ -186,5 +223,9 @@ void imprimirConfiguracion(instancia_config* instancia)
 	printf("El intervalo es: %d\n", instancia->intervalo);
 }
 
-
+void imprimirConfiguracionDeEntradas()
+{
+	printf("El tamanio de la entrada es: %d\n", tamanioEntrada);
+	printf("La cantidad de entradas es: %d\n", cantidadEntradas);
+}
 

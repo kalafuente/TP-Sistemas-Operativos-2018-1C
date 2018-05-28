@@ -63,15 +63,20 @@ typedef struct instancia_config {
 
 //------------Variables globales
 t_log* logger;
-int socketCoordinador;
+int32_t socketCoordinador;
 instancia_config * instanciaConfig;
+int32_t cantidadEntradas = 0;
+int32_t tamanioEntrada = 0;
+
 
 //------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
 void crearConfiguracion(instancia_config *, t_config*);
 void destroy_instanciaConfig(instancia_config*);
 void imprimirConfiguracion(instancia_config* instancia);
-void conectarseAlCoordinador();
-void recibirConfiguracionDeEntradas();
+int conectarseAlCoordinador();
+int recibirConfiguracionDeEntradas();
+int handShakeConElCoordinador();
+void imprimirConfiguracionDeEntradas();
 
 #endif /* INSTANCIA_H_ */

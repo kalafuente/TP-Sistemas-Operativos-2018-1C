@@ -35,3 +35,74 @@
 [ERROR] 01:41:19:560 loggerInstancia/(4659:4659): ERROR AL RECIBIR
 [ERROR] 01:41:19:560 loggerInstancia/(4659:4659): ERROR AL RECIBIR
 [ERROR] 01:41:19:561 loggerInstancia/(4659:4659): ERROR AL RECIBIR
+[INFO] 02:27:43:824 loggerInstancia/(5729:5729): Intento conectarme al Coordinador
+
+[ERROR] 02:27:43:878 loggerInstancia/(5729:5729): No me pude conectar al servidor
+[ERROR] 02:27:43:880 loggerInstancia/(5729:5729): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:28:01:196 loggerInstancia/(5729:5729): Conexion exitosa!
+[INFO] 02:28:01:197 loggerInstancia/(5729:5729): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:28:01:200 loggerInstancia/(5729:5729): ERROR AL RECIBIR
+[ERROR] 02:28:01:202 loggerInstancia/(5729:5729): Handshake fallido
+
+[ERROR] 02:28:01:203 loggerInstancia/(5729:5729): ERROR AL RECIBIR
+[ERROR] 02:28:01:206 loggerInstancia/(5729:5729): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 02:30:20:642 loggerInstancia/(5831:5831): Intento conectarme al Coordinador
+
+[INFO] 02:30:20:661 loggerInstancia/(5831:5831): Conexion exitosa!
+[INFO] 02:30:20:661 loggerInstancia/(5831:5831): Intentando establecer un handshake con el Coordinador
+
+[INFO] 02:30:20:666 loggerInstancia/(5831:5831): Se recibieron 4 bytes
+[INFO] 02:30:20:666 loggerInstancia/(5831:5831): Se recibieron los datos
+[INFO] 02:30:20:666 loggerInstancia/(5831:5831): Se enviaron 4 bytes
+[INFO] 02:30:20:666 loggerInstancia/(5831:5831): Se envio el mensaje
+[INFO] 02:30:20:666 loggerInstancia/(5831:5831): Handshake Exitoso!
+
+[INFO] 02:30:20:674 loggerInstancia/(5831:5831): Se recibieron 4 bytes
+[INFO] 02:30:20:674 loggerInstancia/(5831:5831): Se recibieron los datos
+[INFO] 02:30:20:675 loggerInstancia/(5831:5831): Se recibieron 4 bytes
+[INFO] 02:30:20:675 loggerInstancia/(5831:5831): Se recibieron los datos
+[INFO] 02:30:20:675 loggerInstancia/(5831:5831): Se recibieron 4 bytes
+[INFO] 02:30:20:675 loggerInstancia/(5831:5831): Se recibieron los datos
+[INFO] 02:30:20:675 loggerInstancia/(5831:5831): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 02:30:21:358 loggerInstancia/(5844:5844): Intento conectarme al Coordinador
+
+[INFO] 02:30:21:358 loggerInstancia/(5844:5844): Conexion exitosa!
+[INFO] 02:30:21:358 loggerInstancia/(5844:5844): Intentando establecer un handshake con el Coordinador
+
+[INFO] 02:30:21:359 loggerInstancia/(5844:5844): Se recibieron 4 bytes
+[INFO] 02:30:21:359 loggerInstancia/(5844:5844): Se recibieron los datos
+[INFO] 02:30:21:359 loggerInstancia/(5844:5844): Se enviaron 4 bytes
+[INFO] 02:30:21:359 loggerInstancia/(5844:5844): Se envio el mensaje
+[INFO] 02:30:21:359 loggerInstancia/(5844:5844): Handshake Exitoso!
+
+[INFO] 02:30:21:364 loggerInstancia/(5844:5844): Se recibieron 4 bytes
+[INFO] 02:30:21:364 loggerInstancia/(5844:5844): Se recibieron los datos
+[INFO] 02:30:21:366 loggerInstancia/(5844:5844): Se recibieron 4 bytes
+[INFO] 02:30:21:366 loggerInstancia/(5844:5844): Se recibieron los datos
+[INFO] 02:30:21:366 loggerInstancia/(5844:5844): Se recibieron 4 bytes
+[INFO] 02:30:21:366 loggerInstancia/(5844:5844): Se recibieron los datos
+[INFO] 02:30:21:366 loggerInstancia/(5844:5844): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 02:38:54:316 loggerInstancia/(6093:6093): Intento conectarme al Coordinador
+
+[INFO] 02:38:54:317 loggerInstancia/(6093:6093): Conexion exitosa!
+[INFO] 02:38:54:317 loggerInstancia/(6093:6093): Intentando establecer un handshake con el Coordinador
+
+[INFO] 02:38:54:318 loggerInstancia/(6093:6093): Se recibieron 4 bytes
+[INFO] 02:38:54:318 loggerInstancia/(6093:6093): Se recibieron los datos
+[INFO] 02:38:54:319 loggerInstancia/(6093:6093): Se enviaron 4 bytes
+[INFO] 02:38:54:319 loggerInstancia/(6093:6093): Se envio el mensaje
+[INFO] 02:38:54:319 loggerInstancia/(6093:6093): Handshake Exitoso!
+
+[INFO] 02:38:54:327 loggerInstancia/(6093:6093): Se recibieron 4 bytes
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron los datos
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron 4 bytes
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron los datos
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron 4 bytes
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron los datos
+[INFO] 02:38:54:328 loggerInstancia/(6093:6093): La configuracion de las Entradas se recibio correctamente!
+

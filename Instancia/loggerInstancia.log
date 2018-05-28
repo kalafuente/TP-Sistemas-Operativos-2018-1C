@@ -106,3 +106,115 @@
 [INFO] 02:38:54:328 loggerInstancia/(6093:6093): Se recibieron los datos
 [INFO] 02:38:54:328 loggerInstancia/(6093:6093): La configuracion de las Entradas se recibio correctamente!
 
+[INFO] 02:45:51:767 loggerInstancia/(6383:6383): Intento conectarme al Coordinador
+
+[ERROR] 02:45:51:840 loggerInstancia/(6383:6383): No me pude conectar al servidor
+[ERROR] 02:45:51:842 loggerInstancia/(6383:6383): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:45:55:789 loggerInstancia/(6383:6383): Conexion exitosa!
+[INFO] 02:45:55:790 loggerInstancia/(6383:6383): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:45:55:792 loggerInstancia/(6383:6383): ERROR AL RECIBIR
+[ERROR] 02:45:55:794 loggerInstancia/(6383:6383): Handshake fallido
+
+[ERROR] 02:45:55:795 loggerInstancia/(6383:6383): ERROR AL RECIBIR
+[ERROR] 02:45:55:796 loggerInstancia/(6383:6383): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 02:49:49:807 loggerInstancia/(6483:6483): Intento conectarme al Coordinador
+
+[ERROR] 02:49:49:875 loggerInstancia/(6483:6483): No me pude conectar al servidor
+[ERROR] 02:49:49:876 loggerInstancia/(6483:6483): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:49:53:329 loggerInstancia/(6483:6483): Conexion exitosa!
+[INFO] 02:49:53:330 loggerInstancia/(6483:6483): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:49:53:332 loggerInstancia/(6483:6483): ERROR AL RECIBIR
+[ERROR] 02:49:53:333 loggerInstancia/(6483:6483): Handshake fallido
+
+[ERROR] 02:49:53:334 loggerInstancia/(6483:6483): ERROR AL RECIBIR
+[ERROR] 02:49:53:338 loggerInstancia/(6483:6483): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 02:58:18:678 loggerInstancia/(6699:6699): Intento conectarme al Coordinador
+
+[ERROR] 02:58:18:707 loggerInstancia/(6699:6699): No me pude conectar al servidor
+[ERROR] 02:58:18:708 loggerInstancia/(6699:6699): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:58:22:826 loggerInstancia/(6699:6699): Conexion exitosa!
+[INFO] 02:58:22:827 loggerInstancia/(6699:6699): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:58:22:828 loggerInstancia/(6699:6699): ERROR AL RECIBIR
+[ERROR] 02:58:22:829 loggerInstancia/(6699:6699): Handshake fallido
+
+[ERROR] 02:58:22:830 loggerInstancia/(6699:6699): ERROR AL RECIBIR
+[ERROR] 02:58:22:834 loggerInstancia/(6699:6699): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 03:04:29:53 loggerInstancia/(7179:7179): Intento conectarme al Coordinador
+
+[ERROR] 03:04:30:127 loggerInstancia/(7179:7179): No me pude conectar al servidor
+[ERROR] 03:04:30:131 loggerInstancia/(7179:7179): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 03:04:33:135 loggerInstancia/(7179:7179): Conexion exitosa!
+[INFO] 03:04:33:136 loggerInstancia/(7179:7179): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 03:04:33:138 loggerInstancia/(7179:7179): ERROR AL RECIBIR
+[ERROR] 03:04:33:139 loggerInstancia/(7179:7179): Handshake fallido
+
+[ERROR] 03:04:33:139 loggerInstancia/(7179:7179): ERROR AL RECIBIR
+[ERROR] 03:04:33:140 loggerInstancia/(7179:7179): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 03:08:51:297 loggerInstancia/(7303:7303): Intento conectarme al Coordinador
+
+[ERROR] 03:08:51:356 loggerInstancia/(7303:7303): No me pude conectar al servidor
+[ERROR] 03:08:51:357 loggerInstancia/(7303:7303): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 03:08:55:732 loggerInstancia/(7303:7303): Conexion exitosa!
+[INFO] 03:08:55:732 loggerInstancia/(7303:7303): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 03:08:55:734 loggerInstancia/(7303:7303): ERROR AL RECIBIR
+[ERROR] 03:08:55:735 loggerInstancia/(7303:7303): Handshake fallido
+
+[ERROR] 03:08:55:736 loggerInstancia/(7303:7303): ERROR AL RECIBIR
+[ERROR] 03:08:55:737 loggerInstancia/(7303:7303): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 03:15:23:790 loggerInstancia/(7390:7390): Intento conectarme al Coordinador
+
+[ERROR] 03:15:23:821 loggerInstancia/(7390:7390): No me pude conectar al servidor
+[ERROR] 03:15:23:822 loggerInstancia/(7390:7390): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 03:15:26:941 loggerInstancia/(7390:7390): Conexion exitosa!
+[INFO] 03:15:26:942 loggerInstancia/(7390:7390): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 03:15:26:944 loggerInstancia/(7390:7390): ERROR AL RECIBIR
+[ERROR] 03:15:26:946 loggerInstancia/(7390:7390): Handshake fallido
+
+[ERROR] 03:15:26:947 loggerInstancia/(7390:7390): ERROR AL RECIBIR
+[ERROR] 03:15:26:949 loggerInstancia/(7390:7390): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 03:30:06:978 loggerInstancia/(7612:7612): Intento conectarme al Coordinador
+
+[ERROR] 03:30:07:33 loggerInstancia/(7612:7612): No me pude conectar al servidor
+[ERROR] 03:30:07:34 loggerInstancia/(7612:7612): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 03:30:10:180 loggerInstancia/(7612:7612): Conexion exitosa!
+[INFO] 03:30:10:180 loggerInstancia/(7612:7612): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 03:30:10:183 loggerInstancia/(7612:7612): ERROR AL RECIBIR
+[ERROR] 03:30:10:184 loggerInstancia/(7612:7612): Handshake fallido
+
+[ERROR] 03:30:10:184 loggerInstancia/(7612:7612): ERROR AL RECIBIR
+[ERROR] 03:30:10:185 loggerInstancia/(7612:7612): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 03:31:25:897 loggerInstancia/(7699:7699): Intento conectarme al Coordinador
+
+[ERROR] 03:31:25:942 loggerInstancia/(7699:7699): No me pude conectar al servidor
+[ERROR] 03:31:25:948 loggerInstancia/(7699:7699): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 03:31:29:155 loggerInstancia/(7699:7699): Conexion exitosa!
+[INFO] 03:31:29:156 loggerInstancia/(7699:7699): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 03:31:29:157 loggerInstancia/(7699:7699): ERROR AL RECIBIR
+[ERROR] 03:31:29:161 loggerInstancia/(7699:7699): Handshake fallido
+
+[ERROR] 03:31:29:162 loggerInstancia/(7699:7699): ERROR AL RECIBIR
+[ERROR] 03:31:29:162 loggerInstancia/(7699:7699): No se pudo recibir la configuracion de las Entradas
+

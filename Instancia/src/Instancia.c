@@ -71,10 +71,13 @@ int main(void)
 	handShakeConElCoordinador();
 	recibirConfiguracionDeEntradas();
 	imprimirConfiguracionDeEntradas();
+	inicializarEntradas();
 
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
 	config_destroy(config);
+	eliminarEntradas();
+
 
 	return 0;
 
@@ -227,5 +230,38 @@ void imprimirConfiguracionDeEntradas()
 {
 	printf("El tamanio de la entrada es: %d\n", tamanioEntrada);
 	printf("La cantidad de entradas es: %d\n", cantidadEntradas);
+}
+
+void inicializarEntradas()
+{
+	entradas = (char **)malloc(cantidadEntradas * sizeof(char*));
+
+	int fila, columna;
+
+	for(fila = 0; fila < cantidadEntradas; fila ++)
+	{
+		entradas[fila] = (char*)malloc(tamanioEntrada * sizeof(char));
+	}
+
+	for(fila = 0; fila < cantidadEntradas; fila ++)
+	{
+		for(columna = 0; columna < tamanioEntrada; columna ++)
+		{
+			entradas[columna][fila] = '0';
+		}
+	}
+}
+
+void eliminarEntradas()
+{
+	int fila;
+
+	for(fila = 0; fila < cantidadEntradas; fila ++)
+	{
+		free(entradas[fila]);
+	}
+
+	free(entradas);
+	entradas = NULL;
 }
 

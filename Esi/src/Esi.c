@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 	//-------ARCHIVO DE CONFIGURACION
 
 	config = config_create("configuracionEsi.config");
-	 esiConfig = init_esiConfig();
+	init_esiConfig();
 	crearConfiguracion(esiConfig, config);
 
 	//-------ARCHIVO DE CONFIGURACION
@@ -26,33 +26,6 @@ int main(int argc, char **argv) {
 
 }
 
-esi_config * init_esiConfig() {
-	esiConfig = malloc(sizeof(esi_config));
-	esiConfig->ipCoordi = string_new();
-	esiConfig->puertoCoordi = string_new();
-	esiConfig->ipPlanificador = string_new();
-	esiConfig->puertoPlanificador = string_new();
-	return esiConfig;
-}
-void crearConfiguracion() {
-	string_append(&(esiConfig->ipCoordi),
-			config_get_string_value(config, "IP_COORDINADOR"));
-	string_append(&(esiConfig->puertoCoordi),
-			config_get_string_value(config, "PUERTO_COORDINADOR"));
-	string_append(&(esiConfig->ipPlanificador),
-			config_get_string_value(config, "IP_PLANIFICADOR"));
-	string_append(&(esiConfig->puertoPlanificador),
-			config_get_string_value(config, "PUERTO_PLANIFICADOR"));
-}
-
-void destroy_esiConfig() {
-
-	free(esiConfig->ipPlanificador);
-	free(esiConfig->ipCoordi);
-	free(esiConfig->puertoCoordi);
-	free(esiConfig->puertoPlanificador);
-	free(esiConfig);
-}
 
 void abrirScript(char *argv[]) {
 
@@ -61,31 +34,6 @@ void abrirScript(char *argv[]) {
 		perror("Error al abrir el archivo: ");
 		exit(EXIT_FAILURE);
 	}
-
-}
-
-void conectarseAlCoordinador() {
-	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,
-			&esiConfig->puertoCoordi);
-	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
-	recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),
-			&handshakeCoordi, socketCoordinador);
-	PROTOCOLO_HANDSHAKE_CLIENTE handshakeESI =
-			HANDSHAKE_CONECTAR_ESI_A_COORDINADOR;
-	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakeESI,
-			socketCoordinador);
-}
-
-void conectarseAlPlanificador() {
-	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
-			&esiConfig->puertoPlanificador);
-	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
-	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-			&handshakePlani, socketPlani);
-	PROTOCOLO_ESI_A_PLANIFICADOR handshakeESI =
-			HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR;
-	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &handshakeESI,
-			socketPlani);
 
 }
 
@@ -137,7 +85,6 @@ void procesarScript(){
 
 		        t_esi_operacion parsed = parse(line);
 
-
 	        	enviarInstruccion(parsed);
 
 		        destruir_operacion(parsed);
@@ -146,16 +93,16 @@ void procesarScript(){
 		enviarResultado(TERMINE);
 		fclose(script);
 		free(line);
+		log_info(logger,"Tengo el gusto de informarle que el script ha sido leido y "
+				"parseado en todo su esplendor. Espero que haya disfrutado de mi servicio."
+				" Saludos ");
 }
 
-void cerrarConexion(){
-	close(socketCoordinador);
-	close(socketPlani);
-}
 
 void killEsi(){
 	destroy_esiConfig();
 	config_destroy(config);
+	log_info(logger,"Hasta la vista, ESI");
 }
 
 

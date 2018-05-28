@@ -23,10 +23,12 @@ typedef struct esi_config{
 	char* puertoPlanificador;
 }esi_config;
 
-
+//---CONFIGURACION
 void crearConfiguracion();
 void destroy_esiConfig();
-esi_config * init_esiConfig();
+void init_esiConfig();
+
+//---CONEXIÓNES
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
 void abrirScript(char **argv);

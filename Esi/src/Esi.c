@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Esi.h"
 #include <parsi/parser.h>
-
+#include <signal.h>
 int main(int argc, char **argv) {
 
 	abrirScript(argv);
@@ -20,59 +20,8 @@ int main(int argc, char **argv) {
 	conectarseAlPlanificador();
 	procesarScript();
 
-/*	char*line = NULL;
-	size_t len = 0;
-	ssize_t read;
-	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
-	while ((read = getline(&line, &len, script)) != -1) {
-		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-						&mensajeDelPlani, socketPlani);
+	cerrarConexion();
 
-	        t_esi_operacion parsed = parse(line);
-	        PROTOCOLO_INSTRUCCIONES get = INSTRUCCION_GET;
-        	PROTOCOLO_INSTRUCCIONES set = INSTRUCCION_SET;
-        	PROTOCOLO_INSTRUCCIONES store= INSTRUCCION_STORE;
-
-        	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;*/
-/*
-        	switch (parsed.keyword){
-        		        case GET:
-        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &get,socketCoordinador);
-        		        	enviarString2(logger, parsed.argumentos.GET.clave,socketCoordinador);
-        		        	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-        		        		//				&resultado, socketPlani);
-        		        	enviarResultado(resultado);
-        					break;
-        		        case SET:
-        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &set,socketCoordinador);
-        		        	enviarString2(logger, parsed.argumentos.SET.clave,socketCoordinador);
-        		        	enviarString2(logger,parsed.argumentos.SET.valor,socketCoordinador);
-        		        	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-        		        		//				&resultado, socketPlani);
-        		        	enviarResultado(resultado);
-        		        	break;
-        		        case STORE:
-        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &store,socketCoordinador);
-        		        	enviarString2(logger,parsed.argumentos.STORE.clave,socketCoordinador);
-        		        	enviarResultado(resultado);
-        		        	break;
-        		        }*/
-
-  /*     	enviarInstruccion(parsed);
-
-	        destruir_operacion(parsed);
-	}
-*/
-	/*enviarResultado(TERMINE);
-
-
-	fclose(script);
-	free(line);
-*/
-	close(socketCoordinador);
-	close(socketPlani);
-	destroy_esiConfig(esiConfig);
-	config_destroy(config);
 	return 0;
 
 }
@@ -85,7 +34,7 @@ esi_config * init_esiConfig() {
 	esiConfig->puertoPlanificador = string_new();
 	return esiConfig;
 }
-void crearConfiguracion(esi_config* esiConfig, t_config* config) {
+void crearConfiguracion() {
 	string_append(&(esiConfig->ipCoordi),
 			config_get_string_value(config, "IP_COORDINADOR"));
 	string_append(&(esiConfig->puertoCoordi),
@@ -182,7 +131,7 @@ void procesarScript(){
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
 
-		while ((read = getline(&line, &len, script)) != -1) {
+	while ((read = getline(&line, &len, script)) != -1) {
 			recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 							&mensajeDelPlani, socketPlani);
 
@@ -198,3 +147,16 @@ void procesarScript(){
 		fclose(script);
 		free(line);
 }
+
+void cerrarConexion(){
+	close(socketCoordinador);
+	close(socketPlani);
+}
+
+void killEsi(){
+	destroy_esiConfig();
+	config_destroy(config);
+}
+
+
+

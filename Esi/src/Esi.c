@@ -5,7 +5,7 @@
 #include <signal.h>
 int main(int argc, char **argv) {
 
-	abrirScript(argv);
+	abrirScript(argc,argv);
 	logger = crearLogger("loggerEsi.log", "loggerEsi");
 
 	//-------ARCHIVO DE CONFIGURACION
@@ -25,10 +25,22 @@ int main(int argc, char **argv) {
 	return 0;
 
 }
+void cargarLogger(int argc,char*argv[]){
+	if(argc<2){
+		perror("Te olvidaste el path del logger capo");
+		exit(1);
+	}
+	char* path =string_new();
+	string_append(&path,argv[0]);
+	logger=crearLogger(path,"loggerEsi");
 
+}
 
-void abrirScript(char *argv[]) {
-
+void abrirScript(int argc,char *argv[]) {
+	if(argc<2){
+		perror("No pasaste el path del script la concha de tu madre");
+		exit(1);
+	}
 	script = fopen(argv[1], "r");
 	if (script == NULL) {
 		perror("Error al abrir el archivo: ");

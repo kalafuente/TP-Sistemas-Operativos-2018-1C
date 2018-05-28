@@ -31,7 +31,7 @@ void init_esiConfig();
 //---CONEXIÓNES
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
-void abrirScript(char **argv);
+void abrirScript(int argc,char **argv);
 void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
 void enviarInstruccion(t_esi_operacion);
 void procesarScript();

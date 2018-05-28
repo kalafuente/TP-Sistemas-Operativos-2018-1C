@@ -218,3 +218,26 @@
 [ERROR] 03:31:29:162 loggerInstancia/(7699:7699): ERROR AL RECIBIR
 [ERROR] 03:31:29:162 loggerInstancia/(7699:7699): No se pudo recibir la configuracion de las Entradas
 
+[INFO] 05:25:51:838 loggerInstancia/(3102:3102): Intento conectarme al Coordinador
+
+[ERROR] 05:25:51:881 loggerInstancia/(3102:3102): No me pude conectar al servidor
+[ERROR] 05:25:51:883 loggerInstancia/(3102:3102): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 05:25:55:862 loggerInstancia/(3102:3102): Conexion exitosa!
+[INFO] 05:25:55:863 loggerInstancia/(3102:3102): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 05:25:55:868 loggerInstancia/(3102:3102): ERROR AL RECIBIR
+[ERROR] 05:25:55:869 loggerInstancia/(3102:3102): Handshake fallido
+
+[INFO] 05:25:55:873 loggerInstancia/(3102:3102): Esperando configuracion de entradas
+
+[ERROR] 05:25:55:873 loggerInstancia/(3102:3102): ERROR AL RECIBIR
+[ERROR] 05:25:55:874 loggerInstancia/(3102:3102): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 05:25:55:875 loggerInstancia/(3102:3102): Comienzo a recibir sentencias del coordinador
+
+[INFO] 05:25:55:876 loggerInstancia/(3102:3102): Esperando proxima sentencia...
+
+[ERROR] 05:25:55:877 loggerInstancia/(3102:3102): ERROR AL RECIBIR
+[ERROR] 05:25:55:878 loggerInstancia/(3102:3102): No se pudo recibir la sentencia
+

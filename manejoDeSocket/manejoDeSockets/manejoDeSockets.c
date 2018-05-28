@@ -128,7 +128,7 @@ int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int 
 	//free(message);
 	return 1;
 }
-/*
+
  */
 /*
 int recibirMensaje(t_log* logger, int unsocket) {

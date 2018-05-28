@@ -72,6 +72,8 @@ int main(void)
 	recibirConfiguracionDeEntradas();
 	imprimirConfiguracionDeEntradas();
 	inicializarEntradas();
+	procesarSentencias();
+
 
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig);
@@ -86,6 +88,8 @@ int main(void)
 int recibirConfiguracionDeEntradas()
 {
 	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
+
+	log_info(logger, "Esperando configuracion de entradas\n");
 
 	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador) <= 0)
 	{
@@ -263,5 +267,54 @@ void eliminarEntradas()
 
 	free(entradas);
 	entradas = NULL;
+}
+
+int procesarSentencias()
+{
+	int corte = 1;
+
+	PROTOCOLO_INSTRUCCIONES sentencia;
+
+	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
+
+	while(corte) //Habria que ver cuando cortar
+	{
+		log_info(logger, "Esperando proxima sentencia...\n");
+
+		if(recibirMensaje(logger, sizeof(sentencia), &sentencia, socketCoordinador) <= 0)
+		{
+			log_error(logger, "No se pudo recibir la sentencia\n");
+
+			return -1;
+		}
+
+		switch(sentencia)
+		{
+			case INSTRUCCION_GET:
+				procesarGET();
+				break;
+
+			case INSTRUCCION_SET:
+				//asdasd
+				break;
+
+			case INSTRUCCION_STORE:
+				//Mas adelante vemos
+				break;
+
+			default:
+
+				log_error(logger, "La sentencia no puede ser interpretada\n");
+
+				return -1;
+		}
+	}
+
+	return 1;
+}
+
+void procesarGET()
+{
+
 }
 

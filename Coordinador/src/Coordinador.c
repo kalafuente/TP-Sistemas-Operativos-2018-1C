@@ -101,11 +101,10 @@ void *manejadorDeConexiones(void *socket_desc) {
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	char operacion[80];
 	PROTOCOLO_INSTRUCCIONES instruccion;
-	char * clave=string_new(); //= calloc(1,sizeof(char*));
+	char * clave=  calloc(1,sizeof(char*));
 	char * valor = calloc(1,sizeof(char*));
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-	//clave = recibirContenido2(logger, sock);
-	recibirString(logger,clave,sock);
+	clave = recibirContenido2(logger, sock);
 
 			switch(instruccion){
 				case INSTRUCCION_GET:

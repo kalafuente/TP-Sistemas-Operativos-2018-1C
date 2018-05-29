@@ -61,17 +61,36 @@ typedef struct instancia_config {
 	int intervalo;
 } instancia_config;
 
+typedef struct t_tabla_entradas
+{
+	char clave[40+1]; //La key tiene 40 caracteres, asi que le sumamos 1 para el fin de string
+	int32_t numeroEntrada;
+	int32_t tamanioValor;
+
+} t_tabla_entradas;
+
 //------------Variables globales
 t_log* logger;
-int socketCoordinador;
+int32_t socketCoordinador;
 instancia_config * instanciaConfig;
+int32_t cantidadEntradas = 10; //Lo deje en 10 para probar
+int32_t tamanioEntrada = 10;// Idem
+char ** entradas = NULL;
+t_tabla_entradas * tablaDeEntradas = NULL;
+
 
 //------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
 void crearConfiguracion(instancia_config *, t_config*);
 void destroy_instanciaConfig(instancia_config*);
 void imprimirConfiguracion(instancia_config* instancia);
-void conectarseAlCoordinador();
-void recibirConfiguracionDeEntradas();
+int conectarseAlCoordinador();
+int recibirConfiguracionDeEntradas();
+int handShakeConElCoordinador();
+void imprimirConfiguracionDeEntradas();
+void inicializarEntradas();
+void eliminarEntradas();
+int procesarSentencias();
+void procesarGET();
 
 #endif /* INSTANCIA_H_ */

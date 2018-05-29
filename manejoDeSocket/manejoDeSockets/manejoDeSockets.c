@@ -128,7 +128,7 @@ int enviarMensajeGenerico(t_log* logger, int tamanio, int id, void*mensaje, int 
 	//free(message);
 	return 1;
 }
-/*
+
  */
 /*
 int recibirMensaje(t_log* logger, int unsocket) {
@@ -323,7 +323,8 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 	int bytesHeader =0;
 	//log_info(logger,"Se recibieron %d bytes",bytesHeader);
 	while(bytesHeader<len){
-		bytesHeader+=recv(unsocket,buffer+bytesHeader,len-bytesHeader,0);
+		bytesHeader += recv(unsocket, buffer + bytesHeader, len - bytesHeader,
+				MSG_WAITALL);
 		if(bytesHeader ==-1){
 			log_error(logger,"ERROR AL RECIBIR");
 			return -1;

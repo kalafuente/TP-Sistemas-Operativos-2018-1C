@@ -282,6 +282,18 @@ char* recibirContenido2(t_log * logger, int socket){
 	return msg;
 }
 
+void recibirString(t_log * logger, char* buffer,int socket){
+	int32_t len;
+		recibirMensaje(logger,sizeof(len),&len,socket);
+		char*msg=calloc(1,len+1);
+		if(recibirMensaje(logger,len,msg,socket)<=0){
+			free(msg);
+			return;
+
+		}
+		msg[len]='\0';
+		string_append(&buffer,msg);
+}
 
 int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 	int total=0;

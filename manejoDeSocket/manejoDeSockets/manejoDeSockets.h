@@ -39,7 +39,7 @@ void * recibirContenido(t_log * logger, int socket);
 
 void enviarString2(t_log* logger, char*mensaje, int unsocket);
 char* recibirContenido2(t_log * logger, int socket);
-
+void recibirString(t_log* logger, char*buffer, int unsocket);
 
 
 #endif /* BIBLIOTECA_MANEJODESOCKETS_H_ */

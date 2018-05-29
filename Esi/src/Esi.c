@@ -5,14 +5,12 @@
 #include <signal.h>
 int main(int argc, char **argv) {
 
-	abrirScript(argc,argv);
+	abrirScript(argc, argv);
 	logger = crearLogger("loggerEsi.log", "loggerEsi");
 
 	//-------ARCHIVO DE CONFIGURACION
 
-	config = config_create("configuracionEsi.config");
-	init_esiConfig();
-	crearConfiguracion(esiConfig, config);
+	crearConfiguracion();
 
 	//-------ARCHIVO DE CONFIGURACION
 
@@ -25,19 +23,19 @@ int main(int argc, char **argv) {
 	return 0;
 
 }
-void cargarLogger(int argc,char*argv[]){
-	if(argc<2){
+void cargarLogger(int argc, char*argv[]) {
+	if (argc < 2) {
 		perror("Te olvidaste el path del logger capo");
 		exit(1);
 	}
-	char* path =string_new();
-	string_append(&path,argv[0]);
-	logger=crearLogger(path,"loggerEsi");
+	char* path = string_new();
+	string_append(&path, argv[0]);
+	logger = crearLogger(path, "loggerEsi");
 
 }
 
-void abrirScript(int argc,char *argv[]) {
-	if(argc<2){
+void abrirScript(int argc, char *argv[]) {
+	if (argc < 2) {
 		perror("No pasaste el path del script la concha de tu madre");
 		exit(1);
 	}
@@ -49,73 +47,74 @@ void abrirScript(int argc,char *argv[]) {
 
 }
 
-void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR protocolo){
-	enviarMensaje(logger,sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&protocolo,socketPlani);
+void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR protocolo) {
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &protocolo,
+			socketPlani);
 }
 
-
-
-void enviarInstruccion(t_esi_operacion parsed){
+void enviarInstruccion(t_esi_operacion parsed) {
 	PROTOCOLO_INSTRUCCIONES instruccion;
 	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
-	switch (parsed.keyword){
-	        		        case GET:
-	        		        	instruccion=INSTRUCCION_GET;
-	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
-	        		        	enviarString2(logger, parsed.argumentos.GET.clave,socketCoordinador);
-	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-	        		        						&resultado, socketPlani);
-	        					break;
-	        		        case SET:
-	        		        	instruccion=INSTRUCCION_SET;
-	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
-	        		        	enviarString2(logger, parsed.argumentos.SET.clave,socketCoordinador);
-	        		        	enviarString2(logger,parsed.argumentos.SET.valor,socketCoordinador);
-	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-	        		        						&resultado, socketPlani);
-	        		        	break;
-	        		        case STORE:
-	        		        	instruccion=INSTRUCCION_STORE;
-	        		        	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
-	        		        	enviarString2(logger,parsed.argumentos.STORE.clave,socketCoordinador);
-	        		        	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-	        		        						&resultado, socketPlani);
-	        		        	break;
-	        		        }
+	switch (parsed.keyword) {
+	case GET:
+		instruccion = INSTRUCCION_GET;
+		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
+				socketCoordinador);
+		enviarString2(logger, parsed.argumentos.GET.clave, socketCoordinador);
+		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+				socketPlani);
+		break;
+	case SET:
+		instruccion = INSTRUCCION_SET;
+		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
+				socketCoordinador);
+		enviarString2(logger, parsed.argumentos.SET.clave, socketCoordinador);
+		enviarString2(logger, parsed.argumentos.SET.valor, socketCoordinador);
+		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+				socketPlani);
+		break;
+	case STORE:
+		instruccion = INSTRUCCION_STORE;
+		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
+				socketCoordinador);
+		enviarString2(logger, parsed.argumentos.STORE.clave, socketCoordinador);
+		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+				socketPlani);
+		break;
+	}
 }
 
-
-void procesarScript(){
+void procesarScript() {
 	char*line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
-
 	while ((read = getline(&line, &len, script)) != -1) {
-			recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-							&mensajeDelPlani, socketPlani);
+		sleep(5);
 
-		        t_esi_operacion parsed = parse(line);
+		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+				&mensajeDelPlani, socketPlani);
 
-	        	enviarInstruccion(parsed);
+		t_esi_operacion parsed = parse(line);
 
-		        destruir_operacion(parsed);
-		}
+		enviarInstruccion(parsed);
 
-		enviarResultado(TERMINE);
-		fclose(script);
-		free(line);
-		log_info(logger,"Tengo el gusto de informarle que el script ha sido leido y "
-				"parseado en todo su esplendor. Espero que haya disfrutado de mi servicio."
-				" Saludos ");
+		destruir_operacion(parsed);
+		log_info(logger, "Se envió  la instruccion: %s", line);
+	}
+
+	//enviarResultado(TERMINE);
+
+	fclose(script);
+	free(line);
+	log_info(logger,
+			"Tengo el gusto de informarle que el script ha sido leido y "
+					"parseado en todo su esplendor. Espero que haya disfrutado de mi servicio."
+					" Saludos ");
 }
 
-
-void killEsi(){
+void killEsi() {
 	destroy_esiConfig();
-	config_destroy(config);
-	log_info(logger,"Hasta la vista, ESI");
+	log_info(logger, "Hasta la vista, ESI");
 }
-
-
 

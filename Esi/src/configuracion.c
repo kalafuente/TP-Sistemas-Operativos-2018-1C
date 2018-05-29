@@ -16,6 +16,8 @@ void init_esiConfig() {
 
 }
 void crearConfiguracion() {
+	config = config_create("configuracionEsi.config");
+		init_esiConfig();
 	string_append(&(esiConfig->ipCoordi),
 			config_get_string_value(config, "IP_COORDINADOR"));
 	string_append(&(esiConfig->puertoCoordi),
@@ -24,6 +26,8 @@ void crearConfiguracion() {
 			config_get_string_value(config, "IP_PLANIFICADOR"));
 	string_append(&(esiConfig->puertoPlanificador),
 			config_get_string_value(config, "PUERTO_PLANIFICADOR"));
+
+	config_destroy(config);
 }
 
 void destroy_esiConfig() {

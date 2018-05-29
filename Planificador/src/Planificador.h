@@ -14,12 +14,13 @@
 #include <protocolos/protocolos.h>
 #include <commons/collections/list.h>
 #include <sys/sem.h>
+#include <semaphore.h>
 
 typedef struct planificador_config{
 	char * puertoEscucha;
 	char * algoritmoPlanificacion;
 	int alfaPlanificacion;
-	int estimacionInicial;
+	double estimacionInicial;
 	char * ipCoordinador;
 	char * puertoCoordinador;
 	int entradas;
@@ -30,11 +31,17 @@ typedef struct {
 	int socket;
 	int tiempoDeEspera;
 	int ID;
-	int estimacion;
+	double estimacion;
 } struct_esi;
 
 t_log* logger;
 planificador_config * init_planificaorConfig();
+t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados; //creamos listas para situacion de los Esi's
+int IdDisponible = 0;
+pthread_mutex_t mutex; //puede que despues se necesitan mas(por ahora solo protege la cola Ready, de cuando llegan y cuando la usa)
+sem_t cantidadEsisEnReady;
+int PlanificadorON;
+
 
 void crearListas();
 void agregarEsi(int socketCliente);

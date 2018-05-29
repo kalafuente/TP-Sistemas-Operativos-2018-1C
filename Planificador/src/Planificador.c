@@ -2,14 +2,11 @@
 #define PACKAGESIZE 1024
 
 //empezamos sin la consola, pero separando bien
-t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados; //creamos listas para situacion de los Esi's
-
-int IdDisponible = 0;
-pthread_mutex_t mutex; //puede que despues se necesitan mas(por ahora solo protege la cola Ready, de cuando llegan y cuando la usa)
 int main(void) {
-
+	PlanificadorON = 1;
 //definir struct de las claves guardadas---------------------------<Falta>--------------------------------------------------------------------------
 	pthread_mutex_init(&mutex, NULL);
+	sem_init(&cantidadEsisEnReady, 0, 0);
 	logger = crearLogger("loggerPlani.log", "loggerPlani");
 	planificador_config * planificadorConfig = init_planificaorConfig();
 	t_config * config;
@@ -27,7 +24,6 @@ int main(void) {
 	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakePlani,
 			socketCoordinador);
 
-	
 //-----------RECEPTOR DE ESI´S----------------------
 
 	int listenningSocket = crearSocketQueEscucha(
@@ -39,42 +35,53 @@ int main(void) {
 	struct_esi *esiActual;
 	PROTOCOLO_ESI_A_PLANIFICADOR estadoEsi;
 	int duracionRafaga;
-	int podemosActuar = 1;
-	//Inicia
 
-	while (podemosActuar) {
-		while (list_size(listaReady) > 0) {
-			sleep(5);
-	duracionRafaga = 0;
-			estadoEsi = TERMINE_BIEN;
+//Inicia
+	while (PlanificadorON) {
 
-			//Ordenamos la lista Esis segun criterio elegido-------------------------------<Falta>-----------------------------------------------------
+		sem_wait(&cantidadEsisEnReady);
+		duracionRafaga = 0;
+		estadoEsi = TERMINE_BIEN;
 
-	esiActual = list_remove(listaReady, 0);
+//Ordenamos la lista Esis segun criterio elegido en este momento-------------------------------<Falta>-----------------------------------------------------
+
+		esiActual = list_remove(listaReady, 0);
 		while (estadoEsi == TERMINE_BIEN) {
-				log_info(logger, "Se esta Por enviar accion al esi");
+			//en realidad estadoEsi sera solo parte del struct que recibira, junto a la clave
+			ordenarActuar(esiActual);
+			estadoEsi = recibirResultado(esiActual);
+//estadoEsi=recibirResultado(esiActual);
+			switch (estadoEsi) {
+			case TERMINE_BIEN:
+				duracionRafaga++;
+//cambiarEstimacion(esiActual,-1);
+//sumar 1 a la espera te todos los esis en Ready para el HRRN
+				log_info(logger, "Se envio accion al esi %d", esiActual->ID);
+				break;
+			case BLOQUEADO:
+				list_add(listaBloqueado, esiActual);
+				log_info(logger, "esi %d bloqueado", esiActual->ID);
+				break;
+			case TERMINE: //termine es que el esi llego al fin de archivo
+				list_add(listaTerminados, esiActual);
+				log_info(logger, "termino el esi %d", esiActual->ID);
+				close(esiActual->socket);
+				// logica se repite en los distintos errores (agrupar en funcion)
+				break;
+			case ERROR:
+				list_add(listaTerminados, esiActual);
+				log_error(logger, "error con el esi %d", esiActual->ID);
+				close(esiActual->socket);
+				break;
+			}
 
-				ordenarActuar(esiActual);
-				log_info(logger, "Se envio accion al esi");
-		estadoEsi = recibirResultado(esiActual); //en realidad estadoEsi sera solo parte del struct que recibira
+//IF (es con desalojo && llego un nuevo esi)->devolver a la listaReady && Salir del while------------------------------------------------------------------------------------------------------------
 
-		duracionRafaga++;
-//IF (es con desalojo&llego un nuevo esi)devolver a la lista&&Salir del while------------------------------------------------------------------------------------------------------------
-	}
-	//estadoEsi=recibirResultado(esiActual);
-	switch (estadoEsi) {
-	case BLOQUEADO:
-
-		break;
-		case TERMINE:
-				log_info(logger, "termino el esi");
-		break;
-	}
-
-//fin}
 		}
-	}
+//Calcular estimacion para la proxima vez.
 
+	}
+//Cerrar sockets de los esis que quedaron en el valhalla
 	close(listenningSocket);
 	close(socketCoordinador);
 	destroy_planificadorConfig(planificadorConfig);
@@ -82,7 +89,6 @@ int main(void) {
 	return EXIT_SUCCESS;
 
 }
-
 
 float actualizarDuracionDeRafagaSJF(struct_esi esi) {
 	float duracionEstimada;
@@ -115,7 +121,7 @@ void * recibirEsi(void* socketEscucha) {
 	int socketCliente;
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakeEsi;
 	PROTOCOLO_ESI_A_PLANIFICADOR hanshakeEP;
-	while (1) {
+	while (PlanificadorON) {
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr,
 				&addrlen);
 		log_info(logger, "se conecto un esi");
@@ -141,6 +147,7 @@ void agregarEsi(int socketCliente) {
 	nuevoEsi->ID = IdDisponible;
 	IdDisponible++;
 	list_add(listaReady, nuevoEsi);
+	sem_post(&cantidadEsisEnReady);
 }
 
 void crearListas() {
@@ -171,7 +178,7 @@ void crearConfiguracion(planificador_config** planificador, t_config** config) {
 	(*planificador)->puertoEscucha = config_get_string_value(*config,
 			"PUERTO_DE_ESCUCHA");
 	(*planificador)->alfaPlanificacion = config_get_int_value(*config, "ALFAP");
-	(*planificador)->estimacionInicial = config_get_int_value(*config,
+	(*planificador)->estimacionInicial = config_get_double_value(*config,
 			"ESTIMACION");
 	(*planificador)->entradas = 500;
 }
@@ -182,31 +189,31 @@ void destroy_planificadorConfig(planificador_config* planificador_config) {
 	free(planificador_config);
 }
 /*
-void crearServidorMultiHilo(int listenningSocket) {
-	struct sockaddr_in addr;
-	socklen_t addrlen = sizeof(addr);
-	int socketCliente;
-	pthread_t thread_id;
+ void crearServidorMultiHilo(int listenningSocket) {
+ struct sockaddr_in addr;
+ socklen_t addrlen = sizeof(addr);
+ int socketCliente;
+ pthread_t thread_id;
 
-	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,
-			&addrlen))) {
-		puts("Cliente conectado. Esperando mensajes prueba:\n");
+ while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,
+ &addrlen))) {
+ puts("Cliente conectado. Esperando mensajes prueba:\n");
 
-		if (pthread_create(&thread_id, NULL, manejadorDeConexiones,
-				(void*) &socketCliente) < 0) {
-			perror("No se pudo crear el hilo");
-			exit(1);
-		}
+ if (pthread_create(&thread_id, NULL, manejadorDeConexiones,
+ (void*) &socketCliente) < 0) {
+ perror("No se pudo crear el hilo");
+ exit(1);
+ }
 
-		puts("Manejador de conexiones asignado");
-	}
+ puts("Manejador de conexiones asignado");
+ }
 
-	if (socketCliente < 0) {
-		perror("falló la aceptación");
-		exit(1);
-	}
+ if (socketCliente < 0) {
+ perror("falló la aceptación");
+ exit(1);
+ }
 
-	puts("Damos otra vuelta");
+ puts("Damos otra vuelta");
  }*/
 /*
  void *manejadorDeConexiones(void *socket_desc) {

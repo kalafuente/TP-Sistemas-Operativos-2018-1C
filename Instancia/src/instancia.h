@@ -64,7 +64,7 @@ typedef struct instancia_config {
 
 typedef struct t_tabla_entradas
 {
-	char clave[40+1]; //La key tiene 40 caracteres, asi que le sumamos 1 para el fin de string
+	char * clave; //La key tiene 40 caracteres, asi que le sumamos 1 para el fin de string
 	int32_t numeroEntrada;
 	int32_t tamanioValor;
 

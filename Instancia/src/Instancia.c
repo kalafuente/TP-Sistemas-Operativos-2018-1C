@@ -240,14 +240,32 @@ void imprimirConfiguracionDeEntradas()
 
 void inicializarEntradas()
 {
+	log_info(logger, "Pedimos memoria para la totalidad de las Entradas\n");
+
 	entradas = (char **)malloc(cantidadEntradas * sizeof(char*));
+
+	if(entradas == NULL)
+	{
+		log_error(logger, "Fallo al intentar pedir memoria para las Entradas\n");
+		return;
+	}
 
 	int fila, columna;
 
 	for(fila = 0; fila < cantidadEntradas; fila ++)
 	{
 		entradas[fila] = (char*)malloc(tamanioEntrada * sizeof(char));
+
+		if(entradas[fila] == NULL)
+		{
+			log_error(logger, "Fallo al intentar pedir memoria para la fila de las Entradas\n");
+			return;
+		}
 	}
+
+	log_info(logger, "Memoria alojada correctamente\n");
+	log_info(logger, "Inicializamos los valores de las Entradas en 0\n");
+
 
 	for(fila = 0; fila < cantidadEntradas; fila ++)
 	{
@@ -256,6 +274,8 @@ void inicializarEntradas()
 			entradas[columna][fila] = '0';
 		}
 	}
+
+	log_info(logger, "Inicializacion exitosa!\n");
 }
 
 void eliminarEntradas()
@@ -319,7 +339,7 @@ int procesarSentencias()
 
 void procesarSET()
 {
-	int32_t longitudKey, longitudValor;
+	int32_t longitudKey, longitudValor = 0;
 
 	log_info(logger, "La sentencia es SET. Pedimos la longitud de la clave\n");
 

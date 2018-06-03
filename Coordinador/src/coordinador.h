@@ -34,6 +34,7 @@ typedef struct instancia{
 	int cantEntradas;
 	int tamanioEntradas;
 	int tamanioOcupado;
+	t_list* claves;
 }instancia
 ;
 //---------------------------VARIABLES GLOBALES-----------------------------
@@ -43,6 +44,7 @@ t_log* logDeOperaciones;
 int cantEsi;
 coordinador_config * coordConfig;
 t_list* listaDeInstancias;
+t_list* listaDeClaves;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 
@@ -53,8 +55,10 @@ void crearConfiguracion(coordinador_config* coordinador, t_config* config);
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
-void procesarInstruccion(instruccion instruccion);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
+void procesarInstruccion(instruccion instruccion, int sock);
+bool contieneString(t_list* list, void* value);
+
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);
 void crearServidorMultiHilo(int listenningSocket);

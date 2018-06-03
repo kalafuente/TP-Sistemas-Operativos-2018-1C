@@ -58,18 +58,15 @@ void enviarInstruccion(t_esi_operacion parsed) {
 	switch (parsed.keyword) {
 	case GET:
 		instruccion = INSTRUCCION_GET;
-		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
-				socketCoordinador);
-		enviarString2(logger, parsed.argumentos.GET.clave, socketCoordinador);
-		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
-				socketPlani);
+		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
+		enviarString(logger, parsed.argumentos.GET.clave, socketCoordinador);
+		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,socketPlani);
 		break;
 	case SET:
 		instruccion = INSTRUCCION_SET;
-		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
-				socketCoordinador);
-		enviarString2(logger, parsed.argumentos.SET.clave, socketCoordinador);
-		enviarString2(logger, parsed.argumentos.SET.valor, socketCoordinador);
+		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,socketCoordinador);
+		enviarString(logger, parsed.argumentos.SET.clave, socketCoordinador);
+		enviarString(logger, parsed.argumentos.SET.valor, socketCoordinador);
 		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
 				socketPlani);
 		break;
@@ -77,7 +74,7 @@ void enviarInstruccion(t_esi_operacion parsed) {
 		instruccion = INSTRUCCION_STORE;
 		enviarMensaje(logger, sizeof(PROTOCOLO_INSTRUCCIONES), &instruccion,
 				socketCoordinador);
-		enviarString2(logger, parsed.argumentos.STORE.clave, socketCoordinador);
+		enviarString(logger, parsed.argumentos.STORE.clave, socketCoordinador);
 		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
 				socketPlani);
 		break;

@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
 	//---------CREACION DE ESTRUCTURAS NECESARIAS
 
 	listaDeInstancias= list_create();
+	listaDeClaves=list_create();
 	cantEsi=0;
 
 	//---------CREO MI SERVIDOR
@@ -86,7 +87,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		cantEsi++;
 		recibirInstruccion(sock, &instruccionAGuardar);
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
-
+		procesarInstruccion(instruccionAGuardar,sock);
 		break;
 
 	}
@@ -98,18 +99,132 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
+void procesarInstruccion(instruccion instruccion, int sock){
+
+	switch(instruccion.instruccion){
+			case INSTRUCCION_GET:
+				printf ("llegó get \n");
+				if (contieneString(listaDeClaves,instruccion.clave)){
+					printf ("contiene este get \n");
+					/*
+					if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
+							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+					}
+
+					else{
+							la busco en mi instancia
+							if (instancia esta caida?){
+											  	  	  PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_INACCESIBLE;
+											  	  	  enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+											 	 }
+							else{
+											 	 le pido a la instancia el valor de la clave
+
+											 	 PROTOCOLO_COORDINADOR_A_INSTANCIA pedido = PEDIDO_DE_VALOR;
+												 enviarMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&pedido,sock);
+												 enviarMensaje(logger,sizeof(instruccion.clave),&(instruccion.clave),sock);
+
+												 recibo clave = recibirContenido(logger, sock);
+
+												 envio clave al esi
+
+							}
+
+
+						}
+									*/
+
+				}
+
+				else{
+					printf("no contiene este get");
+					list_add(instruccion.clave);
+					/*
+					 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
+							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+					}
+					   else{
+					   uso algorirmo para elegir instancia a la que le voy a mandar el valor
+					   PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = TODO_OK;
+					   enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+					}
+					 *
+					 */
+				}
+
+			break;
+					case INSTRUCCION_SET:
+						printf ("llegó set \n");
+						if (contieneString(listaDeClaves,instruccion.clave)){
+							printf ("contiene esta clave \n");
+							//pregunto al plani si está bloqueada para el esi
+						}
+
+						else{
+							printf("no contiene esta clave");
+							/*PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_IDENTIFICADA;
+							  enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+							 */
+						}
+
+						break;
+
+					case INSTRUCCION_STORE:
+						printf ("llegó store \n");
+						if (contieneString(listaDeClaves,instruccion.clave)){
+						printf ("contiene esta clave \n");
+						/*
+						 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
+							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+							}
+							else{
+							decirle al plani que la libere
+							decirle a la instancia que la archive
+							eliminarla de mi lista
+							}
+						 */
+						}
+
+						else{
+						printf("no contiene esta clave");
+						/*PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_IDENTIFICADA;
+						 enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+						 */
+						}
+
+
+					break;
+	}
+}
+
+bool contieneString(t_list* list, void* value){
+
+	bool equals(void* item) {
+		int rta = strcmp(value, item);
+		if (rta == 0)
+				return true;
+		else
+				return false;
+	}
+
+	return list_any_satisfy(list, equals);
+}
+
+
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	char operacion[80];
 	PROTOCOLO_INSTRUCCIONES instruccion;
-	char * clave=  calloc(1,sizeof(char*));
-	char * valor = calloc(1,sizeof(char*));
+	char * clave=  string_new();
+	char * valor = string_new();
 	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-	clave = recibirContenido2(logger, sock);
+	clave = recibirContenido(logger, sock);
 
 			switch(instruccion){
 				case INSTRUCCION_GET:
 					registrarLogDeOperaciones(operacion,"GET", clave,"0");
-
 					//guardo instruccion
 					instruccionAGuardar->instruccion= INSTRUCCION_GET;
 					instruccionAGuardar->clave= string_new();
@@ -117,7 +232,7 @@ void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 					instruccionAGuardar->valor="0";
 					break;
 				case INSTRUCCION_SET:
-					valor = recibirContenido2(logger, sock);
+					valor = recibirContenido(logger, sock);
 					registrarLogDeOperaciones(operacion,"SET", clave,valor);
 
 					//guardo instruccion
@@ -157,6 +272,7 @@ void registrarInstancia(int sock){
 	registrarInstancia.cantEntradas = coordConfig->entradas;
 	registrarInstancia.tamanioEntradas= coordConfig->tamanioEntradas;
 	registrarInstancia.tamanioOcupado=0;
+	registrarInstancia.claves= list_create();
 	list_add(listaDeInstancias,&registrarInstancia);
 	log_info(logger,"Se registro instancia");
 

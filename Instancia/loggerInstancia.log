@@ -264,3 +264,26 @@
 [ERROR] 05:53:17:26 loggerInstancia/(4505:4505): ERROR AL RECIBIR
 [ERROR] 05:53:17:30 loggerInstancia/(4505:4505): No se pudo recibir la sentencia
 
+[INFO] 21:44:27:377 loggerInstancia/(4772:4772): Intento conectarme al Coordinador
+
+[ERROR] 21:44:27:424 loggerInstancia/(4772:4772): No me pude conectar al servidor
+[ERROR] 21:44:27:425 loggerInstancia/(4772:4772): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 21:44:31:598 loggerInstancia/(4772:4772): Conexion exitosa!
+[INFO] 21:44:31:599 loggerInstancia/(4772:4772): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 21:44:31:601 loggerInstancia/(4772:4772): ERROR AL RECIBIR
+[ERROR] 21:44:31:602 loggerInstancia/(4772:4772): Handshake fallido
+
+[INFO] 21:44:31:603 loggerInstancia/(4772:4772): Esperando configuracion de entradas
+
+[ERROR] 21:44:31:603 loggerInstancia/(4772:4772): ERROR AL RECIBIR
+[ERROR] 21:44:31:604 loggerInstancia/(4772:4772): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 21:44:31:606 loggerInstancia/(4772:4772): Comienzo a recibir sentencias del coordinador
+
+[INFO] 21:44:31:606 loggerInstancia/(4772:4772): Esperando proxima sentencia...
+
+[ERROR] 21:44:31:607 loggerInstancia/(4772:4772): ERROR AL RECIBIR
+[ERROR] 21:44:31:608 loggerInstancia/(4772:4772): No se pudo recibir la sentencia
+

@@ -290,12 +290,14 @@ int procesarSentencias()
 
 		switch(sentencia)
 		{
+			/* No le deberian llegar.
 			case INSTRUCCION_GET:
 				procesarGET();
 				break;
+			*/
 
 			case INSTRUCCION_SET:
-				//asdasd
+				procesarSET();
 				break;
 
 			case INSTRUCCION_STORE:
@@ -313,6 +315,12 @@ int procesarSentencias()
 	return 1;
 }
 
+void procesarSET()
+{
+	return;
+}
+
+/*
 void procesarGET()
 {
 	int32_t longitudKey = 41; //Es un valor fijo que contempla el fin de string
@@ -330,3 +338,4 @@ void procesarGET()
 
 }
 
+*/

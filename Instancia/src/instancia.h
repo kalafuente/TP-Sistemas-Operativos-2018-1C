@@ -91,6 +91,7 @@ void imprimirConfiguracionDeEntradas();
 void inicializarEntradas();
 void eliminarEntradas();
 int procesarSentencias();
-void procesarGET();
+// void procesarGET(); Segun los issues y los erratas la sentencia GET no debe llegar a la instancia. De eso se ocupa el Coordinador
+void procesarSET();
 
 #endif /* INSTANCIA_H_ */

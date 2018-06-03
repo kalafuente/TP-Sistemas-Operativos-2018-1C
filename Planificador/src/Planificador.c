@@ -49,7 +49,8 @@ int main(void) {
 		while (estadoEsi == TERMINE_BIEN) {
 			//en realidad estadoEsi sera solo parte del struct que recibira, junto a la clave
 			ordenarActuar(esiActual);
-			estadoEsi = recibirResultado(esiActual);
+			recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&estadoEsi, esiActual->socket);
 //estadoEsi=recibirResultado(esiActual);
 			switch (estadoEsi) {
 			case TERMINE_BIEN:
@@ -58,7 +59,7 @@ int main(void) {
 //sumar 1 a la espera te todos los esis en Ready para el HRRN
 				log_info(logger, "Se envio accion al esi %d", esiActual->ID);
 				break;
-			case BLOQUEADO:
+			case BLOQUEADO_CON_CLAVE:
 				list_add(listaBloqueado, esiActual);
 				log_info(logger, "esi %d bloqueado", esiActual->ID);
 				break;
@@ -72,6 +73,9 @@ int main(void) {
 				list_add(listaTerminados, esiActual);
 				log_error(logger, "error con el esi %d", esiActual->ID);
 				close(esiActual->socket);
+				break;
+			default:
+				log_error(logger, "No deberias ver esto");
 				break;
 			}
 

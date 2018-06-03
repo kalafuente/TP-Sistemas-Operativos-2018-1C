@@ -87,7 +87,6 @@ void procesarScript() {
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
 	while ((read = getline(&line, &len, script)) != -1) {
-		sleep(5);
 
 		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 				&mensajeDelPlani, socketPlani);
@@ -99,7 +98,8 @@ void procesarScript() {
 		destruir_operacion(parsed);
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}
-
+	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+			&mensajeDelPlani, socketPlani);
 	enviarResultado(TERMINE);
 
 	fclose(script);

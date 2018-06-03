@@ -287,3 +287,49 @@
 [ERROR] 21:44:31:607 loggerInstancia/(4772:4772): ERROR AL RECIBIR
 [ERROR] 21:44:31:608 loggerInstancia/(4772:4772): No se pudo recibir la sentencia
 
+[INFO] 08:12:41:800 loggerInstancia/(5143:5143): Intento conectarme al Coordinador
+
+[ERROR] 08:12:41:899 loggerInstancia/(5143:5143): No me pude conectar al servidor
+[ERROR] 08:12:41:904 loggerInstancia/(5143:5143): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 08:12:45:612 loggerInstancia/(5143:5143): Conexion exitosa!
+[INFO] 08:12:45:613 loggerInstancia/(5143:5143): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 08:12:45:615 loggerInstancia/(5143:5143): ERROR AL RECIBIR
+[ERROR] 08:12:45:618 loggerInstancia/(5143:5143): Handshake fallido
+
+[INFO] 08:12:45:619 loggerInstancia/(5143:5143): Esperando configuracion de entradas
+
+[ERROR] 08:12:45:622 loggerInstancia/(5143:5143): ERROR AL RECIBIR
+[ERROR] 08:12:45:623 loggerInstancia/(5143:5143): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 08:12:45:637 loggerInstancia/(5143:5143): Comienzo a recibir sentencias del coordinador
+
+[INFO] 08:12:45:637 loggerInstancia/(5143:5143): Esperando proxima sentencia...
+
+[ERROR] 08:12:45:638 loggerInstancia/(5143:5143): ERROR AL RECIBIR
+[ERROR] 08:12:45:638 loggerInstancia/(5143:5143): No se pudo recibir la sentencia
+
+[INFO] 08:13:53:49 loggerInstancia/(5228:5228): Intento conectarme al Coordinador
+
+[ERROR] 08:13:54:110 loggerInstancia/(5228:5228): No me pude conectar al servidor
+[ERROR] 08:13:54:111 loggerInstancia/(5228:5228): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 08:13:57:514 loggerInstancia/(5228:5228): Conexion exitosa!
+[INFO] 08:13:57:517 loggerInstancia/(5228:5228): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 08:13:57:519 loggerInstancia/(5228:5228): ERROR AL RECIBIR
+[ERROR] 08:13:57:522 loggerInstancia/(5228:5228): Handshake fallido
+
+[INFO] 08:13:57:525 loggerInstancia/(5228:5228): Esperando configuracion de entradas
+
+[ERROR] 08:13:57:526 loggerInstancia/(5228:5228): ERROR AL RECIBIR
+[ERROR] 08:13:57:526 loggerInstancia/(5228:5228): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 08:13:57:528 loggerInstancia/(5228:5228): Comienzo a recibir sentencias del coordinador
+
+[INFO] 08:13:57:529 loggerInstancia/(5228:5228): Esperando proxima sentencia...
+
+[ERROR] 08:13:57:530 loggerInstancia/(5228:5228): ERROR AL RECIBIR
+[ERROR] 08:13:57:530 loggerInstancia/(5228:5228): No se pudo recibir la sentencia
+

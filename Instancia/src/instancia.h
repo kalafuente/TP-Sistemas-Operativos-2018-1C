@@ -49,6 +49,7 @@ void destroy_instanciaConfig(instancia_config*);
 #include <stdlib.h>
 #include <commons/config.h>
 #include <commons/string.h>
+#include <commons/collections/list.h>
 #include <manejoDeSockets/manejoDeSockets.c>
 #include <protocolos/protocolos.h>
 
@@ -76,7 +77,7 @@ instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 10; //Lo deje en 10 para probar
 int32_t tamanioEntrada = 10;// Idem
 char ** entradas = NULL;
-t_tabla_entradas * tablaDeEntradas = NULL;
+t_list* tablaEntradas = NULL;
 
 
 //------------Declaraciones de funciones
@@ -93,5 +94,7 @@ void eliminarEntradas();
 int procesarSentencias();
 // void procesarGET(); Segun los issues y los erratas la sentencia GET no debe llegar a la instancia. De eso se ocupa el Coordinador
 void procesarSET();
+void eliminarDatosTablaDeEntradas(void * elemento);
+void eliminarTablaDeEntradas();
 
 #endif /* INSTANCIA_H_ */

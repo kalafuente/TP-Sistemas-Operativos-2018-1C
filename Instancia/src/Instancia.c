@@ -72,6 +72,7 @@ int main(void)
 	recibirConfiguracionDeEntradas();
 	imprimirConfiguracionDeEntradas();
 	inicializarEntradas();
+	tablaEntradas = list_create();
 	procesarSentencias();
 
 
@@ -79,6 +80,7 @@ int main(void)
 	destroy_instanciaConfig(instanciaConfig);
 	config_destroy(config);
 	eliminarEntradas();
+	eliminarTablaDeEntradas();
 
 
 	return 0;
@@ -318,6 +320,19 @@ int procesarSentencias()
 void procesarSET()
 {
 	return;
+}
+
+void eliminarDatosTablaDeEntradas(void * elemento)
+{
+	elemento = (t_tabla_entradas *) elemento;
+	free(elemento);
+}
+
+void eliminarTablaDeEntradas()
+{
+	void (*borrarDatos)(void *);
+	borrarDatos = eliminarDatosTablaDeEntradas;
+	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
 }
 
 /*

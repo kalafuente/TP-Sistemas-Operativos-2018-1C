@@ -319,6 +319,68 @@ int procesarSentencias()
 
 void procesarSET()
 {
+	int32_t longitudKey, longitudValor;
+
+	log_info(logger, "La sentencia es SET. Pedimos la longitud de la clave\n");
+
+	if(recibirMensaje(logger, sizeof(longitudKey), &longitudKey, socketCoordinador) <= 0)
+	{
+		log_error(logger, "No se pudo recibir la longitud de la clave\n");
+		return;
+	}
+
+	log_info(logger, "Longitud de la clave recibida: %d\n", longitudKey);
+	log_info(logger, "Esperamos la clave\n");
+
+	char key[longitudKey]; //Suponemos que el Coordinador nos envia la longitud incluyendo el caracter '\0'
+
+	if(recibirMensaje(logger, longitudKey, key, socketCoordinador) <= 0)
+	{
+		log_error(logger, "No se pudo recibir la clave\n");
+		return;
+	}
+
+	log_info(logger, "Clave recibida: %s\n", key);
+	log_info(logger, "Esperamos la longitud del valor a almacenar\n");
+
+	if(recibirMensaje(logger, sizeof(longitudValor), &longitudValor, socketCoordinador) <= 0)
+	{
+		log_error(logger, "No se pudo recibir la longitud del valor\n");
+		return;
+	}
+
+	log_info(logger, "Longitud del valor recibida: %d\n", longitudValor);
+	log_info(logger, "Esperamos el valor\n");
+
+	char valor[longitudValor];
+
+	if(recibirMensaje(logger, longitudValor, valor, socketCoordinador) <= 0)
+	{
+		log_error(logger, "No se pudo recibir el valor\n");
+		return;
+	}
+
+	log_info(logger, "Valor recibido: %s\n", valor);
+
+	t_tabla_entradas * datos = NULL;
+
+	switch(existeLaClave(key, datos))
+	{
+		case 0:
+			//zaraza
+			break;
+
+		case 1:
+			//zaraza2
+			break;
+
+		default:
+			log_error(logger, "El valor de la clave en cuestion no es atomico, por lo que no se puede reemplazar\n");
+			return;
+	}
+
+
+
 	return;
 }
 
@@ -333,6 +395,38 @@ void eliminarTablaDeEntradas()
 	void (*borrarDatos)(void *);
 	borrarDatos = eliminarDatosTablaDeEntradas;
 	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
+}
+
+int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve cuantas veces la encuentra, y el campo de datos del nodo correspondiente a la 1ra
+{
+	/*
+	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
+	{
+		return 0;
+	}
+	*/
+
+	int contador = 0;
+	t_link_element * actual = tablaEntradas->head;
+
+	while(actual != NULL)
+	{
+		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
+
+		if(strcmp(clave, datos->clave) == 0)
+		{
+			contador ++;
+			if(contador == 1)
+			{
+				info = datos;
+			}
+		}
+
+		actual =  actual->next;
+	}
+
+	return contador;
+
 }
 
 /*

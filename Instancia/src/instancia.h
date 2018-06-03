@@ -96,5 +96,6 @@ int procesarSentencias();
 void procesarSET();
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
+int existeLaClave(char * clave, t_tabla_entradas * info);
 
 #endif /* INSTANCIA_H_ */

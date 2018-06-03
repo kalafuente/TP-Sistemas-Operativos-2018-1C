@@ -107,33 +107,11 @@ void procesarInstruccion(instruccion instruccion, int sock){
 				if (contieneString(listaDeClaves,instruccion.clave)){
 					printf ("contiene este get \n");
 					/*
-					if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+					if (preguntar al coordi el estado de esta clave !== BLOQUEADA){
 							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
 							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
 					}
-
-					else{
-							la busco en mi instancia
-							if (instancia esta caida?){
-											  	  	  PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_INACCESIBLE;
-											  	  	  enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-											 	 }
-							else{
-											 	 le pido a la instancia el valor de la clave
-
-											 	 PROTOCOLO_COORDINADOR_A_INSTANCIA pedido = PEDIDO_DE_VALOR;
-												 enviarMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&pedido,sock);
-												 enviarMensaje(logger,sizeof(instruccion.clave),&(instruccion.clave),sock);
-
-												 recibo clave = recibirContenido(logger, sock);
-
-												 envio clave al esi
-
-							}
-
-
-						}
-									*/
+					*/
 
 				}
 
@@ -141,15 +119,8 @@ void procesarInstruccion(instruccion instruccion, int sock){
 					printf("no contiene este get");
 					list_add(instruccion.clave);
 					/*
-					 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
-							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
-							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-					}
-					   else{
-					   uso algorirmo para elegir instancia a la que le voy a mandar el valor
-					   PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = TODO_OK;
-					   enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-					}
+					 * aviso al plani que bloquee esta clave
+					 devuelvo al esi todo ok
 					 *
 					 */
 				}
@@ -159,7 +130,22 @@ void procesarInstruccion(instruccion instruccion, int sock){
 						printf ("llegó set \n");
 						if (contieneString(listaDeClaves,instruccion.clave)){
 							printf ("contiene esta clave \n");
-							//pregunto al plani si está bloqueada para el esi
+							/*
+							 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+								PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
+								enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+								}
+								else
+								elegirInstanciaMedianteAlgoritmo(instruccion.clave)
+
+								PRIMERO MANDAR LA LONGITUD DE LA CLAVE
+								DESPUES LA CLAVE
+								DESPUES LA LONGITUD DEL VALOR
+								DESPUÉS EL VALOR
+
+								esperar respuesta
+
+							 */
 						}
 
 						else{
@@ -181,9 +167,9 @@ void procesarInstruccion(instruccion instruccion, int sock){
 							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
 							}
 							else{
-							decirle al plani que la libere
-							decirle a la instancia que la archive
-							eliminarla de mi lista
+
+							decirle a la instancia que la archive - MANDAR STORE
+
 							}
 						 */
 						}
@@ -198,6 +184,42 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 					break;
 	}
+}
+
+void elegirInstanciaSegunAlgoritmo(char* instruccion){
+	int comparacion = strcmp(coordConfig->algoritmo, "EL");
+	if (comparacion == 0){
+		//Es Equitative Load
+
+
+
+		/*
+		 * 	instancia * instanciaQueElijo = obtenerInstanciaParaEL(listaDeInstancias);
+		instanciaQueElijo->bandera = 1;
+		 *
+		 */
+
+	}
+
+}
+
+t_link_element* obtenerInstanciaParaEL(t_list *self) {
+	t_link_element *element = self->head;
+	int position = 0;
+
+	while (element != NULL && !banderaIgualA0(element->data)) {
+		element = element->next;
+		position++;
+	}
+
+	return element;
+}
+
+bool banderaIgualA0(instancia* elemento){
+	if (elemento->bandera == 0)
+		return true;
+	else
+		return false;
 }
 
 bool contieneString(t_list* list, void* value){
@@ -273,7 +295,13 @@ void registrarInstancia(int sock){
 	registrarInstancia.tamanioEntradas= coordConfig->tamanioEntradas;
 	registrarInstancia.tamanioOcupado=0;
 	registrarInstancia.claves= list_create();
+	registrarInstancia.bandera=0;
+
 	list_add(listaDeInstancias,&registrarInstancia);
+
+	//verificar que tiene un solo elemento ->
+	//instanciaAElegir = listaDeInstancias->head;
+
 	log_info(logger,"Se registro instancia");
 
 	printf("instancias registradas: %d \n", list_size(listaDeInstancias));

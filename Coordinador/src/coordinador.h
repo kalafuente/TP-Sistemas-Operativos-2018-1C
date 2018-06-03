@@ -35,6 +35,7 @@ typedef struct instancia{
 	int tamanioEntradas;
 	int tamanioOcupado;
 	t_list* claves;
+	int bandera;
 }instancia
 ;
 //---------------------------VARIABLES GLOBALES-----------------------------
@@ -45,6 +46,7 @@ int cantEsi;
 coordinador_config * coordConfig;
 t_list* listaDeInstancias;
 t_list* listaDeClaves;
+t_link_element* instanciaAElegir;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 
@@ -52,12 +54,15 @@ t_list* listaDeClaves;
 coordinador_config * init_coordConfig();
 void destroy_coordConfig(coordinador_config* coord);
 void crearConfiguracion(coordinador_config* coordinador, t_config* config);
+//-----------Funciones auxiliares
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 void procesarInstruccion(instruccion instruccion, int sock);
 bool contieneString(t_list* list, void* value);
+void elegirInstanciaSegunAlgoritmo(char* instruccion);
+t_link_element obtenerInstanciaParaEL(t_list *self);
 
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

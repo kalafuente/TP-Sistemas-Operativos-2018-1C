@@ -100,7 +100,7 @@ void procesarScript() {
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}
 
-	//enviarResultado(TERMINE);
+	enviarResultado(TERMINE);
 
 	fclose(script);
 	free(line);

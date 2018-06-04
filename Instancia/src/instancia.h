@@ -64,7 +64,7 @@ typedef struct instancia_config {
 
 typedef struct t_tabla_entradas
 {
-	char * clave; //La key tiene 40 caracteres, asi que le sumamos 1 para el fin de string
+	char * clave;
 	int32_t numeroEntrada;
 	int32_t tamanioValor;
 
@@ -78,6 +78,8 @@ int32_t cantidadEntradas = 10; //Lo deje en 10 para probar
 int32_t tamanioEntrada = 10;// Idem
 char ** entradas = NULL;
 t_list* tablaEntradas = NULL;
+int filaACambiar = 0; //Actua como el puntero que nos dice en que numero de entrada debemos guardar el valor
+int comenzarReemplazoDeValores = 0; //Es como un booleano, nos dice si llenamos las Entradas y tenemos que comenzar a reemplazar valores segun el algoritmo
 
 
 //------------Declaraciones de funciones
@@ -97,5 +99,6 @@ void procesarSET();
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
 int existeLaClave(char * clave, t_tabla_entradas * info);
+int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo);
 
 #endif /* INSTANCIA_H_ */

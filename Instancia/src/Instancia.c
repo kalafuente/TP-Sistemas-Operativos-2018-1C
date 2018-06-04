@@ -387,11 +387,13 @@ void procesarSET()
 	switch(existeLaClave(key, datos))
 	{
 		case 0:
-			//zaraza
+			//Guardamos el valor en las Entradas.
+			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
 			break;
 
 		case 1:
-			//zaraza2
+			//guardarValorEnEntradas();
+			//Actualizamos el nodo (o los nodos) en el que estan los datos de la clave
 			break;
 
 		default:
@@ -417,7 +419,7 @@ void eliminarTablaDeEntradas()
 	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
 }
 
-int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve cuantas veces la encuentra, y el campo de datos del nodo correspondiente a la 1ra
+int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve si es atomica (1) o no (2). Ademas devuelve el campo de datos del nodo donde esta.
 {
 	/*
 	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
@@ -426,7 +428,6 @@ int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave de
 	}
 	*/
 
-	int contador = 0;
 	t_link_element * actual = tablaEntradas->head;
 
 	while(actual != NULL)
@@ -435,18 +436,28 @@ int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave de
 
 		if(strcmp(clave, datos->clave) == 0)
 		{
-			contador ++;
-			if(contador == 1)
-			{
-				info = datos;
-			}
+			info = datos;
+			return esAtomicoElValorDeLaClave(clave, actual) + 1;
 		}
 
-		actual =  actual->next;
+		actual = actual->next;
 	}
 
-	return contador;
+	return 0;
 
+}
+
+int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo)
+{
+	t_link_element * siguiente = nodo->next;
+	t_tabla_entradas * datos = (t_tabla_entradas *) siguiente->data;
+
+	if(strcmp(clave, datos->clave) == 0)
+	{
+		return 0;
+	}
+
+	return 1;
 }
 
 /*

@@ -62,7 +62,8 @@ void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave,
 void procesarInstruccion(instruccion instruccion, int sock);
 bool contieneString(t_list* list, void* value);
 void elegirInstanciaSegunAlgoritmo(char* instruccion);
-t_link_element obtenerInstanciaParaEL(t_list *self);
+t_link_element* obtenerInstanciaParaEL(t_list *self);
+bool banderaIgualA0(instancia* elemento);
 
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

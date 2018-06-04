@@ -117,7 +117,7 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 				else{
 					printf("no contiene este get");
-					list_add(instruccion.clave);
+					//list_add(instruccion.clave);
 					/*
 					 * aviso al plani que bloquee esta clave
 					 devuelvo al esi todo ok

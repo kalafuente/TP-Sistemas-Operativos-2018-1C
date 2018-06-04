@@ -23,6 +23,13 @@ typedef struct esi_config{
 	char* puertoPlanificador;
 }esi_config;
 
+typedef struct instruccion{
+	PROTOCOLO_INSTRUCCIONES instruccion;
+	char*clave;
+	char*valor;
+}instruccion;
+
+
 //---CONFIGURACION
 void crearConfiguracion();
 void destroy_esiConfig();
@@ -37,6 +44,10 @@ void enviarInstruccion(t_esi_operacion);
 void procesarScript();
 void cerrarConexion();
 void killEsi();
+
+instruccion* leerInstruccion(char* line);
+void enviarInstruccion2(instruccion *instruccion);
+instruccion* cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor);
 
 //------------------VARIABLES GLOBALES
 t_log* logger;

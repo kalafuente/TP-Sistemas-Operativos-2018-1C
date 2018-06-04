@@ -65,6 +65,10 @@ void elegirInstanciaSegunAlgoritmo(char* instruccion);
 t_link_element* obtenerInstanciaParaEL(t_list *self);
 bool banderaIgualA0(instancia* elemento);
 
+instruccion* recibirInstruccion2(int sock);
+
+void destruirInstruccion(instruccion*);
+
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);
 void crearServidorMultiHilo(int listenningSocket);

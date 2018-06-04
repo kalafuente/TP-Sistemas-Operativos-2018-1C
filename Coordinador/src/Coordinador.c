@@ -59,8 +59,8 @@ void crearServidorMultiHilo(int listenningSocket) {
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
-	instruccion instruccionAGuardar;
-
+	//instruccion instruccionAGuardar;
+	instruccion* instruccionAGuardar;
 	//----------LA EDUCACIÓN ANTE TODO, VAMOS A SALUDAR A TODO AQUEL QUE SE CONECTE A MÍ----------
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
 	enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES), &handshakeCoordi , sock); //Saludamos
@@ -85,9 +85,12 @@ void *manejadorDeConexiones(void *socket_desc) {
 	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
-		recibirInstruccion(sock, &instruccionAGuardar);
+		//recibirInstruccion(sock, &instruccionAGuardar);
+		instruccionAGuardar=recibirInstruccion2(sock);
+
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
-		procesarInstruccion(instruccionAGuardar,sock);
+		procesarInstruccion(*instruccionAGuardar,sock);
+		destruirInstruccion(instruccionAGuardar);
 		break;
 
 	}
@@ -341,4 +344,33 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 	free(coordinadorConfig->algoritmo);
 	free(coordinadorConfig);
 }
+
+
+
+instruccion* recibirInstruccion2(int sock){
+	int32_t lenClave;
+	int32_t lenValor;
+	instruccion* instruccionAGuardar=malloc(sizeof(instruccion));
+	char operacion[80];
+	PROTOCOLO_INSTRUCCIONES instruccion;
+	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
+	instruccionAGuardar->instruccion=instruccion;
+
+	recibirMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	instruccionAGuardar->clave=malloc(lenClave);
+	recibirMensaje(logger,lenClave,instruccionAGuardar->clave,sock);
+
+	recibirMensaje(logger,sizeof(int32_t),&lenValor,sock);
+	instruccionAGuardar->valor=malloc(lenValor);
+	recibirMensaje(logger,lenValor,instruccionAGuardar->valor,sock);
+	registrarLogDeOperaciones(operacion,"HOLA",instruccionAGuardar->clave,instruccionAGuardar->valor);
+	return instruccionAGuardar;
+}
+
+void destruirInstruccion(instruccion*instruccion){
+	free(instruccion->clave);
+	free(instruccion->valor);
+	free(instruccion);
+}
+
 

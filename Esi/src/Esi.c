@@ -91,11 +91,14 @@ void procesarScript() {
 		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 				&mensajeDelPlani, socketPlani);
 
-		t_esi_operacion parsed = parse(line);
-
-		enviarInstruccion(parsed);
-
-		destruir_operacion(parsed);
+		//t_esi_operacion parsed = parse(line);
+		instruccion* inst = leerInstruccion(line);
+		enviarInstruccion2(inst);
+		free(inst->clave);
+			free(inst->valor);
+			free(inst);
+		//destruirInstruccion(inst);
+		//destruir_operacion(parsed);
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}
 	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
@@ -114,4 +117,59 @@ void killEsi() {
 	destroy_esiConfig();
 	log_info(logger, "Hasta la vista, ESI");
 }
+
+instruccion * cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor){
+	instruccion* inst=malloc(sizeof(instruccion));
+	inst->instruccion=protocolo;
+	inst->valor=malloc(strlen(valor)+1);
+	inst->clave=malloc(strlen(clave)+1);
+	strcpy(inst->clave,clave);
+	strcpy(inst->valor,valor);
+	return inst;
+
+}
+
+void destruirInstruccion(instruccion*instruccion){
+	free(instruccion->clave);
+	free(instruccion->valor);
+	free(instruccion);
+}
+
+
+void enviarInstruccion2(instruccion*instruccion) {
+	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
+	int32_t lenClave = strlen(instruccion->clave)+1;
+	int32_t lenValor= strlen(instruccion->valor)+1;
+	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion->instruccion,socketCoordinador);
+	enviarMensaje(logger,sizeof(int32_t),&lenClave,socketCoordinador);
+	enviarMensaje(logger,lenClave,instruccion->clave,socketCoordinador);
+
+	enviarMensaje(logger,sizeof(int32_t),&lenValor,socketCoordinador);
+	enviarMensaje(logger,lenValor,instruccion->valor,socketCoordinador);
+
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+					socketPlani);
+
+
+}
+
+
+instruccion* leerInstruccion(char* line){
+	t_esi_operacion parsed = parse(line);
+	instruccion* instruccion;
+	if(parsed.keyword == GET){
+		instruccion= cargarInstruccion(INSTRUCCION_GET,parsed.argumentos.GET.clave,"0");
+	}
+	else if(parsed.keyword ==SET){
+		instruccion= cargarInstruccion(INSTRUCCION_SET,parsed.argumentos.SET.clave,parsed.argumentos.SET.valor);
+	}
+	else{
+		instruccion= cargarInstruccion(INSTRUCCION_STORE,parsed.argumentos.STORE.clave,"0");
+	}
+
+	destruir_operacion(parsed);
+	return instruccion;
+
+}
+
 

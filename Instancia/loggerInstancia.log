@@ -426,3 +426,34 @@
 [ERROR] 20:59:31:20 loggerInstancia/(5340:5340): ERROR AL RECIBIR
 [ERROR] 20:59:31:21 loggerInstancia/(5340:5340): No se pudo recibir la sentencia
 
+[INFO] 23:35:31:176 loggerInstancia/(8747:8747): Intento conectarme al Coordinador
+
+[ERROR] 23:35:31:228 loggerInstancia/(8747:8747): No me pude conectar al servidor
+[ERROR] 23:35:31:233 loggerInstancia/(8747:8747): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 23:35:38:696 loggerInstancia/(8747:8747): Conexion exitosa!
+[INFO] 23:35:38:697 loggerInstancia/(8747:8747): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 23:35:38:699 loggerInstancia/(8747:8747): ERROR AL RECIBIR
+[ERROR] 23:35:38:700 loggerInstancia/(8747:8747): Handshake fallido
+
+[INFO] 23:35:38:701 loggerInstancia/(8747:8747): Esperando configuracion de entradas
+
+[ERROR] 23:35:38:701 loggerInstancia/(8747:8747): ERROR AL RECIBIR
+[ERROR] 23:35:38:702 loggerInstancia/(8747:8747): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 23:35:38:703 loggerInstancia/(8747:8747): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 23:35:38:704 loggerInstancia/(8747:8747): Memoria alojada correctamente
+
+[INFO] 23:35:38:708 loggerInstancia/(8747:8747): Inicializamos los valores de las Entradas en 0
+
+[INFO] 23:35:38:709 loggerInstancia/(8747:8747): Inicializacion exitosa!
+
+[INFO] 23:35:38:710 loggerInstancia/(8747:8747): Comienzo a recibir sentencias del coordinador
+
+[INFO] 23:35:38:710 loggerInstancia/(8747:8747): Esperando proxima sentencia...
+
+[ERROR] 23:35:38:711 loggerInstancia/(8747:8747): ERROR AL RECIBIR
+[ERROR] 23:35:38:711 loggerInstancia/(8747:8747): No se pudo recibir la sentencia
+

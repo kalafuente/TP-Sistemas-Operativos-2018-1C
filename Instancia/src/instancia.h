@@ -75,9 +75,9 @@ typedef struct t_tabla_entradas
 t_log* logger;
 int32_t socketCoordinador;
 instancia_config * instanciaConfig;
-int32_t cantidadEntradas = 10; //Lo deje en 10 para probar
+int32_t cantidadEntradas = 20; //Lo deje en 20 para probar
 int32_t tamanioEntrada = 10;// Idem
-char ** entradas = NULL;
+char ** entradas = NULL; //Es Filas x Columnas ... char entradas[CantidadEntradas][TamanioEntrada]
 t_list* tablaEntradas = NULL;
 int filaACambiar = 0; //Actua como el puntero que nos dice en que numero de entrada debemos guardar el valor
 int comenzarReemplazoDeValores = 0; //Es como un booleano, nos dice si llenamos las Entradas y tenemos que comenzar a reemplazar valores segun el algoritmo

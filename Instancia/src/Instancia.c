@@ -271,7 +271,7 @@ void inicializarEntradas()
 	{
 		for(columna = 0; columna < tamanioEntrada; columna ++)
 		{
-			entradas[columna][fila] = '0';
+			entradas[fila][columna] = '0';
 		}
 	}
 
@@ -408,9 +408,8 @@ void procesarSET()
 
 void eliminarDatosTablaDeEntradas(void * elemento)
 {
-	t_tabla_entradas * elementoAEliminar = (t_tabla_entradas *) elemento;
-	free(elementoAEliminar->clave);
-	free(elementoAEliminar);
+	free(((t_tabla_entradas *)elemento)->clave);
+	free(((t_tabla_entradas *)elemento));
 }
 
 void eliminarTablaDeEntradas()
@@ -488,6 +487,7 @@ void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
 	{
 		//Tengo que implementar algun algoritmo para comenzar a reemplazar
 	}
+
 
 
 

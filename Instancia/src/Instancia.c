@@ -74,6 +74,7 @@ int main(void)
 	inicializarEntradas();
 	tablaEntradas = list_create();
 	procesarSentencias();
+	imprimirContenidoEntradas();
 
 
 	close(socketCoordinador);
@@ -576,6 +577,51 @@ void moverPunteroAFila()
 	}
 
 	filaACambiar ++;
+}
+
+void imprimirContenidoEntradas()
+{
+	if(list_is_empty(tablaEntradas))
+	{
+		log_info(logger, "No se guardo nada en las Entradas. No hay nada que imprimir\n");
+		return;
+	}
+
+	log_info(logger, "Comenzamos a imprimir los valores\n");
+
+	t_link_element * lista = tablaEntradas->head;
+
+	while(lista != NULL)
+	{
+		t_tabla_entradas * datos = ((t_tabla_entradas *)lista->data);
+		int entradasQueOcupaElValor = cuantasEntradasOcupaElValor(datos->tamanioValor);
+
+		if(entradasQueOcupaElValor == 1)
+		{
+			printf("La clave es: %s\n", datos->clave);
+			printf("Su valor asociado es: %s\n", entradas[datos->numeroEntrada]);
+			lista = lista->next;
+		}
+		else
+		{
+			char * valorCompleto = string_new();
+			char * key = datos->clave;
+			int parte;
+
+			for(parte = 0; parte < entradasQueOcupaElValor; parte ++)
+			{
+				string_append(&valorCompleto, entradas[datos->numeroEntrada]);
+				lista = lista->next;
+				datos = ((t_tabla_entradas *)lista->data);
+			}
+
+			printf("La clave es: %s\n", key);
+			printf("Su valor asociado es: %s\n", valorCompleto);
+
+		}
+	}
+
+	log_info(logger, "Los valores se han impreso correctamente\n");
 }
 
 /*

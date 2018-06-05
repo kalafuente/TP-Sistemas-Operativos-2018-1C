@@ -108,5 +108,6 @@ void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t lo
 void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
 void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor);
 void moverPunteroAFila();
+void imprimirContenidoEntradas();
 
 #endif /* INSTANCIA_H_ */

@@ -103,5 +103,7 @@ int existeLaClave(char * clave, t_tabla_entradas * info);
 // int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
 int esAtomicoElValor(int32_t longitudDelValor);
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor);
+void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor);
+void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
 
 #endif /* INSTANCIA_H_ */

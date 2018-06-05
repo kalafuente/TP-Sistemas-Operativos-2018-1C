@@ -392,8 +392,9 @@ void procesarSET()
 			break;
 
 		case 2: //La clave existe y su valor almacenado es atomico
-			//guardarValorEnEntradas();
-			//Actualizamos el nodo (o los nodos) en el que estan los datos de la clave
+			//Guardamos el valor en las entradas en la posicion que nos indica el nodo
+			//Actualizamos el nodo en el que estan los datos de la clave
+			actualizarValorEnEntradas(datos, valor, longitudValor);
 			break;
 
 		default: //Cuando devuelve 1, quiere decir que el valor almacenado de esa clave no es atomico
@@ -483,14 +484,49 @@ int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
 
 void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
 {
+
 	if(comenzarReemplazoDeValores)
 	{
 		//Tengo que implementar algun algoritmo para comenzar a reemplazar
 	}
 
 
+	//Lo guardo en el espacio siguiente libre
+	int cuantasEntradasDeboEscribir = cuantasEntradasOcupaElValor(longitudDelValor);
+	int cantidadEntradasLibres = cantidadEntradas - tablaEntradas->elements_count;
 
+	if(cuantasEntradasDeboEscribir <= cantidadEntradasLibres) //Sabemos que las entradas son contiguas porque todavia no dimos una vuelta. Siempre almacenamos un valor al lado del otro
+	{
 
+	}
+
+}
+
+void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor)
+{
+	strcpy(entradas[info->numeroEntrada], valor);
+	info->tamanioValor = longitudDelValor;
+	//Capaz tenga que agregar la hora en la que se modifico por ultima vez como un campo en la Tabla de entradas
+	//Habria que actualizarlo tambien
+}
+
+void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte])
+{
+
+	int caracter, parte, posCadena;
+	parte = -1;
+
+	for(posCadena = 0; posCadena < longitudCadena; posCadena ++)
+	{
+		if(posCadena % tamanioParte == 0)
+		{
+			parte ++;
+			caracter = 0;
+		}
+
+		strings[parte][caracter] = cadena[posCadena];
+		caracter ++;
+	}
 }
 
 /*

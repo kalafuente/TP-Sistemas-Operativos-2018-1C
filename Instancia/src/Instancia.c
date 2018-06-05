@@ -389,12 +389,17 @@ void procesarSET()
 		case 0: //La clave no existe
 			//Guardamos el valor en las Entradas.
 			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
+			log_info(logger, "La clave no existe. Intentamos guardar su valor en las Entradas\n");
+			guardarValorEnEntradas(key, valor, longitudValor);
+			log_info(logger, "Se pudo almacenar el valor\n");
 			break;
 
 		case 2: //La clave existe y su valor almacenado es atomico
 			//Guardamos el valor en las entradas en la posicion que nos indica el nodo
 			//Actualizamos el nodo en el que estan los datos de la clave
+			log_info(logger, "La clave existe. Se intenta actualizar su valor\n");
 			actualizarValorEnEntradas(datos, valor, longitudValor);
+			log_info(logger, "Valor actualizado\n");
 			break;
 
 		default: //Cuando devuelve 1, quiere decir que el valor almacenado de esa clave no es atomico
@@ -402,7 +407,7 @@ void procesarSET()
 			return;
 	}
 
-
+	log_info(logger, "Operacion SET exitosa!\n");
 
 	return;
 }
@@ -482,7 +487,7 @@ int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
 	return (int) ceil(entradasQueOcupa);
 }
 
-void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
+void guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 {
 
 	if(comenzarReemplazoDeValores)
@@ -497,8 +502,28 @@ void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
 
 	if(cuantasEntradasDeboEscribir <= cantidadEntradasLibres) //Sabemos que las entradas son contiguas porque todavia no dimos una vuelta. Siempre almacenamos un valor al lado del otro
 	{
+		if(cuantasEntradasDeboEscribir == 1)
+		{
+			escribirValorAtomico(clave, valor, longitudDelValor);
+			return;
+		}
+
+		char valorPartido[cuantasEntradasDeboEscribir][tamanioEntrada];
+		separarStringEnNPartesIguales(valor, longitudDelValor, cuantasEntradasDeboEscribir, tamanioEntrada, valorPartido);
+
+		int parte;
+
+		for(parte = 0; parte < cuantasEntradasDeboEscribir; parte ++)
+		{
+			escribirValorAtomico(clave, valorPartido[parte], longitudDelValor);
+		}
+
+		return;
 
 	}
+
+	//Este seria el caso en el que, por ej, tengo 1 entrada libre (y es la ultima) pero tengo que escribir dos
+
 
 }
 
@@ -527,6 +552,30 @@ void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantid
 		strings[parte][caracter] = cadena[posCadena];
 		caracter ++;
 	}
+}
+void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor)
+{
+	strcpy(entradas[filaACambiar], valor);
+	t_tabla_entradas * nuevoCampoData = malloc(sizeof(t_tabla_entradas));
+	nuevoCampoData->clave = string_new();
+	string_append(&(nuevoCampoData->clave), clave);
+	nuevoCampoData->numeroEntrada = filaACambiar;
+	nuevoCampoData->tamanioValor = longitudValor;
+
+	list_add(tablaEntradas, nuevoCampoData);
+	moverPunteroAFila();
+}
+
+void moverPunteroAFila()
+{
+	if(filaACambiar == (cantidadEntradas - 1))
+	{
+		filaACambiar = 0;
+		comenzarReemplazoDeValores = 1;
+		return;
+	}
+
+	filaACambiar ++;
 }
 
 /*

@@ -477,7 +477,7 @@ int esAtomicoElValor(int32_t longitudDelValor)
 
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
 {
-	double entradasQueOcupa = longitudDelValor / tamanioEntrada;
+	double entradasQueOcupa = (double)longitudDelValor / (double)tamanioEntrada;
 
 	return (int) ceil(entradasQueOcupa);
 }
@@ -488,6 +488,7 @@ void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
 	{
 		//Tengo que implementar algun algoritmo para comenzar a reemplazar
 	}
+
 
 
 }

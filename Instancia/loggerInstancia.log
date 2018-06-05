@@ -333,3 +333,96 @@
 [ERROR] 08:13:57:530 loggerInstancia/(5228:5228): ERROR AL RECIBIR
 [ERROR] 08:13:57:530 loggerInstancia/(5228:5228): No se pudo recibir la sentencia
 
+[INFO] 19:19:34:565 loggerInstancia/(5819:5819): Intento conectarme al Coordinador
+
+[ERROR] 19:19:34:633 loggerInstancia/(5819:5819): No me pude conectar al servidor
+[ERROR] 19:19:34:639 loggerInstancia/(5819:5819): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 19:19:38:370 loggerInstancia/(5819:5819): Conexion exitosa!
+[INFO] 19:19:38:370 loggerInstancia/(5819:5819): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 19:19:38:372 loggerInstancia/(5819:5819): ERROR AL RECIBIR
+[ERROR] 19:19:38:374 loggerInstancia/(5819:5819): Handshake fallido
+
+[INFO] 19:19:38:374 loggerInstancia/(5819:5819): Esperando configuracion de entradas
+
+[ERROR] 19:19:38:377 loggerInstancia/(5819:5819): ERROR AL RECIBIR
+[ERROR] 19:19:38:378 loggerInstancia/(5819:5819): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 19:19:38:381 loggerInstancia/(5819:5819): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 19:19:38:382 loggerInstancia/(5819:5819): Memoria alojada correctamente
+
+[INFO] 19:19:38:382 loggerInstancia/(5819:5819): Inicializamos los valores de las Entradas en 0
+
+[INFO] 19:19:38:383 loggerInstancia/(5819:5819): Inicializacion exitosa!
+
+[INFO] 19:19:38:384 loggerInstancia/(5819:5819): Comienzo a recibir sentencias del coordinador
+
+[INFO] 19:19:38:385 loggerInstancia/(5819:5819): Esperando proxima sentencia...
+
+[ERROR] 19:19:38:386 loggerInstancia/(5819:5819): ERROR AL RECIBIR
+[ERROR] 19:19:38:386 loggerInstancia/(5819:5819): No se pudo recibir la sentencia
+
+[INFO] 19:25:08:265 loggerInstancia/(5918:5918): Intento conectarme al Coordinador
+
+[ERROR] 19:25:08:360 loggerInstancia/(5918:5918): No me pude conectar al servidor
+[ERROR] 19:25:08:367 loggerInstancia/(5918:5918): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 19:25:11:269 loggerInstancia/(5918:5918): Conexion exitosa!
+[INFO] 19:25:11:270 loggerInstancia/(5918:5918): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 19:25:11:272 loggerInstancia/(5918:5918): ERROR AL RECIBIR
+[ERROR] 19:25:11:276 loggerInstancia/(5918:5918): Handshake fallido
+
+[INFO] 19:25:11:277 loggerInstancia/(5918:5918): Esperando configuracion de entradas
+
+[ERROR] 19:25:11:282 loggerInstancia/(5918:5918): ERROR AL RECIBIR
+[ERROR] 19:25:11:282 loggerInstancia/(5918:5918): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 19:25:11:283 loggerInstancia/(5918:5918): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 19:25:11:286 loggerInstancia/(5918:5918): Memoria alojada correctamente
+
+[INFO] 19:25:11:288 loggerInstancia/(5918:5918): Inicializamos los valores de las Entradas en 0
+
+[INFO] 19:25:11:290 loggerInstancia/(5918:5918): Inicializacion exitosa!
+
+[INFO] 19:25:11:292 loggerInstancia/(5918:5918): Comienzo a recibir sentencias del coordinador
+
+[INFO] 19:25:11:296 loggerInstancia/(5918:5918): Esperando proxima sentencia...
+
+[ERROR] 19:25:11:296 loggerInstancia/(5918:5918): ERROR AL RECIBIR
+[ERROR] 19:25:11:301 loggerInstancia/(5918:5918): No se pudo recibir la sentencia
+
+[INFO] 20:59:27:761 loggerInstancia/(5340:5340): Intento conectarme al Coordinador
+
+[ERROR] 20:59:27:818 loggerInstancia/(5340:5340): No me pude conectar al servidor
+[ERROR] 20:59:27:820 loggerInstancia/(5340:5340): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 20:59:31:4 loggerInstancia/(5340:5340): Conexion exitosa!
+[INFO] 20:59:31:5 loggerInstancia/(5340:5340): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 20:59:31:7 loggerInstancia/(5340:5340): ERROR AL RECIBIR
+[ERROR] 20:59:31:8 loggerInstancia/(5340:5340): Handshake fallido
+
+[INFO] 20:59:31:10 loggerInstancia/(5340:5340): Esperando configuracion de entradas
+
+[ERROR] 20:59:31:12 loggerInstancia/(5340:5340): ERROR AL RECIBIR
+[ERROR] 20:59:31:13 loggerInstancia/(5340:5340): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 20:59:31:14 loggerInstancia/(5340:5340): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 20:59:31:15 loggerInstancia/(5340:5340): Memoria alojada correctamente
+
+[INFO] 20:59:31:15 loggerInstancia/(5340:5340): Inicializamos los valores de las Entradas en 0
+
+[INFO] 20:59:31:18 loggerInstancia/(5340:5340): Inicializacion exitosa!
+
+[INFO] 20:59:31:19 loggerInstancia/(5340:5340): Comienzo a recibir sentencias del coordinador
+
+[INFO] 20:59:31:20 loggerInstancia/(5340:5340): Esperando proxima sentencia...
+
+[ERROR] 20:59:31:20 loggerInstancia/(5340:5340): ERROR AL RECIBIR
+[ERROR] 20:59:31:21 loggerInstancia/(5340:5340): No se pudo recibir la sentencia
+

@@ -386,17 +386,17 @@ void procesarSET()
 
 	switch(existeLaClave(key, datos))
 	{
-		case 0:
+		case 0: //La clave no existe
 			//Guardamos el valor en las Entradas.
 			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
 			break;
 
-		case 1:
+		case 2: //La clave existe y su valor almacenado es atomico
 			//guardarValorEnEntradas();
 			//Actualizamos el nodo (o los nodos) en el que estan los datos de la clave
 			break;
 
-		default:
+		default: //Cuando devuelve 1, quiere decir que el valor almacenado de esa clave no es atomico
 			log_error(logger, "El valor de la clave en cuestion no es atomico, por lo que no se puede reemplazar\n");
 			return;
 	}
@@ -408,8 +408,9 @@ void procesarSET()
 
 void eliminarDatosTablaDeEntradas(void * elemento)
 {
-	elemento = (t_tabla_entradas *) elemento;
-	free(elemento);
+	t_tabla_entradas * elementoAEliminar = (t_tabla_entradas *) elemento;
+	free(elementoAEliminar->clave);
+	free(elementoAEliminar);
 }
 
 void eliminarTablaDeEntradas()
@@ -419,7 +420,7 @@ void eliminarTablaDeEntradas()
 	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
 }
 
-int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve si es atomica (1) o no (2). Ademas devuelve el campo de datos del nodo donde esta.
+int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el campo de datos del nodo donde esta.
 {
 	/*
 	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
@@ -437,7 +438,7 @@ int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave de
 		if(strcmp(clave, datos->clave) == 0)
 		{
 			info = datos;
-			return esAtomicoElValorDeLaClave(clave, actual) + 1;
+			return esAtomicoElValor(datos->tamanioValor) + 1;
 		}
 
 		actual = actual->next;
@@ -446,6 +447,8 @@ int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave de
 	return 0;
 
 }
+
+/* Ya no la uso
 
 int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo)
 {
@@ -458,6 +461,35 @@ int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo)
 	}
 
 	return 1;
+}
+
+*/
+
+int esAtomicoElValor(int32_t longitudDelValor)
+{
+	if(cuantasEntradasOcupaElValor(longitudDelValor) - 1)
+	{
+		return 0;
+	}
+
+	return 1;
+}
+
+int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
+{
+	double entradasQueOcupa = longitudDelValor / tamanioEntrada;
+
+	return (int) ceil(entradasQueOcupa);
+}
+
+void guardarValorEnEntradas(char * valor, int32_t longitudDelValor)
+{
+	if(comenzarReemplazoDeValores)
+	{
+		//Tengo que implementar algun algoritmo para comenzar a reemplazar
+	}
+
+
 }
 
 /*

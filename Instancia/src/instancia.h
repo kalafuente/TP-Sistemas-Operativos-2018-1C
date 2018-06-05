@@ -52,6 +52,7 @@ void destroy_instanciaConfig(instancia_config*);
 #include <commons/collections/list.h>
 #include <manejoDeSockets/manejoDeSockets.c>
 #include <protocolos/protocolos.h>
+#include <math.h>
 
 typedef struct instancia_config {
 	char * ipCoordi ;
@@ -99,6 +100,8 @@ void procesarSET();
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
 int existeLaClave(char * clave, t_tabla_entradas * info);
-int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo);
+// int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
+int esAtomicoElValor(int32_t longitudDelValor);
+int cuantasEntradasOcupaElValor(int32_t longitudDelValor);
 
 #endif /* INSTANCIA_H_ */

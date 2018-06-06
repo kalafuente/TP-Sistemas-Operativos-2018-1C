@@ -13,7 +13,26 @@ int main(int argc, char **argv) {
 	//---------CREACION DE ESTRUCTURAS NECESARIAS
 
 	listaDeInstancias= list_create();
-	listaDeClaves=list_create();
+	listaDeClavesConInstancia= list_create();
+
+
+
+	instancia nula;
+	nula.cantEntradas=0;
+	nula.socket=0;
+	nula.tamanioEntradas=0;
+	nula.tamanioOcupado=0;
+
+	claveConInstancia nueva;
+	nueva.clave = "deportes:futbol:messi";
+	nueva.instancia= nula;
+	claveConInstancia nueva2;
+	nueva2.clave = "deportes:futbol:kdljglfkdgklfd";
+	nueva2.instancia= nula;
+
+	list_add(listaDeClavesConInstancia,&nueva);
+	list_add(listaDeClavesConInstancia,&nueva2);
+
 	cantEsi=0;
 
 	//---------CREO MI SERVIDOR
@@ -107,8 +126,10 @@ void procesarInstruccion(instruccion instruccion, int sock){
 	switch(instruccion.instruccion){
 			case INSTRUCCION_GET:
 				printf ("llegó get \n");
-				if (contieneString(listaDeClaves,instruccion.clave)){
+				if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
 					printf ("contiene este get \n");
+					printf ("\n mostrar lista\n ");
+										mostrarLista(listaDeClavesConInstancia);
 					/*
 					if (preguntar al coordi el estado de esta clave !== BLOQUEADA){
 							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
@@ -120,7 +141,11 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 				else{
 					printf("no contiene este get");
-					//list_add(instruccion.clave);
+					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion.clave, nuevaInstanciaNula());
+					list_add(listaDeClavesConInstancia, clavenueva);
+					printf("\n se agrego %s", clavenueva->clave);
+					printf ("\n mostrar lista\n ");
+					mostrarLista(listaDeClavesConInstancia);
 					/*
 					 * aviso al plani que bloquee esta clave
 					 devuelvo al esi todo ok
@@ -131,10 +156,10 @@ void procesarInstruccion(instruccion instruccion, int sock){
 			break;
 					case INSTRUCCION_SET:
 						printf ("llegó set \n");
-						if (contieneString(listaDeClaves,instruccion.clave)){
+						if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
 							printf ("contiene esta clave \n");
 							/*
-							 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
+							 * if (preguntar al plani el estado de esta clave == BLOQUEADA){
 								PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
 								enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
 								}
@@ -162,7 +187,7 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 					case INSTRUCCION_STORE:
 						printf ("llegó store \n");
-						if (contieneString(listaDeClaves,instruccion.clave)){
+						if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
 						printf ("contiene esta clave \n");
 						/*
 						 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
@@ -189,6 +214,42 @@ void procesarInstruccion(instruccion instruccion, int sock){
 	}
 }
 
+void mostrarLista(t_list* lista){
+	void mostrar(claveConInstancia * elem){
+		printf ("clave, %s \n", elem->clave);
+	}
+	list_iterate(lista, (void *) mostrar);
+}
+claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia){
+	claveConInstancia* nueva=malloc(sizeof(claveConInstancia));
+	nueva-> clave = string_new();
+	string_append(&(nueva->clave), clave);
+
+	nueva->instancia = _instancia;
+	return nueva;
+}
+instancia nuevaInstanciaNula(){
+	instancia nula;
+	nula.cantEntradas=0;
+	nula.socket=0;
+	nula.tamanioEntradas=0;
+	nula.tamanioOcupado=0;
+	return nula;
+}
+
+bool contieneString(t_list* list, void* value){
+
+	bool equals(void* item) {
+		int rta = strcmp(value, item);
+		if (rta == 0)
+				return true;
+		else
+				return false;
+	}
+
+	return list_any_satisfy(list, equals);
+}
+
 void elegirInstanciaSegunAlgoritmo(char* instruccion){
 	int comparacion = strcmp(coordConfig->algoritmo, "EL");
 	if (comparacion == 0){
@@ -206,36 +267,20 @@ void elegirInstanciaSegunAlgoritmo(char* instruccion){
 
 }
 
-t_link_element* obtenerInstanciaParaEL(t_list *self) {
-	t_link_element *element = self->head;
-	int position = 0;
 
-	while (element != NULL && !banderaIgualA0(element->data)) {
-		element = element->next;
-		position++;
-	}
 
-	return element;
-}
 
-bool banderaIgualA0(instancia* elemento){
-	if (elemento->bandera == 0)
-		return true;
-	else
-		return false;
-}
+bool contieneClave(t_list* list, void* value){
 
-bool contieneString(t_list* list, void* value){
-
-	bool equals(void* item) {
-		int rta = strcmp(value, item);
+	bool equals(claveConInstancia* item) {
+		int rta = strcmp(value, item->clave);
 		if (rta == 0)
 				return true;
 		else
 				return false;
 	}
 
-	return list_any_satisfy(list, equals);
+	return list_any_satisfy(list, (void *) equals);
 }
 
 
@@ -297,8 +342,7 @@ void registrarInstancia(int sock){
 	registrarInstancia.cantEntradas = coordConfig->entradas;
 	registrarInstancia.tamanioEntradas= coordConfig->tamanioEntradas;
 	registrarInstancia.tamanioOcupado=0;
-	registrarInstancia.claves= list_create();
-	registrarInstancia.bandera=0;
+
 
 	list_add(listaDeInstancias,&registrarInstancia);
 
@@ -363,7 +407,22 @@ instruccion* recibirInstruccion2(int sock){
 	recibirMensaje(logger,sizeof(int32_t),&lenValor,sock);
 	instruccionAGuardar->valor=malloc(lenValor);
 	recibirMensaje(logger,lenValor,instruccionAGuardar->valor,sock);
-	registrarLogDeOperaciones(operacion,"HOLA",instruccionAGuardar->clave,instruccionAGuardar->valor);
+
+	switch(instruccionAGuardar->instruccion){
+					case INSTRUCCION_GET:
+						registrarLogDeOperaciones(operacion,"GET", instruccionAGuardar->clave,"0");
+
+						break;
+					case INSTRUCCION_SET:
+						registrarLogDeOperaciones(operacion,"SET", instruccionAGuardar->clave,instruccionAGuardar->valor);
+						break;
+
+					case INSTRUCCION_STORE:
+						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
+					break;
+	}
+
+
 	return instruccionAGuardar;
 }
 

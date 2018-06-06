@@ -34,9 +34,13 @@ typedef struct instancia{
 	int cantEntradas;
 	int tamanioEntradas;
 	int tamanioOcupado;
-	t_list* claves;
-	int bandera;
-}instancia
+
+}instancia;
+
+typedef struct claveConInstancia{
+	char* clave;
+	instancia instancia;
+}claveConInstancia;
 ;
 //---------------------------VARIABLES GLOBALES-----------------------------
 
@@ -45,7 +49,8 @@ t_log* logDeOperaciones;
 int cantEsi;
 coordinador_config * coordConfig;
 t_list* listaDeInstancias;
-t_list* listaDeClaves;
+
+t_list* listaDeClavesConInstancia;
 t_link_element* instanciaAElegir;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
@@ -60,13 +65,13 @@ void registrarInstancia(int sock);
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 void procesarInstruccion(instruccion instruccion, int sock);
+bool contieneClave(t_list* list, void* value);
 bool contieneString(t_list* list, void* value);
 void elegirInstanciaSegunAlgoritmo(char* instruccion);
-t_link_element* obtenerInstanciaParaEL(t_list *self);
-bool banderaIgualA0(instancia* elemento);
-
+instancia nuevaInstanciaNula();
+claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia);
 instruccion* recibirInstruccion2(int sock);
-
+void mostrarLista(t_list* lista);
 void destruirInstruccion(instruccion*);
 
 //-----------Sockets

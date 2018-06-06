@@ -105,7 +105,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
-		instruccionAGuardar=recibirInstruccion2(sock);
+		instruccionAGuardar=recibirInstruccionDelEsi(sock);
 
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
 		procesarInstruccion(*instruccionAGuardar,sock);
@@ -283,7 +283,7 @@ bool contieneClave(t_list* list, void* value){
 	return list_any_satisfy(list, (void *) equals);
 }
 
-
+/*
 void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	char operacion[80];
 	PROTOCOLO_INSTRUCCIONES instruccion;
@@ -326,6 +326,7 @@ void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 	free(valor);
 }
 }
+*/
 
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
 
@@ -391,24 +392,11 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 
 
 
-instruccion* recibirInstruccion2(int sock){
-	int32_t lenClave;
-	int32_t lenValor;
-	instruccion* instruccionAGuardar=malloc(sizeof(instruccion));
+instruccion* recibirInstruccionDelEsi(int sock){
+	instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
 	char operacion[80];
-	PROTOCOLO_INSTRUCCIONES instruccion;
-	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-	instruccionAGuardar->instruccion=instruccion;
 
-	recibirMensaje(logger,sizeof(int32_t),&lenClave,sock);
-	instruccionAGuardar->clave=malloc(lenClave);
-	recibirMensaje(logger,lenClave,instruccionAGuardar->clave,sock);
-
-	recibirMensaje(logger,sizeof(int32_t),&lenValor,sock);
-	instruccionAGuardar->valor=malloc(lenValor);
-	recibirMensaje(logger,lenValor,instruccionAGuardar->valor,sock);
-
-	switch(instruccionAGuardar->instruccion){
+		switch(instruccionAGuardar->instruccion){
 					case INSTRUCCION_GET:
 						registrarLogDeOperaciones(operacion,"GET", instruccionAGuardar->clave,"0");
 
@@ -425,11 +413,4 @@ instruccion* recibirInstruccion2(int sock){
 
 	return instruccionAGuardar;
 }
-
-void destruirInstruccion(instruccion*instruccion){
-	free(instruccion->clave);
-	free(instruccion->valor);
-	free(instruccion);
-}
-
 

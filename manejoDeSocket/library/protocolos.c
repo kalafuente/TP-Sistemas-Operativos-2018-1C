@@ -6,6 +6,24 @@
  */
 #include "protocolos.h"
 
+instruccion* recibirInstruccion(t_log* logger,int sock){
+	int32_t lenClave;
+	int32_t lenValor;
+	instruccion* instruccionAGuardar=malloc(sizeof(instruccion));
+
+	PROTOCOLO_INSTRUCCIONES instruccion;
+	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
+	instruccionAGuardar->instruccion=instruccion;
+
+	recibirMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	instruccionAGuardar->clave=malloc(lenClave);
+	recibirMensaje(logger,lenClave,instruccionAGuardar->clave,sock);
+
+	recibirMensaje(logger,sizeof(int32_t),&lenValor,sock);
+	instruccionAGuardar->valor=malloc(lenValor);
+	recibirMensaje(logger,lenValor,instruccionAGuardar->valor,sock);
+	return instruccionAGuardar;
+}
 
 void enviarInstruccion(t_log* logger,instruccion*instruccion, int sock) {
 	int32_t lenClave = strlen(instruccion->clave)+1;

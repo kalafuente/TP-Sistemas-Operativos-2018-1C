@@ -57,7 +57,7 @@ void crearConfiguracion(coordinador_config* coordinador, t_config* config);
 //-----------Funciones auxiliares
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
-void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
+//void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
 void procesarInstruccion(instruccion instruccion, int sock);
 bool contieneClave(t_list* list, void* value);
@@ -65,7 +65,7 @@ bool contieneString(t_list* list, void* value);
 void elegirInstanciaSegunAlgoritmo(char* instruccion);
 instancia nuevaInstanciaNula();
 claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia);
-instruccion* recibirInstruccion2(int sock);
+instruccion* recibirInstruccionDelEsi(int sock);
 void mostrarLista(t_list* lista);
 void destruirInstruccion(instruccion*);
 

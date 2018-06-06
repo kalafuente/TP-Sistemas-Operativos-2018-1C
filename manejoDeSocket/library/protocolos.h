@@ -86,5 +86,5 @@ typedef struct instruccion {
 
 void destruirInstruccion(instruccion* instruccion);
 void enviarInstruccion(t_log* logger,instruccion*instruccion, int sock);
-
+instruccion* recibirInstruccion(t_log* logger,int sock);
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

@@ -50,8 +50,8 @@ void destroy_instanciaConfig(instancia_config*);
 #include <commons/config.h>
 #include <commons/string.h>
 #include <commons/collections/list.h>
-#include <manejoDeSockets/manejoDeSockets.c>
-#include <protocolos/protocolos.h>
+#include <library/manejoDeSockets.c>
+#include <library/protocolos.h>
 #include <math.h>
 
 typedef struct instancia_config {

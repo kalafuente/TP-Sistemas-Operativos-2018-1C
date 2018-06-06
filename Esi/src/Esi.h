@@ -7,8 +7,8 @@
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/log.h>
-#include <manejoDeSockets/manejoDeSockets.h>
-#include <protocolos/protocolos.h>
+#include <library/manejoDeSockets.h>
+#include <library/protocolos.h>
 #include <string.h>
 #include <parsi/parser.h>
 
@@ -34,18 +34,21 @@ typedef struct instruccion{
 void crearConfiguracion();
 void destroy_esiConfig();
 void init_esiConfig();
+void killEsi();
+
 
 //---CONEXIÓNES
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
-void abrirScript(int argc,char **argv);
 void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
 void enviarInstruccion(t_esi_operacion);
-void procesarScript();
 void cerrarConexion();
-void killEsi();
 
+//---------SCRIPT
 instruccion* leerInstruccion(char* line);
+void procesarScript();
+void abrirScript(int argc,char **argv);
+
 void enviarInstruccion2(instruccion *instruccion);
 instruccion* cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor);
 

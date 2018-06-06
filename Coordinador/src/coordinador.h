@@ -10,12 +10,12 @@
 #include <unistd.h>
 #include <commons/config.h>
 #include <pthread.h>
-#include <manejoDeSockets/manejoDeSockets.h>
-#include <protocolos/protocolos.h>
 #include <commons/string.h>
 #include <parsi/parser.h>
 #include <commons/log.h>
 #include <commons/collections/list.h>
+#include <library/manejoDeSockets.h>
+#include <library/protocolos.h>
 
 typedef struct coordinador_config {
 	char * puerto;

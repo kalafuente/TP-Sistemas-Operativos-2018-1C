@@ -38,3 +38,28 @@ void destroy_esiConfig() {
 	free(esiConfig->puertoPlanificador);
 	free(esiConfig);
 }
+
+
+void killEsi() {
+	destroy_esiConfig();
+	log_info(logger, "Hasta la vista, ESI");
+	log_destroy(logger);
+}
+
+void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR protocolo) {
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &protocolo,
+			socketPlani);
+}
+
+void cargarLogger(int argc, char*argv[]) {
+	if (argc < 2) {
+		perror("Te olvidaste el path del logger capo");
+		exit(1);
+	}
+	char* path = string_new();
+	string_append(&path, argv[0]);
+	logger = crearLogger(path, "loggerEsi");
+
+}
+
+

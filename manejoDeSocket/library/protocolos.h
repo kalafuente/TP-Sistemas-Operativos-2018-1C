@@ -6,7 +6,8 @@
  */
 
 #include <commons/collections/dictionary.h>
-#include "manejoDeSockets/manejoDeSockets.h"
+
+#include "../library/manejoDeSockets.h"
 
 #ifndef PROTOCOLOS_PROTOCOLOS_H_
 #define PROTOCOLOS_PROTOCOLOS_H_

@@ -1,4 +1,4 @@
-#include "manejoDeSockets.h"
+#include "../library/manejoDeSockets.h"
 
 
 t_log* crearLogger(char*archivo, char*nombre) {

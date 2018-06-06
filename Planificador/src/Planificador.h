@@ -10,9 +10,9 @@
 #include <unistd.h>
 #include <commons/config.h>
 #include <pthread.h>
-#include <manejoDeSockets/manejoDeSockets.c>
-#include <protocolos/protocolos.h>
 #include <commons/collections/list.h>
+#include <library/manejoDeSockets.c>
+#include <library/protocolos.h>
 #include <sys/sem.h>
 #include <semaphore.h>
 

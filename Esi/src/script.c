@@ -51,11 +51,8 @@ void procesarScript() {
 
 		//t_esi_operacion parsed = parse(line);
 		instruccion* inst = leerInstruccion(line);
-		enviarInstruccion2(inst);
-		free(inst->clave);
-			free(inst->valor);
-			free(inst);
-		//destruirInstruccion(inst);
+		enviarInstruccionAlCoordinador(inst);
+		destruirInstruccion(inst);
 		//destruir_operacion(parsed);
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}

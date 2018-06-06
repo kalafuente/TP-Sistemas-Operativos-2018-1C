@@ -35,7 +35,6 @@ void killEsi();
 void conectarseAlCoordinador();
 void conectarseAlPlanificador();
 void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
-void enviarInstruccion(t_esi_operacion);
 void cerrarConexion();
 
 //---------SCRIPT
@@ -43,9 +42,8 @@ instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
 
-void enviarInstruccion2(instruccion *instruccion);
 instruccion* cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor);
-
+void enviarInstruccionAlCoordinador(instruccion* instruccion);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;

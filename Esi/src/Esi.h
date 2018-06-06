@@ -23,12 +23,6 @@ typedef struct esi_config{
 	char* puertoPlanificador;
 }esi_config;
 
-typedef struct instruccion{
-	PROTOCOLO_INSTRUCCIONES instruccion;
-	char*clave;
-	char*valor;
-}instruccion;
-
 
 //---CONFIGURACION
 void crearConfiguracion();

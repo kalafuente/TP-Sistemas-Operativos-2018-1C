@@ -79,5 +79,10 @@ typedef enum PROTOCOLO_COORDINADOR_A_PLANIFICADOR{
  }PROTOCOLO_PLANIFICADOR_A_COORDINADOR;
 
 
+typedef struct instruccion {
+ 	PROTOCOLO_INSTRUCCIONES instruccion;
+ 	char * clave;
+ 	char * valor;
+}instruccion;
 
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

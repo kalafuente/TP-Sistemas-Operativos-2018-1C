@@ -24,11 +24,6 @@ typedef struct coordinador_config {
 	int tamanioEntradas;
 }coordinador_config;
 
-typedef struct instruccion {
-	PROTOCOLO_INSTRUCCIONES instruccion;
-	char * clave;
-	char * valor;
-}instruccion;
 typedef struct instancia{
 	int socket;
 	int cantEntradas;

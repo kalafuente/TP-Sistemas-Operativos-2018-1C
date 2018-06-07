@@ -31,6 +31,7 @@ int main(void) {
 	pthread_t thread_id;
 	pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
 
+	//	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,(void*) &socketCoordinador);
 //-----------------------MANEJAR LOS ESI´s-------------------------------------
 	struct_esi *esiActual;
 	PROTOCOLO_ESI_A_PLANIFICADOR estadoEsi;
@@ -92,6 +93,76 @@ int main(void) {
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
+}
+
+void * manejarConexionCoordi(void * socket) {
+	int *socketCoordinador = (int*) socket;
+	PROTOCOLO_PLANIFICADOR_A_COORDINADOR respuesta;
+	PROTOCOLO_COORDINADOR_A_PLANIFICADOR mensajeRecibido;
+	//int ID;
+	char * CLAVE = string_new();
+	struct_esi* ESI;
+	int respuesta_bool;
+
+	while (recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR),
+			&mensajeRecibido, *socketCoordinador) > 0) {
+
+		switch (mensajeRecibido) {
+		case PEDIDO_DE_ID:
+			ESI = list_get(listaEjecutando, 0);
+			enviarMensaje(logger, sizeof(int), &ESI->ID, *socketCoordinador);
+			break;
+
+		case PREGUNTA_ESI_TIENE_CLAVE:
+			recibirString(logger, CLAVE, *socketCoordinador); //En teoria esta funcion deberia funcionar
+			respuesta_bool = perteneceClaveAlEsi(listaEsiClave, CLAVE);
+
+			if (respuesta_bool)
+				respuesta = ESI_TIENE_CLAVE;
+			else
+				respuesta = ESI_NO_TIENE_CLAVE;
+
+			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
+					&respuesta, *socketCoordinador);
+
+			break;
+		case PREGUNTA_CLAVE_DISPONIBLE:
+			recibirString(logger, CLAVE, *socketCoordinador); //En teoria esta funcion deberia funcionar
+			respuesta_bool = tieneAlgunEsiLaClave(listaEsiClave, CLAVE);
+			if (respuesta_bool)
+				respuesta = CLAVE_NO_DISPONIBLE;
+			else
+				respuesta = CLAVE_DISPONIBLE;
+			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
+					&respuesta, *socketCoordinador);
+
+			break;
+
+		default:
+			log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
+			break;
+		}
+	}
+	return 0;
+}
+
+int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada) {
+	int _soy_la_clave_buscada(struct_esiClaves * elemento) {
+
+		return (string_equals_ignore_case(elemento->clave, claveBuscada));
+
+	}
+	return (list_any_satisfy(lista, (void*) _soy_la_clave_buscada));
+}
+
+int perteneceClaveAlEsi(t_list *lista, char* claveBuscada) {
+	int _soy_la_clave_buscada(struct_esiClaves * elemento) {
+
+		struct_esi* esiEjecutando = list_get(listaEjecutando, 0);
+		return (string_equals_ignore_case(elemento->clave, claveBuscada))
+				&& (elemento->ESI->ID == esiEjecutando->ID);
+	}
+	return (list_any_satisfy(lista, (void*) _soy_la_clave_buscada));
 }
 
 float actualizarDuracionDeRafagaSJF(struct_esi esi) {

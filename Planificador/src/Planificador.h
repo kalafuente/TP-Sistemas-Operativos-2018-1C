@@ -34,16 +34,25 @@ typedef struct {
 	double estimacion;
 } struct_esi;
 
+typedef struct {
+	struct_esi* ESI;
+	char* clave;
+} struct_esiClaves;
+
+
 t_log* logger;
 planificador_config * init_planificaorConfig();
-t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados; //creamos listas para situacion de los Esi's
+t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados,
+		*listaEsiClave; //creamos listas para situacion de los Esi's; //creamos listas para situacion de los Esi's
 int IdDisponible = 0;
 pthread_mutex_t mutex; //puede que despues se necesitan mas(por ahora solo protege la cola Ready, de cuando llegan y cuando la usa)
 sem_t cantidadEsisEnReady;
 int PlanificadorON;
 
-
+int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
+int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
 void crearListas();
+void destruirListas();
 void agregarEsi(int socketCliente);
 void *recibirEsi(void* socketEscucha);
 void ordenarActuar(struct_esi* esi);

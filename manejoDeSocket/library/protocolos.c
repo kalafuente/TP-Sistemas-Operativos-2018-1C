@@ -114,7 +114,7 @@ t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char *
 	instruccionACrear->clave = string_new();
 	string_append(&(instruccionACrear->clave), clave);
 
-	if(valor == NULL)
+	if(tipoInstruccion != INSTRUCCION_SET)
 	{
 		instruccionACrear->valor = NULL;
 		return instruccionACrear;
@@ -131,7 +131,7 @@ void destruirInstruccion(t_instruccion* instruccion)
 {
 	free(instruccion->clave);
 
-	if(instruccion->valor == NULL)
+	if(instruccion->instruccion != INSTRUCCION_SET)
 	{
 		free(instruccion);
 		return;

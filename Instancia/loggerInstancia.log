@@ -899,3 +899,40 @@
 
 [INFO] 05:39:00:716 loggerInstancia/(11555:11555): No se guardo nada en las Entradas. No hay nada que imprimir
 
+[INFO] 06:20:45:111 loggerInstancia/(3864:3864): Intento conectarme al Coordinador
+
+[ERROR] 06:20:45:165 loggerInstancia/(3864:3864): No me pude conectar al servidor
+[ERROR] 06:20:45:166 loggerInstancia/(3864:3864): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 06:20:47:908 loggerInstancia/(3864:3864): Conexion exitosa!
+[INFO] 06:20:47:908 loggerInstancia/(3864:3864): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 06:20:47:910 loggerInstancia/(3864:3864): ERROR AL RECIBIR
+[ERROR] 06:20:47:911 loggerInstancia/(3864:3864): Handshake fallido
+
+[INFO] 06:20:47:914 loggerInstancia/(3864:3864): Esperando configuracion de entradas
+
+[ERROR] 06:20:47:917 loggerInstancia/(3864:3864): ERROR AL RECIBIR
+[ERROR] 06:20:47:918 loggerInstancia/(3864:3864): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 06:20:47:919 loggerInstancia/(3864:3864): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 06:20:47:920 loggerInstancia/(3864:3864): Memoria alojada correctamente
+
+[INFO] 06:20:47:920 loggerInstancia/(3864:3864): Inicializamos los valores de las Entradas en 0
+
+[INFO] 06:20:47:921 loggerInstancia/(3864:3864): Inicializacion exitosa!
+
+[INFO] 06:20:47:922 loggerInstancia/(3864:3864): Comienzo a recibir sentencias del coordinador
+
+[INFO] 06:20:47:923 loggerInstancia/(3864:3864): Esperando proxima sentencia...
+
+[INFO] 06:20:47:924 loggerInstancia/(3864:3864): Esperando la Instruccion
+
+[ERROR] 06:20:47:924 loggerInstancia/(3864:3864): ERROR AL RECIBIR
+[ERROR] 06:20:47:925 loggerInstancia/(3864:3864): No se pudo recibir la Instruccion
+
+[ERROR] 06:20:47:925 loggerInstancia/(3864:3864): No se pudo recibir la sentencia
+
+[INFO] 06:20:47:927 loggerInstancia/(3864:3864): No se guardo nada en las Entradas. No hay nada que imprimir
+

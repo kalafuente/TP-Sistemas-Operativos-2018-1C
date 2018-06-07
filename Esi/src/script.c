@@ -21,9 +21,9 @@ void abrirScript(int argc, char *argv[]) {
 }
 
 
-instruccion* leerInstruccion(char* line){
+t_instruccion* leerInstruccion(char* line){
 	t_esi_operacion parsed = parse(line);
-	instruccion* instruccion;
+	t_instruccion* instruccion;
 	if(parsed.keyword == GET){
 		instruccion= cargarInstruccion(INSTRUCCION_GET,parsed.argumentos.GET.clave,"0");
 	}
@@ -50,7 +50,7 @@ void procesarScript() {
 				&mensajeDelPlani, socketPlani);
 
 		//t_esi_operacion parsed = parse(line);
-		instruccion* inst = leerInstruccion(line);
+		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		destruirInstruccion(inst);
 		//destruir_operacion(parsed);
@@ -70,8 +70,8 @@ void procesarScript() {
 
 
 
-instruccion * cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor){
-	instruccion* inst=malloc(sizeof(instruccion));
+t_instruccion * cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor){
+	t_instruccion* inst=malloc(sizeof(t_instruccion));
 	inst->instruccion=protocolo;
 	inst->valor=malloc(strlen(valor)+1);
 	inst->clave=malloc(strlen(clave)+1);

@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 
 
 
-void enviarInstruccionAlCoordinador(instruccion* instruccion){
+void enviarInstruccionAlCoordinador(t_instruccion* instruccion){
 	PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
 	enviarInstruccion(logger,instruccion,socketCoordinador);
 	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,

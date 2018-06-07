@@ -40,3 +40,297 @@
 [INFO] 02:38:54:328 loggerCoordi/(6077:6098): Se envio el mensaje
 [INFO] 02:38:54:328 loggerCoordi/(6077:6098): Envie tamanaño de entradas a la instancia
 [INFO] 02:38:54:328 loggerCoordi/(6077:6098): Se registro instancia
+[INFO] 04:53:00:650 loggerCoordi/(10549:10581): Se enviaron 4 bytes
+[INFO] 04:53:00:666 loggerCoordi/(10549:10581): Se envio el mensaje
+[INFO] 04:53:00:666 loggerCoordi/(10549:10581): Se recibieron 4 bytes
+[INFO] 04:53:00:666 loggerCoordi/(10549:10581): Se recibieron los datos
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se enviaron 4 bytes
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se envio el mensaje
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se recibieron 4 bytes
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se recibieron los datos
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se me conectó una Instancia
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se enviaron 4 bytes
+[INFO] 04:53:27:776 loggerCoordi/(10549:10600): Se envio el mensaje
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Se enviaron 4 bytes
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Se envio el mensaje
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Envie cantidad de entradas a la instancia
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Se enviaron 4 bytes
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Se envio el mensaje
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): Envie tamanaño de entradas a la instancia
+[INFO] 04:53:27:777 loggerCoordi/(10549:10600): 
+ Se registro instancia
+[INFO] 05:00:32:808 loggerCoordi/(10549:10876): Se enviaron 4 bytes
+[INFO] 05:00:32:808 loggerCoordi/(10549:10876): Se envio el mensaje
+[INFO] 05:00:32:898 loggerCoordi/(10549:10876): Se recibieron 4 bytes
+[INFO] 05:00:32:903 loggerCoordi/(10549:10876): Se recibieron los datos
+[INFO] 05:00:32:903 loggerCoordi/(10549:10876): Se me conectó un Esi
+[INFO] 05:00:32:904 loggerCoordi/(10549:10876): Esperando la Instruccion
+
+[INFO] 05:00:32:927 loggerCoordi/(10549:10876): Se recibieron 4 bytes
+[INFO] 05:00:32:927 loggerCoordi/(10549:10876): Se recibieron los datos
+[INFO] 05:00:32:927 loggerCoordi/(10549:10876): Instruccion recibida
+
+[INFO] 05:00:32:927 loggerCoordi/(10549:10876): Pedimos la longitud de la clave
+
+[INFO] 05:00:32:928 loggerCoordi/(10549:10876): Se recibieron 4 bytes
+[INFO] 05:00:32:928 loggerCoordi/(10549:10876): Se recibieron los datos
+[INFO] 05:00:32:928 loggerCoordi/(10549:10876): Longitud de la clave recibida: 13
+
+[INFO] 05:00:32:929 loggerCoordi/(10549:10876): Esperamos la clave
+
+[INFO] 05:00:32:929 loggerCoordi/(10549:10876): Se recibieron 13 bytes
+[INFO] 05:00:32:930 loggerCoordi/(10549:10876): Se recibieron los datos
+[INFO] 05:00:32:930 loggerCoordi/(10549:10876): Clave recibida: futbol:messi
+
+[INFO] 05:00:32:930 loggerCoordi/(10549:10876): Instruccion recibida correctamente
+
+[INFO] 05:01:55:315 loggerCoordi/(10895:10917): Se enviaron 4 bytes
+[INFO] 05:01:55:315 loggerCoordi/(10895:10917): Se envio el mensaje
+[INFO] 05:01:55:315 loggerCoordi/(10895:10917): Se recibieron 4 bytes
+[INFO] 05:01:55:315 loggerCoordi/(10895:10917): Se recibieron los datos
+[INFO] 05:02:09:543 loggerCoordi/(10895:10933): Se enviaron 4 bytes
+[INFO] 05:02:09:543 loggerCoordi/(10895:10933): Se envio el mensaje
+[INFO] 05:02:09:543 loggerCoordi/(10895:10933): Se recibieron 4 bytes
+[INFO] 05:02:09:543 loggerCoordi/(10895:10933): Se recibieron los datos
+[INFO] 05:02:09:543 loggerCoordi/(10895:10933): Se me conectó una Instancia
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se enviaron 4 bytes
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se envio el mensaje
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se enviaron 4 bytes
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se envio el mensaje
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Envie cantidad de entradas a la instancia
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se enviaron 4 bytes
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Se envio el mensaje
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): Envie tamanaño de entradas a la instancia
+[INFO] 05:02:09:544 loggerCoordi/(10895:10933): 
+ Se registro instancia
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Se enviaron 4 bytes
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Se envio el mensaje
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Se recibieron 4 bytes
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Se recibieron los datos
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Se me conectó un Esi
+[INFO] 05:02:42:655 loggerCoordi/(10895:10955): Esperando la Instruccion
+
+[INFO] 05:02:42:674 loggerCoordi/(10895:10955): Se recibieron 4 bytes
+[INFO] 05:02:42:674 loggerCoordi/(10895:10955): Se recibieron los datos
+[INFO] 05:02:42:674 loggerCoordi/(10895:10955): Instruccion recibida
+
+[INFO] 05:02:42:674 loggerCoordi/(10895:10955): Pedimos la longitud de la clave
+
+[INFO] 05:02:42:674 loggerCoordi/(10895:10955): Se recibieron 4 bytes
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Se recibieron los datos
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Longitud de la clave recibida: 13
+
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Esperamos la clave
+
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Se recibieron 13 bytes
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Se recibieron los datos
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Clave recibida: futbol:messi
+
+[INFO] 05:02:42:675 loggerCoordi/(10895:10955): Instruccion recibida correctamente
+
+[INFO] 05:14:13:357 loggerCoordi/(11179:11205): Se enviaron 4 bytes
+[INFO] 05:14:13:399 loggerCoordi/(11179:11205): Se envio el mensaje
+[INFO] 05:14:13:400 loggerCoordi/(11179:11205): Se recibieron 4 bytes
+[INFO] 05:14:13:400 loggerCoordi/(11179:11205): Se recibieron los datos
+[INFO] 05:14:30:715 loggerCoordi/(11179:11221): Se enviaron 4 bytes
+[INFO] 05:14:30:715 loggerCoordi/(11179:11221): Se envio el mensaje
+[INFO] 05:14:30:715 loggerCoordi/(11179:11221): Se recibieron 4 bytes
+[INFO] 05:14:30:715 loggerCoordi/(11179:11221): Se recibieron los datos
+[INFO] 05:14:30:716 loggerCoordi/(11179:11221): Se me conectó una Instancia
+[INFO] 05:14:30:716 loggerCoordi/(11179:11221): Se enviaron 4 bytes
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Se envio el mensaje
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Se enviaron 4 bytes
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Se envio el mensaje
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Envie cantidad de entradas a la instancia
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Se enviaron 4 bytes
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Se envio el mensaje
+[INFO] 05:14:30:717 loggerCoordi/(11179:11221): Envie tamanaño de entradas a la instancia
+[INFO] 05:14:30:718 loggerCoordi/(11179:11221): 
+ Se registro instancia
+[INFO] 05:14:51:440 loggerCoordi/(11179:11239): Se enviaron 4 bytes
+[INFO] 05:14:51:440 loggerCoordi/(11179:11239): Se envio el mensaje
+[INFO] 05:14:51:449 loggerCoordi/(11179:11239): Se recibieron 4 bytes
+[INFO] 05:14:51:449 loggerCoordi/(11179:11239): Se recibieron los datos
+[INFO] 05:14:51:449 loggerCoordi/(11179:11239): Se me conectó un Esi
+[INFO] 05:14:51:449 loggerCoordi/(11179:11239): Esperando la Instruccion
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron 4 bytes
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron los datos
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Instruccion recibida
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Pedimos la longitud de la clave
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron 4 bytes
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron los datos
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Longitud de la clave recibida: 13
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Esperamos la clave
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron 13 bytes
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Se recibieron los datos
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Clave recibida: futbol:messi
+
+[INFO] 05:14:51:459 loggerCoordi/(11179:11239): Instruccion recibida correctamente
+
+[INFO] 05:26:23:687 loggerCoordi/(11378:11397): Se enviaron 4 bytes
+[INFO] 05:26:23:742 loggerCoordi/(11378:11397): Se envio el mensaje
+[INFO] 05:26:23:743 loggerCoordi/(11378:11397): Se recibieron 4 bytes
+[INFO] 05:26:23:743 loggerCoordi/(11378:11397): Se recibieron los datos
+[INFO] 05:26:34:176 loggerCoordi/(11378:11413): Se enviaron 4 bytes
+[INFO] 05:26:34:176 loggerCoordi/(11378:11413): Se envio el mensaje
+[INFO] 05:26:34:176 loggerCoordi/(11378:11413): Se recibieron 4 bytes
+[INFO] 05:26:34:176 loggerCoordi/(11378:11413): Se recibieron los datos
+[INFO] 05:26:34:176 loggerCoordi/(11378:11413): Se me conectó una Instancia
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se enviaron 4 bytes
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se envio el mensaje
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se enviaron 4 bytes
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se envio el mensaje
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Envie cantidad de entradas a la instancia
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se enviaron 4 bytes
+[INFO] 05:26:34:178 loggerCoordi/(11378:11413): Se envio el mensaje
+[INFO] 05:26:34:179 loggerCoordi/(11378:11413): Envie tamanaño de entradas a la instancia
+[INFO] 05:26:34:179 loggerCoordi/(11378:11413): 
+ Se registro instancia
+[INFO] 05:26:51:208 loggerCoordi/(11378:11431): Se enviaron 4 bytes
+[INFO] 05:26:51:208 loggerCoordi/(11378:11431): Se envio el mensaje
+[INFO] 05:26:51:248 loggerCoordi/(11378:11431): Se recibieron 4 bytes
+[INFO] 05:26:51:249 loggerCoordi/(11378:11431): Se recibieron los datos
+[INFO] 05:26:51:249 loggerCoordi/(11378:11431): Se me conectó un Esi
+[INFO] 05:26:51:249 loggerCoordi/(11378:11431): Esperando la Instruccion
+
+[INFO] 05:26:51:283 loggerCoordi/(11378:11431): Se recibieron 4 bytes
+[INFO] 05:26:51:285 loggerCoordi/(11378:11431): Se recibieron los datos
+[INFO] 05:26:51:286 loggerCoordi/(11378:11431): Instruccion recibida
+
+[INFO] 05:26:51:286 loggerCoordi/(11378:11431): Pedimos la longitud de la clave
+
+[INFO] 05:26:51:287 loggerCoordi/(11378:11431): Se recibieron 4 bytes
+[INFO] 05:26:51:287 loggerCoordi/(11378:11431): Se recibieron los datos
+[INFO] 05:26:51:288 loggerCoordi/(11378:11431): Longitud de la clave recibida: 13
+
+[INFO] 05:26:51:288 loggerCoordi/(11378:11431): Esperamos la clave
+
+[INFO] 05:26:51:289 loggerCoordi/(11378:11431): Se recibieron 13 bytes
+[INFO] 05:26:51:289 loggerCoordi/(11378:11431): Se recibieron los datos
+[INFO] 05:26:51:290 loggerCoordi/(11378:11431): Clave recibida: futbol:messi
+
+[INFO] 05:26:51:290 loggerCoordi/(11378:11431): Instruccion recibida correctamente
+
+[INFO] 05:35:57:970 loggerCoordi/(11522:11544): Se enviaron 4 bytes
+[INFO] 05:35:58:27 loggerCoordi/(11522:11544): Se envio el mensaje
+[INFO] 05:35:58:27 loggerCoordi/(11522:11544): Se recibieron 4 bytes
+[INFO] 05:35:58:27 loggerCoordi/(11522:11544): Se recibieron los datos
+[INFO] 05:36:04:396 loggerCoordi/(11522:11560): Se enviaron 4 bytes
+[INFO] 05:36:04:398 loggerCoordi/(11522:11560): Se envio el mensaje
+[INFO] 05:36:04:398 loggerCoordi/(11522:11560): Se recibieron 4 bytes
+[INFO] 05:36:04:398 loggerCoordi/(11522:11560): Se recibieron los datos
+[INFO] 05:36:04:398 loggerCoordi/(11522:11560): Se me conectó una Instancia
+[INFO] 05:36:04:399 loggerCoordi/(11522:11560): Se enviaron 4 bytes
+[INFO] 05:36:04:399 loggerCoordi/(11522:11560): Se envio el mensaje
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Se enviaron 4 bytes
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Se envio el mensaje
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Envie cantidad de entradas a la instancia
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Se enviaron 4 bytes
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Se envio el mensaje
+[INFO] 05:36:04:401 loggerCoordi/(11522:11560): Envie tamanaño de entradas a la instancia
+[INFO] 05:36:04:402 loggerCoordi/(11522:11560): 
+ Se registro instancia
+[INFO] 05:36:23:478 loggerCoordi/(11522:11576): Se enviaron 4 bytes
+[INFO] 05:36:23:478 loggerCoordi/(11522:11576): Se envio el mensaje
+[INFO] 05:36:23:485 loggerCoordi/(11522:11576): Se recibieron 4 bytes
+[INFO] 05:36:23:486 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:486 loggerCoordi/(11522:11576): Se me conectó un Esi
+[INFO] 05:36:23:486 loggerCoordi/(11522:11576): Esperando la Instruccion
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron 4 bytes
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Instruccion recibida
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Pedimos la longitud de la clave
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron 4 bytes
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Longitud de la clave recibida: 13
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Esperamos la clave
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron 13 bytes
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Clave recibida: futbol:messi
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Esperamos la longitud del valor a almacenar
+
+[INFO] 05:36:23:495 loggerCoordi/(11522:11576): Se recibieron 4 bytes
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Longitud del valor recibida: 13
+
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Esperamos el valor
+
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Se recibieron 13 bytes
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Se recibieron los datos
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Valor recibido: TraemeLaCopa
+
+[INFO] 05:36:23:496 loggerCoordi/(11522:11576): Instruccion recibida correctamente
+
+[INFO] 05:38:06:989 loggerCoordi/(11522:11623): Se enviaron 4 bytes
+[INFO] 05:38:07:24 loggerCoordi/(11522:11623): Se envio el mensaje
+[INFO] 05:38:07:159 loggerCoordi/(11522:11623): Se recibieron 4 bytes
+[INFO] 05:38:07:159 loggerCoordi/(11522:11623): Se recibieron los datos
+[INFO] 05:38:07:159 loggerCoordi/(11522:11623): Se me conectó un Esi
+[INFO] 05:38:07:159 loggerCoordi/(11522:11623): Esperando la Instruccion
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron 4 bytes
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron los datos
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Instruccion recibida
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Pedimos la longitud de la clave
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron 4 bytes
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron los datos
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Longitud de la clave recibida: 13
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Esperamos la clave
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron 13 bytes
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Se recibieron los datos
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Clave recibida: futbol:messi
+
+[INFO] 05:38:07:160 loggerCoordi/(11522:11623): Instruccion recibida correctamente
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se enviaron 4 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se envio el mensaje
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 4 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se me conectó un Esi
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Esperando la Instruccion
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 4 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Instruccion recibida
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Pedimos la longitud de la clave
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 4 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Longitud de la clave recibida: 13
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Esperamos la clave
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 13 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Clave recibida: futbol:messi
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Esperamos la longitud del valor a almacenar
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 4 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Longitud del valor recibida: 13
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Esperamos el valor
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron 13 bytes
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Se recibieron los datos
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Valor recibido: TraemeLaCopa
+
+[INFO] 05:38:58:882 loggerCoordi/(11522:11644): Instruccion recibida correctamente
+

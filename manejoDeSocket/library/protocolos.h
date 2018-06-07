@@ -6,6 +6,7 @@
  */
 
 #include <commons/collections/dictionary.h>
+#include <commons/string.h>
 #include "manejoDeSockets.h"
 
 #ifndef PROTOCOLOS_PROTOCOLOS_H_
@@ -82,9 +83,10 @@ typedef struct instruccion {
  	PROTOCOLO_INSTRUCCIONES instruccion;
  	char * clave;
  	char * valor;
-}instruccion;
+}t_instruccion;
 
-void destruirInstruccion(instruccion* instruccion);
-void enviarInstruccion(t_log* logger,instruccion*instruccion, int sock);
-instruccion* recibirInstruccion(t_log* logger,int sock);
+void destruirInstruccion(t_instruccion* instruccion);
+void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
+t_instruccion* recibirInstruccion(t_log* logger, int sock);
+t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

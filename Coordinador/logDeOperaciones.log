@@ -1,0 +1,7 @@
+[INFO] 05:00:32:931 logDeOperaciones/(10549:10876): ESI  1 GET futbol:messi
+[INFO] 05:02:42:675 logDeOperaciones/(10895:10955): ESI  1 GET futbol:messi
+[INFO] 05:14:51:459 logDeOperaciones/(11179:11239): ESI  1 GET futbol:messi
+[INFO] 05:26:51:291 logDeOperaciones/(11378:11431): ESI  1 GET futbol:messi
+[INFO] 05:36:23:496 logDeOperaciones/(11522:11576): ESI  1 SET futbol:messi TraemeLaCopa
+[INFO] 05:38:07:160 logDeOperaciones/(11522:11623): ESI  2 GET futbol:messi
+[INFO] 05:38:58:882 logDeOperaciones/(11522:11644): ESI  3 SET futbol:messi TraemeLaCopa

@@ -521,3 +521,381 @@
 
 [INFO] 06:44:18:13 loggerInstancia/(7247:7247): No se guardo nada en las Entradas. No hay nada que imprimir
 
+[INFO] 22:28:31:756 loggerInstancia/(4781:4781): Intento conectarme al Coordinador
+
+[ERROR] 22:28:31:766 loggerInstancia/(4781:4781): No me pude conectar al servidor
+[ERROR] 22:28:31:766 loggerInstancia/(4781:4781): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 22:28:35:795 loggerInstancia/(4781:4781): Conexion exitosa!
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): ERROR AL RECIBIR
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): Handshake fallido
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Esperando configuracion de entradas
+
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): ERROR AL RECIBIR
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Memoria alojada correctamente
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Inicializamos los valores de las Entradas en 0
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Inicializacion exitosa!
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Comienzo a recibir sentencias del coordinador
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): Esperando proxima sentencia...
+
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): ERROR AL RECIBIR
+[ERROR] 22:28:35:796 loggerInstancia/(4781:4781): No se pudo recibir la sentencia
+
+[INFO] 22:28:35:796 loggerInstancia/(4781:4781): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 02:34:08:222 loggerInstancia/(7528:7528): Intento conectarme al Coordinador
+
+[ERROR] 02:34:08:244 loggerInstancia/(7528:7528): No me pude conectar al servidor
+[ERROR] 02:34:08:244 loggerInstancia/(7528:7528): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:37:03:541 loggerInstancia/(7660:7660): Intento conectarme al Coordinador
+
+[ERROR] 02:37:03:541 loggerInstancia/(7660:7660): No me pude conectar al servidor
+[ERROR] 02:37:03:542 loggerInstancia/(7660:7660): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:37:06:888 loggerInstancia/(7660:7660): Conexion exitosa!
+[INFO] 02:37:06:888 loggerInstancia/(7660:7660): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:37:06:888 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:888 loggerInstancia/(7660:7660): Handshake fallido
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Esperando configuracion de entradas
+
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Memoria alojada correctamente
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Inicializamos los valores de las Entradas en 0
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Inicializacion exitosa!
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Comienzo a recibir sentencias del coordinador
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): Esperando proxima sentencia...
+
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): ERROR AL RECIBIR
+[ERROR] 02:37:06:889 loggerInstancia/(7660:7660): La sentencia no puede ser interpretada
+
+[INFO] 02:37:06:889 loggerInstancia/(7660:7660): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 02:54:36:333 loggerInstancia/(8188:8188): Intento conectarme al Coordinador
+
+[ERROR] 02:54:36:425 loggerInstancia/(8188:8188): No me pude conectar al servidor
+[ERROR] 02:54:36:433 loggerInstancia/(8188:8188): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 02:54:41:738 loggerInstancia/(8188:8188): Conexion exitosa!
+[INFO] 02:54:41:741 loggerInstancia/(8188:8188): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 02:54:41:747 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:748 loggerInstancia/(8188:8188): Handshake fallido
+
+[INFO] 02:54:41:749 loggerInstancia/(8188:8188): Esperando configuracion de entradas
+
+[ERROR] 02:54:41:751 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:753 loggerInstancia/(8188:8188): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 02:54:41:754 loggerInstancia/(8188:8188): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 02:54:41:755 loggerInstancia/(8188:8188): Memoria alojada correctamente
+
+[INFO] 02:54:41:761 loggerInstancia/(8188:8188): Inicializamos los valores de las Entradas en 0
+
+[INFO] 02:54:41:762 loggerInstancia/(8188:8188): Inicializacion exitosa!
+
+[INFO] 02:54:41:762 loggerInstancia/(8188:8188): Comienzo a recibir sentencias del coordinador
+
+[INFO] 02:54:41:763 loggerInstancia/(8188:8188): Esperando proxima sentencia...
+
+[ERROR] 02:54:41:764 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:767 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:978 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:983 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:984 loggerInstancia/(8188:8188): ERROR AL RECIBIR
+[ERROR] 02:54:41:985 loggerInstancia/(8188:8188): La sentencia no puede ser interpretada
+
+[INFO] 02:54:41:990 loggerInstancia/(8188:8188): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 04:40:14:7 loggerInstancia/(9689:9689): Intento conectarme al Coordinador
+
+[ERROR] 04:40:15:48 loggerInstancia/(9689:9689): No me pude conectar al servidor
+[ERROR] 04:40:15:49 loggerInstancia/(9689:9689): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 04:40:18:101 loggerInstancia/(9689:9689): Conexion exitosa!
+[INFO] 04:40:18:102 loggerInstancia/(9689:9689): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 04:40:18:104 loggerInstancia/(9689:9689): ERROR AL RECIBIR
+[ERROR] 04:40:18:105 loggerInstancia/(9689:9689): Handshake fallido
+
+[INFO] 04:40:18:106 loggerInstancia/(9689:9689): Esperando configuracion de entradas
+
+[ERROR] 04:40:18:116 loggerInstancia/(9689:9689): ERROR AL RECIBIR
+[ERROR] 04:40:18:116 loggerInstancia/(9689:9689): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 04:40:18:117 loggerInstancia/(9689:9689): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 04:40:18:118 loggerInstancia/(9689:9689): Memoria alojada correctamente
+
+[INFO] 04:40:18:118 loggerInstancia/(9689:9689): Inicializamos los valores de las Entradas en 0
+
+[INFO] 04:40:18:125 loggerInstancia/(9689:9689): Inicializacion exitosa!
+
+[INFO] 04:40:18:126 loggerInstancia/(9689:9689): Comienzo a recibir sentencias del coordinador
+
+[INFO] 04:40:18:127 loggerInstancia/(9689:9689): Esperando proxima sentencia...
+
+[INFO] 04:40:18:127 loggerInstancia/(9689:9689): Esperando la Instruccion
+
+[ERROR] 04:40:18:128 loggerInstancia/(9689:9689): ERROR AL RECIBIR
+[ERROR] 04:40:18:128 loggerInstancia/(9689:9689): No se pudo recibir la Instruccion
+
+[INFO] 04:45:15:809 loggerInstancia/(10199:10199): Intento conectarme al Coordinador
+
+[ERROR] 04:45:15:851 loggerInstancia/(10199:10199): No me pude conectar al servidor
+[ERROR] 04:45:15:852 loggerInstancia/(10199:10199): Conexion fallida, ingresar algo para reintentar
+
+[INFO] 04:45:19:217 loggerInstancia/(10199:10199): Conexion exitosa!
+[INFO] 04:45:19:217 loggerInstancia/(10199:10199): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 04:45:19:219 loggerInstancia/(10199:10199): ERROR AL RECIBIR
+[ERROR] 04:45:19:222 loggerInstancia/(10199:10199): Handshake fallido
+
+[INFO] 04:45:19:223 loggerInstancia/(10199:10199): Esperando configuracion de entradas
+
+[ERROR] 04:45:19:228 loggerInstancia/(10199:10199): ERROR AL RECIBIR
+[ERROR] 04:45:19:228 loggerInstancia/(10199:10199): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 04:45:19:229 loggerInstancia/(10199:10199): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 04:45:19:231 loggerInstancia/(10199:10199): Memoria alojada correctamente
+
+[INFO] 04:45:19:233 loggerInstancia/(10199:10199): Inicializamos los valores de las Entradas en 0
+
+[INFO] 04:45:19:234 loggerInstancia/(10199:10199): Inicializacion exitosa!
+
+[INFO] 04:45:19:236 loggerInstancia/(10199:10199): Comienzo a recibir sentencias del coordinador
+
+[INFO] 04:45:19:237 loggerInstancia/(10199:10199): Esperando proxima sentencia...
+
+[INFO] 04:45:19:244 loggerInstancia/(10199:10199): Esperando la Instruccion
+
+[ERROR] 04:45:19:248 loggerInstancia/(10199:10199): ERROR AL RECIBIR
+[ERROR] 04:45:19:249 loggerInstancia/(10199:10199): No se pudo recibir la Instruccion
+
+[ERROR] 04:45:19:251 loggerInstancia/(10199:10199): No se pudo recibir la sentencia
+
+[INFO] 04:45:19:254 loggerInstancia/(10199:10199): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 04:53:27:775 loggerInstancia/(10595:10595): Intento conectarme al Coordinador
+
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Conexion exitosa!
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Intentando establecer un handshake con el Coordinador
+
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se recibieron 4 bytes
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se recibieron los datos
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se enviaron 4 bytes
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se envio el mensaje
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Handshake Exitoso!
+
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Esperando configuracion de entradas
+
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se recibieron 4 bytes
+[INFO] 04:53:27:776 loggerInstancia/(10595:10595): Se recibieron los datos
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Se recibieron 4 bytes
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Se recibieron los datos
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Se recibieron 4 bytes
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Se recibieron los datos
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Memoria alojada correctamente
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Inicializamos los valores de las Entradas en 0
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Inicializacion exitosa!
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Comienzo a recibir sentencias del coordinador
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Esperando proxima sentencia...
+
+[INFO] 04:53:27:815 loggerInstancia/(10595:10595): Esperando la Instruccion
+
+[INFO] 05:02:09:538 loggerInstancia/(10928:10928): Intento conectarme al Coordinador
+
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Conexion exitosa!
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Intentando establecer un handshake con el Coordinador
+
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se recibieron 4 bytes
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se recibieron los datos
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se enviaron 4 bytes
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se envio el mensaje
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Handshake Exitoso!
+
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Esperando configuracion de entradas
+
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se recibieron 4 bytes
+[INFO] 05:02:09:543 loggerInstancia/(10928:10928): Se recibieron los datos
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Se recibieron 4 bytes
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Se recibieron los datos
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Se recibieron 4 bytes
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Se recibieron los datos
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 05:02:09:583 loggerInstancia/(10928:10928): Memoria alojada correctamente
+
+[INFO] 05:02:09:584 loggerInstancia/(10928:10928): Inicializamos los valores de las Entradas en 0
+
+[INFO] 05:02:09:584 loggerInstancia/(10928:10928): Inicializacion exitosa!
+
+[INFO] 05:02:09:584 loggerInstancia/(10928:10928): Comienzo a recibir sentencias del coordinador
+
+[INFO] 05:02:09:584 loggerInstancia/(10928:10928): Esperando proxima sentencia...
+
+[INFO] 05:02:09:584 loggerInstancia/(10928:10928): Esperando la Instruccion
+
+[INFO] 05:14:30:687 loggerInstancia/(11216:11216): Intento conectarme al Coordinador
+
+[INFO] 05:14:30:713 loggerInstancia/(11216:11216): Conexion exitosa!
+[INFO] 05:14:30:713 loggerInstancia/(11216:11216): Intentando establecer un handshake con el Coordinador
+
+[INFO] 05:14:30:713 loggerInstancia/(11216:11216): Se recibieron 4 bytes
+[INFO] 05:14:30:714 loggerInstancia/(11216:11216): Se recibieron los datos
+[INFO] 05:14:30:714 loggerInstancia/(11216:11216): Se enviaron 4 bytes
+[INFO] 05:14:30:714 loggerInstancia/(11216:11216): Se envio el mensaje
+[INFO] 05:14:30:714 loggerInstancia/(11216:11216): Handshake Exitoso!
+
+[INFO] 05:14:30:714 loggerInstancia/(11216:11216): Esperando configuracion de entradas
+
+[INFO] 05:14:30:716 loggerInstancia/(11216:11216): Se recibieron 4 bytes
+[INFO] 05:14:30:716 loggerInstancia/(11216:11216): Se recibieron los datos
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Se recibieron 4 bytes
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Se recibieron los datos
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Se recibieron 4 bytes
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Se recibieron los datos
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Memoria alojada correctamente
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Inicializamos los valores de las Entradas en 0
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Inicializacion exitosa!
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Comienzo a recibir sentencias del coordinador
+
+[INFO] 05:14:30:755 loggerInstancia/(11216:11216): Esperando proxima sentencia...
+
+[INFO] 05:14:30:756 loggerInstancia/(11216:11216): Esperando la Instruccion
+
+[ERROR] 05:16:11:34 loggerInstancia/(11216:11216): SE CORTO LA CONEXION
+[ERROR] 05:16:11:35 loggerInstancia/(11216:11216): No se pudo recibir la Instruccion
+
+[ERROR] 05:16:11:35 loggerInstancia/(11216:11216): No se pudo recibir la sentencia
+
+[INFO] 05:16:11:35 loggerInstancia/(11216:11216): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 05:26:34:163 loggerInstancia/(11408:11408): Intento conectarme al Coordinador
+
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Conexion exitosa!
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Intentando establecer un handshake con el Coordinador
+
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Se recibieron 4 bytes
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Se recibieron los datos
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Se enviaron 4 bytes
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Se envio el mensaje
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Handshake Exitoso!
+
+[INFO] 05:26:34:176 loggerInstancia/(11408:11408): Esperando configuracion de entradas
+
+[INFO] 05:26:34:177 loggerInstancia/(11408:11408): Se recibieron 4 bytes
+[INFO] 05:26:34:177 loggerInstancia/(11408:11408): Se recibieron los datos
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): Se recibieron 4 bytes
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): Se recibieron los datos
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): Se recibieron 4 bytes
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): Se recibieron los datos
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 05:26:34:215 loggerInstancia/(11408:11408): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Memoria alojada correctamente
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Inicializamos los valores de las Entradas en 0
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Inicializacion exitosa!
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Comienzo a recibir sentencias del coordinador
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Esperando proxima sentencia...
+
+[INFO] 05:26:34:216 loggerInstancia/(11408:11408): Esperando la Instruccion
+
+[ERROR] 05:34:37:931 loggerInstancia/(11408:11408): SE CORTO LA CONEXION
+[ERROR] 05:34:37:932 loggerInstancia/(11408:11408): No se pudo recibir la Instruccion
+
+[ERROR] 05:34:37:932 loggerInstancia/(11408:11408): No se pudo recibir la sentencia
+
+[INFO] 05:34:37:932 loggerInstancia/(11408:11408): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 05:36:04:332 loggerInstancia/(11555:11555): Intento conectarme al Coordinador
+
+[INFO] 05:36:04:393 loggerInstancia/(11555:11555): Conexion exitosa!
+[INFO] 05:36:04:393 loggerInstancia/(11555:11555): Intentando establecer un handshake con el Coordinador
+
+[INFO] 05:36:04:395 loggerInstancia/(11555:11555): Se recibieron 4 bytes
+[INFO] 05:36:04:395 loggerInstancia/(11555:11555): Se recibieron los datos
+[INFO] 05:36:04:395 loggerInstancia/(11555:11555): Se enviaron 4 bytes
+[INFO] 05:36:04:395 loggerInstancia/(11555:11555): Se envio el mensaje
+[INFO] 05:36:04:395 loggerInstancia/(11555:11555): Handshake Exitoso!
+
+[INFO] 05:36:04:396 loggerInstancia/(11555:11555): Esperando configuracion de entradas
+
+[INFO] 05:36:04:399 loggerInstancia/(11555:11555): Se recibieron 4 bytes
+[INFO] 05:36:04:399 loggerInstancia/(11555:11555): Se recibieron los datos
+[INFO] 05:36:04:440 loggerInstancia/(11555:11555): Se recibieron 4 bytes
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Se recibieron los datos
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Se recibieron 4 bytes
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Se recibieron los datos
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Memoria alojada correctamente
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Inicializamos los valores de las Entradas en 0
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Inicializacion exitosa!
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Comienzo a recibir sentencias del coordinador
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Esperando proxima sentencia...
+
+[INFO] 05:36:04:441 loggerInstancia/(11555:11555): Esperando la Instruccion
+
+[ERROR] 05:39:00:637 loggerInstancia/(11555:11555): SE CORTO LA CONEXION
+[ERROR] 05:39:00:716 loggerInstancia/(11555:11555): No se pudo recibir la Instruccion
+
+[ERROR] 05:39:00:716 loggerInstancia/(11555:11555): No se pudo recibir la sentencia
+
+[INFO] 05:39:00:716 loggerInstancia/(11555:11555): No se guardo nada en las Entradas. No hay nada que imprimir
+

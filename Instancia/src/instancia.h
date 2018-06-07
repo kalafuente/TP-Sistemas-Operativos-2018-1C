@@ -97,7 +97,7 @@ void inicializarEntradas();
 void eliminarEntradas();
 int procesarSentencias();
 // void procesarGET(); Segun los issues y los erratas la sentencia GET no debe llegar a la instancia. De eso se ocupa el Coordinador
-void procesarSET(instruccion* inst);
+void procesarSET(t_instruccion* inst);
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
 int existeLaClave(char * clave, t_tabla_entradas * info);

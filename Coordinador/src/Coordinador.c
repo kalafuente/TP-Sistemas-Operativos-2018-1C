@@ -81,7 +81,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
 	//instruccion instruccionAGuardar;
-	instruccion* instruccionAGuardar;
+	t_instruccion* instruccionAGuardar;
 	//----------LA EDUCACIÓN ANTE TODO, VAMOS A SALUDAR A TODO AQUEL QUE SE CONECTE A MÍ----------
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi = HANDSHAKE_CONECTAR_COORDINADOR_A_CLIENTES;
 	enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES), &handshakeCoordi , sock); //Saludamos
@@ -124,7 +124,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 }
 
-void procesarInstruccion(instruccion * instruccion, int sock){
+void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 	switch(instruccion->instruccion){
 			case INSTRUCCION_GET:
@@ -411,8 +411,8 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 
 
 
-instruccion* recibirInstruccionDelEsi(int sock){
-	instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
+t_instruccion* recibirInstruccionDelEsi(int sock){
+	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
 	char operacion[80];
 
 		switch(instruccionAGuardar->instruccion){

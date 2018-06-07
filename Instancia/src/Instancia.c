@@ -296,7 +296,7 @@ int procesarSentencias()
 {
 	int corte = 1;
 
-	instruccion* sentencia;
+	t_instruccion* sentencia;
 
 	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
 
@@ -304,18 +304,14 @@ int procesarSentencias()
 	{
 		log_info(logger, "Esperando proxima sentencia...\n");
 
-		sentencia= recibirInstruccion(logger, socketCoordinador);
+		sentencia = recibirInstruccion(logger, socketCoordinador);
 
-		/*
-		 *
-		 * 	if(recibirMensaje(logger, sizeof(sentencia), &sentencia, socketCoordinador) <= 0)
+		if(sentencia == NULL)
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
 
 			return -1;
 		}
-		 */
-
 
 		switch(sentencia->instruccion)
 		{
@@ -341,10 +337,12 @@ int procesarSentencias()
 		}
 	}
 
+	destruirInstruccion(sentencia);
+
 	return 1;
 }
 
-void procesarSET(instruccion* inst)
+void procesarSET(t_instruccion* inst)
 {
 	/*
 	int32_t longitudKey, longitudValor = 0;

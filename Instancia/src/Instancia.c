@@ -296,7 +296,7 @@ int procesarSentencias()
 {
 	int corte = 1;
 
-	PROTOCOLO_INSTRUCCIONES sentencia;
+	instruccion* sentencia;
 
 	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
 
@@ -304,14 +304,20 @@ int procesarSentencias()
 	{
 		log_info(logger, "Esperando proxima sentencia...\n");
 
-		if(recibirMensaje(logger, sizeof(sentencia), &sentencia, socketCoordinador) <= 0)
+		sentencia= recibirInstruccion(logger, socketCoordinador);
+
+		/*
+		 *
+		 * 	if(recibirMensaje(logger, sizeof(sentencia), &sentencia, socketCoordinador) <= 0)
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
 
 			return -1;
 		}
+		 */
 
-		switch(sentencia)
+
+		switch(sentencia->instruccion)
 		{
 			/* No le deberian llegar.
 			case INSTRUCCION_GET:
@@ -320,7 +326,7 @@ int procesarSentencias()
 			*/
 
 			case INSTRUCCION_SET:
-				procesarSET();
+				procesarSET(sentencia);
 				break;
 
 			case INSTRUCCION_STORE:
@@ -338,8 +344,9 @@ int procesarSentencias()
 	return 1;
 }
 
-void procesarSET()
+void procesarSET(instruccion* inst)
 {
+	/*
 	int32_t longitudKey, longitudValor = 0;
 
 	log_info(logger, "La sentencia es SET. Pedimos la longitud de la clave\n");
@@ -382,16 +389,16 @@ void procesarSET()
 	}
 
 	log_info(logger, "Valor recibido: %s\n", valor);
-
+*/
 	t_tabla_entradas * datos = NULL;
 
-	switch(existeLaClave(key, datos))
+	switch(existeLaClave(inst->clave, datos))
 	{
 		case 0: //La clave no existe
 			//Guardamos el valor en las Entradas.
 			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
 			log_info(logger, "La clave no existe. Intentamos guardar su valor en las Entradas\n");
-			guardarValorEnEntradas(key, valor, longitudValor);
+			guardarValorEnEntradas(inst->clave, inst->valor, (strlen(inst->valor)+1));
 			log_info(logger, "Se pudo almacenar el valor\n");
 			break;
 
@@ -399,7 +406,7 @@ void procesarSET()
 			//Guardamos el valor en las entradas en la posicion que nos indica el nodo
 			//Actualizamos el nodo en el que estan los datos de la clave
 			log_info(logger, "La clave existe. Se intenta actualizar su valor\n");
-			actualizarValorEnEntradas(datos, valor, longitudValor);
+			actualizarValorEnEntradas(datos, inst->valor, (strlen(inst->valor)+1));
 			log_info(logger, "Valor actualizado\n");
 			break;
 

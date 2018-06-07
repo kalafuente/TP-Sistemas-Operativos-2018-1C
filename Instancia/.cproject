@@ -37,6 +37,7 @@
 							<tool command="gcc " id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.2059277283" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
 								<option id="gnu.c.link.option.paths.689432036" name="Library search path (-L)" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/commons/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/math.h"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/manejoDeSocket/Debug}&quot;"/>
 								</option>
 								<option id="gnu.c.link.option.libs.585446913" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">

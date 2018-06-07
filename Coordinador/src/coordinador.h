@@ -44,7 +44,8 @@ t_log* logDeOperaciones;
 int cantEsi;
 coordinador_config * coordConfig;
 t_list* listaDeInstancias;
-
+t_link_element* nodoDeInstancias;
+t_link_element* nodoAuxiliarDeInstancias;
 t_list* listaDeClavesConInstancia;
 t_link_element* instanciaAElegir;
 
@@ -59,15 +60,17 @@ void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 //void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor );
-void procesarInstruccion(instruccion instruccion, int sock);
+void procesarInstruccion(instruccion * instruccion, int sock);
 bool contieneClave(t_list* list, void* value);
 bool contieneString(t_list* list, void* value);
-void elegirInstanciaSegunAlgoritmo(char* instruccion);
+instancia*  elegirInstanciaSegunAlgoritmo();
+instancia * EquitativeLoad();
 instancia nuevaInstanciaNula();
 claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia);
 instruccion* recibirInstruccionDelEsi(int sock);
 void mostrarLista(t_list* lista);
 void destruirInstruccion(instruccion*);
+void mostrarListaIntancias();
 
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

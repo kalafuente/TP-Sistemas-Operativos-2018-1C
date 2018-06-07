@@ -16,22 +16,21 @@ int main(int argc, char **argv) {
 	listaDeClavesConInstancia= list_create();
 
 
-
-	instancia nula;
+instancia nula;
 	nula.cantEntradas=0;
 	nula.socket=0;
 	nula.tamanioEntradas=0;
 	nula.tamanioOcupado=0;
 
 	claveConInstancia nueva;
-	nueva.clave = "deportes:futbol:messi";
+	nueva.clave = "deportes:futbol:messa";
 	nueva.instancia= nula;
-	claveConInstancia nueva2;
-	nueva2.clave = "deportes:futbol:kdljglfkdgklfd";
-	nueva2.instancia= nula;
+
 
 	list_add(listaDeClavesConInstancia,&nueva);
-	list_add(listaDeClavesConInstancia,&nueva2);
+
+
+
 
 	cantEsi=0;
 
@@ -98,6 +97,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		log_info(logger, "Se me conectó una Instancia");
 		mandarConfiguracionAInstancia(sock);
 		registrarInstancia(sock);
+		mostrarListaIntancias();
 		break;
 
 
@@ -108,25 +108,25 @@ void *manejadorDeConexiones(void *socket_desc) {
 		instruccionAGuardar=recibirInstruccionDelEsi(sock);
 
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
-		procesarInstruccion(*instruccionAGuardar,sock);
+		procesarInstruccion(instruccionAGuardar,sock);
 		destruirInstruccion(instruccionAGuardar);
 		break;
 
 	}
 
-	close(sock);
+	//close(sock)
 	printf("\n termino el hilo\n ");
 	return NULL;
 
 
 }
 
-void procesarInstruccion(instruccion instruccion, int sock){
+void procesarInstruccion(instruccion * instruccion, int sock){
 
-	switch(instruccion.instruccion){
+	switch(instruccion->instruccion){
 			case INSTRUCCION_GET:
 				printf ("llegó get \n");
-				if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
+				if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 					printf ("contiene este get \n");
 					printf ("\n mostrar lista\n ");
 										mostrarLista(listaDeClavesConInstancia);
@@ -141,7 +141,7 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 				else{
 					printf("no contiene este get");
-					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion.clave, nuevaInstanciaNula());
+					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave, nuevaInstanciaNula());
 					list_add(listaDeClavesConInstancia, clavenueva);
 					printf("\n se agrego %s", clavenueva->clave);
 					printf ("\n mostrar lista\n ");
@@ -156,8 +156,11 @@ void procesarInstruccion(instruccion instruccion, int sock){
 			break;
 					case INSTRUCCION_SET:
 						printf ("llegó set \n");
-						if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
+						if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 							printf ("contiene esta clave \n");
+							instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
+							enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+
 							/*
 							 * if (preguntar al plani el estado de esta clave == BLOQUEADA){
 								PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
@@ -187,7 +190,7 @@ void procesarInstruccion(instruccion instruccion, int sock){
 
 					case INSTRUCCION_STORE:
 						printf ("llegó store \n");
-						if (contieneClave(listaDeClavesConInstancia,instruccion.clave)){
+						if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 						printf ("contiene esta clave \n");
 						/*
 						 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
@@ -220,6 +223,14 @@ void mostrarLista(t_list* lista){
 	}
 	list_iterate(lista, (void *) mostrar);
 }
+
+void mostrarListaIntancias(){
+	void mostrar(instancia * elem){
+		printf ("sock instancia, %d \n", elem->socket);
+	}
+	list_iterate(listaDeInstancias, (void *) mostrar);
+}
+
 claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia){
 	claveConInstancia* nueva=malloc(sizeof(claveConInstancia));
 	nueva-> clave = string_new();
@@ -250,23 +261,27 @@ bool contieneString(t_list* list, void* value){
 	return list_any_satisfy(list, equals);
 }
 
-void elegirInstanciaSegunAlgoritmo(char* instruccion){
+instancia*  elegirInstanciaSegunAlgoritmo(){
 	int comparacion = strcmp(coordConfig->algoritmo, "EL");
 	if (comparacion == 0){
-		//Es Equitative Load
-
-
-
-		/*
-		 * 	instancia * instanciaQueElijo = obtenerInstanciaParaEL(listaDeInstancias);
-		instanciaQueElijo->bandera = 1;
-		 *
-		 */
-
+		printf("\n el algoritmo es EL");
+		instancia* instanciaElegida =  EquitativeLoad();
+		printf ("\n el socket de la instancia elegida es %d:", instanciaElegida->socket);
+		return instanciaElegida;
 	}
+	else
+		printf("no es el");
 
 }
 
+instancia * EquitativeLoad() {
+
+
+	instancia * aux = list_remove(listaDeInstancias,0);
+	list_add(listaDeInstancias, aux);
+	return aux;
+
+}
 
 
 
@@ -338,19 +353,20 @@ void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave,
 	log_info(logDeOperaciones, operacion);
 }
 void registrarInstancia(int sock){
-	instancia registrarInstancia;
-	registrarInstancia.socket=sock;
-	registrarInstancia.cantEntradas = coordConfig->entradas;
-	registrarInstancia.tamanioEntradas= coordConfig->tamanioEntradas;
-	registrarInstancia.tamanioOcupado=0;
+	instancia * registrarInstancia = malloc(sizeof(instancia ));
+	registrarInstancia->socket=sock;
+	printf("\n socket de esta instancia: %d", sock);
+	registrarInstancia->cantEntradas = coordConfig->entradas;
+	registrarInstancia->tamanioEntradas= coordConfig->tamanioEntradas;
+	registrarInstancia->tamanioOcupado=0;
+	list_add(listaDeInstancias,registrarInstancia);
 
+	printf("tamaño listaDeInst: %d \n:", list_size(listaDeInstancias));
 
-	list_add(listaDeInstancias,&registrarInstancia);
+	if (list_size(listaDeInstancias)==1)
+		nodoDeInstancias = listaDeInstancias->head;
 
-	//verificar que tiene un solo elemento ->
-	//instanciaAElegir = listaDeInstancias->head;
-
-	log_info(logger,"Se registro instancia");
+	log_info(logger,"\n Se registro instancia");
 
 	printf("instancias registradas: %d \n", list_size(listaDeInstancias));
 

@@ -42,7 +42,7 @@ t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
 
-t_instruccion* cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor);
+
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
 //------------------VARIABLES GLOBALES
 t_log* logger;

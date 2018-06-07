@@ -25,13 +25,13 @@ t_instruccion* leerInstruccion(char* line){
 	t_esi_operacion parsed = parse(line);
 	t_instruccion* instruccion;
 	if(parsed.keyword == GET){
-		instruccion= cargarInstruccion(INSTRUCCION_GET,parsed.argumentos.GET.clave,"0");
+		instruccion= crearInstruccion(INSTRUCCION_GET,parsed.argumentos.GET.clave,"0");
 	}
 	else if(parsed.keyword ==SET){
-		instruccion= cargarInstruccion(INSTRUCCION_SET,parsed.argumentos.SET.clave,parsed.argumentos.SET.valor);
+		instruccion= crearInstruccion(INSTRUCCION_SET,parsed.argumentos.SET.clave,parsed.argumentos.SET.valor);
 	}
 	else{
-		instruccion= cargarInstruccion(INSTRUCCION_STORE,parsed.argumentos.STORE.clave,"0");
+		instruccion= crearInstruccion(INSTRUCCION_STORE,parsed.argumentos.STORE.clave,"0");
 	}
 
 	destruir_operacion(parsed);
@@ -49,11 +49,9 @@ void procesarScript() {
 		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 				&mensajeDelPlani, socketPlani);
 
-		//t_esi_operacion parsed = parse(line);
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		destruirInstruccion(inst);
-		//destruir_operacion(parsed);
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}
 	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
@@ -70,14 +68,4 @@ void procesarScript() {
 
 
 
-t_instruccion * cargarInstruccion(PROTOCOLO_INSTRUCCIONES protocolo,char*clave, char* valor){
-	t_instruccion* inst=malloc(sizeof(t_instruccion));
-	inst->instruccion=protocolo;
-	inst->valor=malloc(strlen(valor)+1);
-	inst->clave=malloc(strlen(clave)+1);
-	strcpy(inst->clave,clave);
-	strcpy(inst->valor,valor);
-	return inst;
-
-}
 

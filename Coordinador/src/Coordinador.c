@@ -15,8 +15,8 @@ int main(int argc, char **argv) {
 	listaDeInstancias= list_create();
 	listaDeClavesConInstancia= list_create();
 
-
-instancia nula;
+/*
+ * instancia nula;
 	nula.cantEntradas=0;
 	nula.socket=0;
 	nula.tamanioEntradas=0;
@@ -28,6 +28,9 @@ instancia nula;
 
 
 	list_add(listaDeClavesConInstancia,&nueva);
+
+ */
+
 
 
 

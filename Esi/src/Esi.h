@@ -41,7 +41,7 @@ void cerrarConexion();
 t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
-
+void abortarEsi();
 
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);

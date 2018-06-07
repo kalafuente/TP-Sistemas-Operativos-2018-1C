@@ -26,9 +26,7 @@ t_instruccion* leerInstruccion(char* line){
 	t_esi_operacion parsed = parse(line);
 	if(! parsed.valido){
 		enviarResultado(ERROR);
-		cerrarConexion();
-		killEsi();
-		exit(1);
+		abortarEsi();
 	}
 	t_instruccion* instruccion;
 	if(parsed.keyword == GET){

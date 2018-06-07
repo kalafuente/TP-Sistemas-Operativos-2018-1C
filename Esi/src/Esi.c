@@ -42,3 +42,10 @@ void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado){
 	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
 							socketPlani);
 }
+
+
+void abortarEsi(){
+	cerrarConexion();
+	killEsi();
+	exit(1);
+}

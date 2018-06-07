@@ -44,6 +44,8 @@ void abrirScript(int argc,char **argv);
 
 
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
+void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);
+void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;

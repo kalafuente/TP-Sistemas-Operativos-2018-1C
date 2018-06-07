@@ -22,7 +22,14 @@ void abrirScript(int argc, char *argv[]) {
 
 
 t_instruccion* leerInstruccion(char* line){
+
 	t_esi_operacion parsed = parse(line);
+	if(! parsed.valido){
+		enviarResultado(ERROR);
+		cerrarConexion();
+		killEsi();
+		exit(1);
+	}
 	t_instruccion* instruccion;
 	if(parsed.keyword == GET){
 		instruccion= crearInstruccion(INSTRUCCION_GET,parsed.argumentos.GET.clave,"0");
@@ -43,19 +50,16 @@ void procesarScript() {
 	char*line = NULL;
 	size_t len = 0;
 	ssize_t read;
-	PROTOCOLO_PLANIFICADOR_A_ESI mensajeDelPlani;
+	PROTOCOLO_PLANIFICADOR_A_ESI orden;
 	while ((read = getline(&line, &len, script)) != -1) {
-
-		recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-				&mensajeDelPlani, socketPlani);
-
+		recibirOrdenDelPlanificador(&orden);
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		destruirInstruccion(inst);
 		log_info(logger, "Se envió  la instruccion: %s", line);
 	}
-	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-			&mensajeDelPlani, socketPlani);
+
+	recibirOrdenDelPlanificador(&orden);
 	enviarResultado(TERMINE);
 
 	fclose(script);

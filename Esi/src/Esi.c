@@ -33,5 +33,12 @@ void enviarInstruccionAlCoordinador(t_instruccion* instruccion){
 						socketPlani);
 }
 
+void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
+	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+					&orden, socketPlani);
+}
 
-
+void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado){
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+							socketPlani);
+}

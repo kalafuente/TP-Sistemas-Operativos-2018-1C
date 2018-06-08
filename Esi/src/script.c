@@ -66,10 +66,12 @@ void procesarScript() {
 
 	}
 	if(orden!=FINALIZAR){
-	recibirOrdenDelPlanificador(&orden);
+	log_info(logger,"no hay más para leer");
+		//recibirOrdenDelPlanificador(&orden);
 
 	}
 	enviarResultadoAlPlanificador(TERMINE);
+	log_info(logger,"le dije que termine al plani");
 
 	fclose(script);
 	free(line);

@@ -109,10 +109,12 @@ void *manejadorDeConexiones(void *socket_desc) {
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
 		instruccionAGuardar=recibirInstruccionDelEsi(sock);
-
+		while (instruccionAGuardar != NULL) {
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
 		procesarInstruccion(instruccionAGuardar,sock);
 		destruirInstruccion(instruccionAGuardar);
+			instruccionAGuardar = recibirInstruccionDelEsi(sock);
+		}
 		break;
 
 		case HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR:
@@ -463,7 +465,7 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 t_instruccion* recibirInstruccionDelEsi(int sock){
 	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
 	char operacion[80];
-
+	if (instruccionAGuardar != NULL) {
 		switch(instruccionAGuardar->instruccion){
 					case INSTRUCCION_GET:
 						registrarLogDeOperaciones(operacion,"GET", instruccionAGuardar->clave,"0");
@@ -477,7 +479,7 @@ t_instruccion* recibirInstruccionDelEsi(int sock){
 						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
 					break;
 	}
-
+	}
 
 	return instruccionAGuardar;
 }

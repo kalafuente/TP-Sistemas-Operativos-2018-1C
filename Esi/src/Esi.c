@@ -88,7 +88,7 @@ void recibirResultadoDelCoordiandor(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI * resu
 void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado){
 	log_info(logger,"Enviando resultado de la operacion al Planificador ");
 	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
-			socketCoordinador);
+			socketPlani);
 	log_info(logger,"Resultado enviado");
 }
 

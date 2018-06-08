@@ -14,8 +14,6 @@ int main(void) {
 	t_config * config;
 	crearConfiguracion(&planificadorConfig, &config);
 	crearListas();
-
-	log_info(logger, "llego aca");
 //-------------CONEXION AL COORDINADOR------------------
 	int socketCoordinador = conectarseAlServidor(logger,
 			&planificadorConfig->ipCoordinador,
@@ -48,7 +46,7 @@ int main(void) {
 		sem_wait(&cantidadEsisEnReady);
 		estadoEsi = TERMINE_BIEN;
 
-//Ordenamos la lista Esis segun criterio elegido en este momento-------------------------------<Falta>-----------------------------------------------------
+//Ordenamos la lista Esis segun criterio elegido en este momento-----------------------------------------------------------------------------
 		switch (planificadorConfig->algoritmoPlanificacion) {
 		case SJF_CD:
 			ordenarPorSJF(listaReady);
@@ -81,33 +79,34 @@ int main(void) {
 			case TERMINE_BIEN:
 
 				instruccion = recibirInstruccion(logger, esiActual->socket);
-				procesarInstruccion(instruccion);
-				//		duracionRafaga++;
+				procesarInstruccion(instruccion, esiActual);
+//duracionRafaga++;
 //cambiarEstimacion(esiActual,-1);
 //sumar 1 a la espera te todos los esis en Ready para el HRRN
-
+				destruirInstruccion(instruccion);
 				break;
 			case BLOQUEADO_CON_CLAVE:
 				//cambiarEstimacion();
+
 				instruccion = recibirInstruccion(logger, esiActual->socket);
 				list_remove(listaEjecutando, 0);
-
-				//agragar a lista bloqueados junto a la clave
-				list_add(listaBloqueado, esiActual);
+				agregarEnListaBloqueado(esiActual, instruccion->clave);
+				destruirInstruccion(instruccion);
 				log_info(logger, "esi %d bloqueado", esiActual->ID);
 				break;
 			case TERMINE:
-				list_remove(listaEjecutando, 0);
 
+				list_remove(listaEjecutando, 0);
 				list_add(listaTerminados, esiActual);
+				//liberar claves
 				log_info(logger, "termino el esi %d", esiActual->ID);
 				close(esiActual->socket);
 
 				break;
 			case ERROR:
 				list_remove(listaEjecutando, 0);
-
 				list_add(listaTerminados, esiActual);
+				//liberar claves
 				log_error(logger, "error con el esi %d", esiActual->ID);
 				close(esiActual->socket);
 				break;
@@ -131,6 +130,14 @@ int main(void) {
 	return EXIT_SUCCESS;
 
 }
+
+void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
+	struct_esiClaves *elemento = calloc(1, sizeof(struct_esiClaves));
+	elemento->clave = string_new();
+	string_append(&elemento->clave, clave);
+	elemento->ESI = esiActual;
+}
+
 
 float actualizarDuracionDeRafagaSJF(struct_esi esi) {
 	float duracionEstimada;
@@ -226,9 +233,15 @@ int perteneceClaveAlEsi(t_list *lista, char* claveBuscada) {
 
 
 
-void procesarInstruccion(t_instruccion* instruccion) {
+void procesarInstruccion(t_instruccion* instruccion, struct_esi*esi) {
+	char *clave = string_new();
+	string_append(&clave, instruccion->clave);
+	
 	switch (instruccion->instruccion) {
 	case INSTRUCCION_GET:
+
+		list_add(listaEsiClave, crearEsiClave(esi, clave));
+		log_info(logger, "empezamos a procesar");
 
 		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
 
@@ -242,9 +255,42 @@ void procesarInstruccion(t_instruccion* instruccion) {
 	case INSTRUCCION_STORE:
 		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
 
+		sacarStructDeListaEsiClave(clave);
+		liberarEsi(clave);
 		//liberar la correspondiente
 		break;
 	}
+}
+//---------------------------------------------------------------STORE / LIBERAR -------------------------------------
+void liberarEsi(char*clave) {
+	struct_esiClaves* aux;
+	int esSuClaveIgual(struct_esiClaves*elesi) {
+		return string_equals_ignore_case(clave, elesi->clave);
+	}
+
+	aux = (struct_esiClaves*) list_remove_by_condition(listaBloqueado,
+			(void*) esSuClaveIgual);
+	if (aux != NULL) {
+		list_add(listaReady, aux->ESI);
+	}
+}
+
+void sacarStructDeListaEsiClave(char*clave) {
+	int esSuClaveIgual(struct_esiClaves*elesi) {
+		return string_equals_ignore_case(clave, elesi->clave);
+	}
+
+	list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual);
+}
+//--------------------------------------------------------------------------------------------------------
+
+
+struct_esiClaves* crearEsiClave(struct_esi* esi, char*clave) {
+	struct_esiClaves* aux = calloc(1, sizeof(struct_esiClaves));
+	aux->ESI = esi;
+	aux->clave = string_new();
+	string_append(&aux->clave, clave);
+	return aux;
 }
 
 void ordenarActuar(struct_esi* esi) {
@@ -284,6 +330,7 @@ void crearListas() {
 	listaBloqueado = list_create();
 	listaEjecutando = list_create();
 	listaTerminados = list_create();
+	listaEsiClave = list_create();
 }
 
 void * recibirEsi(void* socketEscucha) {
@@ -325,12 +372,10 @@ planificador_config * init_planificaorConfig() {
 
 void crearConfiguracion(planificador_config** planificador, t_config** config) {
 	*config = config_create("configPlanificador.config");
-	log_info(logger, "PUEDES VER ESTO");
 
 	ALGORITMO_PLANIFICACION i = traducir(
 			config_get_string_value(*config, "ALGORITMO"));
 
-	log_info(logger, "PUEDES VER ESTO");
 	(*planificador)->algoritmoPlanificacion = i;
 	(*planificador)->ipCoordinador = config_get_string_value(*config,
 			"IP_COORDINADOR");

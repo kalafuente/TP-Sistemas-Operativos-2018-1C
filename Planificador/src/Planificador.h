@@ -57,23 +57,31 @@ int IdDisponible = 0;
 pthread_mutex_t mutex;
 
 ALGORITMO_PLANIFICACION traducir(char* algoritmo);
-void procesarInstruccion(t_instruccion* instruccion);
+void procesarInstruccion(t_instruccion* instruccion, struct_esi * esi);
 void ordenarPorSJF(t_list* lista);
 void procesarLinea(char* linea,char ** comando, char ** parametros);
 void* consola();
 void crearListas();
 void destruirListas();
+
+PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
+
+struct_esiClaves* crearEsiClave(struct_esi* esi, char*clave);
+
+//FUNCIONES PARA EL ESI
+void ordenarActuar(struct_esi* esi);
 void agregarEsi(int socketCliente);
 void *recibirEsi(void* socketEscucha);
-void ordenarActuar(struct_esi* esi);
-PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
 
 //FUNCIONES PARA EL CORDI
 void * manejarConexionCoordi(void * socket);
 int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
 int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
 
-
+//FUNCIONES DE LIBERACION/ BLOQUEO
+void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
+void sacarStructDeListaEsiClave(char*clave);
+void liberarEsi(char*clave);
 //FUNCIONES DE CONFIGURACION
 
 planificador_config * init_planificaorConfig();

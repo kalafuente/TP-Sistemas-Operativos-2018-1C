@@ -115,6 +115,13 @@ void *manejadorDeConexiones(void *socket_desc) {
 		destruirInstruccion(instruccionAGuardar);
 		break;
 
+		case HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR:
+			log_info(logger, "Se me conectó el planificador");
+			socketPlani = sock;
+			printf("\n socket: %d", sock);
+			printf("\n socketguardado: %d", socketPlani);
+		break;
+
 	}
 
 	//close(sock)
@@ -125,98 +132,129 @@ void *manejadorDeConexiones(void *socket_desc) {
 }
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
+	printf("entreAprocesar");
+
+	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveDisponible = PREGUNTA_CLAVE_DISPONIBLE;
+	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveBloqueada = PREGUNTA_ESI_TIENE_CLAVE;
+	PROTOCOLO_PLANIFICADOR_A_COORDINADOR rtaPlani;
+
+	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rtaParaElEsi;
 
 	switch(instruccion->instruccion){
-			case INSTRUCCION_GET:
-				printf ("llegó get \n");
+	case INSTRUCCION_GET:
+				log_info(logger, "ESI ENVIO UN GET");
 				if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
-					printf ("contiene este get \n");
+					log_info(logger, "La lista de claves contiene este GET");
 					printf ("\n mostrar lista\n ");
-										mostrarLista(listaDeClavesConInstancia);
-					/*
-					if (preguntar al coordi el estado de esta clave !== BLOQUEADA){
-							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
-							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
+					mostrarLista(listaDeClavesConInstancia);
+
+					//Pregunto si esta disponible
+					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveDisponible,socketPlani);
+					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
+
+					switch(rtaPlani){
+					case CLAVE_DISPONIBLE:
+						log_info(logger,"CLAVE DISPONIBLE");
+						rtaParaElEsi= TODO_OK_ESI;
+						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+						log_info(logger, "Le dije al esi que todo ok");
+						break;
+					case CLAVE_NO_DISPONIBLE:
+						log_info(logger,"CLAVE NO DISPONIBLE");
+						rtaParaElEsi = BLOQUEATE;
+						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+						log_info(logger, "Le dije al esi que se bloquee");
+						break;
+					default:
+						log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
+						break;
 					}
-					*/
 
 				}
 
 				else{
-					printf("no contiene este get");
+					char clavePaElLog[80];
+					log_info(logger, "La lista de claves NO contiene este GET");
 					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave, nuevaInstanciaNula());
 					list_add(listaDeClavesConInstancia, clavenueva);
-					printf("\n se agrego %s", clavenueva->clave);
+
+					sprintf(clavePaElLog, "Se agrego esta clave: %s", clavenueva->clave);
+					log_info(logger, clavePaElLog);
+
 					printf ("\n mostrar lista\n ");
 					mostrarLista(listaDeClavesConInstancia);
-					/*
-					 * aviso al plani que bloquee esta clave
-					 devuelvo al esi todo ok
-					 *
-					 */
+					rtaParaElEsi= TODO_OK_ESI;
+					enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+					log_info(logger, "Le dije al esi que todo ok");
 				}
 
-			break;
-					case INSTRUCCION_SET:
-						printf ("llegó set \n");
-						if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
-							printf ("contiene esta clave \n");
-							instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
-							enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+	break;
+	case INSTRUCCION_SET:
+				log_info(logger, "ESI ENVIO UN SET");
+				if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
+					log_info(logger, "La lista de claves contiene este GET");
 
-							/*
-							 * if (preguntar al plani el estado de esta clave == BLOQUEADA){
-								PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
-								enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-								}
-								else
-								elegirInstanciaMedianteAlgoritmo(instruccion.clave)
+					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
+					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
 
-								PRIMERO MANDAR LA LONGITUD DE LA CLAVE
-								DESPUES LA CLAVE
-								DESPUES LA LONGITUD DEL VALOR
-								DESPUÉS EL VALOR
-
-								esperar respuesta
-
-							 */
-						}
-
-						else{
-							printf("no contiene esta clave");
-							/*PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_IDENTIFICADA;
-							  enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-							 */
-						}
-
+					switch(rtaPlani){
+					case ESI_TIENE_CLAVE:
+						log_info(logger,"ESI TIENE CLAVE");
+						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
+						enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+						//DEBERIA MANDARME LA INSTANCIA ALGO PARA SABER QUE ESTÁ TODO OK
+						rtaParaElEsi= TODO_OK_ESI;
+						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+						log_info(logger, "Le dije al esi que todo ok");
 						break;
+					case ESI_NO_TIENE_CLAVE:
+						log_info(logger,"ESI NO TIENE CLAVE");
+						rtaParaElEsi= ERROR_CLAVE_NO_BLOQUEADA;
+						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+						break;
+					default:
+						log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
+						break;
+					}
+				}
+				else{
+					log_info(logger, "La lista de claves no contiene este GET");
+					rtaParaElEsi= ERROR_CLAVE_NO_IDENTIFICADA;
+					enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+				}
+	break;
 
-					case INSTRUCCION_STORE:
-						printf ("llegó store \n");
-						if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
-						printf ("contiene esta clave \n");
-						/*
-						 * if (preguntar al coordi el estado de esta clave == BLOQUEADA){
-							PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_BLOQUEADA;
-							enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-							}
-							else{
-
-							decirle a la instancia que la archive - MANDAR STORE
-
-							}
-						 */
+	case INSTRUCCION_STORE:
+				log_info(logger, "ESI ENVIO UN STORE");
+					if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
+						log_info(logger, "La lista de claves contiene esta clave");
+					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
+					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
+						switch(rtaPlani){
+						case ESI_TIENE_CLAVE:
+							log_info(logger,"ESI TIENE CLAVE");
+							//DECIRLE STORE A LA INSTANCIA
+							printf("hay que buscar que instancia tien la clave y decirle store \n");
+							rtaParaElEsi= TODO_OK_ESI;
+							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+							log_info(logger, "Le dije al esi que todo ok");
+							break;
+						case ESI_NO_TIENE_CLAVE:
+							log_info(logger,"ESI NO TIENE CLAVE");
+							rtaParaElEsi= ERROR_CLAVE_NO_BLOQUEADA;
+							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+							break;
+						default:
+							log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
+							break;
 						}
-
-						else{
-						printf("no contiene esta clave");
-						/*PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta = ERROR_CLAVE_NO_IDENTIFICADA;
-						 enviarMensaje(logger, sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rta , sock);
-						 */
-						}
-
-
-					break;
+					}
+					else{
+						log_info(logger, "La lista de claves no contiene este GET");
+						rtaParaElEsi= ERROR_CLAVE_NO_IDENTIFICADA;
+						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+					}
+	break;
 	}
 }
 
@@ -348,10 +386,17 @@ void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
 
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
 
+	PROTOCOLO_COORDINADOR_A_PLANIFICADOR pedidoID = PEDIDO_DE_ID;
+	int rtaPlani;
+	enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &pedidoID,socketPlani);
+	recibirMensaje(logger, sizeof(int),&rtaPlani, socketPlani);
+	log_info(logger,"el ID del esi segun plani fue recibido");
+	printf("\n el id es: %d", rtaPlani);
+
 	if (!(strcmp(valor,"0")==0))
-		sprintf(operacion, "ESI % d SET %s %s", cantEsi, clave, valor);
+		sprintf(operacion, "ESI % d SET %s %s", rtaPlani, clave, valor);
 	else
-		sprintf(operacion, "ESI % d %s %s", cantEsi,instruccion,clave);
+		sprintf(operacion, "ESI % d %s %s", rtaPlani,instruccion,clave);
 
 	log_info(logDeOperaciones, operacion);
 }

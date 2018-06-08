@@ -48,6 +48,7 @@ t_link_element* nodoDeInstancias;
 t_link_element* nodoAuxiliarDeInstancias;
 t_list* listaDeClavesConInstancia;
 t_link_element* instanciaAElegir;
+int32_t socketPlani;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 

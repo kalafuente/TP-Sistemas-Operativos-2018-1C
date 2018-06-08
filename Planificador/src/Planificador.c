@@ -3,17 +3,20 @@
 
 //empezamos sin la consola, pero separando bien
 int main(void) {
+	logger = crearLogger("loggerPlani.log", "loggerPlani");
 	sem_init(&pausarPlanificacion, 0, 1);
 	pthread_t tid;
-	pthread_create(&tid, NULL, consola, NULL);
+//	pthread_create(&tid, NULL, consola, NULL);
 //definir struct de las claves guardadas---------------------------<Falta>--------------------------------------------------------------------------
 	pthread_mutex_init(&mutex, NULL);
+
 	sem_init(&cantidadEsisEnReady, 0, 0);
-	logger = crearLogger("loggerPlani.log", "loggerPlani");
 	planificador_config * planificadorConfig = init_planificaorConfig();
 	t_config * config;
 	crearConfiguracion(&planificadorConfig, &config);
 	crearListas();
+
+	log_info(logger, "llego aca");
 //-------------CONEXION AL COORDINADOR------------------
 	int socketCoordinador = conectarseAlServidor(logger,
 			&planificadorConfig->ipCoordinador,
@@ -36,13 +39,12 @@ int main(void) {
 	//	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,(void*) &socketCoordinador);
 //-----------------------MANEJAR LOS ESI´s-------------------------------------
 	struct_esi *esiActual;
+	t_instruccion* instruccion;
 	PROTOCOLO_ESI_A_PLANIFICADOR estadoEsi;
-	int duracionRafaga;
 
 //Inicia
 	while (PlanificadorON) {
 		sem_wait(&cantidadEsisEnReady);
-		duracionRafaga = 0;
 		estadoEsi = TERMINE_BIEN;
 
 //Ordenamos la lista Esis segun criterio elegido en este momento-------------------------------<Falta>-----------------------------------------------------
@@ -59,6 +61,7 @@ int main(void) {
 			//ordenarPorHRRN(listaReady);
 			break;
 		default:
+			log_error(logger, "ERROR INTERNO, REVISAR EL CODIGO");
 			break;
 		}
 
@@ -67,35 +70,55 @@ int main(void) {
 		esiActual = list_remove(listaReady, 0);
 		while (estadoEsi == TERMINE_BIEN) {
 			sem_wait(&pausarPlanificacion);
-			//en realidad estadoEsi sera solo parte del struct que recibira, junto a la clave
+
 			ordenarActuar(esiActual);
-			recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-					&estadoEsi, esiActual->socket);
+
+			list_add(listaEjecutando, esiActual);
+
+			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&estadoEsi, esiActual->socket) <= 0) {
+				log_error(logger, "NO SE RECIBIO ACCION DEL ESI");
+				list_remove(listaEjecutando, 0);
+				break;
+			}
 //estadoEsi=recibirResultado(esiActual);
 			switch (estadoEsi) {
 			case TERMINE_BIEN:
-				duracionRafaga++;
+
+				instruccion = recibirInstruccion(logger, esiActual->socket);
+				procesarInstruccion(instruccion);
+				//		duracionRafaga++;
 //cambiarEstimacion(esiActual,-1);
 //sumar 1 a la espera te todos los esis en Ready para el HRRN
-				log_info(logger, "Se envio accion al esi %d", esiActual->ID);
+
 				break;
 			case BLOQUEADO_CON_CLAVE:
 				//cambiarEstimacion();
+				instruccion = recibirInstruccion(logger, esiActual->socket);
+				list_remove(listaEjecutando, 0);
+
+				//agragar a lista bloqueados junto a la clave
 				list_add(listaBloqueado, esiActual);
 				log_info(logger, "esi %d bloqueado", esiActual->ID);
 				break;
-			case TERMINE: //termine es que el esi llego al fin de archivo
+			case TERMINE:
+				list_remove(listaEjecutando, 0);
+
 				list_add(listaTerminados, esiActual);
 				log_info(logger, "termino el esi %d", esiActual->ID);
 				close(esiActual->socket);
-				// logica se repite en los distintos errores (agrupar en funcion)
+
 				break;
 			case ERROR:
+				list_remove(listaEjecutando, 0);
+
 				list_add(listaTerminados, esiActual);
 				log_error(logger, "error con el esi %d", esiActual->ID);
 				close(esiActual->socket);
 				break;
 			default:
+				list_remove(listaEjecutando, 0);
+
 				log_error(logger, "No deberias ver esto");
 				break;
 			}
@@ -115,6 +138,28 @@ int main(void) {
 
 }
 
+
+void procesarInstruccion(t_instruccion* instruccion) {
+	switch (instruccion->instruccion) {
+	case INSTRUCCION_GET:
+
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//bloquear la correspondiente
+		break;
+	case INSTRUCCION_SET:
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//no hacer nada
+		break;
+	case INSTRUCCION_STORE:
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//liberar la correspondiente
+		break;
+	}
+}
+
 void * manejarConexionCoordi(void * socket) {
 	int *socketCoordinador = (int*) socket;
 	PROTOCOLO_PLANIFICADOR_A_COORDINADOR respuesta;
@@ -123,7 +168,7 @@ void * manejarConexionCoordi(void * socket) {
 	char * CLAVE = string_new();
 	struct_esi* ESI;
 	int respuesta_bool;
-
+	log_info(logger, "Iniciada recepcion de consultas del coordi");
 	while (recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR),
 			&mensajeRecibido, *socketCoordinador) > 0) {
 
@@ -217,8 +262,13 @@ void ordenarActuar(struct_esi* esi) {
 //send al esi con la orden ACTUAR
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeParaEsi = ACTUAR;
 
-	enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI), &mensajeParaEsi,
-			esi->socket);
+	if (enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+			&mensajeParaEsi, esi->socket) <= 0) {
+		log_error(logger, "NO SE PUDO ENVIAR ACCION AL ESI");
+	} else {
+		log_info(logger, "Se envio accion al Esi");
+	}
+	
 }
 
 void * recibirEsi(void* socketEscucha) {
@@ -276,10 +326,16 @@ planificador_config * init_planificaorConfig() {
 
 void crearConfiguracion(planificador_config** planificador, t_config** config) {
 	*config = config_create("configPlanificador.config");
-	int i = traducir(config_get_string_value(*config,"ALGORITMO"));
+	log_info(logger, "PUEDES VER ESTO");
+
+	ALGORITMO_PLANIFICACION i = traducir(
+			config_get_string_value(*config, "ALGORITMO"));
+
+	log_info(logger, "PUEDES VER ESTO");
 	(*planificador)->algoritmoPlanificacion = i;
 	(*planificador)->ipCoordinador = config_get_string_value(*config,
 			"IP_COORDINADOR");
+	
 	(*planificador)->puertoCoordinador = config_get_string_value(*config,
 			"PUERTO_COORDINADOR");
 	(*planificador)->puertoEscucha = config_get_string_value(*config,
@@ -358,16 +414,16 @@ void destroy_planificadorConfig(planificador_config* planificador_config) {
 
  }
  */
-int traducir(char* algoritmo){
-	if(algoritmo == "SJF_CD"){
-		return 0;
+ALGORITMO_PLANIFICACION traducir(char* algoritmo) {
+	if (string_equals_ignore_case(algoritmo, "SJF_SD")) {
+		return SJF_SD;
 	}
-	if(algoritmo == "SJF_SD"){
-		return 1;
+	if (string_equals_ignore_case(algoritmo, "HRRN")) {
+		return HRRN;
 	}
-	if(algoritmo == "HRRN"){
-		return 2;
-	}
+
+	return SJF_CD;
+
 }
 
 //----------------------------------------------
@@ -419,7 +475,7 @@ void procesarLinea(char* linea,char ** comando, char ** parametros){
 
 
 
-void* consola(void) {
+void* consola() {
   char * linea;
   char * comando = calloc(10, sizeof(char*));
   char * parametros = calloc(100, sizeof(char*));
@@ -511,6 +567,7 @@ void* consola(void) {
     printf("%s\n", linea);
     free(linea);
   }
+	return 0;
 }
 
 

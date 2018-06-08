@@ -18,9 +18,13 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
+typedef enum ALGORITMO_PLANIFICACION {
+	SJF_CD, SJF_SD, HRRN
+} ALGORITMO_PLANIFICACION;
+
 typedef struct planificador_config{
 	char * puertoEscucha;
-	int algoritmoPlanificacion;
+	ALGORITMO_PLANIFICACION algoritmoPlanificacion;
 	int alfaPlanificacion;
 	double estimacionInicial;
 	char * ipCoordinador;
@@ -41,9 +45,6 @@ typedef struct {
 	char* clave;
 } struct_esiClaves;
 
-typedef enum ALGORITMO_PLANIFICACION{
-	SJF_CD, SJF_SD, HRRN
-} ALGORITMO_PLANIFICACION;
 
 int PlanificadorON = 1;
 sem_t pausarPlanificacion;
@@ -55,9 +56,11 @@ t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados,
 int IdDisponible = 0;
 pthread_mutex_t mutex; //puede que despues se necesitan mas(por ahora solo protege la cola Ready, de cuando llegan y cuando la usa)
 sem_t cantidadEsisEnReady;
-
+ALGORITMO_PLANIFICACION traducir(char* algoritmo);
+void procesarInstruccion(t_instruccion* instruccion);
+void ordenarPorSJF(t_list* lista);
 void procesarLinea(char* linea,char ** comando, char ** parametros);
-void* consola(void);
+void* consola();
 int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
 int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
 void crearListas();

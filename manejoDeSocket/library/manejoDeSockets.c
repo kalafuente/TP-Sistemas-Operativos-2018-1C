@@ -321,21 +321,23 @@ return total;
 
 int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 	int bytesHeader =0;
+	int aux=0;
 	//log_info(logger,"Se recibieron %d bytes",bytesHeader);
 	while(bytesHeader<len){
-		bytesHeader += recv(unsocket, buffer + bytesHeader, len - bytesHeader,
+		aux= recv(unsocket, buffer + bytesHeader, len - bytesHeader,
 				MSG_WAITALL);
-		if(bytesHeader ==-1){
+		if(aux ==-1){
 			log_error(logger,"ERROR AL RECIBIR");
 			return -1;
 			//exitWithError(logger,unsocket,"No se pudo enviar el mensaje",buffer);
 		}
-		if(bytesHeader ==0){
+		if(aux ==0){
 			log_error(logger,"SE CORTO LA CONEXION");
 			return 0;
 			//exitWithError(logger,unsocket,"Se cerro la conexion",buffer);
 		}
-		log_info(logger,"Se recibieron %d bytes",bytesHeader);
+		bytesHeader+=aux;
+		log_info(logger,"Se recibieron %d bytes",aux);
 
 
 	}

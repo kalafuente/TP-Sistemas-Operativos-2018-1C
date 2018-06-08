@@ -191,9 +191,10 @@ void * manejarConexionCoordi(void * socket) {
 
 			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
 					&respuesta, *socketCoordinador);
-
+			CLAVE = string_new();
 			break;
 		case PREGUNTA_CLAVE_DISPONIBLE:
+			log_info(logger, "PREGUNTA_CLAVE_DISPONIBLE");
 			recibirClave(logger, *socketCoordinador, CLAVE);
 			respuesta_bool = tieneAlgunEsiLaClave(listaEsiClave, CLAVE);
 			if (respuesta_bool)
@@ -203,6 +204,7 @@ void * manejarConexionCoordi(void * socket) {
 			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
 					&respuesta, *socketCoordinador);
 
+			CLAVE = string_new();
 			break;
 
 		default:
@@ -248,17 +250,17 @@ void procesarInstruccion(t_instruccion* instruccion, struct_esi*esi) {
 		list_add(listaEsiClave, crearEsiClave(esi, clave));
 		log_info(logger, "empezamos a procesar");
 
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU get");
 
 		//bloquear la correspondiente
 		break;
 	case INSTRUCCION_SET:
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU set");
 
 		//no hacer nada
 		break;
 	case INSTRUCCION_STORE:
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU store");
 
 		sacarStructDeListaEsiClave(clave);
 		liberarEsi(clave);

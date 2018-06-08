@@ -171,12 +171,17 @@ void * manejarConexionCoordi(void * socket) {
 
 		switch (mensajeRecibido) {
 		case PEDIDO_DE_ID:
+			log_info(logger, "cordi pidio id");
 			ESI = list_get(listaEjecutando, 0);
 			enviarMensaje(logger, sizeof(int), &ESI->ID, *socketCoordinador);
+			log_info(logger, "le mande id al coordi");
 			break;
 
 		case PREGUNTA_ESI_TIENE_CLAVE:
-			recibirString(logger, CLAVE, *socketCoordinador); //En teoria esta funcion deberia funcionar
+			log_info(logger, "PREGUNTA_ESI_TIENE_CLAVE");
+
+			recibirClave(logger, *socketCoordinador, CLAVE);
+			printf("\n la clave es %s \n", CLAVE);
 			respuesta_bool = perteneceClaveAlEsi(listaEsiClave, CLAVE);
 
 			if (respuesta_bool)
@@ -189,7 +194,7 @@ void * manejarConexionCoordi(void * socket) {
 
 			break;
 		case PREGUNTA_CLAVE_DISPONIBLE:
-			recibirString(logger, CLAVE, *socketCoordinador); //En teoria esta funcion deberia funcionar
+			recibirClave(logger, *socketCoordinador, CLAVE);
 			respuesta_bool = tieneAlgunEsiLaClave(listaEsiClave, CLAVE);
 			if (respuesta_bool)
 				respuesta = CLAVE_NO_DISPONIBLE;

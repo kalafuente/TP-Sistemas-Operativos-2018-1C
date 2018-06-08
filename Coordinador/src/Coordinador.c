@@ -152,7 +152,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 					//Pregunto si esta disponible
 					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveDisponible,socketPlani);
-			enviarString(logger, instruccion->clave, socketPlani);
+					enviarClave(logger, instruccion->clave, socketPlani);
 					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
 
 					switch(rtaPlani){
@@ -198,7 +198,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 					log_info(logger, "La lista de claves contiene este GET");
 
 					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
-			enviarString(logger, instruccion->clave, socketPlani);
+					enviarClave(logger, instruccion->clave, socketPlani);
 					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
 
 					switch(rtaPlani){
@@ -233,7 +233,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 					if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 						log_info(logger, "La lista de claves contiene esta clave");
 					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
-			enviarString(logger, instruccion->clave, socketPlani);
+					enviarClave(logger, instruccion->clave, socketPlani);
 
 					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
 						switch(rtaPlani){

@@ -92,6 +92,8 @@ typedef struct instruccion {
 
 void destruirInstruccion(t_instruccion* instruccion);
 void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
+void enviarClave(t_log* logger,char* clave, int sock);
+char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave);
 t_instruccion* recibirInstruccion(t_log* logger, int sock);
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

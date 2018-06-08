@@ -107,6 +107,44 @@ void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 	}
 }
 
+void enviarClave(t_log* logger,char* clave, int sock)
+{
+	int32_t lenClave = strlen(clave)+1;
+	enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	enviarMensaje(logger,lenClave,clave,sock);
+}
+
+char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave)
+{
+	int32_t lenClave = 0;
+	int32_t lenValor = 0;
+
+	log_info(logger, "recibirClave:: Esperando la Instruccion\n");
+
+	if(recibirMensaje(logger,sizeof(int32_t),&lenClave,sock) <= 0)
+	{
+		log_error(logger, "No se pudo recibir la longitud de la clave\n");
+		return NULL;
+	}
+
+	log_info(logger, "recibirClave: Longitud de la clave recibida: %d\n", lenClave);
+	log_info(logger, "recibirClave: Esperamos la clave\n");
+
+	char key[lenClave];
+
+	if(recibirMensaje(logger, lenClave, key, sock) <= 0)
+	{
+		log_error(logger, "recibirClave: No se pudo recibir la clave\n");
+		return NULL;
+	}
+
+	log_info(logger, "recibirClave:: Clave recibida: %s\n", key);
+	string_append(&dondeGuardarClave, key);
+	return key;
+
+
+}
+
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor)
 {
 	t_instruccion* instruccionACrear = malloc(sizeof(t_instruccion));

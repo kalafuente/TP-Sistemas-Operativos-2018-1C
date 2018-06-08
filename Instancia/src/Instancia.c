@@ -1,61 +1,3 @@
-/*#include "instancia.h"
-
-
-int main(void) {
-
-	logger= crearLogger("loggerInstancia.log","loggerInstancia");
-	t_config * config = malloc(sizeof(t_config));
-	instancia_config * instanciaConfig = init_instanciaConfig();
-	crearConfiguracion(&instanciaConfig, &config);
-	int socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi,&instanciaConfig->puertoCoordi);
-	recibirMensaje(logger, socketCoordinador);
-	enviarMensaje(logger, ID_INSTANCIA, "SOYINSTANCIA", socketCoordinador);
-
-	close(socketCoordinador);
-	destroy_instanciaConfig(instanciaConfig);
-	config_destroy(config);
-
-	return 0;
-
-}
-
-
-void crearConfiguracion(instancia_config** instancia, t_config** config) {
-
-	*config = config_create("configuracionInstancia.config");
-	(*instancia)->ipCoordi = config_get_string_value(*config, "IP_COORDI");
-	(*instancia)->puertoCoordi = config_get_string_value(*config, "PUERTO_COORDI");
-	(*instancia)->algoritmo = config_get_string_value(*config, "ALGORITMO_DE_REEMPLAZO");
-	(*instancia)->path = config_get_string_value(*config, "PATH");
-	(*instancia)->nombre = config_get_string_value(*config, "NOMBRE");
-	(*instancia)->intervalo = config_get_int_value(*config, "INTERVALO_DUMP");
-
-}
-instancia_config * init_instanciaConfig() {
-
-	instancia_config * instanciaConfig = malloc(sizeof(instancia_config));
-	instanciaConfig->ipCoordi = malloc(sizeof(char) * 6);
-	instanciaConfig->puertoCoordi = malloc(sizeof(char) * 4);
-	instanciaConfig->algoritmo = malloc(sizeof(char) * 4);
-	instanciaConfig->path = malloc(sizeof(char) * 23);
-	instanciaConfig->nombre = malloc(sizeof(char) * 10);
-	return instanciaConfig;
-}
-
-
-void destroy_instanciaConfig(instancia_config * instancia) {
-	free(instancia->algoritmo);
-	free(instancia->ipCoordi);
-	free(instancia->nombre);
-	free(instancia->path);
-	free(instancia->puertoCoordi);
-	free(instancia);
-
-}
-
-************************************* CODIGO ANTERIOR ******************************** ^^^
-*/
-
 #include "instancia.h"
 
 
@@ -63,6 +5,7 @@ int main(void)
 {
 
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
+	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
 	t_config * config = config_create("configuracionInstancia.config");
 	instanciaConfig = init_instanciaConfig();
 	crearConfiguracion(instanciaConfig, config);
@@ -123,21 +66,18 @@ int recibirConfiguracionDeEntradas()
 
 int conectarseAlCoordinador()
 {
-	socketCoordinador = 0;
+	//socketCoordinador = 0;
 
-	while(socketCoordinador == 0)
-	{
+	//while(socketCoordinador == 0)
+	//{
 		log_info(logger, "Intento conectarme al Coordinador\n");
 		socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
 		if(socketCoordinador == -1)
 		{
-			log_error(logger, "Conexion fallida, ingresar algo para reintentar\n");
-			char texto[10];
-			fgets(texto, 10, stdin);
-			socketCoordinador = 0;
-			break; //Solo para probar, despues aca se puede hacer otra cosa
+			log_error(logger, "Conexion fallida, no se pudo crear el socket\n");
+			return -1;
 		}
-	}
+	//}
 
 	log_info(logger, "Conexion exitosa!");
 
@@ -173,15 +113,6 @@ int handShakeConElCoordinador()
 
 void crearConfiguracion(instancia_config* instancia, t_config* config)
 {
-
-	//config = config_create("configuracionInstancia.config");
-	/*instancia->ipCoordi = config_get_string_value(config, "IP_COORDI");
-	instancia->puertoCoordi = config_get_string_value(config, "PUERTO_COORDI");
-	instancia->algoritmo = config_get_string_value(config, "ALGORITMO_DE_REEMPLAZO");
-	instancia->path = config_get_string_value(config, "PATH");
-	instancia->nombre = config_get_string_value(config, "NOMBRE");
-	instancia->intervalo = config_get_int_value(config, "INTERVALO_DUMP");*/
-
 	string_append(&(instancia->ipCoordi), config_get_string_value(config, "IP_COORDI"));
 	string_append(&(instancia->puertoCoordi), config_get_string_value(config, "PUERTO_COORDI"));
 	string_append(&(instancia->algoritmo), config_get_string_value(config, "ALGORITMO_DE_REEMPLAZO"));
@@ -190,23 +121,18 @@ void crearConfiguracion(instancia_config* instancia, t_config* config)
 	instancia->intervalo = config_get_int_value(config, "INTERVALO_DUMP");
 
 }
+
+
 instancia_config * init_instanciaConfig()
 {
 
 	instancia_config * instanciaConfig = malloc(sizeof(instancia_config));
-	/*instanciaConfig->ipCoordi = malloc(50);
-	instanciaConfig->puertoCoordi = malloc(50);
-	instanciaConfig->algoritmo = malloc(50);
-	instanciaConfig->path = malloc(100);
-	instanciaConfig->nombre = malloc(50);*/
-
 	instanciaConfig->ipCoordi = string_new();
 	instanciaConfig->puertoCoordi = string_new();
 	instanciaConfig->algoritmo = string_new();
 	instanciaConfig->path = string_new();
 	instanciaConfig->nombre = string_new();
 	instanciaConfig->intervalo = 0;
-
 
 	return instanciaConfig;
 }
@@ -223,20 +149,22 @@ void destroy_instanciaConfig(instancia_config * instancia)
 
 }
 
+
 void imprimirConfiguracion(instancia_config* instancia)
 {
-	printf("El ip del Coordinador es: %s\n", instancia->ipCoordi);
-	printf("El puerto del Coordinador es: %s\n", instancia->puertoCoordi);
-	printf("El algoritmo es: %s\n", instancia->algoritmo);
-	printf("El path es: %s\n", instancia->path);
-	printf("El nombre es: %s\n", instancia->nombre);
-	printf("El intervalo es: %d\n", instancia->intervalo);
+	log_info(logger, "El ip del Coordinador es: %s\n", instancia->ipCoordi);
+	log_info(logger, "El puerto del Coordinador es: %s\n", instancia->puertoCoordi);
+	log_info(logger, "El algoritmo es: %s\n", instancia->algoritmo);
+	log_info(logger, "El path es: %s\n", instancia->path);
+	log_info(logger, "El nombre es: %s\n", instancia->nombre);
+	log_info(logger, "El intervalo es: %d\n", instancia->intervalo);
 }
+
 
 void imprimirConfiguracionDeEntradas()
 {
-	printf("El tamanio de la entrada es: %d\n", tamanioEntrada);
-	printf("La cantidad de entradas es: %d\n", cantidadEntradas);
+	log_info(logger, "El tamanio de la entrada es: %d\n", tamanioEntrada);
+	log_info(logger, "La cantidad de entradas es: %d\n", cantidadEntradas);
 }
 
 void inicializarEntradas()
@@ -332,7 +260,7 @@ int procesarSentencias()
 			default:
 
 				log_error(logger, "La sentencia no puede ser interpretada\n");
-
+				destruirInstruccion(sentencia);
 				return -1;
 		}
 	}
@@ -344,50 +272,7 @@ int procesarSentencias()
 
 void procesarSET(t_instruccion* inst)
 {
-	/*
-	int32_t longitudKey, longitudValor = 0;
 
-	log_info(logger, "La sentencia es SET. Pedimos la longitud de la clave\n");
-
-	if(recibirMensaje(logger, sizeof(longitudKey), &longitudKey, socketCoordinador) <= 0)
-	{
-		log_error(logger, "No se pudo recibir la longitud de la clave\n");
-		return;
-	}
-
-	log_info(logger, "Longitud de la clave recibida: %d\n", longitudKey);
-	log_info(logger, "Esperamos la clave\n");
-
-	char key[longitudKey]; //Suponemos que el Coordinador nos envia la longitud incluyendo el caracter '\0'
-
-	if(recibirMensaje(logger, longitudKey, key, socketCoordinador) <= 0)
-	{
-		log_error(logger, "No se pudo recibir la clave\n");
-		return;
-	}
-
-	log_info(logger, "Clave recibida: %s\n", key);
-	log_info(logger, "Esperamos la longitud del valor a almacenar\n");
-
-	if(recibirMensaje(logger, sizeof(longitudValor), &longitudValor, socketCoordinador) <= 0)
-	{
-		log_error(logger, "No se pudo recibir la longitud del valor\n");
-		return;
-	}
-
-	log_info(logger, "Longitud del valor recibida: %d\n", longitudValor);
-	log_info(logger, "Esperamos el valor\n");
-
-	char valor[longitudValor];
-
-	if(recibirMensaje(logger, longitudValor, valor, socketCoordinador) <= 0)
-	{
-		log_error(logger, "No se pudo recibir el valor\n");
-		return;
-	}
-
-	log_info(logger, "Valor recibido: %s\n", valor);
-*/
 	t_tabla_entradas * datos = NULL;
 
 	switch(existeLaClave(inst->clave, datos))
@@ -396,7 +281,12 @@ void procesarSET(t_instruccion* inst)
 			//Guardamos el valor en las Entradas.
 			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
 			log_info(logger, "La clave no existe. Intentamos guardar su valor en las Entradas\n");
-			guardarValorEnEntradas(inst->clave, inst->valor, (strlen(inst->valor)+1));
+			if(guardarValorEnEntradas(inst->clave, inst->valor, (strlen(inst->valor)+1)) < 0)
+			{
+				log_error(logger, "Fallo en la operacion SET. No se pudo almacenar el valor\n");
+				//Enviar un mensaje avisando al coordinador del fallo?
+				return;
+			}
 			log_info(logger, "Se pudo almacenar el valor\n");
 			break;
 
@@ -414,6 +304,7 @@ void procesarSET(t_instruccion* inst)
 	}
 
 	log_info(logger, "Operacion SET exitosa!\n");
+	//Enviar un mensaje al coordinador avisando de que se guardo todo bien?
 
 	return;
 }
@@ -488,22 +379,27 @@ int esAtomicoElValor(int32_t longitudDelValor)
 
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
 {
-	double entradasQueOcupa = (double)longitudDelValor / (double)tamanioEntrada;
+	double entradasQueOcupa = (double)(longitudDelValor - 1) / (double)(tamanioEntrada - 1);
 
 	return (int) ceil(entradasQueOcupa);
 }
 
-void guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
+int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 {
+	int cuantasEntradasDeboEscribir = cuantasEntradasOcupaElValor(longitudDelValor);
 
 	if(comenzarReemplazoDeValores)
 	{
 		//Tengo que implementar algun algoritmo para comenzar a reemplazar
+		if(implementarAlgoritmoDeReemplazo(clave, valor, longitudDelValor, cuantasEntradasDeboEscribir) < 0)
+		{
+			log_error(logger, "Fallo en la implementacion del Algoritmo de Reemplazo\n");
+			return -1;
+		}
 	}
 
 
 	//Lo guardo en el espacio siguiente libre
-	int cuantasEntradasDeboEscribir = cuantasEntradasOcupaElValor(longitudDelValor);
 	int cantidadEntradasLibres = cantidadEntradas - tablaEntradas->elements_count;
 
 	if(cuantasEntradasDeboEscribir <= cantidadEntradasLibres) //Sabemos que las entradas son contiguas porque todavia no dimos una vuelta. Siempre almacenamos un valor al lado del otro
@@ -511,7 +407,7 @@ void guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor
 		if(cuantasEntradasDeboEscribir == 1)
 		{
 			escribirValorAtomico(clave, valor, longitudDelValor);
-			return;
+			return 1;
 		}
 
 		char valorPartido[cuantasEntradasDeboEscribir][tamanioEntrada];
@@ -519,16 +415,18 @@ void guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor
 
 		int parte;
 
-		for(parte = 0; parte < cuantasEntradasDeboEscribir; parte ++)
+		for(parte = 0; parte < (cuantasEntradasDeboEscribir - 1); parte ++)
 		{
 			escribirValorAtomico(clave, valorPartido[parte], longitudDelValor);
 		}
 
-		return;
+		return 2;
 
 	}
 
 	//Este seria el caso en el que, por ej, tengo 1 entrada libre (y es la ultima) pero tengo que escribir dos
+
+	return 0;
 
 
 }
@@ -541,15 +439,17 @@ void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t lo
 	//Habria que actualizarlo tambien
 }
 
+//La tuve que ajustar para que al final de cada pedazo de valor agregue un "\0". Parece que funciona, pero puede traer problemas...
+
 void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte])
 {
 
 	int caracter, parte, posCadena;
 	parte = -1;
 
-	for(posCadena = 0; posCadena < longitudCadena; posCadena ++)
+	for(posCadena = 0; posCadena < (longitudCadena - 1); posCadena ++)
 	{
-		if(posCadena % tamanioParte == 0)
+		if(posCadena % (tamanioParte - 1) == 0)
 		{
 			parte ++;
 			caracter = 0;
@@ -558,7 +458,17 @@ void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantid
 		strings[parte][caracter] = cadena[posCadena];
 		caracter ++;
 	}
+
+	int i;
+
+	for(i = 0; i < (cantidadPartes - 1); i++)
+	{
+		strings[i][tamanioParte - 1] = '\0';
+	}
+
+	strings[i][caracter] = '\0';
 }
+
 void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor)
 {
 	strcpy(entradas[filaACambiar], valor);
@@ -570,6 +480,11 @@ void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor)
 
 	list_add(tablaEntradas, nuevoCampoData);
 	moverPunteroAFila();
+
+	if(list_size(tablaEntradas) == 1)
+	{
+		punteroReempAlgCirc = tablaEntradas->head;
+	}
 }
 
 void moverPunteroAFila()
@@ -603,8 +518,8 @@ void imprimirContenidoEntradas()
 
 		if(entradasQueOcupaElValor == 1)
 		{
-			printf("La clave es: %s\n", datos->clave);
-			printf("Su valor asociado es: %s\n", entradas[datos->numeroEntrada]);
+			log_info(logger, "La clave es: %s\n", datos->clave);
+			log_info(logger, "Su valor asociado es: %s\n", entradas[datos->numeroEntrada]);
 			lista = lista->next;
 		}
 		else
@@ -620,13 +535,173 @@ void imprimirContenidoEntradas()
 				datos = ((t_tabla_entradas *)lista->data);
 			}
 
-			printf("La clave es: %s\n", key);
-			printf("Su valor asociado es: %s\n", valorCompleto);
+			log_info(logger, "La clave es: %s\n", key);
+			log_info(logger, "Su valor asociado es: %s\n", valorCompleto);
+
+			free(valorCompleto);
 
 		}
 	}
 
 	log_info(logger, "Los valores se han impreso correctamente\n");
+}
+
+int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp)
+{
+
+	if(strcmp(instanciaConfig->algoritmo, "CIRC") == 0)
+	{
+		//El algoritmo es el de reemplazo circular
+		//Llamamos a la funcion que lo hace
+		if(algoritmoCircular(clave, valor, longitudValor, cantidadEntradasAReemp) < 0)
+		{
+			log_error(logger, "Error al reemplazar por Algoritmo CIRC\n");
+			return -1;
+		}
+
+		return 1;
+	}
+
+	if(strcmp(instanciaConfig->algoritmo, "LRU") == 0)
+	{
+		//El algoritmo de reemplazo se basa en la entrada que mas tiempo ha estado sin cambios
+		//Llamamos a la funcion que lo hace
+
+	}
+
+	if(strcmp(instanciaConfig->algoritmo, "BSU") == 0)
+	{
+		//Reemplaza las entradas atomicas que ocupen mas espacio
+		//Llamamos a la funcion que lo hace
+	}
+
+	log_error(logger, "Algoritmo incompatible, se debe revisar la configuracion recibida\n");
+	return -4;
+
+}
+
+int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp)
+{
+	int contador = 0;
+	int primerLoop = 0;
+	t_link_element * posicionInicial = NULL;
+	t_tabla_entradas * entradasParaReemplazar[cantidadEntradasAReemp];
+
+	while(contador < cantidadEntradasAReemp && (posicionInicial != punteroReempAlgCirc)) //Tenemos que ver que no haya pegado una vuelta, porque sino se queda en un bucle infinito
+	{
+		if(esAtomicoElValor(((t_tabla_entradas *)punteroReempAlgCirc->data)->tamanioValor)) //Si es atomico quiere decir que lo puedo reemplazar
+		{
+			entradasParaReemplazar[contador] = ((t_tabla_entradas *)punteroReempAlgCirc->data);
+			contador ++;
+		}
+
+		if(primerLoop == 0)
+		{
+			posicionInicial = punteroReempAlgCirc;
+			primerLoop = 1;
+		}
+
+		moverPunteroReempAlgCirc();
+
+	}
+
+	if(posicionInicial == punteroReempAlgCirc) //Tenemos que corroborar si salio del ciclo porque encontro entradas o porque dio la vuelta y no hay disponibles
+	{
+		log_error(logger, "No se disponen de entradas suficientes para reemplazar\n");
+		return -1;
+	}
+
+	if(cantidadEntradasAReemp == 1) //Como es una sola ni corroboramos que sean contiguas, ni separamos el valor en partes
+	{
+		filaACambiar = entradasParaReemplazar[0]->numeroEntrada;
+		reemplazarValorAtomico(entradasParaReemplazar[0], clave, valor, longitudValor);
+		log_info(logger, "Se ha reemplazado el valor en la entrada correctamente\n");
+		return 1;
+	}
+
+	//Ahora tenemos que corroborar que las entradas sean contiguas. Sino hay que implementar compactacion
+
+	if(sonEntradasContiguas(cantidadEntradasAReemp, entradasParaReemplazar) == 0) //Quiere decir que no son contiguas
+	{
+		//Al no ser contiguas hay que compactar, pero por ahora no podemos
+		log_error(logger, "Las entradas no son contiguas, por lo que hay que compactar y aun no es posible\n");
+		return -2;
+	}
+
+	//Si estamos aca quiere decir que son contiguas, tenemos que separar el valor y reemplazarlas por lo nuevo
+
+	char valorPartido[cantidadEntradasAReemp][tamanioEntrada];
+	separarStringEnNPartesIguales(valor, longitudValor, cantidadEntradasAReemp, tamanioEntrada, valorPartido);
+
+	int pos;
+
+	for(pos = 0; pos < cantidadEntradasAReemp; pos ++)
+	{
+		filaACambiar = entradasParaReemplazar[pos]->numeroEntrada;
+		reemplazarValorAtomico(entradasParaReemplazar[pos], clave, valor, longitudValor);
+	}
+
+	log_info(logger, "Todas las entradas han sido reemplazadas correctamente\n");
+
+	return 1;
+
+}
+
+void moverPunteroReempAlgCirc()
+{
+	if(punteroReempAlgCirc->next == NULL) //Quiere decir que esta en el ultimo elemento
+	{
+		punteroReempAlgCirc = tablaEntradas->head;
+		return;
+	}
+
+	punteroReempAlgCirc = punteroReempAlgCirc->next;
+}
+
+int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar[cantidad])
+{
+	//Primero las tengo que ordenar - Bubble Sort porque es facil... (y tampoco va a ser muy grande el array)
+
+	int i, j;
+	t_tabla_entradas * auxiliar;
+
+	for(i = 0; i < cantidad; i ++)
+	{
+		for(j = 1; j < (cantidad - 1); j ++)
+		{
+			if(entradasParaReemplazar[j]->numeroEntrada < entradasParaReemplazar[j-1]->numeroEntrada)
+			{
+				auxiliar = entradasParaReemplazar[j-1];
+				entradasParaReemplazar[j-1] = entradasParaReemplazar[j];
+				entradasParaReemplazar[j] =  auxiliar;
+			}
+		}
+	}
+
+	//Ahora tenemos que ver que sean contiguas
+
+	i = 1;
+
+	while(i < cantidad)
+	{
+		if(entradasParaReemplazar[i]->numeroEntrada != (entradasParaReemplazar[i-1]->numeroEntrada + 1)) //Significaria que no son contiguas
+		{
+			return 0; //Devuelve falso porque no son contiguas
+		}
+
+		cantidad ++;
+	}
+
+	return 1; //Devuelve verdadero porque son contiguas
+}
+
+void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor)
+{
+	strcpy(entradas[filaACambiar], valor);
+	dato->clave = realloc(dato->clave, strlen(clave) + 1);
+	strcpy(dato->clave, clave);
+	dato->numeroEntrada = filaACambiar;
+	dato->tamanioValor = longitudValor;
 }
 
 /*

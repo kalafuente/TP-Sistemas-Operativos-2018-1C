@@ -82,6 +82,7 @@ char ** entradas = NULL; //Es Filas x Columnas ... char entradas[CantidadEntrada
 t_list* tablaEntradas = NULL;
 int filaACambiar = 0; //Actua como el puntero que nos dice en que numero de entrada debemos guardar el valor
 int comenzarReemplazoDeValores = 0; //Es como un booleano, nos dice si llenamos las Entradas y tenemos que comenzar a reemplazar valores segun el algoritmo
+t_link_element * punteroReempAlgCirc;
 
 
 //------------Declaraciones de funciones
@@ -104,11 +105,16 @@ int existeLaClave(char * clave, t_tabla_entradas * info);
 // int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
 int esAtomicoElValor(int32_t longitudDelValor);
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor);
-void guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor);
+int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor);
 void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor);
 void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
 void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor);
 void moverPunteroAFila();
 void imprimirContenidoEntradas();
+int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
+int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
+void moverPunteroReempAlgCirc();
+int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar[cantidad]);
+void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor);
 
 #endif /* INSTANCIA_H_ */

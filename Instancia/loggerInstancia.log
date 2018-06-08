@@ -936,3 +936,56 @@
 
 [INFO] 06:20:47:927 loggerInstancia/(3864:3864): No se guardo nada en las Entradas. No hay nada que imprimir
 
+[INFO] 07:54:50:359 loggerInstancia/(17156:17156): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 07:54:50:521 loggerInstancia/(17156:17156): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 07:54:50:524 loggerInstancia/(17156:17156): El puerto del Coordinador es: 9191
+
+[INFO] 07:54:50:524 loggerInstancia/(17156:17156): El algoritmo es: CIRC
+
+[INFO] 07:54:50:524 loggerInstancia/(17156:17156): El path es: "/home/utnso/instancia1/"
+
+[INFO] 07:54:50:525 loggerInstancia/(17156:17156): El nombre es: "Instancia1"
+
+[INFO] 07:54:50:525 loggerInstancia/(17156:17156): El intervalo es: 10
+
+[INFO] 07:54:50:526 loggerInstancia/(17156:17156): Intento conectarme al Coordinador
+
+[ERROR] 07:54:50:538 loggerInstancia/(17156:17156): No me pude conectar al servidor
+[ERROR] 07:54:50:538 loggerInstancia/(17156:17156): Conexion fallida, no se pudo crear el socket
+
+[INFO] 07:54:50:539 loggerInstancia/(17156:17156): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 07:54:50:541 loggerInstancia/(17156:17156): ERROR AL RECIBIR
+[ERROR] 07:54:50:541 loggerInstancia/(17156:17156): Handshake fallido
+
+[INFO] 07:54:50:542 loggerInstancia/(17156:17156): Esperando configuracion de entradas
+
+[ERROR] 07:54:50:542 loggerInstancia/(17156:17156): ERROR AL RECIBIR
+[ERROR] 07:54:50:543 loggerInstancia/(17156:17156): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 07:54:50:543 loggerInstancia/(17156:17156): El tamanio de la entrada es: 10
+
+[INFO] 07:54:50:544 loggerInstancia/(17156:17156): La cantidad de entradas es: 20
+
+[INFO] 07:54:50:544 loggerInstancia/(17156:17156): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 07:54:50:545 loggerInstancia/(17156:17156): Memoria alojada correctamente
+
+[INFO] 07:54:50:545 loggerInstancia/(17156:17156): Inicializamos los valores de las Entradas en 0
+
+[INFO] 07:54:50:546 loggerInstancia/(17156:17156): Inicializacion exitosa!
+
+[INFO] 07:54:50:547 loggerInstancia/(17156:17156): Comienzo a recibir sentencias del coordinador
+
+[INFO] 07:54:50:548 loggerInstancia/(17156:17156): Esperando proxima sentencia...
+
+[INFO] 07:54:50:549 loggerInstancia/(17156:17156): Esperando la Instruccion
+
+[ERROR] 07:54:50:549 loggerInstancia/(17156:17156): ERROR AL RECIBIR
+[ERROR] 07:54:50:550 loggerInstancia/(17156:17156): No se pudo recibir la Instruccion
+
+[ERROR] 07:54:50:550 loggerInstancia/(17156:17156): No se pudo recibir la sentencia
+
+[INFO] 07:54:50:551 loggerInstancia/(17156:17156): No se guardo nada en las Entradas. No hay nada que imprimir
+

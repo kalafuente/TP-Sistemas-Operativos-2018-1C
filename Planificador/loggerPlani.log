@@ -148,3 +148,160 @@
 [INFO] 05:38:58:882 loggerPlani/(11539:11539): Se recibieron 4 bytes
 [INFO] 05:38:58:882 loggerPlani/(11539:11539): Se recibieron los datos
 [INFO] 05:38:58:882 loggerPlani/(11539:11539): termino el esi 2
+[ERROR] 21:28:09:543 loggerPlani/(10114:10114): No me pude conectar al servidor
+[ERROR] 21:28:09:546 loggerPlani/(10114:10114): ERROR AL RECIBIR
+[ERROR] 21:28:09:546 loggerPlani/(10114:10114): ERROR AL ENVIAR
+[INFO] 22:08:03:293 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:08:03:296 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:08:03:296 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:08:03:296 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:08:14:920 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:08:14:920 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:08:14:920 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:08:14:920 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:08:14:920 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:08:14:920 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:08:14:920 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:08:14:932 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:08:14:932 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:08:14:932 loggerPlani/(11122:11122): Se envio accion al esi 0
+[INFO] 22:08:14:932 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:08:14:932 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:08:14:934 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:08:14:934 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:08:14:934 loggerPlani/(11122:11122): Se envio accion al esi 0
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se envio accion al esi 0
+[INFO] 22:08:14:935 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:08:14:936 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:08:14:936 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:08:14:936 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:08:14:936 loggerPlani/(11122:11122): termino el esi 0
+[INFO] 22:09:18:322 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:09:18:322 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:09:18:322 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:09:18:322 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:09:18:322 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:09:18:322 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:09:18:322 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:09:18:329 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:09:18:329 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:09:18:329 loggerPlani/(11122:11122): Se envio accion al esi 1
+[INFO] 22:09:18:329 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:09:18:329 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:09:18:330 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:09:18:330 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:09:18:330 loggerPlani/(11122:11122): Se envio accion al esi 1
+[INFO] 22:09:18:331 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:09:18:331 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:09:18:332 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:09:18:332 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:09:18:332 loggerPlani/(11122:11122): Se envio accion al esi 1
+[INFO] 22:09:18:332 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:09:18:332 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:09:18:333 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:09:18:333 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:09:18:333 loggerPlani/(11122:11122): termino el esi 1
+[INFO] 22:10:07:965 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:10:07:965 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:10:07:965 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:10:07:965 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:10:07:965 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:10:07:966 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:07:966 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:07:968 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:07:968 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:07:968 loggerPlani/(11122:11122): Se envio accion al esi 2
+[INFO] 22:10:07:968 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:07:968 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:07:970 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:07:970 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:07:970 loggerPlani/(11122:11122): Se envio accion al esi 2
+[INFO] 22:10:07:970 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:07:970 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:07:972 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:07:972 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:07:973 loggerPlani/(11122:11122): Se envio accion al esi 2
+[INFO] 22:10:07:973 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:07:973 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:07:979 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:07:979 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:07:979 loggerPlani/(11122:11122): termino el esi 2
+[INFO] 22:10:14:814 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:10:14:814 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:10:14:814 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:10:14:814 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:10:14:814 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:10:14:814 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:14:814 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:14:815 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:14:815 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:14:815 loggerPlani/(11122:11122): Se envio accion al esi 3
+[INFO] 22:10:14:815 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:14:815 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:14:817 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:14:817 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:14:817 loggerPlani/(11122:11122): Se envio accion al esi 3
+[INFO] 22:10:14:817 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:14:817 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:14:818 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:14:818 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:14:818 loggerPlani/(11122:11122): Se envio accion al esi 3
+[INFO] 22:10:14:818 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:10:14:819 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:10:14:820 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:10:14:820 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:10:14:820 loggerPlani/(11122:11122): termino el esi 3
+[INFO] 22:10:32:319 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:10:32:319 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:10:32:319 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:10:32:320 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:10:32:320 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:10:58:403 loggerPlani/(11122:11129): se conecto un esi
+[INFO] 22:10:58:403 loggerPlani/(11122:11129): Se enviaron 4 bytes
+[INFO] 22:10:58:403 loggerPlani/(11122:11129): Se envio el mensaje
+[INFO] 22:10:58:404 loggerPlani/(11122:11129): Se recibieron 4 bytes
+[INFO] 22:10:58:404 loggerPlani/(11122:11129): Se recibieron los datos
+[INFO] 22:11:06:170 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:171 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:171 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:171 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:172 loggerPlani/(11122:11122): Se envio accion al esi 4
+[INFO] 22:11:06:172 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:172 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:175 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:175 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:175 loggerPlani/(11122:11122): Se envio accion al esi 4
+[INFO] 22:11:06:175 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:176 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:176 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:176 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:176 loggerPlani/(11122:11122): Se envio accion al esi 4
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): termino el esi 4
+[INFO] 22:11:06:177 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:180 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:180 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:180 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:180 loggerPlani/(11122:11122): Se envio accion al esi 5
+[INFO] 22:11:06:180 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:181 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:181 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:181 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:181 loggerPlani/(11122:11122): Se envio accion al esi 5
+[INFO] 22:11:06:182 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:182 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:182 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:182 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:182 loggerPlani/(11122:11122): Se envio accion al esi 5
+[INFO] 22:11:06:183 loggerPlani/(11122:11122): Se enviaron 4 bytes
+[INFO] 22:11:06:183 loggerPlani/(11122:11122): Se envio el mensaje
+[INFO] 22:11:06:183 loggerPlani/(11122:11122): Se recibieron 4 bytes
+[INFO] 22:11:06:183 loggerPlani/(11122:11122): Se recibieron los datos
+[INFO] 22:11:06:183 loggerPlani/(11122:11122): termino el esi 5

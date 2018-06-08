@@ -48,8 +48,10 @@ void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI result
 	PROTOCOLO_ESI_A_PLANIFICADOR estado;
 	if(resultado==TODO_OK_ESI){
 	estado=TERMINE_BIEN;
-	enviarResultadoAlPlanificador(estado);
-	enviarInstruccion(logger,instruccion,socketPlani);
+		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &estado,
+				socketPlani);
+		log_info(logger, "el estado enviado es %d", estado);
+		enviarInstruccion(logger, instruccion, socketPlani);
 	}
 	else if(resultado==BLOQUEATE){
 		estado=BLOQUEADO_CON_CLAVE;
@@ -85,7 +87,8 @@ void recibirResultadoDelCoordiandor(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI * resu
 
 void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado){
 	log_info(logger,"Enviando resultado de la operacion al Planificador ");
-	enviarMensaje(logger,sizeof(resultado),&resultado,socketCoordinador);
+	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+			socketCoordinador);
 	log_info(logger,"Resultado enviado");
 }
 

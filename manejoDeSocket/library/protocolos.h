@@ -47,7 +47,7 @@ typedef enum PROTOCOLO_INSTRUCCIONES {
 
 typedef enum PROTOCOLO_ESI_A_PLANIFICADOR {
 	HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR,
-	TERMINE_BIEN,
+	TERMINE_BIEN = 1,
 	BLOQUEADO_CON_CLAVE,
 	TERMINE,
 	ERROR //hay que ir agregando los distintos errores(aunque quizas sea mejor en otro protocolo)

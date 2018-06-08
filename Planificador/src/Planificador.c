@@ -6,8 +6,7 @@ int main(void) {
 	logger = crearLogger("loggerPlani.log", "loggerPlani");
 	sem_init(&pausarPlanificacion, 0, 1);
 	pthread_t tid;
-//	pthread_create(&tid, NULL, consola, NULL);
-//definir struct de las claves guardadas---------------------------<Falta>--------------------------------------------------------------------------
+	pthread_create(&tid, NULL, consola, NULL);
 	pthread_mutex_init(&mutex, NULL);
 
 	sem_init(&cantidadEsisEnReady, 0, 0);
@@ -35,8 +34,10 @@ int main(void) {
 			&planificadorConfig->puertoEscucha, &planificadorConfig->entradas);
 	pthread_t thread_id;
 	pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
+	pthread_t thread_coordi;
 
-	//	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,(void*) &socketCoordinador);
+	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,
+			(void*) &socketCoordinador);
 //-----------------------MANEJAR LOS ESI´s-------------------------------------
 	struct_esi *esiActual;
 	t_instruccion* instruccion;
@@ -48,7 +49,7 @@ int main(void) {
 		estadoEsi = TERMINE_BIEN;
 
 //Ordenamos la lista Esis segun criterio elegido en este momento-------------------------------<Falta>-----------------------------------------------------
-		switch(planificadorConfig->algoritmoPlanificacion){
+		switch (planificadorConfig->algoritmoPlanificacion) {
 		case SJF_CD:
 			ordenarPorSJF(listaReady);
 			break;
@@ -65,8 +66,6 @@ int main(void) {
 			break;
 		}
 
-
-
 		esiActual = list_remove(listaReady, 0);
 		while (estadoEsi == TERMINE_BIEN) {
 			sem_wait(&pausarPlanificacion);
@@ -74,13 +73,9 @@ int main(void) {
 			ordenarActuar(esiActual);
 
 			list_add(listaEjecutando, esiActual);
-
-			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-					&estadoEsi, esiActual->socket) <= 0) {
-				log_error(logger, "NO SE RECIBIO ACCION DEL ESI");
-				list_remove(listaEjecutando, 0);
-				break;
-			}
+			recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&estadoEsi, esiActual->socket);
+			log_info(logger, "se recibio estado %d", estadoEsi);
 //estadoEsi=recibirResultado(esiActual);
 			switch (estadoEsi) {
 			case TERMINE_BIEN:
@@ -118,7 +113,6 @@ int main(void) {
 				break;
 			default:
 				list_remove(listaEjecutando, 0);
-
 				log_error(logger, "No deberias ver esto");
 				break;
 			}
@@ -138,28 +132,24 @@ int main(void) {
 
 }
 
+float actualizarDuracionDeRafagaSJF(struct_esi esi) {
+	float duracionEstimada;
+	duracionEstimada = 0; //obviamente esto se calcula con el alfa la duracion de la ultima rafaga y la duracion estimada anterior
 
-void procesarInstruccion(t_instruccion* instruccion) {
-	switch (instruccion->instruccion) {
-	case INSTRUCCION_GET:
-
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
-
-		//bloquear la correspondiente
-		break;
-	case INSTRUCCION_SET:
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
-
-		//no hacer nada
-		break;
-	case INSTRUCCION_STORE:
-		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
-
-		//liberar la correspondiente
-		break;
-	}
+	return duracionEstimada;
 }
 
+bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2) {
+	return esi1->estimacion < esi2->estimacion;
+}
+
+void ordenarPorSJF(t_list *listaAOrdenar) {
+	if (sizeof(listaAOrdenar) == 1) {
+		return;
+	}
+	list_sort(listaAOrdenar, (void*) tieneMenorRafaga);
+}
+//--------------------------CALMANDO PREOCUPACIONES DEL CORDI--------------------------------
 void * manejarConexionCoordi(void * socket) {
 	int *socketCoordinador = (int*) socket;
 	PROTOCOLO_PLANIFICADOR_A_COORDINADOR respuesta;
@@ -230,36 +220,35 @@ int perteneceClaveAlEsi(t_list *lista, char* claveBuscada) {
 	return (list_any_satisfy(lista, (void*) _soy_la_clave_buscada));
 }
 
-float actualizarDuracionDeRafagaSJF(struct_esi esi) {
-	float duracionEstimada;
-	duracionEstimada = 0; //obviamente esto se calcula con el alfa la duracion de la ultima rafaga y la duracion estimada anterior
-
-	return duracionEstimada;
-}
+//--------------------------------CONVERSANDO CON LOS ESIS------------------
 
 
-bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2){
-	return esi1->estimacion < esi2->estimacion;
-}
 
-void ordenarPorSJF(t_list *listaAOrdenar){
-	if(sizeof(listaAOrdenar) == 1){
-		return;
+
+
+void procesarInstruccion(t_instruccion* instruccion) {
+	switch (instruccion->instruccion) {
+	case INSTRUCCION_GET:
+
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//bloquear la correspondiente
+		break;
+	case INSTRUCCION_SET:
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//no hacer nada
+		break;
+	case INSTRUCCION_STORE:
+		log_info(logger, "FINJAMOS QUE PROCESE LA INSTRU");
+
+		//liberar la correspondiente
+		break;
 	}
-	list_sort(listaAOrdenar, (void*) tieneMenorRafaga);
-}
-
-
-PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi) {
-	PROTOCOLO_ESI_A_PLANIFICADOR resultado;
-	recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
-			esi->socket);
-	//recv + decodificar Mensaje
-	return resultado;
 }
 
 void ordenarActuar(struct_esi* esi) {
-//send al esi con la orden ACTUAR
+
 	PROTOCOLO_PLANIFICADOR_A_ESI mensajeParaEsi = ACTUAR;
 
 	if (enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
@@ -268,7 +257,33 @@ void ordenarActuar(struct_esi* esi) {
 	} else {
 		log_info(logger, "Se envio accion al Esi");
 	}
-	
+
+}
+PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi) {
+	PROTOCOLO_ESI_A_PLANIFICADOR resultado;
+	recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+			esi->socket);
+	//recv + decodificar Mensaje
+	return resultado;
+}
+
+//-----------------------------INICIANDO LAS LISTAS--------------
+
+void agregarEsi(int socketCliente) {
+	struct_esi *nuevoEsi = calloc(1, sizeof(struct_esi));
+	nuevoEsi->socket = socketCliente;
+	nuevoEsi->tiempoDeEspera = 0;
+	nuevoEsi->ID = IdDisponible;
+	IdDisponible++;
+	list_add(listaReady, nuevoEsi);
+	sem_post(&cantidadEsisEnReady);
+}
+
+void crearListas() {
+	listaReady = list_create();
+	listaBloqueado = list_create();
+	listaEjecutando = list_create();
+	listaTerminados = list_create();
 }
 
 void * recibirEsi(void* socketEscucha) {
@@ -298,23 +313,7 @@ void * recibirEsi(void* socketEscucha) {
 
 }
 
-void agregarEsi(int socketCliente) {
-	struct_esi *nuevoEsi = calloc(1, sizeof(struct_esi));
-	nuevoEsi->socket = socketCliente;
-	nuevoEsi->tiempoDeEspera = 0;
-	nuevoEsi->ID = IdDisponible;
-	IdDisponible++;
-	list_add(listaReady, nuevoEsi);
-	sem_post(&cantidadEsisEnReady);
-}
-
-void crearListas() {
-	listaReady = list_create();
-	listaBloqueado = list_create();
-	listaEjecutando = list_create();
-	listaTerminados = list_create();
-}
-
+//--------------------------FUNCIONES DE CONFIGURACION--------------------------
 planificador_config * init_planificaorConfig() {
 	planificador_config * planificador = calloc(1, sizeof(planificador_config));
 	planificador->puertoEscucha = calloc(5, sizeof(char));
@@ -335,7 +334,7 @@ void crearConfiguracion(planificador_config** planificador, t_config** config) {
 	(*planificador)->algoritmoPlanificacion = i;
 	(*planificador)->ipCoordinador = config_get_string_value(*config,
 			"IP_COORDINADOR");
-	
+
 	(*planificador)->puertoCoordinador = config_get_string_value(*config,
 			"PUERTO_COORDINADOR");
 	(*planificador)->puertoEscucha = config_get_string_value(*config,
@@ -345,75 +344,14 @@ void crearConfiguracion(planificador_config** planificador, t_config** config) {
 			"ESTIMACION");
 	(*planificador)->entradas = 500;
 }
+
 void destroy_planificadorConfig(planificador_config* planificador_config) {
 	free(planificador_config->ipCoordinador);
 	free(planificador_config->puertoCoordinador);
 	free(planificador_config->puertoEscucha);
 	free(planificador_config);
 }
-/*
- void crearServidorMultiHilo(int listenningSocket) {
- struct sockaddr_in addr;
- socklen_t addrlen = sizeof(addr);
- int socketCliente;
- pthread_t thread_id;
 
- while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,
- &addrlen))) {
- puts("Cliente conectado. Esperando mensajes prueba:\n");
-
- if (pthread_create(&thread_id, NULL, manejadorDeConexiones,
- (void*) &socketCliente) < 0) {
- perror("No se pudo crear el hilo");
- exit(1);
- }
-
- puts("Manejador de conexiones asignado");
- }
-
- if (socketCliente < 0) {
- perror("falló la aceptación");
- exit(1);
- }
-
- puts("Damos otra vuelta");
- }*/
-/*
- void *manejadorDeConexiones(void *socket_desc) {
-
- int sock = *(int*) socket_desc;
- int id;
- enviarMensaje(logger, ID_PLANIFICADOR, "SoyPlani", sock); //Saludamos
- recibirIDyContenido(&id, logger, sock);
-
- switch (id) {
-
- case ID_ESI:
- printf("Se me conectó un ESI \n ");
- recibirIDyContenido(&id, logger, sock);
- //Espero la instrucción proveniendo del ESI
- //char* instruccion =recibirIDyContenido(logger, sock, &id);
- //actualizarLogDeOperaciones();
- break;
-
- // case ID_INSTANCIA :
- //pasa lo que pasa con la instacia
- //  break;
-
- // case ID_PLANIFICADOR:
- //pasa plani
- //  break;
-
- //default :
- //Es alguien desconocido
- //statement(s);
- }
- close(sock);
- printf("\n termino el hilo");
- return NULL;
-
- }
- */
 ALGORITMO_PLANIFICACION traducir(char* algoritmo) {
 	if (string_equals_ignore_case(algoritmo, "SJF_SD")) {
 		return SJF_SD;
@@ -430,37 +368,37 @@ ALGORITMO_PLANIFICACION traducir(char* algoritmo) {
 //------------------<CONSOLA>-------------------
 //----------------------------------------------
 
-void procesarLinea(char* linea,char ** comando, char ** parametros){
+void procesarLinea(char* linea, char ** comando, char ** parametros) {
 	//printf("Entre a la funcion \n");
 	int i = 0;
-	while (linea[i] != ' ' && linea[i] != '\0' && linea[i] != '\n'){
+	while (linea[i] != ' ' && linea[i] != '\0' && linea[i] != '\n') {
 		i++;
 	}
 	//printf("%i \n", i);
 	//printf("Hice el malloc \n");
 	char * comandoCopy = calloc(i, sizeof(char*));
 	i = 0;
-	while (linea[i] != ' ' && linea[i] != '\0' && linea[i] != '\n'){
+	while (linea[i] != ' ' && linea[i] != '\0' && linea[i] != '\n') {
 		comandoCopy[i] = linea[i];
 		i++;
 	}
 	//printf("El comando es: %s \n", comandoCopy);
 	strcpy(*comando, comandoCopy);
 	free(comandoCopy);
-	if(linea[i] == '\n' || linea[i] == '\0'){
+	if (linea[i] == '\n' || linea[i] == '\0') {
 		return;
 	}
 	i++;
 	int j = 0;
 	int k = i;
-	while (linea[i] != '\0'){
+	while (linea[i] != '\0') {
 		i++;
 		j++;
 	}
 	//printf("%i %i %i \n", i, j, k);
 	char * paramCopy = calloc(j, sizeof(char*));
 	j = 0;
-	while (linea[k] != '\0' && linea[k] != '\n'){
+	while (linea[k] != '\0' && linea[k] != '\n') {
 		paramCopy[j] = linea[k];
 		k++;
 		j++;
@@ -470,108 +408,102 @@ void procesarLinea(char* linea,char ** comando, char ** parametros){
 	free(paramCopy);
 }
 
-
-
-
-
-
 void* consola() {
-  char * linea;
-  char * comando = calloc(10, sizeof(char*));
-  char * parametros = calloc(100, sizeof(char*));
-  while(1) {
-    linea = readline((">"));
-    if(linea)
-      add_history(linea);
-    if(!strncmp(linea, "exit", 4)) {
-       free(linea);
-       free(comando);
-       free(parametros);
-       PlanificadorON = 0;
-       break;
-    }
-   // printf("Lei la linea \n");
-    procesarLinea(linea, &comando, &parametros);
+	char * linea;
+	char * comando = calloc(10, sizeof(char*));
+	char * parametros = calloc(100, sizeof(char*));
+	while (1) {
+		linea = readline((">"));
+		if (linea)
+			add_history(linea);
+		if (!strncmp(linea, "exit", 4)) {
+			free(linea);
+			free(comando);
+			free(parametros);
+			PlanificadorON = 0;
+			break;
+		}
+		// printf("Lei la linea \n");
+		procesarLinea(linea, &comando, &parametros);
 
-    //Pausar/Resumir
-    //Bloquear [Clave] [ID]
-    //Desbloquear [Clave]
-    //Listar [Recurso]
-    //Kill [ID]
-    //Estado [Clave]
-    //Deadlock
-    if(!strncmp(comando, "pausar", 6)) {
-    	sem_wait(&pausarPlanificacion);
-    	printf("La planificacion se detuvo \n");
-    	//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
-    }
-    if(!strncmp(comando, "resumir", 7)) {
-    	sem_post(&pausarPlanificacion);
-    	printf("Resumiendo planificacion \n");
-    	//Resume la planificación
-    }
-    if(!strncmp(comando, "bloquear", 8)) {
-    	char* clave = strtok(parametros, " ");
-    	char* id = strtok(NULL, " ");
-    	//	if(!contains(listaEsis, id){
-    	//		id = strcpy("ESI NO EXISTENTE");
-    	//		if(!contains(clavesBloqueadas, clave){
-    	//			add(clavesBloqueadas, clave, id);
-    	//			}
-    	//	}else{
-    	//		if(!contains(clavesBloqueadas, clave){
-    	// 			add(clavesBloqueadas, clave, id);
-    	//		}
-    	// 		if(contains(listaReady, id){
-    	//			bloquear(id, clave);
-    	//		}
-    	// 		if(contains(listaEjecucion, id){
-    	//			bloquear(id, clave);
-    	//		}
-    	//	}
-    	//
-    	printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
-    	//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
-    }
-    if(!strncmp(comando, "desbloquear", 11)) {
+		//Pausar/Resumir
+		//Bloquear [Clave] [ID]
+		//Desbloquear [Clave]
+		//Listar [Recurso]
+		//Kill [ID]
+		//Estado [Clave]
+		//Deadlock
+		if (!strncmp(comando, "pausar", 6)) {
+			sem_wait(&pausarPlanificacion);
+			printf("La planificacion se detuvo \n");
+			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
+		}
+		if (!strncmp(comando, "resumir", 7)) {
+			sem_post(&pausarPlanificacion);
+			printf("Resumiendo planificacion \n");
+			//Resume la planificación
+		}
+		if (!strncmp(comando, "bloquear", 8)) {
+			char* clave = strtok(parametros, " ");
+			char* id = strtok(NULL, " ");
+			//	if(!contains(listaEsis, id){
+			//		id = strcpy("ESI NO EXISTENTE");
+			//		if(!contains(clavesBloqueadas, clave){
+			//			add(clavesBloqueadas, clave, id);
+			//			}
+			//	}else{
+			//		if(!contains(clavesBloqueadas, clave){
+			// 			add(clavesBloqueadas, clave, id);
+			//		}
+			// 		if(contains(listaReady, id){
+			//			bloquear(id, clave);
+			//		}
+			// 		if(contains(listaEjecucion, id){
+			//			bloquear(id, clave);
+			//		}
+			//	}
+			//
+			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
+			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
+		}
+		if (!strncmp(comando, "desbloquear", 11)) {
 
-    	//if(!contains(listaClaves, parametros){
-    	//	parametros = strcpy("NO EXISTE LA CLAVE");
-    	//}else{
-    	//	desbloquear(listaBloqueados, clave);
-    	//}
+			//if(!contains(listaClaves, parametros){
+			//	parametros = strcpy("NO EXISTE LA CLAVE");
+			//}else{
+			//	desbloquear(listaBloqueados, clave);
+			//}
 
-    	printf("Se desbloqueo la clave %s \n", parametros);
-    	//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
-    }
-    if(!strncmp(comando, "listar", 6)) {
+			printf("Se desbloqueo la clave %s \n", parametros);
+			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
+		}
+		if (!strncmp(comando, "listar", 6)) {
 
-    	// t_list listaEsperando = filter(listaBloqueados, elem.clave == parametros);
-    	// char* esperando = strcpy(toString(listaEsperando));
+			// t_list listaEsperando = filter(listaBloqueados, elem.clave == parametros);
+			// char* esperando = strcpy(toString(listaEsperando));
 
-    	printf("El recurso %s esta siendo esperado por: \n", parametros);
-    	//Lista los procesos encolados esperando al recurso.
-    }
-    if(!strncmp(comando, "kill", 4)) {
-    	printf("Se elimino el proceso %s \n", parametros);
-    	//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
-    }
-    if(!strncmp(comando, "estado", 6)) {
-    	printf("La siguiente clave %s , esta en el siguiente estado: \n", parametros);
-    	//Conocer el estado de una clave y de probar la correcta distribución de las mismas
-    }
-    if(!strncmp(comando, "deadlock", 8)) {
-    	printf("El sistema no encuentra deadlocks actualmente \n");
-    	//Esta consola también permitirá analizar los deadlocks que existan en el sistema y a que ESI están asociados.
-    }
-    printf("%s\n", linea);
-    free(linea);
-  }
+			printf("El recurso %s esta siendo esperado por: \n", parametros);
+			//Lista los procesos encolados esperando al recurso.
+		}
+		if (!strncmp(comando, "kill", 4)) {
+			printf("Se elimino el proceso %s \n", parametros);
+			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
+		}
+		if (!strncmp(comando, "estado", 6)) {
+			printf("La siguiente clave %s , esta en el siguiente estado: \n",
+					parametros);
+			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
+		}
+		if (!strncmp(comando, "deadlock", 8)) {
+			printf("El sistema no encuentra deadlocks actualmente \n");
+			//Esta consola también permitirá analizar los deadlocks que existan en el sistema y a que ESI están asociados.
+		}
+		printf("%s\n", linea);
+		free(linea);
+	}
 	return 0;
 }
 
-
 //pthread_t tid;
 //pthread_create(&tid, NULL, consola, NULL);
-
 

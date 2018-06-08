@@ -48,21 +48,19 @@ typedef struct {
 
 int PlanificadorON = 1;
 sem_t pausarPlanificacion;
+sem_t cantidadEsisEnReady;
 
 t_log* logger;
-planificador_config * init_planificaorConfig();
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados,
 		*listaEsiClave; //creamos listas para situacion de los Esi's; //creamos listas para situacion de los Esi's
 int IdDisponible = 0;
-pthread_mutex_t mutex; //puede que despues se necesitan mas(por ahora solo protege la cola Ready, de cuando llegan y cuando la usa)
-sem_t cantidadEsisEnReady;
+pthread_mutex_t mutex;
+
 ALGORITMO_PLANIFICACION traducir(char* algoritmo);
 void procesarInstruccion(t_instruccion* instruccion);
 void ordenarPorSJF(t_list* lista);
 void procesarLinea(char* linea,char ** comando, char ** parametros);
 void* consola();
-int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
-int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
 void crearListas();
 void destruirListas();
 void agregarEsi(int socketCliente);
@@ -70,6 +68,15 @@ void *recibirEsi(void* socketEscucha);
 void ordenarActuar(struct_esi* esi);
 PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
 
+//FUNCIONES PARA EL CORDI
+void * manejarConexionCoordi(void * socket);
+int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
+int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
+
+
+//FUNCIONES DE CONFIGURACION
+
+planificador_config * init_planificaorConfig();
 void destroy_planificadorConfig(planificador_config*);
 void crearServidorMultiHilo(int listenningSocket);
 void crearConfiguracion(planificador_config** planificador,t_config** config);

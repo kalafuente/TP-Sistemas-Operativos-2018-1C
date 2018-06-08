@@ -32,20 +32,25 @@ void killEsi();
 
 
 //---CONEXIÓNES
-void conectarseAlCoordinador();
-void conectarseAlPlanificador();
-void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR);
 void cerrarConexion();
+
+//---PLANIFICADOR
+void conectarseAlPlanificador();
+void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,t_instruccion*);
+void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);
+void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR respuesta);
+//---COORDINADOR
+void conectarseAlCoordinador();
+void recibirResultadoDelCoordiandor(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI * resultado);
+void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
+
+
 
 //---------SCRIPT
 t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
 void abortarEsi();
-
-void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
-void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);
-void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;

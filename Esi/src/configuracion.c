@@ -63,10 +63,6 @@ void killEsi() {
 	log_destroy(logger);
 }
 
-void enviarResultado(PROTOCOLO_ESI_A_PLANIFICADOR protocolo) {
-	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &protocolo,
-			socketPlani);
-}
 
 void cargarLogger(int argc, char*argv[]) {
 	if (argc < 2) {

@@ -24,8 +24,11 @@ void abrirScript(int argc, char *argv[]) {
 t_instruccion* leerInstruccion(char* line){
 
 	t_esi_operacion parsed = parse(line);
+
 	if(! parsed.valido){
-		enviarResultado(ERROR);
+		free(line);
+		fclose(script);
+		enviarResultadoAlPlanificador(ERROR);
 		abortarEsi();
 	}
 	t_instruccion* instruccion;
@@ -38,34 +41,39 @@ t_instruccion* leerInstruccion(char* line){
 	else{
 		instruccion= crearInstruccion(INSTRUCCION_STORE,parsed.argumentos.STORE.clave,"0");
 	}
-
+	log_info(logger, "Se parseo la instruccion: <%s>", line);
 	destruir_operacion(parsed);
+
 	return instruccion;
 
 }
 
 void procesarScript() {
-	char*line = NULL;
+	char*line;;
 	size_t len = 0;
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI orden;
-	while ((read = getline(&line, &len, script)) != -1) {
-		recibirOrdenDelPlanificador(&orden);
+	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado;
+	recibirOrdenDelPlanificador(&orden);
+	while ((read = getline(&line, &len, script)) != -1 && orden!=FINALIZAR) {
+
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
-		destruirInstruccion(inst);
-		log_info(logger, "Se envió  la instruccion: %s", line);
-	}
+		recibirResultadoDelCoordiandor(&resultado);
+		evaluarRespuestaDelCoordinador(resultado,inst);
+		//destruirInstruccion(inst);
+		recibirOrdenDelPlanificador(&orden);
 
+	}
+	if(orden!=FINALIZAR){
 	recibirOrdenDelPlanificador(&orden);
-	enviarResultado(TERMINE);
+
+	}
+	enviarResultadoAlPlanificador(TERMINE);
 
 	fclose(script);
 	free(line);
-	log_info(logger,
-			"Tengo el gusto de informarle que el script ha sido leido y "
-					"parseado en todo su esplendor. Espero que haya disfrutado de mi servicio."
-					" Saludos ");
+	log_info(logger,"Script finalizado");
 }
 
 

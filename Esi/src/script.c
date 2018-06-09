@@ -62,7 +62,7 @@ void procesarScript() {
 		recibirResultadoDelCoordiandor(&resultado);
 		evaluarRespuestaDelCoordinador(resultado,inst,orden);
 		if(orden!=FINALIZAR){
-		enviarResultadoAlPlanificador(resultado);
+		recibirOrdenDelPlanificador(&orden);
 		}
 	}
 	if(orden!=FINALIZAR){

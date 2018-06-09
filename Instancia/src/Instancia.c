@@ -279,6 +279,8 @@ int procesarSentencias()
 
 void procesarSET(t_instruccion* inst)
 {
+	log_info(logger, "La operacion es SET\n");
+
 	t_link_element * nodo = NULL;
 	int laClaveExiste = existeLaClave(inst->clave, nodo);
 	t_tabla_entradas * datos = NULL;
@@ -721,9 +723,19 @@ void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor,
 
 int procesarSTORE(t_instruccion * sentencia)
 {
+	log_info(logger, "La operacion es STORE\n");
+
 	t_link_element * nodo = NULL;
 	char * valorCompleto = string_new();
 	int laClaveExiste = existeLaClave(sentencia->clave, nodo);
+
+	if(laClaveExiste == 0)
+	{
+		log_error(logger, "LA CLAVE NO EXISTE. NO HAY NADA ALMACENADO PARA HACER UN BACKUP\n");
+		log_error(logger, "La clave recibida es: %s", sentencia->clave);
+		return -1;
+	}
+
 	t_tabla_entradas * dato = ((t_tabla_entradas *)nodo->data);
 
 	if(laClaveExiste == 2) //Quiere decir que el valor es atomico

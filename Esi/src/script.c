@@ -10,7 +10,7 @@
 void abrirScript(int argc, char *argv[]) {
 	if (argc < 2) {
 		perror("No pasaste el path del script la concha de tu madre");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	script = fopen(argv[1], "r");
 	if (script == NULL) {

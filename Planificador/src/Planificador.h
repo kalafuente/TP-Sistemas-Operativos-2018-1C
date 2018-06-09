@@ -34,6 +34,7 @@ typedef struct planificador_config{
 }planificador_config;
 
 typedef struct {
+	int rafagaActual;
 	int socket;
 	int tiempoDeEspera;
 	int ID;
@@ -56,6 +57,7 @@ t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados,
 int IdDisponible = 0;
 pthread_mutex_t mutex;
 
+void cambiarEstimacionSJF(struct_esi* esi, int alfa);
 ALGORITMO_PLANIFICACION traducir(char* algoritmo);
 void procesarInstruccion(t_instruccion* instruccion, struct_esi * esi);
 void ordenarPorSJF(t_list* lista);

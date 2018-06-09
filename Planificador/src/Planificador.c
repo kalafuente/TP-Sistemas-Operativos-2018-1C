@@ -72,28 +72,38 @@ int main(void) {
 
 			ordenarActuar(esiActual);
 
-			recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-					&estadoEsi, esiActual->socket);
+			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+					&estadoEsi, esiActual->socket) <= 0) {
+				log_error(logger, "ERROR ESI DESCONECTADO");
+				estadoEsi = ERROR;
+			}
 			log_info(logger, "se recibio estado %d", estadoEsi);
 //estadoEsi=recibirResultado(esiActual);
 			switch (estadoEsi) {
 			case TERMINE_BIEN:
-
+				esiActual->estimacion--;
+				esiActual->rafagaActual++;
 				instruccion = recibirInstruccion(logger, esiActual->socket);
 				procesarInstruccion(instruccion, esiActual);
 //duracionRafaga++;
 //cambiarEstimacion(esiActual,-1);
 //sumar 1 a la espera te todos los esis en Ready para el HRRN
 				destruirInstruccion(instruccion);
+
+
 				break;
 			case BLOQUEADO_CON_CLAVE:
 				//cambiarEstimacion();
-
+				esiActual->estimacion--;
+				esiActual->rafagaActual++;
 				instruccion = recibirInstruccion(logger, esiActual->socket);
 				list_remove(listaEjecutando, 0);
 				agregarEnListaBloqueado(esiActual, instruccion->clave);
 				destruirInstruccion(instruccion);
 				log_info(logger, "esi %d bloqueado", esiActual->ID);
+				cambiarEstimacionSJF(esiActual,
+						planificadorConfig->alfaPlanificacion);
+
 				break;
 			case TERMINE:
 
@@ -130,6 +140,11 @@ int main(void) {
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
+}
+
+void cambiarEstimacionSJF(struct_esi* esi, int alfa) {
+	esi->estimacion = (esi->estimacion + esi->rafagaActual) * (1 - (alfa / 100))
+			+ (alfa / 100) * esi->rafagaActual;
 }
 
 void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
@@ -191,17 +206,17 @@ void * manejarConexionCoordi(void * socket) {
 
 		switch (mensajeRecibido) {
 		case PEDIDO_DE_ID:
-			log_info(logger, "cordi pidio id");
+			log_info(logger, "Cordi pidio ID");
 			ESI = list_get(listaEjecutando, 0);
 			enviarMensaje(logger, sizeof(int), &ESI->ID, *socketCoordinador);
-			log_info(logger, "le mande id al coordi");
+			log_info(logger, "Le mande ID al Coordi");
 			break;
 
 		case PREGUNTA_ESI_TIENE_CLAVE:
 			log_info(logger, "PREGUNTA_ESI_TIENE_CLAVE");
 
 			recibirClave(logger, *socketCoordinador, CLAVE);
-			printf("\n la clave es %s \n", CLAVE);
+			log_info(logger, "La clave es %s", CLAVE);
 			respuesta_bool = perteneceClaveAlEsi(listaEsiClave, CLAVE);
 
 			if (respuesta_bool)
@@ -232,6 +247,8 @@ void * manejarConexionCoordi(void * socket) {
 			break;
 		}
 	}
+	log_error(logger, "SE CORTO LA CONEXION CON EL COORDI");
+
 	return 0;
 }
 
@@ -344,6 +361,8 @@ PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi) {
 
 void agregarEsi(int socketCliente) {
 	struct_esi *nuevoEsi = calloc(1, sizeof(struct_esi));
+	nuevoEsi->estimacion = 5;
+	nuevoEsi->rafagaActual = 0;
 	nuevoEsi->socket = socketCliente;
 	nuevoEsi->tiempoDeEspera = 0;
 	nuevoEsi->ID = IdDisponible;
@@ -501,6 +520,23 @@ void procesarLinea(char* linea, char ** comando, char ** parametros) {
 //	return;
 //
 //}
+
+//
+//void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
+//	int i = 0;
+//	int j = list_size(listaBloqueado);
+//	printf("Hice el list_size \n");
+//	while(i<j){
+//		printf("Entre al while \n");
+//		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
+//		if(strcmp(esiClave->clave, clave) == 0){
+//			list_remove(listaBloqueado, i);
+//			list_add(listaReady, esiClave);
+//			return;
+//			}
+//		i++;
+//		}
+//	}
 
 
 //int indexOf(t_list* lista, int valorBuscado){

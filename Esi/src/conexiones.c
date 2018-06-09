@@ -11,6 +11,11 @@
 void conectarseAlCoordinador() {
 	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,
 			&esiConfig->puertoCoordi);
+	if(socketCoordinador<0){
+		log_error(logger,"EL COORDNADOR ESTÁ EN CUALQUIERA");
+		abortarEsi();
+
+	}
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
 	recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),
 			&handshakeCoordi, socketCoordinador);
@@ -24,6 +29,10 @@ void conectarseAlCoordinador() {
 void conectarseAlPlanificador() {
 	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
 			&esiConfig->puertoPlanificador);
+	if(socketPlani<0){
+		log_error(logger,"EL PLANIFICADOR ESTÁ EN CUALQUIERA");
+		abortarEsi();
+	}
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
 	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 			&handshakePlani, socketPlani);

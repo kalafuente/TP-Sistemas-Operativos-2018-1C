@@ -147,6 +147,25 @@ float actualizarDuracionDeRafagaSJF(struct_esi esi) {
 	return duracionEstimada;
 }
 
+double calcularSiguienteRafagaSJF(int t , int t0, double alfa) {
+	double t1;
+	t1 = (double) (alfa/100)*t + (double) (1-(alfa/100))*t0;
+	printf("Esta rafaga es de %f \n", t1);
+	return t1;
+}
+
+double calcularRafagaSJF(struct_esi* esi, double alfa){
+	int t0 = esi->estimacion;
+	int t = 0;// esi->duracionRafaga;
+	double t1 = calcularSiguienteRafagaSJF(t, t0, alfa);
+	return t1;
+}
+
+void actualizarEstimacionSJF(struct_esi* esi, double alfa){
+	esi->estimacion = calcularRafagaSJF(esi, alfa);
+	//esi->duracionRafaga = 0;
+}
+
 bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2) {
 	return esi1->estimacion < esi2->estimacion;
 }
@@ -461,6 +480,54 @@ void procesarLinea(char* linea, char ** comando, char ** parametros) {
 	free(paramCopy);
 }
 
+
+//void listar(t_list* lista, char* clave){
+//	log_info(logger, "Entre al listar");
+//	int i = 0;
+//	int j = sizeof(lista);
+//	log_info(logger, "Hice el sizeof");
+//	while(i<j){
+//		struct_esiClaves* esiClave = list_get(lista, i);
+//		log_info(logger, "agarre el esiClave");
+//		char* claveEsi = calloc(1, sizeof(esiClave->clave));
+//		strcpy(claveEsi, esiClave->clave);
+//		log_info(logger, "Copie la clave");
+//		if(strcmp(claveEsi, clave) == 0){
+//			log_info(logger, "Entre al if");
+//			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
+//		}
+//		i++;
+//	}
+//	return;
+//
+//}
+
+
+//int indexOf(t_list* lista, int valorBuscado){
+//	int i;
+//	int j = sizeof(lista);
+//	while(i<j){
+//		if(valorBuscado == list_get(lista, i)){
+//			return i;
+//		}
+//		i++;
+//	}
+//	return -1;
+//}
+
+//int contains(t_list* lista, int elemento){
+//	int i = 0;
+//	int j = sizeof(lista);
+//	while (i<j){
+//		if (elemento == list_get(lista, i)){
+//			return true;
+//		}
+//		i++;
+//	}
+//	return false;
+//}
+
+
 void* consola() {
 	char * linea;
 	char * comando = calloc(10, sizeof(char*));
@@ -499,23 +566,32 @@ void* consola() {
 		if (!strncmp(comando, "bloquear", 8)) {
 			char* clave = strtok(parametros, " ");
 			char* id = strtok(NULL, " ");
-			//	if(!contains(listaEsis, id){
-			//		id = strcpy("ESI NO EXISTENTE");
-			//		if(!contains(clavesBloqueadas, clave){
-			//			add(clavesBloqueadas, clave, id);
-			//			}
-			//	}else{
-			//		if(!contains(clavesBloqueadas, clave){
-			// 			add(clavesBloqueadas, clave, id);
-			//		}
-			// 		if(contains(listaReady, id){
-			//			bloquear(id, clave);
-			//		}
-			// 		if(contains(listaEjecucion, id){
-			//			bloquear(id, clave);
-			//		}
-			//	}
-			//
+//			struct_esi* esiID = calloc(1, sizeof(struct_esi));
+//			esiID->ID = strtol(id, NULL, 10);
+//			if(!contains((list_map(listaReady, idEsi)), id) && !contains((list_map(listaEjecutando, idEsi)), id)){
+//				strcpy(id, "ESI NO EXISTENTE");
+//			    if(!contains(listaEsiClave, clave)){
+//			    	list_add(listaEsiClave, crearEsiClaves(NULL, clave));
+//			    		}
+//			    	}else{
+//			    			if(!contains(listaEsiClave, clave)){
+//			    				list_add(listaEsiClave, crearEsiClaves(esiID, clave));
+//			    			}
+//			    	 		if(contains((list_map(listaReady, idEsi)), id)){
+//			    				//bloquear(id, clave);
+//			    	 			int index = indexOf((list_map(listaReady, idEsi)), id);
+//			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
+//			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+//			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+//			    			}
+//			    	 		if(contains((list_map(listaEjecutando, idEsi)), id)){
+//			    				//bloquear(id, clave);
+//			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), id);
+//			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
+//			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+//			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+//			    			}
+//			    		}
 			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}

@@ -63,7 +63,10 @@ void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
 }
 
 
-void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,t_instruccion*instruccion){
+void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,
+		t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI orden){
+
+
 	PROTOCOLO_ESI_A_PLANIFICADOR estado;
 	if(resultado==TODO_OK_ESI){
 	estado=TERMINE_BIEN;
@@ -77,6 +80,15 @@ void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI result
 		log_info(logger,"La clave %s se encuentra bloqueada",instruccion->clave);
 		enviarResultadoAlPlanificador(estado);
 		enviarInstruccion(logger,instruccion,socketPlani);
+
+		log_info(logger,"Se espera la orden del planificador para volver a enviar la instruccion");
+		recibirOrdenDelPlanificador(&orden);
+
+		if(orden!=FINALIZAR){
+		enviarInstruccionAlCoordinador(instruccion);
+		recibirResultadoDelCoordiandor(&resultado);
+		evaluarRespuestaDelCoordinador(resultado,instruccion,orden);
+		}
 	}
 	else{
 		estado=ERROR;

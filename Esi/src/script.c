@@ -60,22 +60,23 @@ void procesarScript() {
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);
-		evaluarRespuestaDelCoordinador(resultado,inst);
-		//destruirInstruccion(inst);
-		recibirOrdenDelPlanificador(&orden);
-
+		evaluarRespuestaDelCoordinador(resultado,inst,orden);
+		if(orden!=FINALIZAR){
+		enviarResultadoAlPlanificador(resultado);
+		}
 	}
 	if(orden!=FINALIZAR){
 	log_info(logger,"no hay más para leer");
 		//recibirOrdenDelPlanificador(&orden);
-
+	}else{
+		log_info(logger,"El Plani me aborto");
 	}
 	enviarResultadoAlPlanificador(TERMINE);
-	log_info(logger,"le dije que termine al plani");
+	log_info(logger,"le dije que terminé al plani");
 
 	fclose(script);
 	free(line);
-	log_info(logger,"Script finalizado");
+
 }
 
 

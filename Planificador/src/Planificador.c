@@ -502,6 +502,23 @@ void procesarLinea(char* linea, char ** comando, char ** parametros) {
 //
 //}
 
+//
+//void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
+//	int i = 0;
+//	int j = list_size(listaBloqueado);
+//	printf("Hice el list_size \n");
+//	while(i<j){
+//		printf("Entre al while \n");
+//		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
+//		if(strcmp(esiClave->clave, clave) == 0){
+//			list_remove(listaBloqueado, i);
+//			list_add(listaReady, esiClave);
+//			return;
+//			}
+//		i++;
+//		}
+//	}
+
 
 //int indexOf(t_list* lista, int valorBuscado){
 //	int i;

@@ -34,7 +34,7 @@ typedef struct instancia{
 
 typedef struct claveConInstancia{
 	char* clave;
-	instancia instancia;
+	instancia* instancia;
 }claveConInstancia;
 ;
 //---------------------------VARIABLES GLOBALES-----------------------------
@@ -67,11 +67,13 @@ bool contieneString(t_list* list, void* value);
 instancia*  elegirInstanciaSegunAlgoritmo();
 instancia * EquitativeLoad();
 instancia nuevaInstanciaNula();
-claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia);
 t_instruccion* recibirInstruccionDelEsi(int sock);
 void mostrarLista(t_list* lista);
 void destruirInstruccion(t_instruccion*);
 void mostrarListaIntancias();
+claveConInstancia* instanciaQueTieneLaClave(char* clave);
+claveConInstancia* nuevaClaveConInstancia(char* clave);
+void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva);
 
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

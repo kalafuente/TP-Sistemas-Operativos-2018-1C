@@ -134,11 +134,12 @@ void *manejadorDeConexiones(void *socket_desc) {
 }
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
-	printf("entreAprocesar");
 
+	log_info(logger,"entro a procesarInstruccion");
 	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveDisponible = PREGUNTA_CLAVE_DISPONIBLE;
 	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveBloqueada = PREGUNTA_ESI_TIENE_CLAVE;
 	PROTOCOLO_PLANIFICADOR_A_COORDINADOR rtaPlani;
+	claveConInstancia* instanciaConLaClave;
 
 	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rtaParaElEsi;
 
@@ -178,7 +179,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 				else{
 					char clavePaElLog[80];
 					log_info(logger, "La lista de claves NO contiene este GET");
-					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave, nuevaInstanciaNula());
+					claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave);
 					list_add(listaDeClavesConInstancia, clavenueva);
 
 					sprintf(clavePaElLog, "Se agrego esta clave: %s", clavenueva->clave);
@@ -207,6 +208,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
 						enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
 						//DEBERIA MANDARME LA INSTANCIA ALGO PARA SABER QUE ESTÁ TODO OK
+						modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar);
 						rtaParaElEsi= TODO_OK_ESI;
 						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 						log_info(logger, "Le dije al esi que todo ok");
@@ -229,6 +231,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 	break;
 
 	case INSTRUCCION_STORE:
+
 				log_info(logger, "ESI ENVIO UN STORE");
 					if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 						log_info(logger, "La lista de claves contiene esta clave");
@@ -239,8 +242,13 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						switch(rtaPlani){
 						case ESI_TIENE_CLAVE:
 							log_info(logger,"ESI TIENE CLAVE");
-							//DECIRLE STORE A LA INSTANCIA
-							printf("hay que buscar que instancia tien la clave y decirle store \n");
+							log_info(logger,"busco la instancia que tiene esta clave");
+							instanciaConLaClave = instanciaQueTieneLaClave(instruccion->clave);
+							log_info(logger, "el Socket de la instancia que tiene la clave es: %d",instanciaConLaClave->instancia->socket);
+
+							enviarInstruccion(logger, instruccion,instanciaConLaClave->instancia->socket);
+							log_info(logger, "envie STORE A INSTANCIA");
+
 							rtaParaElEsi= TODO_OK_ESI;
 							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 							log_info(logger, "Le dije al esi que todo ok");
@@ -264,6 +272,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 	}
 }
 
+
 void mostrarLista(t_list* lista){
 	void mostrar(claveConInstancia * elem){
 		printf ("clave, %s \n", elem->clave);
@@ -278,12 +287,11 @@ void mostrarListaIntancias(){
 	list_iterate(listaDeInstancias, (void *) mostrar);
 }
 
-claveConInstancia* nuevaClaveConInstancia(char* clave, instancia _instancia){
+claveConInstancia* nuevaClaveConInstancia(char* clave){
 	claveConInstancia* nueva=malloc(sizeof(claveConInstancia));
 	nueva-> clave = string_new();
 	string_append(&(nueva->clave), clave);
-
-	nueva->instancia = _instancia;
+	nueva->instancia = NULL;
 	return nueva;
 }
 instancia nuevaInstanciaNula(){
@@ -318,7 +326,24 @@ instancia*  elegirInstanciaSegunAlgoritmo(){
 	}
 	else
 		printf("no es el");
+		return NULL; //ESTO NO DEBERIA PASAR
 
+}
+void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva){
+	claveConInstancia* elemento =  instanciaQueTieneLaClave(clave);
+	elemento->instancia = instanciaNueva;
+
+}
+claveConInstancia* instanciaQueTieneLaClave(char* clave){
+	bool condicionDeClave(claveConInstancia* item) {
+			int rta = strcmp(clave, item->clave);
+			if (rta == 0)
+					return true;
+			else
+					return false;
+		}
+
+	return list_find(listaDeClavesConInstancia,(void *) condicionDeClave);
 }
 
 instancia * EquitativeLoad() {
@@ -345,50 +370,6 @@ bool contieneClave(t_list* list, void* value){
 	return list_any_satisfy(list, (void *) equals);
 }
 
-/*
-void recibirInstruccion(int sock, instruccion * instruccionAGuardar){
-	char operacion[80];
-	PROTOCOLO_INSTRUCCIONES instruccion;
-	char * clave=  string_new();
-	char * valor = string_new();
-	recibirMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion,sock);
-	clave = recibirContenido(logger, sock);
-
-			switch(instruccion){
-				case INSTRUCCION_GET:
-					registrarLogDeOperaciones(operacion,"GET", clave,"0");
-					//guardo instruccion
-					instruccionAGuardar->instruccion= INSTRUCCION_GET;
-					instruccionAGuardar->clave= string_new();
-					instruccionAGuardar->clave=clave;
-					instruccionAGuardar->valor="0";
-					break;
-				case INSTRUCCION_SET:
-					valor = recibirContenido(logger, sock);
-					registrarLogDeOperaciones(operacion,"SET", clave,valor);
-
-					//guardo instruccion
-					instruccionAGuardar->instruccion= INSTRUCCION_SET;
-					instruccionAGuardar->clave= string_new();
-					instruccionAGuardar->clave=clave;
-					instruccionAGuardar->valor=string_new();
-					instruccionAGuardar->valor=valor;
-					break;
-
-				case INSTRUCCION_STORE:
-					registrarLogDeOperaciones(operacion, "STORE", clave,"0");
-
-					//guardo instruccion
-					instruccionAGuardar->instruccion= INSTRUCCION_STORE;
-					instruccionAGuardar->clave= string_new();
-					instruccionAGuardar->clave=clave;
-					instruccionAGuardar->valor="0";
-				break;
-	free(clave);
-	free(valor);
-}
-}
-*/
 
 void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
 
@@ -397,8 +378,7 @@ void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave,
 	enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &pedidoID,socketPlani);
 	recibirMensaje(logger, sizeof(int),&rtaPlani, socketPlani);
 	log_info(logger,"el ID del esi segun plani fue recibido");
-	printf("\n el id es: %d", rtaPlani);
-
+	log_info(logger,"el id es: %d",rtaPlani);
 	if (!(strcmp(valor,"0")==0))
 		sprintf(operacion, "ESI % d SET %s %s", rtaPlani, clave, valor);
 	else

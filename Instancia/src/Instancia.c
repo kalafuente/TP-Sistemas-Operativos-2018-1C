@@ -224,6 +224,8 @@ int procesarSentencias()
 {
 	int corte = 1;
 
+	PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta;
+
 	t_instruccion* sentencia;
 
 	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
@@ -237,7 +239,8 @@ int procesarSentencias()
 		if(sentencia == NULL)
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
-
+			respuesta = ERROR_INSTRUCCION;
+			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 			return -1;
 		}
 
@@ -250,34 +253,49 @@ int procesarSentencias()
 			*/
 
 			case INSTRUCCION_SET:
-				procesarSET(sentencia);
+				if(procesarSET(sentencia) < 0)
+				{
+					log_error(logger, "Fallo en la operacion SET\n");
+					respuesta = NO_SE_PUDO_GUARDAR_VALOR;
+					enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+					destruirInstruccion(sentencia);
+					return -2;
+				}
+
+				respuesta = SE_PUDO_GUARDAR_VALOR;
 				break;
 
 			case INSTRUCCION_STORE:
 				if(procesarSTORE(sentencia) < 0)
 				{
 					log_error(logger, "Fallo en la operacion STORE\n");
+					respuesta = NO_SE_CREO_EL_ARCHIVO;
+					enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 					destruirInstruccion(sentencia);
 					return -3;
 				}
 
 				log_info(logger, "Operacion STORE exitosa!\n");
+				respuesta = SE_CREO_EL_ARCHIVO;
 				break;
 
 			default:
 
 				log_error(logger, "La sentencia no puede ser interpretada\n");
+				respuesta = ERROR_INSTRUCCION;
+				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 				destruirInstruccion(sentencia);
 				return -1;
 		}
 
+		enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 		destruirInstruccion(sentencia);
 	}
 
 	return 1;
 }
 
-void procesarSET(t_instruccion* inst)
+int procesarSET(t_instruccion* inst)
 {
 	log_info(logger, "La operacion es SET\n");
 
@@ -296,7 +314,7 @@ void procesarSET(t_instruccion* inst)
 			{
 				log_error(logger, "Fallo en la operacion SET. No se pudo almacenar el valor\n");
 				//Enviar un mensaje avisando al coordinador del fallo?
-				return;
+				return -1;
 			}
 			log_info(logger, "Se pudo almacenar el valor\n");
 			break;
@@ -312,13 +330,13 @@ void procesarSET(t_instruccion* inst)
 
 		default: //Cuando devuelve 1, quiere decir que el valor almacenado de esa clave no es atomico
 			log_error(logger, "El valor de la clave en cuestion no es atomico, por lo que no se puede reemplazar\n");
-			return;
+			return -2;
 	}
 
 	log_info(logger, "Operacion SET exitosa!\n");
 	//Enviar un mensaje al coordinador avisando de que se guardo todo bien?
 
-	return;
+	return 1;
 }
 
 void eliminarDatosTablaDeEntradas(void * elemento)

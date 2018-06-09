@@ -56,7 +56,7 @@ void procesarScript() {
 	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado;
 	recibirOrdenDelPlanificador(&orden);
 	while ((read = getline(&line, &len, script)) != -1 && orden!=FINALIZAR) {
-
+		
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);

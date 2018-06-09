@@ -1,0 +1,12 @@
+[INFO] 10:47:51:677 logDeOperaciones/(3286:3398): ESI  0 GET futbol:messi
+[INFO] 10:47:51:773 logDeOperaciones/(3286:3398): ESI  0 SET futbol:messi TraemeLaCopa
+[INFO] 10:47:51:864 logDeOperaciones/(3286:3398): ESI  0 STORE futbol:messi
+[INFO] 10:54:23:604 logDeOperaciones/(3942:3959): ESI  0 GET futbol:messi
+[INFO] 10:54:23:696 logDeOperaciones/(3942:3959): ESI  0 SET futbol:messi TraemeLaCopa
+[INFO] 10:54:23:783 logDeOperaciones/(3942:3959): ESI  0 STORE futbol:messi
+[INFO] 10:54:50:991 logDeOperaciones/(3942:3968): ESI  1 GET futbol:messi
+[INFO] 10:54:51:77 logDeOperaciones/(3942:3968): ESI  1 SET futbol:messi TraemeLaCopa
+[INFO] 10:54:51:196 logDeOperaciones/(3942:3968): ESI  1 STORE futbol:messi
+[INFO] 10:54:54:58 logDeOperaciones/(3942:3970): ESI  2 GET futbol:messi
+[INFO] 10:54:54:105 logDeOperaciones/(3942:3970): ESI  2 SET futbol:messi TraemeLaCopa
+[INFO] 10:54:54:223 logDeOperaciones/(3942:3970): ESI  2 STORE futbol:messi

@@ -1,0 +1,424 @@
+[INFO] 10:46:38:514 loggerInstancia/(3327:3327): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 10:46:38:515 loggerInstancia/(3327:3327): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 10:46:38:515 loggerInstancia/(3327:3327): El puerto del Coordinador es: 9191
+
+[INFO] 10:46:38:515 loggerInstancia/(3327:3327): El algoritmo es: CIRC
+
+[INFO] 10:46:38:516 loggerInstancia/(3327:3327): El path es: "/home/utnso/instancia1/"
+
+[INFO] 10:46:38:516 loggerInstancia/(3327:3327): El nombre es: "Instancia1"
+
+[INFO] 10:46:38:516 loggerInstancia/(3327:3327): El intervalo es: 10
+
+[INFO] 10:46:38:516 loggerInstancia/(3327:3327): Intento conectarme al Coordinador
+
+[INFO] 10:46:38:517 loggerInstancia/(3327:3327): Conexion exitosa!
+[INFO] 10:46:38:517 loggerInstancia/(3327:3327): Intentando establecer un handshake con el Coordinador
+
+[INFO] 10:46:38:517 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:46:38:518 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:46:38:518 loggerInstancia/(3327:3327): Se enviaron 4 bytes
+[INFO] 10:46:38:518 loggerInstancia/(3327:3327): Se envio el mensaje
+[INFO] 10:46:38:518 loggerInstancia/(3327:3327): Handshake Exitoso!
+
+[INFO] 10:46:38:518 loggerInstancia/(3327:3327): Esperando configuracion de entradas
+
+[INFO] 10:46:38:520 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:46:38:520 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:46:38:559 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:46:38:559 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): El tamanio de la entrada es: 100
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): La cantidad de entradas es: 20
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Memoria alojada correctamente
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Inicializamos los valores de las Entradas en 0
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Inicializacion exitosa!
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Comienzo a recibir sentencias del coordinador
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Esperando proxima sentencia...
+
+[INFO] 10:46:38:560 loggerInstancia/(3327:3327): Esperando la Instruccion
+
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Instruccion recibida
+
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Pedimos la longitud de la clave
+
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:820 loggerInstancia/(3327:3327): Longitud de la clave recibida: 13
+
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Esperamos la clave
+
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Se recibieron 13 bytes
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Clave recibida: futbol:messi
+
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Esperamos la longitud del valor a almacenar
+
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Longitud del valor recibida: 13
+
+[INFO] 10:47:51:821 loggerInstancia/(3327:3327): Esperamos el valor
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Se recibieron 13 bytes
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Valor recibido: TraemeLaCopa
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Instruccion recibida correctamente
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): La operacion es SET
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): La clave no existe. Intentamos guardar su valor en las Entradas
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Se pudo almacenar el valor
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Operacion SET exitosa!
+
+[INFO] 10:47:51:822 loggerInstancia/(3327:3327): Se enviaron 4 bytes
+[INFO] 10:47:51:823 loggerInstancia/(3327:3327): Se envio el mensaje
+[INFO] 10:47:51:827 loggerInstancia/(3327:3327): Esperando proxima sentencia...
+
+[INFO] 10:47:51:827 loggerInstancia/(3327:3327): Esperando la Instruccion
+
+[INFO] 10:47:51:903 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:47:51:903 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:903 loggerInstancia/(3327:3327): Instruccion recibida
+
+[INFO] 10:47:51:903 loggerInstancia/(3327:3327): Pedimos la longitud de la clave
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Se recibieron 4 bytes
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Longitud de la clave recibida: 13
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Esperamos la clave
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Se recibieron 13 bytes
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Se recibieron los datos
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Clave recibida: futbol:messi
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Instruccion recibida correctamente
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): La operacion es STORE
+
+[INFO] 10:47:51:942 loggerInstancia/(3327:3327): Verificamos que la clave exista en la Tabla de Entradas
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Ya invocamos la funcion para saber si la clave existe
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): La clave existe. Corroboraremos si su valor es atomico o no
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Se pudo mapear correctamente a memoria
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Operacion STORE exitosa!
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Se enviaron 4 bytes
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Se envio el mensaje
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Esperando proxima sentencia...
+
+[INFO] 10:47:51:943 loggerInstancia/(3327:3327): Esperando la Instruccion
+
+[INFO] 10:54:02:628 loggerInstancia/(3948:3948): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 10:54:02:628 loggerInstancia/(3948:3948): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 10:54:02:628 loggerInstancia/(3948:3948): El puerto del Coordinador es: 9191
+
+[INFO] 10:54:02:628 loggerInstancia/(3948:3948): El algoritmo es: CIRC
+
+[INFO] 10:54:02:629 loggerInstancia/(3948:3948): El path es: "/home/utnso/instancia1/"
+
+[INFO] 10:54:02:629 loggerInstancia/(3948:3948): El nombre es: "Instancia1"
+
+[INFO] 10:54:02:629 loggerInstancia/(3948:3948): El intervalo es: 10
+
+[INFO] 10:54:02:629 loggerInstancia/(3948:3948): Intento conectarme al Coordinador
+
+[INFO] 10:54:02:629 loggerInstancia/(3948:3948): Conexion exitosa!
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Intentando establecer un handshake con el Coordinador
+
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Handshake Exitoso!
+
+[INFO] 10:54:02:630 loggerInstancia/(3948:3948): Esperando configuracion de entradas
+
+[INFO] 10:54:02:632 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:02:632 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): El tamanio de la entrada es: 100
+
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): La cantidad de entradas es: 20
+
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Memoria alojada correctamente
+
+[INFO] 10:54:02:672 loggerInstancia/(3948:3948): Inicializamos los valores de las Entradas en 0
+
+[INFO] 10:54:02:673 loggerInstancia/(3948:3948): Inicializacion exitosa!
+
+[INFO] 10:54:02:673 loggerInstancia/(3948:3948): Comienzo a recibir sentencias del coordinador
+
+[INFO] 10:54:02:673 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:02:673 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:23:736 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:23:737 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:737 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:23:737 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:23:738 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:23:738 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:738 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:23:738 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:23:738 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Esperamos la longitud del valor a almacenar
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Longitud del valor recibida: 13
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Esperamos el valor
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Valor recibido: TraemeLaCopa
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): La operacion es SET
+
+[INFO] 10:54:23:743 loggerInstancia/(3948:3948): La clave no existe. Intentamos guardar su valor en las Entradas
+
+[INFO] 10:54:23:744 loggerInstancia/(3948:3948): Se pudo almacenar el valor
+
+[INFO] 10:54:23:744 loggerInstancia/(3948:3948): Operacion SET exitosa!
+
+[INFO] 10:54:23:744 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:23:745 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:23:745 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:23:746 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:23:823 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:23:823 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:823 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:23:823 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): La operacion es STORE
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Verificamos que la clave exista en la Tabla de Entradas
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Ya invocamos la funcion para saber si la clave existe
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): La clave existe. Corroboraremos si su valor es atomico o no
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se pudo mapear correctamente a memoria
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Operacion STORE exitosa!
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:23:863 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:51:116 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:51:116 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:116 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:51:116 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:51:154 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:51:154 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:154 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Esperamos la longitud del valor a almacenar
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Longitud del valor recibida: 13
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Esperamos el valor
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Valor recibido: TraemeLaCopa
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): La operacion es SET
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): La clave existe. Se intenta actualizar su valor
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Valor actualizado
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Operacion SET exitosa!
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:51:155 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:51:235 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:51:235 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:235 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:51:235 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): La operacion es STORE
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Verificamos que la clave exista en la Tabla de Entradas
+
+[INFO] 10:54:51:274 loggerInstancia/(3948:3948): Ya invocamos la funcion para saber si la clave existe
+
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): La clave existe. Corroboraremos si su valor es atomico o no
+
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Se pudo mapear correctamente a memoria
+
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Operacion STORE exitosa!
+
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:51:275 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:54:143 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:54:143 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:143 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:54:143 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:54:182 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Esperamos la longitud del valor a almacenar
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Longitud del valor recibida: 13
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Esperamos el valor
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Valor recibido: TraemeLaCopa
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): La operacion es SET
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): La clave existe. Se intenta actualizar su valor
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Valor actualizado
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Operacion SET exitosa!
+
+[INFO] 10:54:54:183 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:54:184 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:54:184 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:54:184 loggerInstancia/(3948:3948): Esperando la Instruccion
+
+[INFO] 10:54:54:263 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:54:263 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:263 loggerInstancia/(3948:3948): Instruccion recibida
+
+[INFO] 10:54:54:263 loggerInstancia/(3948:3948): Pedimos la longitud de la clave
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se recibieron 4 bytes
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Longitud de la clave recibida: 13
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Esperamos la clave
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se recibieron 13 bytes
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se recibieron los datos
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Clave recibida: futbol:messi
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Instruccion recibida correctamente
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): La operacion es STORE
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Verificamos que la clave exista en la Tabla de Entradas
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Ya invocamos la funcion para saber si la clave existe
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): La clave existe. Corroboraremos si su valor es atomico o no
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se pudo mapear correctamente a memoria
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Operacion STORE exitosa!
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se enviaron 4 bytes
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Se envio el mensaje
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Esperando proxima sentencia...
+
+[INFO] 10:54:54:303 loggerInstancia/(3948:3948): Esperando la Instruccion
+

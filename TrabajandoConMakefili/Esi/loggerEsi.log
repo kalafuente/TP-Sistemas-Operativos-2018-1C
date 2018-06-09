@@ -8,3 +8,463 @@
 [INFO] 04:30:11:731 loggerEsi/(23692:23692): Se cierra la conexion con el coordinador
 [INFO] 04:30:11:731 loggerEsi/(23692:23692): Se cierra la conexion con el planificador
 [INFO] 04:30:11:731 loggerEsi/(23692:23692): Hasta la vista, ESI
+[INFO] 10:47:51:670 loggerEsi/(3396:3396): IP COORDINADOR:127.0.0.1
+[INFO] 10:47:51:670 loggerEsi/(3396:3396): PUERTO COORDINADOR:9191
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): IP PLANIFICADOR:127.0.0.1
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): PUERTO COORDINADOR:9192
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:671 loggerEsi/(3396:3396): Me conecte al Coordinador :)
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Me conecte al Planificador :)
+[INFO] 10:47:51:672 loggerEsi/(3396:3396): Esperando la orden del planificador
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Orden recibida
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se parseo la instruccion: <GET futbol:messi
+>
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Enviando instruccion al Coordinador
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Se envió la instrucción
+[INFO] 10:47:51:673 loggerEsi/(3396:3396): Esperando resultado de la operación
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Resultado recibido
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): el estado enviado es 1
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:687 loggerEsi/(3396:3396): Esperando la orden del planificador
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Orden recibida
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se parseo la instruccion: <SET futbol:messi TraemeLaCopa
+>
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Enviando instruccion al Coordinador
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Se envió la instrucción
+[INFO] 10:47:51:727 loggerEsi/(3396:3396): Esperando resultado de la operación
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): Resultado recibido
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:823 loggerEsi/(3396:3396): el estado enviado es 1
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:824 loggerEsi/(3396:3396): Esperando la orden del planificador
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Orden recibida
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se parseo la instruccion: <STORE futbol:messi>
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Enviando instruccion al Coordinador
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Se envió la instrucción
+[INFO] 10:47:51:863 loggerEsi/(3396:3396): Esperando resultado de la operación
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Resultado recibido
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): el estado enviado es 1
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se enviaron 13 bytes
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:943 loggerEsi/(3396:3396): Esperando la orden del planificador
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se recibieron 4 bytes
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se recibieron los datos
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Orden recibida
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): no hay más para leer
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Enviando resultado de la operacion al Planificador 
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se enviaron 4 bytes
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se envio el mensaje
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Resultado enviado
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): le dije que terminé al plani
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se cierra la conexion con el coordinador
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Se cierra la conexion con el planificador
+[INFO] 10:47:51:983 loggerEsi/(3396:3396): Hasta la vista, ESI
+[INFO] 10:54:13:589 loggerEsi/(3958:3958): IP COORDINADOR:127.0.0.1
+[INFO] 10:54:13:589 loggerEsi/(3958:3958): PUERTO COORDINADOR:9191
+[INFO] 10:54:13:589 loggerEsi/(3958:3958): IP PLANIFICADOR:127.0.0.1
+[INFO] 10:54:13:589 loggerEsi/(3958:3958): PUERTO COORDINADOR:9192
+[INFO] 10:54:13:590 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:13:590 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:13:590 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:13:590 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:13:591 loggerEsi/(3958:3958): Me conecte al Coordinador :)
+[INFO] 10:54:13:591 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:13:591 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:13:591 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:13:591 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:13:592 loggerEsi/(3958:3958): Me conecte al Planificador :)
+[INFO] 10:54:23:594 loggerEsi/(3958:3958): Esperando la orden del planificador
+[INFO] 10:54:23:596 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:596 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:596 loggerEsi/(3958:3958): Orden recibida
+[INFO] 10:54:23:596 loggerEsi/(3958:3958): Se parseo la instruccion: <GET futbol:messi
+>
+[INFO] 10:54:23:596 loggerEsi/(3958:3958): Enviando instruccion al Coordinador
+[INFO] 10:54:23:598 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:598 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:600 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:600 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:604 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:605 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:605 loggerEsi/(3958:3958): Se envió la instrucción
+[INFO] 10:54:23:605 loggerEsi/(3958:3958): Esperando resultado de la operación
+[INFO] 10:54:23:612 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:612 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:612 loggerEsi/(3958:3958): Resultado recibido
+[INFO] 10:54:23:613 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:613 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:613 loggerEsi/(3958:3958): el estado enviado es 1
+[INFO] 10:54:23:613 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:614 loggerEsi/(3958:3958): Esperando la orden del planificador
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Orden recibida
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Se parseo la instruccion: <SET futbol:messi TraemeLaCopa
+>
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Enviando instruccion al Coordinador
+[INFO] 10:54:23:656 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Se envió la instrucción
+[INFO] 10:54:23:657 loggerEsi/(3958:3958): Esperando resultado de la operación
+[INFO] 10:54:23:744 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:744 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:744 loggerEsi/(3958:3958): Resultado recibido
+[INFO] 10:54:23:744 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): el estado enviado es 1
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:745 loggerEsi/(3958:3958): Esperando la orden del planificador
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Orden recibida
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se parseo la instruccion: <STORE futbol:messi>
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Enviando instruccion al Coordinador
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Se envió la instrucción
+[INFO] 10:54:23:783 loggerEsi/(3958:3958): Esperando resultado de la operación
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Resultado recibido
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): el estado enviado es 1
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se enviaron 13 bytes
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:864 loggerEsi/(3958:3958): Esperando la orden del planificador
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se recibieron 4 bytes
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se recibieron los datos
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Orden recibida
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): no hay más para leer
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Enviando resultado de la operacion al Planificador 
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se enviaron 4 bytes
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se envio el mensaje
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Resultado enviado
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): le dije que terminé al plani
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se cierra la conexion con el coordinador
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Se cierra la conexion con el planificador
+[INFO] 10:54:23:903 loggerEsi/(3958:3958): Hasta la vista, ESI
+[INFO] 10:54:40:969 loggerEsi/(3967:3967): IP COORDINADOR:127.0.0.1
+[INFO] 10:54:40:969 loggerEsi/(3967:3967): PUERTO COORDINADOR:9191
+[INFO] 10:54:40:970 loggerEsi/(3967:3967): IP PLANIFICADOR:127.0.0.1
+[INFO] 10:54:40:970 loggerEsi/(3967:3967): PUERTO COORDINADOR:9192
+[INFO] 10:54:40:970 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:40:970 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:40:970 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:40:971 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:40:971 loggerEsi/(3967:3967): Me conecte al Coordinador :)
+[INFO] 10:54:40:971 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:40:972 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:40:972 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:40:972 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:40:972 loggerEsi/(3967:3967): Me conecte al Planificador :)
+[INFO] 10:54:44:35 loggerEsi/(3969:3969): IP COORDINADOR:127.0.0.1
+[INFO] 10:54:44:35 loggerEsi/(3969:3969): PUERTO COORDINADOR:9191
+[INFO] 10:54:44:35 loggerEsi/(3969:3969): IP PLANIFICADOR:127.0.0.1
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): PUERTO COORDINADOR:9192
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:44:36 loggerEsi/(3969:3969): Me conecte al Coordinador :)
+[INFO] 10:54:44:37 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:44:37 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:44:37 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:44:37 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:44:37 loggerEsi/(3969:3969): Me conecte al Planificador :)
+[INFO] 10:54:50:974 loggerEsi/(3967:3967): Esperando la orden del planificador
+[INFO] 10:54:50:974 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:50:976 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:50:976 loggerEsi/(3967:3967): Orden recibida
+[INFO] 10:54:50:976 loggerEsi/(3967:3967): Se parseo la instruccion: <GET futbol:messi
+>
+[INFO] 10:54:50:976 loggerEsi/(3967:3967): Enviando instruccion al Coordinador
+[INFO] 10:54:50:977 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:50:977 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:50:978 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:50:980 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:50:980 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:50:982 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:50:982 loggerEsi/(3967:3967): Se envió la instrucción
+[INFO] 10:54:50:982 loggerEsi/(3967:3967): Esperando resultado de la operación
+[INFO] 10:54:51:34 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): Resultado recibido
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): el estado enviado es 1
+[INFO] 10:54:51:35 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:36 loggerEsi/(3967:3967): Esperando la orden del planificador
+[INFO] 10:54:51:75 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Orden recibida
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se parseo la instruccion: <SET futbol:messi TraemeLaCopa
+>
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Enviando instruccion al Coordinador
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Se envió la instrucción
+[INFO] 10:54:51:76 loggerEsi/(3967:3967): Esperando resultado de la operación
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Resultado recibido
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): el estado enviado es 1
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:155 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:156 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:156 loggerEsi/(3967:3967): Esperando la orden del planificador
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Orden recibida
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se parseo la instruccion: <STORE futbol:messi>
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Enviando instruccion al Coordinador
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Se envió la instrucción
+[INFO] 10:54:51:195 loggerEsi/(3967:3967): Esperando resultado de la operación
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Resultado recibido
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): el estado enviado es 1
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se enviaron 13 bytes
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:275 loggerEsi/(3967:3967): Esperando la orden del planificador
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Se recibieron 4 bytes
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Se recibieron los datos
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Orden recibida
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): no hay más para leer
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Enviando resultado de la operacion al Planificador 
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Se enviaron 4 bytes
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Se envio el mensaje
+[INFO] 10:54:51:316 loggerEsi/(3967:3967): Resultado enviado
+[INFO] 10:54:51:317 loggerEsi/(3967:3967): le dije que terminé al plani
+[INFO] 10:54:51:317 loggerEsi/(3967:3967): Se cierra la conexion con el coordinador
+[INFO] 10:54:51:318 loggerEsi/(3967:3967): Se cierra la conexion con el planificador
+[INFO] 10:54:51:319 loggerEsi/(3967:3967): Hasta la vista, ESI
+[INFO] 10:54:54:39 loggerEsi/(3969:3969): Esperando la orden del planificador
+[INFO] 10:54:54:39 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:40 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:40 loggerEsi/(3969:3969): Orden recibida
+[INFO] 10:54:54:40 loggerEsi/(3969:3969): Se parseo la instruccion: <GET futbol:messi
+>
+[INFO] 10:54:54:40 loggerEsi/(3969:3969): Enviando instruccion al Coordinador
+[INFO] 10:54:54:41 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:43 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:48 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:49 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:49 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:49 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:49 loggerEsi/(3969:3969): Se envió la instrucción
+[INFO] 10:54:54:49 loggerEsi/(3969:3969): Esperando resultado de la operación
+[INFO] 10:54:54:99 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Resultado recibido
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): el estado enviado es 1
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:100 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:101 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:101 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:101 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:101 loggerEsi/(3969:3969): Esperando la orden del planificador
+[INFO] 10:54:54:101 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Orden recibida
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se parseo la instruccion: <SET futbol:messi TraemeLaCopa
+>
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Enviando instruccion al Coordinador
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:102 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Se envió la instrucción
+[INFO] 10:54:54:103 loggerEsi/(3969:3969): Esperando resultado de la operación
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Resultado recibido
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): el estado enviado es 1
+[INFO] 10:54:54:183 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:184 loggerEsi/(3969:3969): Esperando la orden del planificador
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Orden recibida
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se parseo la instruccion: <STORE futbol:messi>
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Enviando instruccion al Coordinador
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Se envió la instrucción
+[INFO] 10:54:54:223 loggerEsi/(3969:3969): Esperando resultado de la operación
+[INFO] 10:54:54:303 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:303 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Resultado recibido
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): el estado enviado es 1
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se enviaron 13 bytes
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:304 loggerEsi/(3969:3969): Esperando la orden del planificador
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se recibieron 4 bytes
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se recibieron los datos
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Orden recibida
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): no hay más para leer
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Enviando resultado de la operacion al Planificador 
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se enviaron 4 bytes
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se envio el mensaje
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Resultado enviado
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): le dije que terminé al plani
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se cierra la conexion con el coordinador
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Se cierra la conexion con el planificador
+[INFO] 10:54:54:343 loggerEsi/(3969:3969): Hasta la vista, ESI

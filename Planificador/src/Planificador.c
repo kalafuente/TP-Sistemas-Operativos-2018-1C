@@ -65,12 +65,13 @@ int main(void) {
 		}
 
 		esiActual = list_remove(listaReady, 0);
+		list_add(listaEjecutando, esiActual);
+
 		while (estadoEsi == TERMINE_BIEN) {
 			sem_wait(&pausarPlanificacion);
 
 			ordenarActuar(esiActual);
 
-			list_add(listaEjecutando, esiActual);
 			recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
 					&estadoEsi, esiActual->socket);
 			log_info(logger, "se recibio estado %d", estadoEsi);

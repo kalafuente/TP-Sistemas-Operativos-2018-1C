@@ -53,6 +53,11 @@ void destroy_instanciaConfig(instancia_config*);
 #include <library/manejoDeSockets.c>
 #include <library/protocolos.h>
 #include <math.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/mman.h>
 
 
 typedef struct instancia_config {
@@ -101,7 +106,7 @@ int procesarSentencias();
 void procesarSET(t_instruccion* inst);
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
-int existeLaClave(char * clave, t_tabla_entradas * info);
+int existeLaClave(char * clave, t_link_element * nodo);
 // int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
 int esAtomicoElValor(int32_t longitudDelValor);
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor);
@@ -116,5 +121,6 @@ int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int can
 void moverPunteroReempAlgCirc();
 int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar[cantidad]);
 void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor);
+int procesarSTORE(t_instruccion * sentencia);
 
 #endif /* INSTANCIA_H_ */

@@ -989,3 +989,109 @@
 
 [INFO] 07:54:50:551 loggerInstancia/(17156:17156): No se guardo nada en las Entradas. No hay nada que imprimir
 
+[INFO] 21:38:51:623 loggerInstancia/(6358:6358): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 21:38:51:769 loggerInstancia/(6358:6358): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 21:38:51:771 loggerInstancia/(6358:6358): El puerto del Coordinador es: 9191
+
+[INFO] 21:38:51:775 loggerInstancia/(6358:6358): El algoritmo es: CIRC
+
+[INFO] 21:38:51:775 loggerInstancia/(6358:6358): El path es: "/home/utnso/instancia1/"
+
+[INFO] 21:38:51:776 loggerInstancia/(6358:6358): El nombre es: "Instancia1"
+
+[INFO] 21:38:51:776 loggerInstancia/(6358:6358): El intervalo es: 10
+
+[INFO] 21:38:51:783 loggerInstancia/(6358:6358): Intento conectarme al Coordinador
+
+[ERROR] 21:38:51:807 loggerInstancia/(6358:6358): No me pude conectar al servidor
+[ERROR] 21:38:51:810 loggerInstancia/(6358:6358): Conexion fallida, no se pudo crear el socket
+
+[INFO] 21:38:51:813 loggerInstancia/(6358:6358): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 21:38:51:814 loggerInstancia/(6358:6358): ERROR AL RECIBIR
+[ERROR] 21:38:51:815 loggerInstancia/(6358:6358): Handshake fallido
+
+[INFO] 21:38:51:817 loggerInstancia/(6358:6358): Esperando configuracion de entradas
+
+[ERROR] 21:38:51:818 loggerInstancia/(6358:6358): ERROR AL RECIBIR
+[ERROR] 21:38:51:818 loggerInstancia/(6358:6358): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 21:38:51:819 loggerInstancia/(6358:6358): El tamanio de la entrada es: 10
+
+[INFO] 21:38:51:819 loggerInstancia/(6358:6358): La cantidad de entradas es: 20
+
+[INFO] 21:38:51:820 loggerInstancia/(6358:6358): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 21:38:51:821 loggerInstancia/(6358:6358): Memoria alojada correctamente
+
+[INFO] 21:38:51:822 loggerInstancia/(6358:6358): Inicializamos los valores de las Entradas en 0
+
+[INFO] 21:38:51:822 loggerInstancia/(6358:6358): Inicializacion exitosa!
+
+[INFO] 21:38:51:823 loggerInstancia/(6358:6358): Comienzo a recibir sentencias del coordinador
+
+[INFO] 21:38:51:824 loggerInstancia/(6358:6358): Esperando proxima sentencia...
+
+[INFO] 21:38:51:824 loggerInstancia/(6358:6358): Esperando la Instruccion
+
+[ERROR] 21:38:51:825 loggerInstancia/(6358:6358): ERROR AL RECIBIR
+[ERROR] 21:38:51:826 loggerInstancia/(6358:6358): No se pudo recibir la Instruccion
+
+[ERROR] 21:38:51:826 loggerInstancia/(6358:6358): No se pudo recibir la sentencia
+
+[INFO] 21:38:51:827 loggerInstancia/(6358:6358): No se guardo nada en las Entradas. No hay nada que imprimir
+
+[INFO] 21:39:06:867 loggerInstancia/(6379:6379): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 21:39:06:868 loggerInstancia/(6379:6379): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 21:39:06:868 loggerInstancia/(6379:6379): El puerto del Coordinador es: 9191
+
+[INFO] 21:39:06:868 loggerInstancia/(6379:6379): El algoritmo es: CIRC
+
+[INFO] 21:39:06:868 loggerInstancia/(6379:6379): El path es: "/home/utnso/instancia1/"
+
+[INFO] 21:39:06:868 loggerInstancia/(6379:6379): El nombre es: "Instancia1"
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): El intervalo es: 10
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Intento conectarme al Coordinador
+
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): No me pude conectar al servidor
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): Conexion fallida, no se pudo crear el socket
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Intentando establecer un handshake con el Coordinador
+
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): ERROR AL RECIBIR
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): Handshake fallido
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Esperando configuracion de entradas
+
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): ERROR AL RECIBIR
+[ERROR] 21:39:06:869 loggerInstancia/(6379:6379): No se pudo recibir la configuracion de las Entradas
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): El tamanio de la entrada es: 10
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): La cantidad de entradas es: 20
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Memoria alojada correctamente
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Inicializamos los valores de las Entradas en 0
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Inicializacion exitosa!
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Comienzo a recibir sentencias del coordinador
+
+[INFO] 21:39:06:869 loggerInstancia/(6379:6379): Esperando proxima sentencia...
+
+[INFO] 21:39:06:870 loggerInstancia/(6379:6379): Esperando la Instruccion
+
+[ERROR] 21:39:06:870 loggerInstancia/(6379:6379): ERROR AL RECIBIR
+[ERROR] 21:39:06:870 loggerInstancia/(6379:6379): No se pudo recibir la Instruccion
+
+[ERROR] 21:39:06:870 loggerInstancia/(6379:6379): No se pudo recibir la sentencia
+
+[INFO] 21:39:06:870 loggerInstancia/(6379:6379): No se guardo nada en las Entradas. No hay nada que imprimir
+

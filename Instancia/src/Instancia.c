@@ -254,7 +254,14 @@ int procesarSentencias()
 				break;
 
 			case INSTRUCCION_STORE:
-				//Mas adelante vemos
+				if(procesarSTORE(sentencia) < 0)
+				{
+					log_error(logger, "Fallo en la operacion STORE\n");
+					destruirInstruccion(sentencia);
+					return -3;
+				}
+
+				log_info(logger, "Operacion STORE exitosa!\n");
 				break;
 
 			default:
@@ -272,10 +279,12 @@ int procesarSentencias()
 
 void procesarSET(t_instruccion* inst)
 {
+	t_link_element * nodo = NULL;
+	int laClaveExiste = existeLaClave(inst->clave, nodo);
+	t_tabla_entradas * datos = ((t_tabla_entradas *)nodo->data);
 
-	t_tabla_entradas * datos = NULL;
-
-	switch(existeLaClave(inst->clave, datos))
+	//switch(existeLaClave(inst->clave, datos))
+	switch(laClaveExiste)
 	{
 		case 0: //La clave no existe
 			//Guardamos el valor en las Entradas.
@@ -322,7 +331,7 @@ void eliminarTablaDeEntradas()
 	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
 }
 
-int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el campo de datos del nodo donde esta.
+int existeLaClave(char * clave, t_link_element * nodo) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el nodo donde esta la clave.
 {
 	/*
 	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
@@ -335,12 +344,14 @@ int existeLaClave(char * clave, t_tabla_entradas * info) //Si existe la clave de
 
 	while(actual != NULL)
 	{
-		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
+		//t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
 
-		if(strcmp(clave, datos->clave) == 0)
+		//if(strcmp(clave, datos->clave) == 0)
+		if(strcmp(clave, ((t_tabla_entradas *)actual->data)->clave) == 0)
 		{
-			info = datos;
-			return esAtomicoElValor(datos->tamanioValor) + 1;
+			nodo = actual;
+			//return esAtomicoElValor(datos->tamanioValor) + 1;
+			return esAtomicoElValor(((t_tabla_entradas *)actual->data)->tamanioValor + 1);
 		}
 
 		actual = actual->next;
@@ -426,7 +437,9 @@ int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 
 	//Este seria el caso en el que, por ej, tengo 1 entrada libre (y es la ultima) pero tengo que escribir dos
 
-	return 0;
+	log_error(logger, "Hay que guardar en entradas libres y a la vez reemplazar usadas para que entre el valor. No contemplado. Ver\n");
+
+	return -5;
 
 
 }
@@ -524,6 +537,7 @@ void imprimirContenidoEntradas()
 		}
 		else
 		{
+			//TIENE QUE SER UNA FUNCION APARTE. DELEGARLO DESPUES DE LA ENTREGA
 			char * valorCompleto = string_new();
 			char * key = datos->clave;
 			int parte;
@@ -703,6 +717,72 @@ void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor,
 	dato->numeroEntrada = filaACambiar;
 	dato->tamanioValor = longitudValor;
 }
+
+int procesarSTORE(t_instruccion * sentencia)
+{
+	t_link_element * nodo = NULL;
+	char * valorCompleto = string_new();
+	int laClaveExiste = existeLaClave(sentencia->clave, nodo);
+	t_tabla_entradas * dato = ((t_tabla_entradas *)nodo->data);
+
+	if(laClaveExiste == 2) //Quiere decir que el valor es atomico
+	{
+		strcpy(valorCompleto, entradas[dato->numeroEntrada]);
+	}
+	else
+	{
+		//TIENE QUE SER UNA FUNCION APARTE. DESPUES DE LA ENTREGA DELEGAR!
+		//char * valorCompleto = string_new();
+		//char * key = datos->clave;
+		int entradasQueOcupaElValor = cuantasEntradasOcupaElValor(dato->tamanioValor);
+		int parte;
+
+		for(parte = 0; parte < entradasQueOcupaElValor; parte ++)
+		{
+			string_append(&valorCompleto, entradas[dato->numeroEntrada]);
+			nodo = nodo->next;
+			dato = ((t_tabla_entradas *)nodo->data);
+		}
+	}
+
+	char * nombreDelArchivo = string_new();
+	string_append(&nombreDelArchivo, ".txt");
+
+	int fd = open(nombreDelArchivo, O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO); //Abrimos el archivo con todos los permisos para todos (777), para lectura y escritura, y le decimos que lo cree
+
+	if(fd < 0)
+	{
+		log_error(logger, "No se pudo abrir o crear el archivo. Fallo el open()\n");
+		return -1;
+	}
+
+	if(ftruncate(fd, strlen(valorCompleto) + 1) < 0)
+	{
+		log_error(logger, "No se pudo establecer el tamanio del archivo. Fallo ftruncate()\n");
+		close(fd);
+		return -2;
+	}
+
+	char * pointermmap = mmap(NULL, strlen(valorCompleto) + 1, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+
+	if(pointermmap == MAP_FAILED)
+	{
+		log_error(logger, "No se pudo mapear a memoria. Fallo mmap()\n");
+		close(fd);
+		return -3;
+	}
+
+	strcpy(pointermmap, valorCompleto);
+	close(fd);
+	free(valorCompleto);
+	free(nombreDelArchivo);
+
+	log_info(logger, "Se pudo mapear correctamente a memoria\n");
+
+	return 1;
+
+}
+
 
 /*
 void procesarGET()

@@ -281,7 +281,7 @@ void procesarSET(t_instruccion* inst)
 {
 	t_link_element * nodo = NULL;
 	int laClaveExiste = existeLaClave(inst->clave, nodo);
-	t_tabla_entradas * datos = ((t_tabla_entradas *)nodo->data);
+	t_tabla_entradas * datos = NULL;
 
 	//switch(existeLaClave(inst->clave, datos))
 	switch(laClaveExiste)
@@ -302,6 +302,7 @@ void procesarSET(t_instruccion* inst)
 		case 2: //La clave existe y su valor almacenado es atomico
 			//Guardamos el valor en las entradas en la posicion que nos indica el nodo
 			//Actualizamos el nodo en el que estan los datos de la clave
+			datos = ((t_tabla_entradas *)nodo->data);
 			log_info(logger, "La clave existe. Se intenta actualizar su valor\n");
 			actualizarValorEnEntradas(datos, inst->valor, (strlen(inst->valor)+1));
 			log_info(logger, "Valor actualizado\n");
@@ -344,14 +345,14 @@ int existeLaClave(char * clave, t_link_element * nodo) //Si existe la clave devu
 
 	while(actual != NULL)
 	{
-		//t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
+		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
 
 		//if(strcmp(clave, datos->clave) == 0)
-		if(strcmp(clave, ((t_tabla_entradas *)actual->data)->clave) == 0)
+		if(strcmp(clave, datos->clave) == 0)
 		{
 			nodo = actual;
 			//return esAtomicoElValor(datos->tamanioValor) + 1;
-			return esAtomicoElValor(((t_tabla_entradas *)actual->data)->tamanioValor + 1);
+			return esAtomicoElValor(datos->tamanioValor + 1);
 		}
 
 		actual = actual->next;

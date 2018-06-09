@@ -1,0 +1,10 @@
+[INFO] 04:30:11:728 loggerEsi/(23692:23692): IP COORDINADOR:127.0.0.1
+[INFO] 04:30:11:728 loggerEsi/(23692:23692): PUERTO COORDINADOR:9191
+[INFO] 04:30:11:729 loggerEsi/(23692:23692): IP PLANIFICADOR:127.0.0.1
+[INFO] 04:30:11:730 loggerEsi/(23692:23692): PUERTO COORDINADOR:9192
+[ERROR] 04:30:11:730 loggerEsi/(23692:23692): No me pude conectar al servidor
+[ERROR] 04:30:11:731 loggerEsi/(23692:23692): EL COORDNADOR ESTÁ EN CUALQUIERA
+[ERROR] 04:30:11:731 loggerEsi/(23692:23692): ESI ABORTADO
+[INFO] 04:30:11:731 loggerEsi/(23692:23692): Se cierra la conexion con el coordinador
+[INFO] 04:30:11:731 loggerEsi/(23692:23692): Se cierra la conexion con el planificador
+[INFO] 04:30:11:731 loggerEsi/(23692:23692): Hasta la vista, ESI

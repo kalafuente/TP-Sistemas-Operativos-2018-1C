@@ -207,7 +207,12 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						log_info(logger,"ESI TIENE CLAVE");
 						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
 						enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
-						//DEBERIA MANDARME LA INSTANCIA ALGO PARA SABER QUE ESTÁ TODO OK
+
+						PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+						recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+							if (rtaInstancia == SE_PUDO_GUARDAR_VALOR)
+								log_info(logger, "instancia guardo valor");
+
 						modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar);
 						rtaParaElEsi= TODO_OK_ESI;
 						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
@@ -248,6 +253,11 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 							enviarInstruccion(logger, instruccion,instanciaConLaClave->instancia->socket);
 							log_info(logger, "envie STORE A INSTANCIA");
+							PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+							recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaConLaClave->instancia->socket);
+							if (rtaInstancia == SE_CREO_EL_ARCHIVO)
+								log_info(logger, "instancia creo archivo");
+
 
 							rtaParaElEsi= TODO_OK_ESI;
 							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);

@@ -106,7 +106,7 @@ int procesarSentencias();
 void procesarSET(t_instruccion* inst);
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
-int existeLaClave(char * clave, t_link_element * nodo);
+int existeLaClave(char * clave, t_link_element ** nodo);
 // int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
 int esAtomicoElValor(int32_t longitudDelValor);
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor);

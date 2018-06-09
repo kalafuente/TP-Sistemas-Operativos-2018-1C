@@ -270,9 +270,9 @@ int procesarSentencias()
 				destruirInstruccion(sentencia);
 				return -1;
 		}
-	}
 
-	destruirInstruccion(sentencia);
+		destruirInstruccion(sentencia);
+	}
 
 	return 1;
 }
@@ -282,7 +282,7 @@ void procesarSET(t_instruccion* inst)
 	log_info(logger, "La operacion es SET\n");
 
 	t_link_element * nodo = NULL;
-	int laClaveExiste = existeLaClave(inst->clave, nodo);
+	int laClaveExiste = existeLaClave(inst->clave, &nodo);
 	t_tabla_entradas * datos = NULL;
 
 	//switch(existeLaClave(inst->clave, datos))
@@ -334,7 +334,9 @@ void eliminarTablaDeEntradas()
 	list_destroy_and_destroy_elements(tablaEntradas, borrarDatos);
 }
 
-int existeLaClave(char * clave, t_link_element * nodo) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el nodo donde esta la clave.
+
+//******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
+int existeLaClave(char * clave, t_link_element ** nodo) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el nodo donde esta la clave.
 {
 	/*
 	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
@@ -352,9 +354,9 @@ int existeLaClave(char * clave, t_link_element * nodo) //Si existe la clave devu
 		//if(strcmp(clave, datos->clave) == 0)
 		if(strcmp(clave, datos->clave) == 0)
 		{
-			nodo = actual;
+			*nodo = actual;
 			//return esAtomicoElValor(datos->tamanioValor) + 1;
-			return esAtomicoElValor(datos->tamanioValor + 1);
+			return esAtomicoElValor(datos->tamanioValor) + 1;
 		}
 
 		actual = actual->next;
@@ -447,6 +449,7 @@ int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 
 }
 
+//******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
 void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor)
 {
 	strcpy(entradas[info->numeroEntrada], valor);
@@ -712,6 +715,7 @@ int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar
 	return 1; //Devuelve verdadero porque son contiguas
 }
 
+//******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
 void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor)
 {
 	strcpy(entradas[filaACambiar], valor);
@@ -725,22 +729,37 @@ int procesarSTORE(t_instruccion * sentencia)
 {
 	log_info(logger, "La operacion es STORE\n");
 
-	t_link_element * nodo = NULL;
+	t_link_element * nodito = NULL;
+
 	char * valorCompleto = string_new();
-	int laClaveExiste = existeLaClave(sentencia->clave, nodo);
+
+	log_info(logger, "Verificamos que la clave exista en la Tabla de Entradas\n");
+
+	int laClaveExiste = existeLaClave(sentencia->clave, &nodito);
+
+	log_info(logger, "Ya invocamos la funcion para saber si la clave existe\n");
 
 	if(laClaveExiste == 0)
 	{
 		log_error(logger, "LA CLAVE NO EXISTE. NO HAY NADA ALMACENADO PARA HACER UN BACKUP\n");
 		log_error(logger, "La clave recibida es: %s", sentencia->clave);
+		free(valorCompleto);
 		return -1;
 	}
 
-	t_tabla_entradas * dato = ((t_tabla_entradas *)nodo->data);
+	if(nodito == NULL)
+	{
+		log_error(logger, "El nodo es NULL... Por que es NULL?\n");
+		log_info(logger, "existeLaClave() devolvio: %d\n", laClaveExiste);
+	}
+
+	t_tabla_entradas * dato = (t_tabla_entradas *)nodito->data;
+
+	log_info(logger, "La clave existe. Corroboraremos si su valor es atomico o no\n");
 
 	if(laClaveExiste == 2) //Quiere decir que el valor es atomico
 	{
-		strcpy(valorCompleto, entradas[dato->numeroEntrada]);
+		string_append(&valorCompleto, entradas[dato->numeroEntrada]);
 	}
 	else
 	{
@@ -753,12 +772,13 @@ int procesarSTORE(t_instruccion * sentencia)
 		for(parte = 0; parte < entradasQueOcupaElValor; parte ++)
 		{
 			string_append(&valorCompleto, entradas[dato->numeroEntrada]);
-			nodo = nodo->next;
-			dato = ((t_tabla_entradas *)nodo->data);
+			nodito = nodito->next;
+			dato = ((t_tabla_entradas *)nodito->data);
 		}
 	}
 
 	char * nombreDelArchivo = string_new();
+	string_append(&nombreDelArchivo, sentencia->clave);
 	string_append(&nombreDelArchivo, ".txt");
 
 	int fd = open(nombreDelArchivo, O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO); //Abrimos el archivo con todos los permisos para todos (777), para lectura y escritura, y le decimos que lo cree
@@ -766,12 +786,16 @@ int procesarSTORE(t_instruccion * sentencia)
 	if(fd < 0)
 	{
 		log_error(logger, "No se pudo abrir o crear el archivo. Fallo el open()\n");
+		free(valorCompleto);
+		free(nombreDelArchivo);
 		return -1;
 	}
 
 	if(ftruncate(fd, strlen(valorCompleto) + 1) < 0)
 	{
 		log_error(logger, "No se pudo establecer el tamanio del archivo. Fallo ftruncate()\n");
+		free(valorCompleto);
+		free(nombreDelArchivo);
 		close(fd);
 		return -2;
 	}
@@ -781,6 +805,8 @@ int procesarSTORE(t_instruccion * sentencia)
 	if(pointermmap == MAP_FAILED)
 	{
 		log_error(logger, "No se pudo mapear a memoria. Fallo mmap()\n");
+		free(valorCompleto);
+		free(nombreDelArchivo);
 		close(fd);
 		return -3;
 	}

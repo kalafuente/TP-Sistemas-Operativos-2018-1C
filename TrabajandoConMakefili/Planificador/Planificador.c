@@ -83,7 +83,7 @@ int main(void) {
 			case TERMINE_BIEN:
 				esiActual->estimacion--;
 				esiActual->rafagaActual++;
-				instruccion = recibirInstruccion(logger, esiActual->socket);
+				instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
 				procesarInstruccion(instruccion, esiActual);
 //duracionRafaga++;
 //cambiarEstimacion(esiActual,-1);
@@ -96,7 +96,7 @@ int main(void) {
 				//cambiarEstimacion();
 				esiActual->estimacion--;
 				esiActual->rafagaActual++;
-				instruccion = recibirInstruccion(logger, esiActual->socket);
+				instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
 				list_remove(listaEjecutando, 0);
 				agregarEnListaBloqueado(esiActual, instruccion->clave);
 				destruirInstruccion(instruccion);

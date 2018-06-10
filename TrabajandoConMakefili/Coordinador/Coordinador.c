@@ -108,12 +108,17 @@ void *manejadorDeConexiones(void *socket_desc) {
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
-		instruccionAGuardar=recibirInstruccionDelEsi(sock);
-		while (instruccionAGuardar != NULL) {
-		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
-		procesarInstruccion(instruccionAGuardar,sock);
-		destruirInstruccion(instruccionAGuardar);
-			instruccionAGuardar = recibirInstruccionDelEsi(sock);
+		PROTOCOLO_ESI_A_COORDI esi;
+		recibirMensaje(logger,sizeof(esi), &esi, sock);
+
+		while (esi == MANDO_INTRUCCIONES) {
+			instruccionAGuardar=recibirInstruccionDelEsi(sock);
+			procesarInstruccion(instruccionAGuardar,sock);
+			destruirInstruccion(instruccionAGuardar);
+			recibirMensaje(logger,sizeof(esi), &esi, sock);
+		}
+		if (esi == TERMINE_INSTRUCCIONES){
+			log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
 		}
 		break;
 
@@ -206,7 +211,11 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
 						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
-						enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+
+						int resultadoEnviar = enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+						if (resultadoEnviar == -3){
+							printf("Se desconectó instancia");
+						}
 
 						PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
 						recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
@@ -279,6 +288,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 					}
 	break;
+
 	}
 }
 
@@ -453,7 +463,7 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 
 
 t_instruccion* recibirInstruccionDelEsi(int sock){
-	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
+	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock,"ESI");
 	char operacion[80];
 	if (instruccionAGuardar != NULL) {
 		switch(instruccionAGuardar->instruccion){
@@ -467,7 +477,8 @@ t_instruccion* recibirInstruccionDelEsi(int sock){
 
 					case INSTRUCCION_STORE:
 						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
-					break;
+						break;
+
 	}
 	}
 

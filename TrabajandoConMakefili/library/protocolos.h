@@ -42,8 +42,14 @@ typedef enum PROTOCOLO_COORDINADOR_A_INSTANCIA {
 } PROTOCOLO_COORDINADOR_A_INSTANCIA;
 
 typedef enum PROTOCOLO_INSTRUCCIONES {
-	INSTRUCCION_GET, INSTRUCCION_SET, INSTRUCCION_STORE
+	INSTRUCCION_GET, INSTRUCCION_SET, INSTRUCCION_STORE,
 } PROTOCOLO_INSTRUCCIONES;
+
+typedef enum PROTOCOLO_ESI_A_COORDI {
+	MANDO_INTRUCCIONES,
+	TERMINE_INSTRUCCIONES
+} PROTOCOLO_ESI_A_COORDI;
+
 
 typedef enum PROTOCOLO_ESI_A_PLANIFICADOR {
 	HANDSHAKE_CONECTAR_ESI_A_PLANIFICADOR,
@@ -95,9 +101,9 @@ typedef struct instruccion {
 }t_instruccion;
 
 void destruirInstruccion(t_instruccion* instruccion);
-void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
+int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
 void enviarClave(t_log* logger,char* clave, int sock);
 char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave);
-t_instruccion* recibirInstruccion(t_log* logger, int sock);
+t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien);
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

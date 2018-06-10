@@ -344,4 +344,3 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 	log_info(logger,"Se recibieron los datos");
 	return bytesHeader;
 }
-

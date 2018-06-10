@@ -101,10 +101,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 		mandarConfiguracionAInstancia(sock);
 		registrarInstancia(sock);
 		mostrarListaIntancias();
-		//if (recibirMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshake,sock)==3)
-		//{
-			//log_info(logger,"Se desconectó instancia");
-		//}
 		break;
 
 
@@ -112,12 +108,17 @@ void *manejadorDeConexiones(void *socket_desc) {
 		log_info(logger, "Se me conectó un Esi");
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
-		instruccionAGuardar=recibirInstruccionDelEsi(sock);
-		while (instruccionAGuardar != NULL && instruccionAGuardar->instruccion != INTRUCCION_TERMINO_ESI) {
-		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
-		procesarInstruccion(instruccionAGuardar,sock);
-		destruirInstruccion(instruccionAGuardar);
-			instruccionAGuardar = recibirInstruccionDelEsi(sock);
+		PROTOCOLO_ESI_A_COORDI esi;
+		recibirMensaje(logger,sizeof(esi), &esi, sock);
+
+		while (esi == MANDO_INTRUCCIONES) {
+			instruccionAGuardar=recibirInstruccionDelEsi(sock);
+			procesarInstruccion(instruccionAGuardar,sock);
+			destruirInstruccion(instruccionAGuardar);
+			recibirMensaje(logger,sizeof(esi), &esi, sock);
+		}
+		if (esi == TERMINE_INSTRUCCIONES){
+			log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
 		}
 		break;
 
@@ -210,7 +211,11 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
 						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
-						enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+
+						int resultadoEnviar = enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
+						if (resultadoEnviar == -3){
+							printf("Se desconectó instancia");
+						}
 
 						PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
 						recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
@@ -283,9 +288,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 					}
 	break;
-	case INTRUCCION_TERMINO_ESI:
-		printf ("nunca deberías ver esto, no es posible");
-		break;
+
 	}
 }
 
@@ -476,10 +479,6 @@ t_instruccion* recibirInstruccionDelEsi(int sock){
 						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
 						break;
 
-					case INTRUCCION_TERMINO_ESI:
-						log_info(logger,"EL ESI TERMINÓ DE MANDARME INSTRUCCIONES, YUPII");
-
-					break;
 	}
 	}
 

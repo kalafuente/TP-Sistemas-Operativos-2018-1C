@@ -55,9 +55,13 @@ void procesarScript() {
 	PROTOCOLO_PLANIFICADOR_A_ESI orden;
 	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado;
 	recibirOrdenDelPlanificador(&orden);
+
+	PROTOCOLO_ESI_A_COORDI coordi= MANDO_INTRUCCIONES;
+
 	while ((read = getline(&line, &len, script)) != -1 && orden!=FINALIZAR) {
 
 		t_instruccion* inst = leerInstruccion(line);
+		enviarMensaje(logger,sizeof(coordi),&coordi, socketCoordinador);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);
 		evaluarRespuestaDelCoordinador(resultado,inst,orden);
@@ -72,18 +76,19 @@ void procesarScript() {
 		log_info(logger,"El Plani me aborto");
 	}
 
-	log_info(logger, "intento de avisar al coordi que termine");
+
+
 	//AVISO AL COORDI QUE TERMINE
+	coordi= TERMINE_INSTRUCCIONES;
 
+	enviarMensaje(logger, sizeof(coordi), &coordi,socketCoordinador);
+	log_info(logger, "le dije que terminé al coordi");
 
-	t_instruccion* avisoAlCoordi = crearInstruccion(INTRUCCION_TERMINO_ESI, "", "");
-	enviarInstruccionAlCoordinador(avisoAlCoordi);
 	enviarResultadoAlPlanificador(TERMINE);
 	log_info(logger,"le dije que terminé al plani");
 
 	fclose(script);
 	free(line);
-	free(avisoAlCoordi);
 
 }
 

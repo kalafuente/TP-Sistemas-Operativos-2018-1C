@@ -97,13 +97,44 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 
 }
 
-void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
+int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 {
 	int32_t lenClave = strlen(instruccion->clave)+1;
 	//int32_t lenValor= strlen(instruccion->valor)+1;
-	enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion->instruccion,sock);
-	enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
-	enviarMensaje(logger,lenClave,instruccion->clave,sock);
+	int resultado = enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion->instruccion,sock);
+	if (resultado <= 0){
+		if (resultado == 0){
+			log_info(logger,"enviarInstruccion:: SE CORTÓ LA CONEXIÓN");
+			return -3;
+		}
+		else
+			log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR PROTOCOLO");
+			return -1;
+	}
+
+	int resultado2 = enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	if (resultado2 <= 0){
+			if (resultado == 0){
+				log_info(logger,"enviarInstruccion:: SE CORTÓ LA CONEXIÓN");
+				return -3;
+			}
+			if (resultado == -1){
+				log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR TAMAÑOCLAVE");
+				return -1;
+			}
+		}
+
+	int resultado3= enviarMensaje(logger,lenClave,instruccion->clave,sock);
+	if (resultado3 <= 0){
+				if (resultado == 0){
+					log_info(logger,"enviarInstruccion:: SE CORTÓ LA CONEXIÓN");
+					return -3;
+				}
+				if (resultado == -1){
+					log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR CLAVE");
+					return -1;
+				}
+			}
 
 	if(instruccion->instruccion == INSTRUCCION_SET)
 	{
@@ -111,6 +142,7 @@ void enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 		enviarMensaje(logger,sizeof(int32_t),&lenValor,sock);
 		enviarMensaje(logger,lenValor,instruccion->valor,sock);
 	}
+	return 1;
 }
 
 void enviarClave(t_log* logger,char* clave, int sock)
@@ -123,7 +155,6 @@ void enviarClave(t_log* logger,char* clave, int sock)
 char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave)
 {
 	int32_t lenClave = 0;
-	int32_t lenValor = 0;
 
 	log_info(logger, "recibirClave:: Esperando la Instruccion\n");
 

@@ -14,10 +14,7 @@ int main(void) {
 	t_config * config;
 	crearConfiguracion(&planificadorConfig, &config);
 	crearListas();
-	cargarClavesBloqueadas(planificadorConfig->clavesBloqueadas);
-	log_info(logger, "SE CREO LA CONFIG");
-
-	//-------------CONEXION AL COORDINADOR------------------
+//-------------CONEXION AL COORDINADOR------------------
 	int socketCoordinador = conectarseAlServidor(logger,
 			&planificadorConfig->ipCoordinador,
 			&planificadorConfig->puertoCoordinador);
@@ -86,7 +83,7 @@ int main(void) {
 			case TERMINE_BIEN:
 				esiActual->estimacion--;
 				esiActual->rafagaActual++;
-				instruccion = recibirInstruccion(logger, esiActual->socket);
+				instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
 				procesarInstruccion(instruccion, esiActual);
 //duracionRafaga++;
 //cambiarEstimacion(esiActual,-1);
@@ -99,7 +96,7 @@ int main(void) {
 				//cambiarEstimacion();
 				esiActual->estimacion--;
 				esiActual->rafagaActual++;
-				instruccion = recibirInstruccion(logger, esiActual->socket);
+				instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
 				list_remove(listaEjecutando, 0);
 				agregarEnListaBloqueado(esiActual, instruccion->clave);
 				destruirInstruccion(instruccion);
@@ -235,16 +232,10 @@ void * manejarConexionCoordi(void * socket) {
 			log_info(logger, "PREGUNTA_CLAVE_DISPONIBLE");
 			recibirClave(logger, *socketCoordinador, CLAVE);
 			respuesta_bool = tieneAlgunEsiLaClave(listaEsiClave, CLAVE);
-			if (respuesta_bool) {
+			if (respuesta_bool)
 				respuesta = CLAVE_NO_DISPONIBLE;
-				log_info(logger, "LA CLAVE NO ESTA DISPONIBLE");
-			}
 			else
-				{
 				respuesta = CLAVE_DISPONIBLE;
-				log_info(logger, "LA CLAVE ESTA DISPONIBLE");
-
-			}
 			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
 					&respuesta, *socketCoordinador);
 
@@ -260,25 +251,6 @@ void * manejarConexionCoordi(void * socket) {
 
 	return 0;
 }
-
-void cargarClavesBloqueadas(char** clavesPorBloquear) {
-	int i = 0;
-	while (clavesPorBloquear[i] != NULL) {
-		list_add(listaEsiClave, crearBloqueoPorSistema(clavesPorBloquear[i]));
-		i++;
-	}
-
-}
-
-struct_esiClaves * crearBloqueoPorSistema(char * clave) {
-	struct_esiClaves* elemento = calloc(1, sizeof(struct_esiClaves));
-	elemento->clave = string_new();
-	elemento->ESI = NULL;
-	string_append(&elemento->clave, clave);
-
-	return elemento;
-}
-
 
 int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada) {
 	int _soy_la_clave_buscada(struct_esiClaves * elemento) {
@@ -440,11 +412,6 @@ planificador_config * init_planificaorConfig() {
 	planificador->puertoEscucha = calloc(5, sizeof(char));
 	planificador->ipCoordinador = calloc(20, sizeof(char));
 	planificador->puertoCoordinador = calloc(5, sizeof(char));
-	planificador->clavesBloqueadas = calloc(10, sizeof(char));
-	int i;
-	for (i = 0; i < 20; i++) {
-		planificador->clavesBloqueadas[i] = calloc(15, sizeof(char));
-	}
 	//planificador->algoritmoPlanificacion = calloc(10, sizeof(char));
 	return planificador;
 }
@@ -458,8 +425,7 @@ void crearConfiguracion(planificador_config** planificador, t_config** config) {
 	(*planificador)->algoritmoPlanificacion = i;
 	(*planificador)->ipCoordinador = config_get_string_value(*config,
 			"IP_COORDINADOR");
-	(*planificador)->clavesBloqueadas = config_get_array_value(*config,
-			"CLAVES_BLOQUEADAS");
+
 	(*planificador)->puertoCoordinador = config_get_string_value(*config,
 			"PUERTO_COORDINADOR");
 	(*planificador)->puertoEscucha = config_get_string_value(*config,

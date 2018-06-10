@@ -30,7 +30,7 @@ typedef struct planificador_config{
 	char * ipCoordinador;
 	char * puertoCoordinador;
 	int entradas;
-	char** clavesBloqueadas;
+
 }planificador_config;
 
 typedef struct {
@@ -67,8 +67,7 @@ void crearListas();
 void destruirListas();
 
 PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
-void cargarClavesBloqueadas(char** clavesPorBloquear);
-struct_esiClaves * crearBloqueoPorSistema(char * clave);
+
 struct_esiClaves* crearEsiClave(struct_esi* esi, char*clave);
 
 //FUNCIONES PARA EL ESI

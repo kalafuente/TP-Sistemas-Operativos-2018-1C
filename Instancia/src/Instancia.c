@@ -234,7 +234,7 @@ int procesarSentencias()
 	{
 		log_info(logger, "Esperando proxima sentencia...\n");
 
-		sentencia = recibirInstruccion(logger, socketCoordinador);
+		sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
 
 		if(sentencia == NULL)
 		{

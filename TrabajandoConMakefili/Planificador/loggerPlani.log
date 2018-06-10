@@ -688,3 +688,796 @@
 [INFO] 10:56:25:935 loggerPlani/(4059:4062): Iniciada recepcion de consultas del coordi
 [ERROR] 10:56:25:936 loggerPlani/(4059:4062): ERROR AL RECIBIR
 [ERROR] 10:56:25:936 loggerPlani/(4059:4062): SE CORTO LA CONEXION CON EL COORDI
+[INFO] 12:58:36:537 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 12:58:36:539 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 12:58:36:539 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 12:58:36:539 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 12:58:36:540 loggerPlani/(4963:4968): Iniciada recepcion de consultas del coordi
+[INFO] 13:01:40:978 loggerPlani/(4963:4967): se conecto un esi
+[INFO] 13:01:40:978 loggerPlani/(4963:4967): Se enviaron 4 bytes
+[INFO] 13:01:40:978 loggerPlani/(4963:4967): Se envio el mensaje
+[INFO] 13:01:40:978 loggerPlani/(4963:4967): Se recibieron 4 bytes
+[INFO] 13:01:40:978 loggerPlani/(4963:4967): Se recibieron los datos
+[INFO] 13:01:40:978 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:01:40:978 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:01:40:978 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:01:40:981 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:01:40:984 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:40:984 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:40:984 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:01:40:984 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:01:41:20 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): empezamos a procesar
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:01:41:21 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:01:41:62 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:01:41:63 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:63 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:63 loggerPlani/(4963:4968): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:01:41:63 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): La clave es futbol:messi
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:01:41:101 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:01:41:110 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:110 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:110 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:01:41:110 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:01:41:148 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Esperamos la longitud del valor a almacenar
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Longitud del valor recibida: 13
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Esperamos el valor
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Valor recibido: TraemeLaCopa
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:01:41:149 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:01:41:151 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:01:41:154 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:154 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:154 loggerPlani/(4963:4968): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:01:41:154 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): La clave es futbol:messi
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:01:41:193 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:01:41:235 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:235 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:235 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:01:41:235 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:01:41:272 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU store
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:01:41:273 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:01:41:274 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:01:41:274 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:01:41:274 loggerPlani/(4963:4963): se recibio estado 3
+[INFO] 13:01:41:275 loggerPlani/(4963:4963): termino el esi 0
+[INFO] 13:06:31:372 loggerPlani/(4963:4967): se conecto un esi
+[INFO] 13:06:31:372 loggerPlani/(4963:4967): Se enviaron 4 bytes
+[INFO] 13:06:31:372 loggerPlani/(4963:4967): Se envio el mensaje
+[INFO] 13:06:31:372 loggerPlani/(4963:4967): Se recibieron 4 bytes
+[INFO] 13:06:31:372 loggerPlani/(4963:4967): Se recibieron los datos
+[INFO] 13:06:31:372 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:06:31:372 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:06:31:372 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:375 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:06:31:376 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:376 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:376 loggerPlani/(4963:4968): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 13:06:31:376 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:06:31:412 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:412 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:412 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:412 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:06:31:413 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:06:31:413 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:413 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:06:31:413 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:413 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:413 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:413 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:413 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:06:31:413 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): empezamos a procesar
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:06:31:453 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:06:31:455 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): La clave es futbol:messi
+[INFO] 13:06:31:493 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:495 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:534 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:534 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:534 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:06:31:534 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Esperamos la longitud del valor a almacenar
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Longitud del valor recibida: 13
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Esperamos el valor
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Valor recibido: TraemeLaCopa
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:06:31:573 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:06:31:574 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:574 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:574 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:06:31:574 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:06:31:575 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:06:31:612 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): La clave es futbol:messi
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:06:31:613 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:06:31:654 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:654 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:654 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:06:31:654 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:06:31:693 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:06:31:694 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU store
+[INFO] 13:06:31:694 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:06:31:694 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:06:31:694 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:06:31:703 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:06:31:703 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:06:31:703 loggerPlani/(4963:4963): se recibio estado 3
+[INFO] 13:06:31:703 loggerPlani/(4963:4963): termino el esi 1
+[INFO] 13:08:59:513 loggerPlani/(4963:4967): se conecto un esi
+[INFO] 13:08:59:513 loggerPlani/(4963:4967): Se enviaron 4 bytes
+[INFO] 13:08:59:513 loggerPlani/(4963:4967): Se envio el mensaje
+[INFO] 13:08:59:514 loggerPlani/(4963:4967): Se recibieron 4 bytes
+[INFO] 13:08:59:514 loggerPlani/(4963:4967): Se recibieron los datos
+[INFO] 13:08:59:514 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:08:59:514 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:08:59:514 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:08:59:516 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:517 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:517 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:08:59:517 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:08:59:517 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:08:59:517 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:08:59:518 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:518 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:518 loggerPlani/(4963:4968): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 13:08:59:518 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:08:59:556 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:08:59:557 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:08:59:557 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:557 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:557 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:08:59:557 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): empezamos a procesar
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:08:59:597 loggerPlani/(4963:4963): Se envio accion al Esi
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Cordi pidio ID
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:08:59:600 loggerPlani/(4963:4968): Le mande ID al Coordi
+[INFO] 13:08:59:626 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:626 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:626 loggerPlani/(4963:4968): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:08:59:626 loggerPlani/(4963:4968): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:08:59:664 loggerPlani/(4963:4968): Se recibieron 4 bytes
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): recibirClave: Esperamos la clave
+
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): Se recibieron 13 bytes
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): Se recibieron los datos
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): La clave es futbol:messi
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): Se enviaron 4 bytes
+[INFO] 13:08:59:665 loggerPlani/(4963:4968): Se envio el mensaje
+[INFO] 13:08:59:667 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:667 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:667 loggerPlani/(4963:4963): se recibio estado 1
+[INFO] 13:08:59:667 loggerPlani/(4963:4963): Esperando la Instruccion
+
+[ERROR] 13:08:59:667 loggerPlani/(4963:4968): SE CORTO LA CONEXION
+[ERROR] 13:08:59:667 loggerPlani/(4963:4968): SE CORTO LA CONEXION CON EL COORDI
+[INFO] 13:08:59:704 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Instruccion recibida
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Pedimos la longitud de la clave
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Longitud de la clave recibida: 13
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Esperamos la clave
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Clave recibida: futbol:messi
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Esperamos la longitud del valor a almacenar
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron 4 bytes
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Longitud del valor recibida: 13
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Esperamos el valor
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron 13 bytes
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se recibieron los datos
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Valor recibido: TraemeLaCopa
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Instruccion recibida correctamente
+
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 13:08:59:705 loggerPlani/(4963:4963): Se enviaron 4 bytes
+[INFO] 13:08:59:707 loggerPlani/(4963:4963): Se envio el mensaje
+[INFO] 13:08:59:707 loggerPlani/(4963:4963): Se envio accion al Esi
+[ERROR] 13:08:59:707 loggerPlani/(4963:4963): SE CORTO LA CONEXION
+[ERROR] 13:08:59:707 loggerPlani/(4963:4963): ERROR ESI DESCONECTADO
+[INFO] 13:08:59:707 loggerPlani/(4963:4963): se recibio estado 4
+[ERROR] 13:08:59:707 loggerPlani/(4963:4963): error con el esi 2
+[ERROR] 13:10:10:445 loggerPlani/(5419:5419): No me pude conectar al servidor
+[ERROR] 13:10:10:445 loggerPlani/(5419:5419): ERROR AL RECIBIR
+[ERROR] 13:10:10:445 loggerPlani/(5419:5419): ERROR AL ENVIAR
+[INFO] 13:10:10:445 loggerPlani/(5419:5422): Iniciada recepcion de consultas del coordi
+[ERROR] 13:10:10:445 loggerPlani/(5419:5422): ERROR AL RECIBIR
+[ERROR] 13:10:10:445 loggerPlani/(5419:5422): SE CORTO LA CONEXION CON EL COORDI
+[ERROR] 13:10:40:46 loggerPlani/(5446:5446): No me pude conectar al servidor
+[ERROR] 13:10:40:46 loggerPlani/(5446:5446): ERROR AL RECIBIR
+[ERROR] 13:10:40:46 loggerPlani/(5446:5446): ERROR AL ENVIAR
+[INFO] 13:10:40:47 loggerPlani/(5446:5449): Iniciada recepcion de consultas del coordi
+[ERROR] 13:10:40:47 loggerPlani/(5446:5449): ERROR AL RECIBIR
+[ERROR] 13:10:40:47 loggerPlani/(5446:5449): SE CORTO LA CONEXION CON EL COORDI
+[ERROR] 13:10:42:526 loggerPlani/(5451:5451): No me pude conectar al servidor
+[ERROR] 13:10:42:526 loggerPlani/(5451:5451): ERROR AL RECIBIR
+[ERROR] 13:10:42:526 loggerPlani/(5451:5451): ERROR AL ENVIAR
+[INFO] 13:10:42:526 loggerPlani/(5451:5454): Iniciada recepcion de consultas del coordi
+[ERROR] 13:10:42:526 loggerPlani/(5451:5454): ERROR AL RECIBIR
+[ERROR] 13:10:42:526 loggerPlani/(5451:5454): SE CORTO LA CONEXION CON EL COORDI
+[ERROR] 13:10:46:103 loggerPlani/(5456:5456): No me pude conectar al servidor
+[ERROR] 13:10:46:103 loggerPlani/(5456:5456): ERROR AL RECIBIR
+[ERROR] 13:10:46:103 loggerPlani/(5456:5456): ERROR AL ENVIAR
+[INFO] 13:10:46:103 loggerPlani/(5456:5459): Iniciada recepcion de consultas del coordi
+[ERROR] 13:10:46:104 loggerPlani/(5456:5459): ERROR AL RECIBIR
+[ERROR] 13:10:46:104 loggerPlani/(5456:5459): SE CORTO LA CONEXION CON EL COORDI
+[ERROR] 13:10:49:351 loggerPlani/(5461:5461): No me pude conectar al servidor
+[ERROR] 13:10:49:351 loggerPlani/(5461:5461): ERROR AL RECIBIR
+[ERROR] 13:10:49:351 loggerPlani/(5461:5461): ERROR AL ENVIAR
+[INFO] 13:10:49:351 loggerPlani/(5461:5464): Iniciada recepcion de consultas del coordi
+[ERROR] 13:10:49:352 loggerPlani/(5461:5464): ERROR AL RECIBIR
+[ERROR] 13:10:49:352 loggerPlani/(5461:5464): SE CORTO LA CONEXION CON EL COORDI
+[INFO] 13:10:56:570 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:10:56:570 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:10:56:570 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:10:56:570 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:10:56:573 loggerPlani/(5467:5471): Iniciada recepcion de consultas del coordi
+[INFO] 13:11:06:835 loggerPlani/(5467:5470): se conecto un esi
+[INFO] 13:11:06:835 loggerPlani/(5467:5470): Se enviaron 4 bytes
+[INFO] 13:11:06:835 loggerPlani/(5467:5470): Se envio el mensaje
+[INFO] 13:11:06:835 loggerPlani/(5467:5470): Se recibieron 4 bytes
+[INFO] 13:11:06:835 loggerPlani/(5467:5470): Se recibieron los datos
+[INFO] 13:11:06:835 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:06:835 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:06:835 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:06:850 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:06:850 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:06:850 loggerPlani/(5467:5471): Cordi pidio ID
+[INFO] 13:11:06:851 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:06:851 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:06:851 loggerPlani/(5467:5471): Le mande ID al Coordi
+[INFO] 13:11:06:868 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:06:868 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:06:868 loggerPlani/(5467:5467): se recibio estado 1
+[INFO] 13:11:06:868 loggerPlani/(5467:5467): Esperando la Instruccion
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Instruccion recibida
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Pedimos la longitud de la clave
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Longitud de la clave recibida: 13
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Esperamos la clave
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Clave recibida: futbol:messi
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Instruccion recibida correctamente
+
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): empezamos a procesar
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:06:905 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Cordi pidio ID
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:06:989 loggerPlani/(5467:5471): Le mande ID al Coordi
+[INFO] 13:11:07:8 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:07:8 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:8 loggerPlani/(5467:5471): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:11:07:8 loggerPlani/(5467:5471): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:11:07:44 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): recibirClave: Esperamos la clave
+
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): Se recibieron 13 bytes
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): La clave es futbol:messi
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:07:45 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:07:82 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:83 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:83 loggerPlani/(5467:5467): se recibio estado 1
+[INFO] 13:11:07:83 loggerPlani/(5467:5467): Esperando la Instruccion
+
+[INFO] 13:11:07:120 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Instruccion recibida
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Pedimos la longitud de la clave
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Longitud de la clave recibida: 13
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Esperamos la clave
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Clave recibida: futbol:messi
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Esperamos la longitud del valor a almacenar
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Longitud del valor recibida: 13
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Esperamos el valor
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Valor recibido: TraemeLaCopa
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Instruccion recibida correctamente
+
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 13:11:07:121 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:07:122 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:07:122 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Cordi pidio ID
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:07:126 loggerPlani/(5467:5471): Le mande ID al Coordi
+[INFO] 13:11:07:131 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:07:131 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:131 loggerPlani/(5467:5471): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:11:07:131 loggerPlani/(5467:5471): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:11:07:169 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:07:169 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:169 loggerPlani/(5467:5471): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:11:07:169 loggerPlani/(5467:5471): recibirClave: Esperamos la clave
+
+[INFO] 13:11:07:169 loggerPlani/(5467:5471): Se recibieron 13 bytes
+[INFO] 13:11:07:170 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:07:170 loggerPlani/(5467:5471): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:11:07:170 loggerPlani/(5467:5471): La clave es futbol:messi
+[INFO] 13:11:07:170 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:07:170 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:07:254 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:255 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:255 loggerPlani/(5467:5467): se recibio estado 1
+[INFO] 13:11:07:255 loggerPlani/(5467:5467): Esperando la Instruccion
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Instruccion recibida
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Pedimos la longitud de la clave
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Longitud de la clave recibida: 13
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Esperamos la clave
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Clave recibida: futbol:messi
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Instruccion recibida correctamente
+
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): FINJAMOS QUE PROCESE LA INSTRU store
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:07:293 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:07:295 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:07:295 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:07:295 loggerPlani/(5467:5467): se recibio estado 3
+[INFO] 13:11:07:295 loggerPlani/(5467:5467): termino el esi 0
+[INFO] 13:11:11:558 loggerPlani/(5467:5470): se conecto un esi
+[INFO] 13:11:11:558 loggerPlani/(5467:5470): Se enviaron 4 bytes
+[INFO] 13:11:11:558 loggerPlani/(5467:5470): Se envio el mensaje
+[INFO] 13:11:11:558 loggerPlani/(5467:5470): Se recibieron 4 bytes
+[INFO] 13:11:11:558 loggerPlani/(5467:5470): Se recibieron los datos
+[INFO] 13:11:11:558 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:11:559 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:11:559 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:11:569 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:570 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:570 loggerPlani/(5467:5471): Cordi pidio ID
+[INFO] 13:11:11:570 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:11:570 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:11:570 loggerPlani/(5467:5471): Le mande ID al Coordi
+[INFO] 13:11:11:574 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:574 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:574 loggerPlani/(5467:5471): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 13:11:11:575 loggerPlani/(5467:5471): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:11:11:612 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:612 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:612 loggerPlani/(5467:5471): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:11:11:612 loggerPlani/(5467:5471): recibirClave: Esperamos la clave
+
+[INFO] 13:11:11:612 loggerPlani/(5467:5471): Se recibieron 13 bytes
+[INFO] 13:11:11:613 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:613 loggerPlani/(5467:5471): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:11:11:613 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:11:613 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:11:614 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:614 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:614 loggerPlani/(5467:5467): se recibio estado 1
+[INFO] 13:11:11:614 loggerPlani/(5467:5467): Esperando la Instruccion
+
+[INFO] 13:11:11:652 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Instruccion recibida
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Pedimos la longitud de la clave
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Longitud de la clave recibida: 13
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Esperamos la clave
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Clave recibida: futbol:messi
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Instruccion recibida correctamente
+
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): empezamos a procesar
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:11:653 loggerPlani/(5467:5467): Se envio accion al Esi
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Cordi pidio ID
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:11:660 loggerPlani/(5467:5471): Le mande ID al Coordi
+[INFO] 13:11:11:663 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:663 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:664 loggerPlani/(5467:5471): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 13:11:11:664 loggerPlani/(5467:5471): recibirClave:: Esperando la Instruccion
+
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se recibieron 4 bytes
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): recibirClave: Longitud de la clave recibida: 13
+
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): recibirClave: Esperamos la clave
+
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se recibieron 13 bytes
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se recibieron los datos
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): recibirClave:: Clave recibida: futbol:messi
+
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): La clave es futbol:messi
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se enviaron 4 bytes
+[INFO] 13:11:11:701 loggerPlani/(5467:5471): Se envio el mensaje
+[INFO] 13:11:11:847 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:847 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:847 loggerPlani/(5467:5467): se recibio estado 1
+[INFO] 13:11:11:847 loggerPlani/(5467:5467): Esperando la Instruccion
+
+[ERROR] 13:11:11:847 loggerPlani/(5467:5471): SE CORTO LA CONEXION
+[ERROR] 13:11:11:847 loggerPlani/(5467:5471): SE CORTO LA CONEXION CON EL COORDI
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Instruccion recibida
+
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Pedimos la longitud de la clave
+
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Longitud de la clave recibida: 13
+
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Esperamos la clave
+
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:885 loggerPlani/(5467:5467): Clave recibida: futbol:messi
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Esperamos la longitud del valor a almacenar
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Se recibieron 4 bytes
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Longitud del valor recibida: 13
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Esperamos el valor
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Se recibieron 13 bytes
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Se recibieron los datos
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Valor recibido: TraemeLaCopa
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Instruccion recibida correctamente
+
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 13:11:11:886 loggerPlani/(5467:5467): Se enviaron 4 bytes
+[INFO] 13:11:11:887 loggerPlani/(5467:5467): Se envio el mensaje
+[INFO] 13:11:11:887 loggerPlani/(5467:5467): Se envio accion al Esi
+[ERROR] 13:11:11:887 loggerPlani/(5467:5467): SE CORTO LA CONEXION
+[ERROR] 13:11:11:887 loggerPlani/(5467:5467): ERROR ESI DESCONECTADO
+[INFO] 13:11:11:887 loggerPlani/(5467:5467): se recibio estado 4
+[ERROR] 13:11:11:887 loggerPlani/(5467:5467): error con el esi 1

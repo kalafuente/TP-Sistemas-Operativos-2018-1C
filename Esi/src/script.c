@@ -71,11 +71,19 @@ void procesarScript() {
 	}else{
 		log_info(logger,"El Plani me aborto");
 	}
+
+	log_info(logger, "intento de avisar al coordi que termine");
+	//AVISO AL COORDI QUE TERMINE
+
+
+	t_instruccion* avisoAlCoordi = crearInstruccion(INTRUCCION_TERMINO_ESI, "", "");
+	enviarInstruccionAlCoordinador(avisoAlCoordi);
 	enviarResultadoAlPlanificador(TERMINE);
 	log_info(logger,"le dije que terminé al plani");
 
 	fclose(script);
 	free(line);
+	free(avisoAlCoordi);
 
 }
 

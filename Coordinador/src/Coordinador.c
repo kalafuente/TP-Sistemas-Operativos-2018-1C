@@ -101,6 +101,10 @@ void *manejadorDeConexiones(void *socket_desc) {
 		mandarConfiguracionAInstancia(sock);
 		registrarInstancia(sock);
 		mostrarListaIntancias();
+		//if (recibirMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshake,sock)==3)
+		//{
+			//log_info(logger,"Se desconectó instancia");
+		//}
 		break;
 
 
@@ -109,7 +113,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
 		instruccionAGuardar=recibirInstruccionDelEsi(sock);
-		while (instruccionAGuardar != NULL) {
+		while (instruccionAGuardar != NULL && instruccionAGuardar->instruccion != INTRUCCION_TERMINO_ESI) {
 		//printf("instrucción guardada, clave: %s, valor: %s", instruccionAGuardar.clave, instruccionAGuardar.valor);
 		procesarInstruccion(instruccionAGuardar,sock);
 		destruirInstruccion(instruccionAGuardar);
@@ -279,6 +283,9 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 					}
 	break;
+	case INTRUCCION_TERMINO_ESI:
+		printf ("nunca deberías ver esto, no es posible");
+		break;
 	}
 }
 
@@ -453,7 +460,7 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 
 
 t_instruccion* recibirInstruccionDelEsi(int sock){
-	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock);
+	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock,"ESI");
 	char operacion[80];
 	if (instruccionAGuardar != NULL) {
 		switch(instruccionAGuardar->instruccion){
@@ -467,6 +474,11 @@ t_instruccion* recibirInstruccionDelEsi(int sock){
 
 					case INSTRUCCION_STORE:
 						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
+						break;
+
+					case INTRUCCION_TERMINO_ESI:
+						log_info(logger,"EL ESI TERMINÓ DE MANDARME INSTRUCCIONES, YUPII");
+
 					break;
 	}
 	}

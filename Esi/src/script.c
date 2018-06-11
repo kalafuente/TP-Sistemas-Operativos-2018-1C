@@ -68,12 +68,33 @@ void procesarScript() {
 		if(orden!=FINALIZAR){
 		recibirOrdenDelPlanificador(&orden);
 		}
+
+
+
+		/* PROPUESTA DE CARLOS PARA EL BLOQUEO
+		 while(resultado==BLOQUEATE){
+		 	 recibirOrdenDelPlanificador(&orden);
+		 	 if(orden==FINALIZAR){
+		 		break;
+		 		}
+		 	enviarInstruccionAlCoordinador(inst);
+		 	recibirResultadoDelCoordinador(&resultado);
+		 	evaluarRespuestaDelCoordinador(resultado,inst,orden);
+		 }
+		 if(orden == FINALIZAR){
+		 	 break;
+		 }
+		 recibirOrdenDelPlanificador(&orden);
+
+
+		 */
+
 	}
 	if(orden!=FINALIZAR){
 	log_info(logger,"no hay más para leer");
 		//recibirOrdenDelPlanificador(&orden);
 	}else{
-		log_info(logger,"El Plani me aborto");
+		log_info(logger,"El Plani me dijo que mi misión en este mundo terminó");
 	}
 
 

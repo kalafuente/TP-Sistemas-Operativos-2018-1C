@@ -28,11 +28,11 @@ int main(int argc, char **argv) {
 
 
 
-void abortarEsi(){
+void abortarEsi(char* causa){
 	if(script!=NULL){
 		fclose(script);
 	}
-	log_error(logger,"ESI ABORTADO");
+	log_error(logger,"%s ESI ABORTADO",causa);
 	cerrarConexion();
 	killEsi();
 	exit(1);

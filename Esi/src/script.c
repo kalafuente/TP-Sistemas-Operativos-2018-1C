@@ -29,7 +29,7 @@ t_instruccion* leerInstruccion(char* line){
 		free(line);
 		fclose(script);
 		enviarResultadoAlPlanificador(ERROR);
-		abortarEsi();
+		abortarEsi("CLAVE INVALIDA");
 	}
 	t_instruccion* instruccion;
 	if(parsed.keyword == GET){

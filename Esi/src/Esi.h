@@ -51,7 +51,7 @@ void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
 t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
-void abortarEsi();
+void abortarEsi(char* causa);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;

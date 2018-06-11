@@ -12,8 +12,8 @@ void conectarseAlCoordinador() {
 	socketCoordinador = conectarseAlServidor(logger, &esiConfig->ipCoordi,
 			&esiConfig->puertoCoordi);
 	if(socketCoordinador<0){
-		log_error(logger,"EL COORDNADOR ESTÁ EN CUALQUIERA");
-		abortarEsi();
+
+		abortarEsi("EL COORDNADOR ESTÁ EN CUALQUIERA");
 
 	}
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
@@ -30,8 +30,8 @@ void conectarseAlPlanificador() {
 	socketPlani = conectarseAlServidor(logger, &esiConfig->ipPlanificador,
 			&esiConfig->puertoPlanificador);
 	if(socketPlani<0){
-		log_error(logger,"EL PLANIFICADOR ESTÁ EN CUALQUIERA");
-		abortarEsi();
+
+		abortarEsi("EL PLANIFICADOR ESTÁ EN CUALQUIERA");
 	}
 	PROTOCOLO_PLANIFICADOR_A_ESI handshakePlani;
 	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
@@ -57,7 +57,9 @@ void cerrarConexion(){
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion){
 	//PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
 	log_info(logger,"Enviando instruccion al Coordinador");
-	enviarInstruccion(logger,instruccion,socketCoordinador);
+	if(enviarInstruccion(logger,instruccion,socketCoordinador)<0){
+		abortarEsi("RIP Coordinador");
+	}
 	log_info(logger,"Se envió la instrucción");
 	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
 	//					socketPlani);
@@ -66,14 +68,16 @@ void enviarInstruccionAlCoordinador(t_instruccion* instruccion){
 
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
 	log_info(logger,"Esperando la orden del planificador");
-	recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-					&orden, socketPlani);
+	if(recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+					&orden, socketPlani)<0){
+		abortarEsi("RIP Planificador");
+	}
 	log_info(logger,"Orden recibida");
 }
 
 
 void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,
-		t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI orden){
+	t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI orden){
 
 
 	PROTOCOLO_ESI_A_PLANIFICADOR estado;
@@ -116,20 +120,24 @@ void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI result
 
 		enviarResultadoAlPlanificador(estado);
 		destruirInstruccion(instruccion);
-		abortarEsi();
+		abortarEsi("GIL");
 	}
 }
 
 void recibirResultadoDelCoordiandor(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI * resultado){
 	log_info(logger,"Esperando resultado de la operación");
-	recibirMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI),resultado,socketCoordinador);
+	if(recibirMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI),resultado,socketCoordinador)<0){
+		abortarEsi("RIP Coordi");
+	}
 	log_info(logger,"Resultado recibido");
 }
 
 void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR resultado){
 	log_info(logger,"Enviando resultado de la operacion al Planificador ");
-	enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
-			socketPlani);
+	if(enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
+			socketPlani)<0){
+		abortarEsi("RIP Plani");
+	}
 	log_info(logger,"Resultado enviado");
 }
 

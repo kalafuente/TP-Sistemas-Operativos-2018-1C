@@ -299,15 +299,17 @@ int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 	int total=0;
 	size_t bytes_left =len;
 	while(total<len){
-		total+=send(unsocket,msg+total,bytes_left,0);
+		int resultado;
+		resultado=send(unsocket,msg+total,bytes_left,MSG_NOSIGNAL);
+		total+=resultado;
 		if(total==-1){
 			log_error(logger,"ERROR AL ENVIAR");
 			return -1;
 		}
 		if(total==0){
-			log_error(logger,"SE CORTO LA CONEXION");
+			log_info(logger,"SE CORTO LA CONEXION");
 			return 0;
-		//	exitWithError(logger,unsocket,"Se cerró la conexión",NULL);
+
 		}
 		log_info(logger,"Se enviaron %d bytes",total);
 		bytes_left-=total;

@@ -109,16 +109,24 @@ void *manejadorDeConexiones(void *socket_desc) {
 		cantEsi++;
 		//recibirInstruccion(sock, &instruccionAGuardar);
 		PROTOCOLO_ESI_A_COORDI esi;
-		recibirMensaje(logger,sizeof(esi), &esi, sock);
 
-		while (esi == MANDO_INTRUCCIONES) {
-			instruccionAGuardar=recibirInstruccionDelEsi(sock);
+		recibirMensaje(logger,sizeof(esi), &esi, sock);
+		instruccionAGuardar=recibirInstruccionDelEsi(sock);
+
+		while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
+
 			procesarInstruccion(instruccionAGuardar,sock);
 			destruirInstruccion(instruccionAGuardar);
 			recibirMensaje(logger,sizeof(esi), &esi, sock);
+			instruccionAGuardar=recibirInstruccionDelEsi(sock);
 		}
+
 		if (esi == TERMINE_INSTRUCCIONES){
 			log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
+		}
+
+		if (instruccionAGuardar== NULL){
+			log_info(logger, "no me puedo conectar con esi");
 		}
 		break;
 
@@ -212,20 +220,27 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						log_info(logger,"ESI TIENE CLAVE");
 						instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
 
-						int resultadoEnviar = enviarInstruccion(logger, instruccion,instanciaALlamar->socket);
-						if (resultadoEnviar == -3){
-							printf("Se desconectó instancia");
+						if (enviarInstruccion(logger, instruccion,instanciaALlamar->socket)==-1)
+						{
+							log_info(logger, "La instancia ya no está");
+							eliminarInstanciaDeLaListaDeInstancias(instanciaALlamar->socket);
+							rtaParaElEsi= ERROR_CLAVE_INACCESIBLE;
+							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
 						}
 
-						PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
-						recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
-							if (rtaInstancia == SE_PUDO_GUARDAR_VALOR)
-								log_info(logger, "instancia guardo valor");
+						else{
 
-						modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar);
-						rtaParaElEsi= TODO_OK_ESI;
-						enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
-						log_info(logger, "Le dije al esi que todo ok");
+							PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+							recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+							if (rtaInstancia == SE_PUDO_GUARDAR_VALOR)
+							log_info(logger, "instancia guardo valor");
+							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar);
+							rtaParaElEsi= TODO_OK_ESI;
+							enviarMensaje(logger,sizeof(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI), &rtaParaElEsi, sock);
+							log_info(logger, "Le dije al esi que todo ok");
+
+						}
+
 						break;
 					case ESI_NO_TIENE_CLAVE:
 						log_info(logger,"ESI NO TIENE CLAVE");
@@ -307,6 +322,25 @@ void mostrarListaIntancias(){
 	list_iterate(listaDeInstancias, (void *) mostrar);
 }
 
+void eliminarInstanciaDeLaListaDeInstancias(int socket){
+	bool equals(instancia* item) {
+
+			if (item->socket == socket)
+					return true;
+			else
+					return false;
+		}
+
+		list_remove_and_destroy_by_condition(listaDeInstancias,(void *) equals, (void *)destruirInstancia );
+		printf("la nueva lista de instancias es: \n");
+		mostrarListaIntancias();
+	}
+
+
+void destruirInstancia(instancia* instancia){
+	free(instancia);
+}
+
 claveConInstancia* nuevaClaveConInstancia(char* clave){
 	claveConInstancia* nueva=malloc(sizeof(claveConInstancia));
 	nueva-> clave = string_new();
@@ -339,9 +373,9 @@ bool contieneString(t_list* list, void* value){
 instancia*  elegirInstanciaSegunAlgoritmo(){
 	int comparacion = strcmp(coordConfig->algoritmo, "EL");
 	if (comparacion == 0){
-		printf("\n el algoritmo es EL");
+		log_info(logger, "ALGORITMO EQUITATIVE LOAD");
 		instancia* instanciaElegida =  EquitativeLoad();
-		printf ("\n el socket de la instancia elegida es %d:", instanciaElegida->socket);
+		log_info(logger, "el socket de la instancia elegida es %d",instanciaElegida->socket);
 		return instanciaElegida;
 	}
 	else
@@ -391,7 +425,7 @@ bool contieneClave(t_list* list, void* value){
 }
 
 
-void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave, char * valor ){
+void registrarLogDeOperaciones(char* instruccion, char * clave, char * valor ){
 
 	PROTOCOLO_COORDINADOR_A_PLANIFICADOR pedidoID = PEDIDO_DE_ID;
 	int rtaPlani;
@@ -400,11 +434,11 @@ void registrarLogDeOperaciones(char* operacion, char* instruccion, char * clave,
 	log_info(logger,"el ID del esi segun plani fue recibido");
 	log_info(logger,"el id es: %d",rtaPlani);
 	if (!(strcmp(valor,"0")==0))
-		sprintf(operacion, "ESI % d SET %s %s", rtaPlani, clave, valor);
+		log_info(logDeOperaciones,"ESI % d SET %s %s", rtaPlani, clave, valor);
 	else
-		sprintf(operacion, "ESI % d %s %s", rtaPlani,instruccion,clave);
+		log_info(logDeOperaciones,"ESI % d %s %s", rtaPlani,instruccion,clave);
 
-	log_info(logDeOperaciones, operacion);
+
 }
 void registrarInstancia(int sock){
 	instancia * registrarInstancia = malloc(sizeof(instancia ));
@@ -464,19 +498,19 @@ void destroy_coordConfig(coordinador_config* coordinadorConfig){
 
 t_instruccion* recibirInstruccionDelEsi(int sock){
 	t_instruccion* instruccionAGuardar=recibirInstruccion(logger,sock,"ESI");
-	char operacion[80];
+
 	if (instruccionAGuardar != NULL) {
 		switch(instruccionAGuardar->instruccion){
 					case INSTRUCCION_GET:
-						registrarLogDeOperaciones(operacion,"GET", instruccionAGuardar->clave,"0");
+						registrarLogDeOperaciones("GET", instruccionAGuardar->clave,"0");
 
 						break;
 					case INSTRUCCION_SET:
-						registrarLogDeOperaciones(operacion,"SET", instruccionAGuardar->clave,instruccionAGuardar->valor);
+						registrarLogDeOperaciones("SET", instruccionAGuardar->clave,instruccionAGuardar->valor);
 						break;
 
 					case INSTRUCCION_STORE:
-						registrarLogDeOperaciones(operacion,"STORE", instruccionAGuardar->clave,"0");
+						registrarLogDeOperaciones("STORE", instruccionAGuardar->clave,"0");
 						break;
 
 	}

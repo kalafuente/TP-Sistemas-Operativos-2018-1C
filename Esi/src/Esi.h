@@ -36,8 +36,8 @@ void cerrarConexion();
 
 //---PLANIFICADOR
 void conectarseAlPlanificador();
-void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,
-		t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI orden);
+void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI* resultado,
+		t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI* orden);
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);
 void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR respuesta);
 //---COORDINADOR

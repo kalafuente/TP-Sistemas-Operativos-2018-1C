@@ -64,7 +64,7 @@ void procesarScript() {
 		enviarMensaje(logger,sizeof(coordi),&coordi, socketCoordinador);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);
-		evaluarRespuestaDelCoordinador(resultado,inst,orden);
+		evaluarRespuestaDelCoordinador(&resultado,inst,&orden);
 		if(orden!=FINALIZAR){
 		recibirOrdenDelPlanificador(&orden);
 		}

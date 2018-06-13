@@ -36,15 +36,15 @@ void cerrarConexion();
 
 //---PLANIFICADOR
 void conectarseAlPlanificador();
-void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI* resultado,
-		t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI* orden);
+void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,
+		t_instruccion*instruccion);
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden);
 void enviarResultadoAlPlanificador(PROTOCOLO_ESI_A_PLANIFICADOR respuesta);
 //---COORDINADOR
 void conectarseAlCoordinador();
 void recibirResultadoDelCoordiandor(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI * resultado);
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion);
-
+void avisarAlCoordi(PROTOCOLO_ESI_A_COORDI mensaje);
 
 
 //---------SCRIPT

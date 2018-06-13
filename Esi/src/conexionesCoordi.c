@@ -28,16 +28,20 @@ void conectarseAlCoordinador() {
 }
 
 
+void avisarAlCoordi(PROTOCOLO_ESI_A_COORDI mensaje){
+
+	enviarMensaje(logger,sizeof(mensaje),&mensaje, socketCoordinador);
+	log_info(logger,"Le dije al Coordi que voy a hacer je");
+}
 
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion){
-	//PROTOCOLO_ESI_A_PLANIFICADOR resultado = TERMINE_BIEN;
+	PROTOCOLO_ESI_A_COORDI coordi= MANDO_INTRUCCIONES;
+	avisarAlCoordi(coordi);
 	log_info(logger,"Enviando instruccion al Coordinador");
 	if(enviarInstruccion(logger,instruccion,socketCoordinador)<0){
 		abortarEsi("RIP Coordinador");
 	}
 	log_info(logger,"Se envió la instrucción");
-	//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,
-	//					socketPlani);
 
 }
 

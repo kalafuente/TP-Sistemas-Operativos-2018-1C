@@ -38,48 +38,49 @@ void cerrarConexion(){
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
 	log_info(logger,"Esperando la orden del planificador");
 	if(recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
-					&orden, socketPlani)<0){
+					orden, socketPlani)<0){
+		avisarAlCoordi(TERMINE);
 		abortarEsi("RIP Planificador");
 	}
+	if(*orden==FINALIZAR){
+		avisarAlCoordi(TERMINE);
+		abortarEsi("WHY PLANI?!!");
+	}
+
 	log_info(logger,"Orden recibida");
 }
 
 
-void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI* resultado,
-	t_instruccion*instruccion,PROTOCOLO_PLANIFICADOR_A_ESI *orden){
+void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado,
+	t_instruccion*instruccion){
 
 
 	PROTOCOLO_ESI_A_PLANIFICADOR estado;
-	if(*resultado==TODO_OK_ESI){
+	if(resultado==TODO_OK_ESI){
 	estado=TERMINE_BIEN;
 		enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &estado,
 				socketPlani);
 		log_info(logger, "el estado enviado es %d", estado);
 		enviarInstruccion(logger, instruccion, socketPlani);
+		destruirInstruccion(instruccion);
+
 	}
-	else if(*resultado==BLOQUEATE){
+	else if(resultado==BLOQUEATE){
 		estado=BLOQUEADO_CON_CLAVE;
 		log_info(logger,"La clave %s se encuentra bloqueada",instruccion->clave);
 		enviarResultadoAlPlanificador(estado);
 		enviarInstruccion(logger,instruccion,socketPlani);
-
 		log_info(logger,"Se espera la orden del planificador para volver a enviar la instruccion");
-		recibirOrdenDelPlanificador(orden);
 
-		if(*orden!=FINALIZAR){
-		enviarInstruccionAlCoordinador(instruccion);
-		recibirResultadoDelCoordiandor(resultado);
-		evaluarRespuestaDelCoordinador(resultado,instruccion,orden);
-		}
 	}
 	else{
 		estado=ERROR;
-		if((*resultado)==ERROR_CLAVE_INACCESIBLE){
+		if((resultado)==ERROR_CLAVE_INACCESIBLE){
 
 		log_error(logger,"Clave %s inaccesible",instruccion->clave);
 
 		}
-		else if((*resultado)==ERROR_CLAVE_NO_BLOQUEADA){
+		else if((resultado)==ERROR_CLAVE_NO_BLOQUEADA){
 			log_error(logger,"Clave %s no bloquead",instruccion->clave);
 
 		}
@@ -89,7 +90,7 @@ void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI* resul
 
 		enviarResultadoAlPlanificador(estado);
 		destruirInstruccion(instruccion);
-		abortarEsi("GIL");
+		abortarEsi("");
 	}
 }
 

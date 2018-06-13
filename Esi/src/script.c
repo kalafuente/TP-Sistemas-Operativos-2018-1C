@@ -49,55 +49,31 @@ t_instruccion* leerInstruccion(char* line){
 }
 
 void procesarScript() {
-	char*line;;
+	char*line=NULL;
 	size_t len = 0;
 	ssize_t read;
 	PROTOCOLO_PLANIFICADOR_A_ESI orden;
 	PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI resultado;
-	recibirOrdenDelPlanificador(&orden);
+	PROTOCOLO_ESI_A_COORDI coordi;
 
-	PROTOCOLO_ESI_A_COORDI coordi= MANDO_INTRUCCIONES;
 
-	while ((read = getline(&line, &len, script)) != -1 && orden!=FINALIZAR) {
+	while ((read = getline(&line, &len, script)) != -1) {
 
+		recibirOrdenDelPlanificador(&orden);
 		t_instruccion* inst = leerInstruccion(line);
-		enviarMensaje(logger,sizeof(coordi),&coordi, socketCoordinador);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);
-		evaluarRespuestaDelCoordinador(&resultado,inst,&orden);
-		if(orden!=FINALIZAR){
-		recibirOrdenDelPlanificador(&orden);
+		evaluarRespuestaDelCoordinador(resultado,inst);
+
+		while (resultado==BLOQUEATE){
+			recibirOrdenDelPlanificador(&orden);
+			enviarInstruccionAlCoordinador(inst);
+			recibirResultadoDelCoordiandor(&resultado);
+			evaluarRespuestaDelCoordinador(resultado,inst);
 		}
 
-
-
-		/* PROPUESTA DE CARLOS PARA EL BLOQUEO
-		 while(resultado==BLOQUEATE){
-		 	 recibirOrdenDelPlanificador(&orden);
-		 	 if(orden==FINALIZAR){
-		 		break;
-		 		}
-		 	enviarInstruccionAlCoordinador(inst);
-		 	recibirResultadoDelCoordinador(&resultado);
-		 	evaluarRespuestaDelCoordinador(resultado,inst,orden);
-		 }
-		 if(orden == FINALIZAR){
-		 	 break;
-		 }
-		 recibirOrdenDelPlanificador(&orden);
-
-
-		 */
-
 	}
-	if(orden!=FINALIZAR){
-	log_info(logger,"no hay más para leer");
-		//recibirOrdenDelPlanificador(&orden);
-	}else{
-		log_info(logger,"El Plani me dijo que mi misión en este mundo terminó");
-	}
-
-
+	log_info(logger,"No hay más para leer");
 
 	//AVISO AL COORDI QUE TERMINE
 	coordi= TERMINE_INSTRUCCIONES;

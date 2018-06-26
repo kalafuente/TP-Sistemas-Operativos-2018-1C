@@ -22,6 +22,7 @@ typedef struct coordinador_config {
 	char * algoritmo;
 	int entradas;
 	int tamanioEntradas;
+	int retardo;
 }coordinador_config;
 
 typedef struct instancia{

@@ -116,6 +116,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 		while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
 
 			procesarInstruccion(instruccionAGuardar,sock);
+			usleep(1000 * coordConfig->retardo);
 			destruirInstruccion(instruccionAGuardar);
 			recibirMensaje(logger,sizeof(esi), &esi, sock);
 			instruccionAGuardar=recibirInstruccionDelEsi(sock);
@@ -480,6 +481,7 @@ coordinador_config * init_coordConfig(){
 	coordinadorConfig->algoritmo=string_new();
 	coordinadorConfig->entradas=0;
 	coordinadorConfig->tamanioEntradas=0;
+
 	return coordinadorConfig;
 }
 void crearConfiguracion(coordinador_config* coordinador, t_config* config){
@@ -487,6 +489,7 @@ void crearConfiguracion(coordinador_config* coordinador, t_config* config){
 	string_append(&(coordinador->algoritmo), config_get_string_value(config, "ALGORITMO_DISTRIBUCIÓN"));
 	coordinador->entradas = config_get_int_value(config, "ENTRADAS");
 	coordinador->tamanioEntradas = config_get_int_value(config, "TAMANIO_ENTRADAS");
+	coordinador->retardo=config_get_int_value(config,"RETARDO_MILISEGUNDOS");
 }
 void destroy_coordConfig(coordinador_config* coordinadorConfig){
 	free(coordinadorConfig->puerto);

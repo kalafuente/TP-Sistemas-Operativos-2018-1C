@@ -77,6 +77,7 @@ claveConInstancia* nuevaClaveConInstancia(char* clave);
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva);
 void eliminarInstanciaDeLaListaDeInstancias(int socket);
 void destruirInstancia(instancia* instancia);
+void retardo();
 
 //-----------Sockets
 int crearServidor(char ** puerto, int * entradas);

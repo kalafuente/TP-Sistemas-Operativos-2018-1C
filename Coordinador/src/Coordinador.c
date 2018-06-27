@@ -116,7 +116,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 		while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
 
 			procesarInstruccion(instruccionAGuardar,sock);
-			usleep(1000 * coordConfig->retardo);
+			retardo();
+
 			destruirInstruccion(instruccionAGuardar);
 			recibirMensaje(logger,sizeof(esi), &esi, sock);
 			instruccionAGuardar=recibirInstruccionDelEsi(sock);
@@ -522,3 +523,7 @@ t_instruccion* recibirInstruccionDelEsi(int sock){
 	return instruccionAGuardar;
 }
 
+
+void retardo(){
+	usleep(1000 * coordConfig->retardo);
+}

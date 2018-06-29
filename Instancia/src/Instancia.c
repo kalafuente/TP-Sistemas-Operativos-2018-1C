@@ -289,6 +289,8 @@ int procesarSentencias()
 		}
 
 		enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+		int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
+		enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 		destruirInstruccion(sentencia);
 	}
 

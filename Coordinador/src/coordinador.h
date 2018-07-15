@@ -17,6 +17,7 @@
 #include <library/manejoDeSockets.h>
 #include <library/protocolos.h>
 
+
 typedef struct coordinador_config {
 	char * puerto;
 	char * algoritmo;
@@ -27,9 +28,9 @@ typedef struct coordinador_config {
 
 typedef struct instancia{
 	int socket;
-	int cantEntradas;
+	int cantEntradasTotales;
 	int tamanioEntradas;
-	int tamanioOcupado;
+	int cantEntradasOcupadas;
 
 }instancia;
 
@@ -38,40 +39,58 @@ typedef struct claveConInstancia{
 	instancia* instancia;
 }claveConInstancia;
 ;
+
+#include "booleanasSobreListas.h"
+#include "mostrarListas.h"
+#include "distribucion.h"
+#include "configuracion.h"
+#include "logDeOperaciones.h"
+#include "handshakes.h"
+#include "registrosDeInstancias.h"
+#include "respuestasAlESI.h"
 //---------------------------VARIABLES GLOBALES-----------------------------
 
-t_log* logger;
-t_log* logDeOperaciones;
+
 int cantEsi;
 coordinador_config * coordConfig;
-t_list* listaDeInstancias;
+
 t_link_element* nodoDeInstancias;
 t_link_element* nodoAuxiliarDeInstancias;
-t_list* listaDeClavesConInstancia;
+
 t_link_element* instanciaAElegir;
 int32_t socketPlani;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
+void prepararConfiguracion();
+t_config *config;
 
-//-----------Archivo De Confuguracion
-coordinador_config * init_coordConfig();
-void destroy_coordConfig(coordinador_config* coord);
-void crearConfiguracion(coordinador_config* coordinador, t_config* config);
+void prepararLoggers();
+t_log* logger;
+t_log* logDeOperaciones;
+t_log* logControlDeDistribucion;
+
+void crearListas();
+t_list* listaDeInstancias;
+t_list* listaDeClavesConInstancia;
+
+void crearServidor();
+int listenningSocket;
+
+void cerrarTodo();
+
 //-----------Funciones auxiliares
+void enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion);
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
-//void recibirInstruccion(int sock, instruccion * instruccionAGuardar);
-void registrarLogDeOperaciones(char* instruccion, char * clave, char * valor );
 void procesarInstruccion(t_instruccion * instruccion, int sock);
-bool contieneClave(t_list* list, void* value);
-bool contieneString(t_list* list, void* value);
+
 instancia*  elegirInstanciaSegunAlgoritmo();
-instancia * EquitativeLoad();
+
 instancia nuevaInstanciaNula();
 t_instruccion* recibirInstruccionDelEsi(int sock);
-void mostrarLista(t_list* lista);
+
 void destruirInstruccion(t_instruccion*);
-void mostrarListaIntancias();
+
 claveConInstancia* instanciaQueTieneLaClave(char* clave);
 claveConInstancia* nuevaClaveConInstancia(char* clave);
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva);
@@ -80,8 +99,8 @@ void destruirInstancia(instancia* instancia);
 void retardo();
 
 //-----------Sockets
-int crearServidor(char ** puerto, int * entradas);
-void crearServidorMultiHilo(int listenningSocket);
+
+void crearServidorMultiHilo();
 void *manejadorDeConexiones(void *socket_desc);
 
 

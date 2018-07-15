@@ -13,6 +13,6 @@
 
 bool contieneString(t_list* list, void* value);
 bool contieneClave(t_list* list, void* value);
-
+bool contieneLaInicial(t_list* list, void* inicial);
 
 #endif /* BOOLEANASSOBRELISTAS_H_ */

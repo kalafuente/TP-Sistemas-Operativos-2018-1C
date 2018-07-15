@@ -196,7 +196,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 						 if (instanciaQueTieneSetClave == NULL){
 							 log_info(logControlDeDistribucion,"NO HAY SET PREVIO DE ESTA CLAVE");
-							 instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo();
+							 instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave);
 							 enviarSETaInstancia(instanciaALlamar,sock, instruccion);
 
 							 }
@@ -330,7 +330,7 @@ claveConInstancia* nuevaClaveConInstancia(char* clave){
 
 
 
-instancia*  elegirInstanciaSegunAlgoritmo(){
+instancia*  elegirInstanciaSegunAlgoritmo(char * clave){
 
 	if (strcmp(coordConfig->algoritmo, "EL") == 0){
 		log_info(logger, "ALGORITMO EQUITATIVE LOAD");
@@ -346,10 +346,21 @@ instancia*  elegirInstanciaSegunAlgoritmo(){
 		instancia* instanciaElegida =  LSU(listaDeInstancias, logControlDeDistribucion);
 		log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
 		return instanciaElegida;
-
+		}
+		else {
+			if (strcmp(coordConfig->algoritmo, "KE")==0){
+				log_info(logger, "ALGORITMO KE-----------------------------------");
+				mostrarListaIntancias(listaDeInstancias);
+				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave);
+				log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
+				return instanciaElegida;
+			}
+			else{
+				log_info(logger,"algoritmo desconocido");
+			}
 		}
 		}
-		return NULL; //ESTO NO DEBERIA PASAR
+	return NULL; //ESTO NO DEBERIA PASAR
 
 }
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva){

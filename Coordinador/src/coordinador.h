@@ -84,7 +84,7 @@ void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 void procesarInstruccion(t_instruccion * instruccion, int sock);
 
-instancia*  elegirInstanciaSegunAlgoritmo();
+instancia*  elegirInstanciaSegunAlgoritmo(char * clave);
 
 instancia nuevaInstanciaNula();
 t_instruccion* recibirInstruccionDelEsi(int sock);

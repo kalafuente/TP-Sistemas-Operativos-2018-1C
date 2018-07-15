@@ -26,5 +26,17 @@ bool contieneClave(t_list* list, void* value){
 	return list_any_satisfy(list, (void *) equals);
 }
 
+bool contieneLaInicial(t_list* list, void* inicial){
+
+	bool equals(char * item) {
+		int rta = strcmp(inicial, item);
+		if (rta == 0)
+				return true;
+		else
+				return false;
+	}
+
+	return list_any_satisfy(list, (void *) equals);
+}
 
 

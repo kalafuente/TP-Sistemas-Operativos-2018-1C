@@ -130,11 +130,14 @@ int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 	return 1;
 }
 
-void enviarClave(t_log* logger,char* clave, int sock)
+int enviarClave(t_log* logger,char* clave, int sock)
 {
 	int32_t lenClave = strlen(clave)+1;
-	enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
-	enviarMensaje(logger,lenClave,clave,sock);
+	if (enviarMensaje(logger,sizeof(int32_t),&lenClave,sock) == -1)
+		return -1;
+	if (enviarMensaje(logger,lenClave,clave,sock)==-1)
+		return -1;
+	return 0;
 }
 
 char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave)

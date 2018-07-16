@@ -134,9 +134,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 	log_info(logger,"entro a procesarInstruccion");
-	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveDisponible = PREGUNTA_CLAVE_DISPONIBLE;
-	PROTOCOLO_COORDINADOR_A_PLANIFICADOR claveBloqueada = PREGUNTA_ESI_TIENE_CLAVE;
-	PROTOCOLO_PLANIFICADOR_A_COORDINADOR rtaPlani;
 	claveConInstancia* instanciaConLaClave;
 
 	switch(instruccion->instruccion){
@@ -146,13 +143,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 					log_info(logger, "La lista de claves contiene este GET");
 					printf ("\n mostrar lista\n ");
 					mostrarLista(listaDeClavesConInstancia);
-
-					//Pregunto si esta disponible
-					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveDisponible,socketPlani);
-					enviarClave(logger, instruccion->clave, socketPlani);
-					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
-
-					switch(rtaPlani){
+				switch(estadoEsi(PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion->clave)){
 					case CLAVE_DISPONIBLE:
 						enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 						break;
@@ -183,12 +174,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 				log_info(logger, "ESI ENVIO UN SET");
 				if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 					log_info(logger, "La lista de claves contiene este GET");
-
-					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
-					enviarClave(logger, instruccion->clave, socketPlani);
-					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
-
-					switch(rtaPlani){
+				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE, socketPlani,instruccion->clave)){
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
 
@@ -197,12 +183,15 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						 if (instanciaQueTieneSetClave == NULL){
 							 log_info(logControlDeDistribucion,"NO HAY SET PREVIO DE ESTA CLAVE");
 							 instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave);
-							 enviarSETaInstancia(instanciaALlamar,sock, instruccion);
-
+							 bool seEnvio = enviarSETaInstancia(instanciaALlamar,sock, instruccion, false);
+							 while(!seEnvio){
+								 instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave);
+								 seEnvio = enviarSETaInstancia(instanciaALlamar,sock, instruccion, false);
 							 }
+						 }
 						 else {
 						 log_info(logControlDeDistribucion,"HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: %d",instanciaQueTieneSetClave->socket );
-						 enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion);
+						 enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion, true);
 						 }
 
 					break;
@@ -224,35 +213,38 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 	case INSTRUCCION_STORE:
 
 				log_info(logger, "ESI ENVIO UN STORE");
-					if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
-						log_info(logger, "La lista de claves contiene esta clave");
-					enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &claveBloqueada,socketPlani);
-					enviarClave(logger, instruccion->clave, socketPlani);
-
-					recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani);
-						switch(rtaPlani){
+				if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
+				log_info(logger, "La lista de claves contiene esta clave");
+				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE,socketPlani,instruccion->clave)){
 						case ESI_TIENE_CLAVE:
 							log_info(logger,"ESI TIENE CLAVE");
 							instanciaConLaClave = instanciaQueTieneLaClave(instruccion->clave);
 							log_info(logger, "el Socket de la instancia que tiene la clave es: %d",instanciaConLaClave->instancia->socket);
-
-							enviarInstruccion(logger, instruccion,instanciaConLaClave->instancia->socket);
-							log_info(logger, "envie STORE A INSTANCIA");
-							PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
-							recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaConLaClave->instancia->socket);
-							if (rtaInstancia == SE_CREO_EL_ARCHIVO){
-								log_info(logger, "instancia creo archivo");
-								enviarRespuestaAlEsi(TODO_OK_ESI, sock,logger);
-								if (rtaInstancia == NO_SE_CREO_EL_ARCHIVO)
-									log_info(logger, "NO_SE_CREO_EL_ARCHIVO");
+							if (enviarInstruccion(logger, instruccion,instanciaConLaClave->instancia->socket)==-1){
+								instanciaCaida(instanciaConLaClave->instancia->socket, sock);
 							}
-							else
-								log_info(logger, "instancia no creo archivo");
+							else{
+								log_info(logger, "envie STORE A INSTANCIA");
+								PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+								recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaConLaClave->instancia->socket);
+								switch (rtaInstancia){
+								case SE_CREO_EL_ARCHIVO:
+									enviarRespuestaAlEsi(TODO_OK_ESI, sock,logger);
+									break;
+								case NO_SE_CREO_EL_ARCHIVO:
+									log_info(logger, "NO_SE_CREO_EL_ARCHIVO");
+									break;
+								default:
+									log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
+									break;
+								}
+
 							int32_t entradasEnUsoDeLaInstancia;
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaConLaClave->instancia->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaConLaClave->instancia);
 							log_info(logControlDeDistribucion, "las entradas ocupadas por instancia % d son %d", instanciaConLaClave->instancia->socket, instanciaConLaClave->instancia->cantEntradasOcupadas);
 
+							}
 							break;
 						case ESI_NO_TIENE_CLAVE:
 							enviarRespuestaAlEsi(ERROR_CLAVE_NO_BLOQUEADA, sock, logger);
@@ -262,21 +254,49 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 							break;
 						}
 					}
-					else{
-						enviarRespuestaAlEsi(ERROR_CLAVE_NO_IDENTIFICADA, sock, logger);
-					}
+				else{
+					enviarRespuestaAlEsi(ERROR_CLAVE_NO_IDENTIFICADA, sock, logger);
+				}
 	break;
 
 	}
 }
 
-void enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion){
+PROTOCOLO_PLANIFICADOR_A_COORDINADOR  estadoEsi(PROTOCOLO_COORDINADOR_A_PLANIFICADOR estadoClave, int socketPlani, char * clave){
+	PROTOCOLO_PLANIFICADOR_A_COORDINADOR rtaPlani;
+	if (enviarMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_PLANIFICADOR), &estadoClave,socketPlani)==-1){
+		printf ("Se desconecto plani, SISTEMA EN ESTADO INVALIDO");
+		exit(1);
+	}
+	if (enviarClave(logger, clave, socketPlani)==-1){
+		printf ("Se desconecto plani, SISTEMA EN ESTADO INVALIDO");
+		exit(1);
+	}
+
+	if (recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),&rtaPlani, socketPlani)==-1){
+		printf ("Se desconecto plani, SISTEMA EN ESTADO INVALIDO");
+		exit(1);
+	}
+	return rtaPlani;
+}
+
+void instanciaCaida(int socketInstancia, int sock){
+	log_info(logger, "La instancia ya no está");
+	eliminarInstanciaYClaveDeLaListaDeInstancias(socketInstancia);
+	enviarRespuestaAlEsi(ERROR_CLAVE_INACCESIBLE, sock, logger);
+}
+
+bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion, bool avisarClaveInaccesible){
 
 	if (enviarInstruccion(logger, instruccion, instanciaALlamar->socket)==-1)
 	{
-		log_info(logger, "La instancia ya no está");
-		eliminarInstanciaDeLaListaDeInstancias(instanciaALlamar->socket);
-		enviarRespuestaAlEsi(ERROR_CLAVE_INACCESIBLE, sock, logger);
+		if (avisarClaveInaccesible){
+			instanciaCaida(instanciaALlamar->socket, sock);
+		}
+
+		modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar);
+
+		return false;
 	}
 
 	else{
@@ -299,9 +319,10 @@ void enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 	int32_t entradasEnUsoDeLaInstancia;
 	recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 	registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+	return true;
 }
 
-void eliminarInstanciaDeLaListaDeInstancias(int socket){
+void eliminarInstanciaYClaveDeLaListaDeInstancias(int socket){
 	bool equals(instancia* item) {
 
 			if (item->socket == socket)
@@ -310,14 +331,32 @@ void eliminarInstanciaDeLaListaDeInstancias(int socket){
 					return false;
 		}
 
-		list_remove_and_destroy_by_condition(listaDeInstancias,(void *) equals, (void *)destruirInstancia );
-		printf("la nueva lista de instancias es: \n");
-		mostrarListaIntancias(listaDeInstancias);
+	bool equals2(claveConInstancia* item) {
+
+			if (item->instancia->socket == socket)
+					return true;
+			else
+					return false;
+		}
+
+	list_remove_and_destroy_by_condition(listaDeClavesConInstancia,(void *) equals2, (void *)destruirClaveConInstancia );
+	printf("la nueva lista de claves es: \n");
+	mostrarLista(listaDeClavesConInstancia);
+
+	list_remove_and_destroy_by_condition(listaDeInstancias,(void *) equals, (void *)destruirInstancia );
+	printf("la nueva lista de instancias es: \n");
+	mostrarListaIntancias(listaDeInstancias);
+
 	}
 
 
 void destruirInstancia(instancia* instancia){
 	free(instancia);
+}
+
+void destruirClaveConInstancia(claveConInstancia* claveConInstancia){
+	free(claveConInstancia->clave);
+	free(claveConInstancia);
 }
 
 claveConInstancia* nuevaClaveConInstancia(char* clave){
@@ -331,6 +370,7 @@ claveConInstancia* nuevaClaveConInstancia(char* clave){
 
 
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave){
+	letrasDeLaInstancia = list_create();
 
 	if (strcmp(coordConfig->algoritmo, "EL") == 0){
 		log_info(logger, "ALGORITMO EQUITATIVE LOAD");
@@ -351,7 +391,7 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave){
 			if (strcmp(coordConfig->algoritmo, "KE")==0){
 				log_info(logger, "ALGORITMO KE-----------------------------------");
 				mostrarListaIntancias(listaDeInstancias);
-				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave);
+				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia);
 				log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
 				return instanciaElegida;
 			}
@@ -360,8 +400,15 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave){
 			}
 		}
 		}
+	destruirLetrasDeLaInstancia();
 	return NULL; //ESTO NO DEBERIA PASAR
 
+}
+
+void destruirLetrasDeLaInstancia(){
+	for (int i=0; i< list_size(letrasDeLaInstancia);i++){
+		list_remove(letrasDeLaInstancia,i);
+	}
 }
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva){
 	claveConInstancia* elemento =  instanciaQueTieneLaClave(clave);

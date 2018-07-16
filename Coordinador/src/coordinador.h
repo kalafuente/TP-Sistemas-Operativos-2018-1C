@@ -40,6 +40,13 @@ typedef struct claveConInstancia{
 }claveConInstancia;
 ;
 
+
+typedef struct instanciaYSusCaracteres {
+	instancia * instancia;
+	t_list* caracteres;
+}instanciaYSusCaracteres;
+
+
 #include "booleanasSobreListas.h"
 #include "mostrarListas.h"
 #include "distribucion.h"
@@ -50,7 +57,7 @@ typedef struct claveConInstancia{
 #include "respuestasAlESI.h"
 //---------------------------VARIABLES GLOBALES-----------------------------
 
-
+t_list* letrasDeLaInstancia;
 int cantEsi;
 coordinador_config * coordConfig;
 
@@ -77,12 +84,14 @@ void crearServidor();
 int listenningSocket;
 
 void cerrarTodo();
+void destruirLetrasDeLaInstancia();
 
 //-----------Funciones auxiliares
-void enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion);
+bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion, bool avisarClaveInaccesible);
 void mandarConfiguracionAInstancia(int sock);
 void registrarInstancia(int sock);
 void procesarInstruccion(t_instruccion * instruccion, int sock);
+PROTOCOLO_PLANIFICADOR_A_COORDINADOR  estadoEsi(PROTOCOLO_COORDINADOR_A_PLANIFICADOR estadoClave, int socketPlani, char * clave);
 
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave);
 
@@ -90,12 +99,13 @@ instancia nuevaInstanciaNula();
 t_instruccion* recibirInstruccionDelEsi(int sock);
 
 void destruirInstruccion(t_instruccion*);
-
+void instanciaCaida(int socketInstancia, int sock);
 claveConInstancia* instanciaQueTieneLaClave(char* clave);
 claveConInstancia* nuevaClaveConInstancia(char* clave);
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva);
-void eliminarInstanciaDeLaListaDeInstancias(int socket);
+void eliminarInstanciaYClaveDeLaListaDeInstancias(int socket);
 void destruirInstancia(instancia* instancia);
+void destruirClaveConInstancia(claveConInstancia* claveConInstancia);
 void retardo();
 
 //-----------Sockets

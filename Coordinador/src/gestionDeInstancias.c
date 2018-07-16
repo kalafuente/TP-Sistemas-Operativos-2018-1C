@@ -96,7 +96,7 @@ void eliminarClave(int socket, t_list* listaDeClavesConInstancia ){
 
 	list_remove_and_destroy_by_condition(listaDeClavesConInstancia,(void *) equals, (void *)destruirClaveConInstancia );
 	printf("la nueva lista de claves es: \n");
-	mostrarLista(listaDeClavesConInstancia);
+	mostrarListaDeClaves(listaDeClavesConInstancia);
 
 	}
 

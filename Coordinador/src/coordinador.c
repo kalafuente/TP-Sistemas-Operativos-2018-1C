@@ -69,64 +69,53 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
 	t_instruccion* instruccionAGuardar;
-
 	saludar(sock);
-	PROTOCOLO_HANDSHAKE_CLIENTE handshake = recibirSaludo(sock);
 
+	switch(recibirSaludo(sock)){
 
-	//----------IDENTIFICO A QUIEN SE ME CONECTA
-	switch(handshake){
+		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
+			log_info(logger, "Se me conectó una Instancia");
+			mandarConfiguracionAInstancia(sock);
+			registrarInstancia(sock);
+			mostrarListaIntancias(listaDeInstancias);
+			break;
 
+		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
+			log_info(logger, "Se me conectó un Esi");
+			PROTOCOLO_ESI_A_COORDI esi;
 
-	case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
-		log_info(logger, "Se me conectó una Instancia");
-		mandarConfiguracionAInstancia(sock);
-		registrarInstancia(sock);
-		mostrarListaIntancias(listaDeInstancias);
-		break;
-
-
-	case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
-		log_info(logger, "Se me conectó un Esi");
-		//recibirInstruccion(sock, &instruccionAGuardar);
-		PROTOCOLO_ESI_A_COORDI esi;
-
-		recibirMensaje(logger,sizeof(esi), &esi, sock);
-		instruccionAGuardar=recibirInstruccionDelEsi(sock);
-
-		while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
-
-			procesarInstruccion(instruccionAGuardar,sock);
-			retardo();
-
-			destruirInstruccion(instruccionAGuardar);
 			recibirMensaje(logger,sizeof(esi), &esi, sock);
 			instruccionAGuardar=recibirInstruccionDelEsi(sock);
-		}
 
-		if (esi == TERMINE_INSTRUCCIONES){
-			log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
-		}
+			while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
 
-		if (instruccionAGuardar== NULL){
-			log_info(logger, "no me puedo conectar con esi");
-		}
-		break;
+				procesarInstruccion(instruccionAGuardar,sock);
+				retardo();
+
+				destruirInstruccion(instruccionAGuardar);
+				recibirMensaje(logger,sizeof(esi), &esi, sock);
+				instruccionAGuardar=recibirInstruccionDelEsi(sock);
+			}
+
+			if (esi == TERMINE_INSTRUCCIONES)
+				log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
+
+			if (instruccionAGuardar== NULL)
+				log_info(logger, "no me puedo conectar con esi");
+
+			break;
 
 		case HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR:
 			log_info(logger, "Se me conectó el planificador");
 			socketPlani = sock;
 			printf("\n socket: %d", sock);
 			printf("\n socketguardado: %d", socketPlani);
-		break;
+			break;
 
 	}
 
-	//close(sock)
 	printf("\n termino el hilo\n ");
 	return NULL;
-
-
 }
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
@@ -135,12 +124,12 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 	claveConInstancia* instanciaConLaClave;
 
 	switch(instruccion->instruccion){
+
 		case INSTRUCCION_GET:
 			log_info(logger, "ESI ENVIO UN GET");
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene este GET");
-				printf ("\n mostrar lista\n ");
-				mostrarLista(listaDeClavesConInstancia);
+				mostrarListaDeClaves(listaDeClavesConInstancia);
 				switch(estadoEsi(PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion->clave)){
 					case CLAVE_DISPONIBLE:
 						enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
@@ -158,17 +147,19 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 				claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave);
 				list_add(listaDeClavesConInstancia, clavenueva);
 				log_info(logger, "Se agrego esta clave: %s", clavenueva->clave);
-				printf ("\n mostrar lista\n ");
-				mostrarLista(listaDeClavesConInstancia);
+				mostrarListaDeClaves(listaDeClavesConInstancia);
 				enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 			}
 
-		break;
+			break;
+
 		case INSTRUCCION_SET:
 			log_info(logger, "ESI ENVIO UN SET");
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene este GET");
+
 				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE, socketPlani,instruccion->clave)){
+
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
 						instancia * instanciaQueTieneSetClave = instanciaQueTieneLaClave(instruccion->clave, listaDeClavesConInstancia)->instancia;
@@ -186,9 +177,11 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 							enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion, true);
 						}
 						break;
+
 					case ESI_NO_TIENE_CLAVE:
 							enviarRespuestaAlEsi(ERROR_CLAVE_NO_BLOQUEADA, sock, logger);
 							break;
+
 					default:
 							log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
 							break;
@@ -197,12 +190,13 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			else
 				enviarRespuestaAlEsi(ERROR_CLAVE_NO_IDENTIFICADA, sock, logger);
 
-		break;
+			break;
 		case INSTRUCCION_STORE:
 			log_info(logger, "ESI ENVIO UN STORE");
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene esta clave");
 				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE,socketPlani,instruccion->clave)){
+
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
 						instanciaConLaClave = instanciaQueTieneLaClave(instruccion->clave, listaDeClavesConInstancia);
@@ -233,9 +227,11 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 							}
 						break;
+
 					case ESI_NO_TIENE_CLAVE:
 						enviarRespuestaAlEsi(ERROR_CLAVE_NO_BLOQUEADA, sock, logger);
 						break;
+
 					default:
 						log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");
 						break;
@@ -243,9 +239,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			}
 			else
 				enviarRespuestaAlEsi(ERROR_CLAVE_NO_IDENTIFICADA, sock, logger);
-
 			break;
-
 		}
 }
 

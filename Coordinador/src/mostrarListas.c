@@ -1,6 +1,8 @@
 #include "mostrarListas.h"
 
-void mostrarLista(t_list* lista){
+void mostrarListaDeClaves(t_list* lista){
+	printf ("\n La lista de claves es\n ");
+
 	if (list_size(lista)==0){
 			printf("No hay más claves \n");
 		}

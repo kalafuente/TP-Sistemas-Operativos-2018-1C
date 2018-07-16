@@ -51,7 +51,7 @@ void avisarAlCoordi(PROTOCOLO_ESI_A_COORDI mensaje);
 t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
-void abortarEsi(char* causa);
+void abortarEsi(const char* causa);
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;

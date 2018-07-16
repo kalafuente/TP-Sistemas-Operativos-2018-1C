@@ -47,10 +47,9 @@ void mostrar(t_list* lista){
 	list_iterate(lista, (void *) mostrar);
 }
 
-instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribucion, char * clave){
+instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribucion, char * clave, t_list* letrasDeLaInstancia){
 	log_info(logControlDeDistribucion, "KE");
 	agregarAlfabeto();
-	letrasDeLaInstancia = list_create(); // hay que destruirla
 
 	int bloques = (int) ceil ((double) list_size(alfabeto)/ (double) list_size(listaDeInstancias));
 
@@ -77,6 +76,7 @@ instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribuci
 	obtenerInicial(clave, inicial);
 	printf ("la inicial es %s\n", inicial);
 	return (instanciaQueTieneLaLetra(letrasDeLaInstancia, inicial))->instancia;
+	destruirAlfabeto();
 
 }
 
@@ -105,6 +105,8 @@ void destruirAlfabeto(){
 	}
 	list_destroy(alfabeto);
 }
+
+
 
 instanciaYSusCaracteres * instanciaQueTieneLaLetra(t_list* list, void* inicial){
 

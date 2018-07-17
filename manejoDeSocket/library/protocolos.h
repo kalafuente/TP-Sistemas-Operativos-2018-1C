@@ -106,4 +106,7 @@ int enviarClave(t_log* logger,char* clave, int sock);
 char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave);
 t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien);
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
+char* recibirID(int sock, t_log* logger);
+int enviarID(int sock ,char* mensaje, t_log* logger);
+
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

@@ -97,6 +97,9 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 
 }
 
+
+
+
 int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 {
 	int32_t lenClave = strlen(instruccion->clave)+1;
@@ -202,5 +205,58 @@ void destruirInstruccion(t_instruccion* instruccion)
 	free(instruccion->valor);
 	free(instruccion);
 }
+char* recibirID(int sock, t_log* logger) {
+	int32_t lenClave = 0;
+	recibirMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	char* buffer;
+
+	if (lenClave < 0) {
+		log_error(logger,"Error al recibir tamaño");
+		return NULL;
+	}
+	if(lenClave == 0 ){
+		return NULL;
+	}
+
+	buffer = malloc(lenClave+1);
+
+	if (recv(sock, buffer,lenClave, MSG_WAITALL) < 0) {
+		log_error(logger,"Error al recibir string");
+		free(buffer);
+		return NULL;
+	}
+
+	buffer[lenClave] = '\0';
+
+	return buffer;
+}
+int enviarID(int sock ,char* id, t_log* logger){
+
+
+	int total =0;
+	int lenClave = string_length(id);
+	int pendiente = lenClave;
+	char* string = string_duplicate(id);
+
+	if (enviarMensaje(logger,sizeof(int32_t),&lenClave,sock) < 0) {
+				log_error (logger, "No se pudo enviar tamaño");
+				free(string);
+				return -1;
+	}
+
+	while (total < pendiente) {
+
+	int enviado = send(sock, string, lenClave, MSG_NOSIGNAL);
+		if (enviado < 0) {
+			free(string);
+			return -1;
+		}
+		total += enviado;
+		pendiente -= enviado;
+	}
+    free(string);
+    return total;
+}
+
 
 

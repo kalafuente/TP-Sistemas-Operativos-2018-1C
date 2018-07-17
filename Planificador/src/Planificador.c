@@ -152,6 +152,7 @@ void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
 	elemento->clave = string_new();
 	string_append(&elemento->clave, clave);
 	elemento->ESI = esiActual;
+	list_add(listaBloqueado, elemento);
 }
 
 
@@ -522,25 +523,11 @@ void listar(t_list* lista, char* clave){
 
 }
 
+char* claveEsiClaves(struct_esiClaves* esiClave){
+	return esiClave->clave;
+}
 
-void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
-	int i = 0;
-	int j = list_size(listaBloqueado);
-	printf("Hice el list_size \n");
-	while(i<j){
-		printf("Entre al while \n");
-		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
-		if(strcmp(esiClave->clave, clave) == 0){
-			list_remove(listaBloqueado, i);
-			list_add(listaReady, esiClave);
-			return;
-			}
-		i++;
-		}
-	}
-
-
-int indexOf(t_list* lista, int valorBuscado){
+int indexOf(t_list* lista, void* valorBuscado){
 	int i;
 	int j = sizeof(lista);
 	while(i<j){
@@ -552,13 +539,42 @@ int indexOf(t_list* lista, int valorBuscado){
 	return -1;
 }
 
+int indexOfString(t_list* lista, char* valorBuscado){
+	int i;
+	int j = sizeof(lista);
+	while(i<j){
+		if(strcmp(valorBuscado, list_get(lista, i)) == 0){
+			return i;
+		}
+		i++;
+	}
+	return -1;
+}
+
+void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
+	int i = 0;
+	int j = list_size(listaBloqueado);
+	printf("Hice el list_size \n");
+	while(i<j){
+		printf("Entre al while \n");
+		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
+		if(strcmp(esiClave->clave, clave) == 0){
+			list_remove(listaBloqueado, i);
+			list_add(listaReady, esiClave);
+			int k = indexOfString(list_map(listaEsiClave, claveEsiClaves), clave);
+			list_remove(listaEsiClave, k);
+			sem_post(&cantidadEsisEnReady);
+			return;
+			}
+		i++;
+		}
+	}
+
 int idEsi(struct_esi* esi){
 	return esi->ID;
 }
 
-char* claveEsiClaves(struct_esiClaves* esiClave){
-	return esiClave->clave;
-}
+
 
 bool esIgualA(void* elem1, void* elem2){
 	return elem1 == elem2;
@@ -653,7 +669,7 @@ void* consola() {
 		}
 		if (!strncmp(comando, "desbloquear", 11)) {
 
-			if(!contains(listaClaves, parametros)){
+			if(!contains(list_map(listaEsiClave, claveEsiClaves), parametros)){
 				strcpy(parametros, "NO EXISTE LA CLAVE");
 			}else{
 				desbloquear(listaBloqueado, listaReady, parametros);

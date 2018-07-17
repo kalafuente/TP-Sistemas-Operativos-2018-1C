@@ -89,8 +89,7 @@ void retardo();
 void destruirListas();
 void destruirLoggers();
 void killCoordinador();
-bool existeID(char * id, t_list * listaInstancia);
-void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia);
+
 //Sockets
 
 void crearServidorMultiHilo();

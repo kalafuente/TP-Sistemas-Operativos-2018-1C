@@ -138,31 +138,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 	return NULL;
 }
 
-void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia){
-	bool yaExisteID(instancia* item) {
-				int rta = strcmp(id, item->identificador);
-				if (rta == 0)
-						return true;
-				else
-						return false;
-			}
-
-	instancia * instancia = list_find(listaInstancia, (void *) yaExisteID);
-	instancia->socket = sock;
-}
-
-
-bool existeID(char * id, t_list * listaInstancia){
-	bool yaExisteID(instancia* item) {
-			int rta = strcmp(id, item->identificador);
-			if (rta == 0)
-					return true;
-			else
-					return false;
-		}
-	return list_any_satisfy(listaInstancia,(void *) yaExisteID);
-}
-
 void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 	log_info(logger,"entro a procesarInstruccion");

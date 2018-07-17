@@ -121,6 +121,31 @@ void eliminarInstancia(int socket, t_list* listaDeInstancias){
 
 
 
+void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia){
+	bool yaExisteID(instancia* item) {
+				int rta = strcmp(id, item->identificador);
+				if (rta == 0)
+						return true;
+				else
+						return false;
+			}
+
+	instancia * instancia = list_find(listaInstancia, (void *) yaExisteID);
+	instancia->socket = sock;
+}
+
+
+bool existeID(char * id, t_list * listaInstancia){
+	bool yaExisteID(instancia* item) {
+			int rta = strcmp(id, item->identificador);
+			if (rta == 0)
+					return true;
+			else
+					return false;
+		}
+	return list_any_satisfy(listaInstancia,(void *) yaExisteID);
+}
+
 
 void destruirInstancia(instancia* instancia){
 	free(instancia->identificador);

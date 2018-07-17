@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 
 
 
-void abortarEsi(char* causa){
+void abortarEsi(const char * causa){
 	if(script!=NULL){
 		fclose(script);
 	}

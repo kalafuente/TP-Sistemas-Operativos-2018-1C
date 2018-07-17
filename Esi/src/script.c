@@ -27,7 +27,6 @@ t_instruccion* leerInstruccion(char* line){
 
 	if(! parsed.valido){
 		free(line);
-		fclose(script);
 		enviarResultadoAlPlanificador(ERROR);
 		abortarEsi("CLAVE INVALIDA");
 	}

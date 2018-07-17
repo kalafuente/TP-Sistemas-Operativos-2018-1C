@@ -84,7 +84,7 @@ void crearServidor();
 void cerrarTodo();
 void procesarInstruccion(t_instruccion * instruccion, int sock);
 void destruirInstruccion(t_instruccion*);
-void instanciaCaida(int socketInstancia, int sock);
+void instanciaCaida(char * clave, int sock);
 void retardo();
 void destruirListas();
 void destruirLoggers();

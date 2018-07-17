@@ -226,7 +226,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						instanciaConLaClave = instanciaQueTieneLaClave(instruccion->clave, listaDeClavesConInstancia);
 						log_info(logger, "el Socket de la instancia que tiene la clave es: %d",instanciaConLaClave->instancia->socket);
 						if (enviarInstruccion(logger, instruccion,instanciaConLaClave->instancia->socket)==-1){
-							instanciaCaida(instanciaConLaClave->instancia->socket, sock);
+							instanciaCaida(instruccion->clave, sock);
 						}
 						else{
 							log_info(logger, "envie STORE A INSTANCIA");
@@ -268,10 +268,10 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 }
 
 
-void instanciaCaida(int socketInstancia, int sock){
+void instanciaCaida(char * clave, int sock){
 	log_info(logger, "La instancia ya no está");
-	eliminarClave(socketInstancia, listaDeClavesConInstancia);
-	eliminarInstancia(socketInstancia, listaDeInstancias);
+	eliminarClave(listaDeClavesConInstancia, clave);
+	//eliminarInstancia(socketInstancia, listaDeInstancias); porque podría ser que tenga otra clave y se pueda reconectar
 	enviarRespuestaAlEsi(ERROR_CLAVE_INACCESIBLE, sock, logger);
 }
 

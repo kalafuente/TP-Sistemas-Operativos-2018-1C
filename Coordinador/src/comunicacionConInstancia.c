@@ -5,7 +5,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 	if (enviarInstruccion(logger, instruccion, instanciaALlamar->socket)==-1)
 	{
 		if (avisarClaveInaccesible){
-			instanciaCaida(instanciaALlamar->socket, sock);
+			instanciaCaida(instruccion->clave, sock);
 		}
 		eliminarInstancia(instanciaALlamar->socket, listaDeInstancias);
 		return false;

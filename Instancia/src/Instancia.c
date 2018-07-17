@@ -31,6 +31,7 @@ int main(void)
 
 }
 
+
 int recibirConfiguracionDeEntradas()
 {
 	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
@@ -106,7 +107,7 @@ int handShakeConElCoordinador()
 	}
 
 	log_info(logger, "Handshake Exitoso!\n");
-
+	enviarID(socketCoordinador,instanciaConfig->nombre,logger);
 	return 1;
 }
 

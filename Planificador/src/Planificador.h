@@ -52,7 +52,7 @@ sem_t pausarPlanificacion;
 sem_t cantidadEsisEnReady;
 
 t_log* logger;
-t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados,
+t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,
 		*listaEsiClave; //creamos listas para situacion de los Esi's; //creamos listas para situacion de los Esi's
 int IdDisponible = 0;
 pthread_mutex_t mutex;

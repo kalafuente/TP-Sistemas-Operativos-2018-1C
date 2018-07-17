@@ -4,7 +4,7 @@
 
 void registrarEntradasOcupadasDeLaInstancia(int entradasOcupadas, instancia * instancia);
 void registrarInstancia(int sock, char * id);
-void eliminarClave(int socket, t_list* listaDeClavesConInstancia);
+void eliminarClave(t_list* listaDeClavesConInstancia, char * clave );
 void eliminarInstancia(int socket, t_list* lista);
 void destruirInstancia(instancia* instancia);
 void destruirClaveConInstancia(claveConInstancia* claveConInstancia);

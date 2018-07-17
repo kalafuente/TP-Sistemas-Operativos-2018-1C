@@ -90,18 +90,22 @@ void registrarEntradasOcupadasDeLaInstancia(int entradasOcupadas, instancia * in
 
 }
 
-void eliminarClave(int socket, t_list* listaDeClavesConInstancia ){
+
+
+void eliminarClave(t_list* listaDeClavesConInstancia, char * clave ){
+	printf("la lista de claves vieja es: \n");
+	mostrarListaDeClaves(listaDeClavesConInstancia);
 
 	bool equals(claveConInstancia* item) {
-
-			if (item->instancia->socket == socket)
+			int rta = strcmp(clave, item->clave);
+			if (rta == 0)
 					return true;
 			else
 					return false;
 		}
 
 	list_remove_and_destroy_by_condition(listaDeClavesConInstancia,(void *) equals, (void *)destruirClaveConInstancia );
-	printf("la nueva lista de claves es: \n");
+
 	mostrarListaDeClaves(listaDeClavesConInstancia);
 
 	}

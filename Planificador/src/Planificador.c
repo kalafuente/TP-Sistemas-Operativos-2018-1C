@@ -377,6 +377,7 @@ void crearListas() {
 	listaEjecutando = list_create();
 	listaTerminados = list_create();
 	listaEsiClave = list_create();
+	listaClaves = list_create();
 }
 
 void * recibirEsi(void* socketEscucha) {
@@ -500,69 +501,88 @@ void procesarLinea(char* linea, char ** comando, char ** parametros) {
 }
 
 
-//void listar(t_list* lista, char* clave){
-//	log_info(logger, "Entre al listar");
-//	int i = 0;
-//	int j = sizeof(lista);
-//	log_info(logger, "Hice el sizeof");
-//	while(i<j){
-//		struct_esiClaves* esiClave = list_get(lista, i);
-//		log_info(logger, "agarre el esiClave");
-//		char* claveEsi = calloc(1, sizeof(esiClave->clave));
-//		strcpy(claveEsi, esiClave->clave);
-//		log_info(logger, "Copie la clave");
-//		if(strcmp(claveEsi, clave) == 0){
-//			log_info(logger, "Entre al if");
-//			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
-//		}
-//		i++;
-//	}
-//	return;
-//
-//}
+void listar(t_list* lista, char* clave){
+	log_info(logger, "Entre al listar");
+	int i = 0;
+	int j = sizeof(lista);
+	log_info(logger, "Hice el sizeof");
+	while(i<j){
+		struct_esiClaves* esiClave = list_get(lista, i);
+		log_info(logger, "agarre el esiClave");
+		char* claveEsi = calloc(1, sizeof(esiClave->clave));
+		strcpy(claveEsi, esiClave->clave);
+		log_info(logger, "Copie la clave");
+		if(strcmp(claveEsi, clave) == 0){
+			log_info(logger, "Entre al if");
+			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
+		}
+		i++;
+	}
+	return;
 
-//
-//void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
-//	int i = 0;
-//	int j = list_size(listaBloqueado);
-//	printf("Hice el list_size \n");
-//	while(i<j){
-//		printf("Entre al while \n");
-//		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
-//		if(strcmp(esiClave->clave, clave) == 0){
-//			list_remove(listaBloqueado, i);
-//			list_add(listaReady, esiClave);
-//			return;
-//			}
-//		i++;
-//		}
-//	}
+}
 
 
-//int indexOf(t_list* lista, int valorBuscado){
-//	int i;
-//	int j = sizeof(lista);
-//	while(i<j){
-//		if(valorBuscado == list_get(lista, i)){
-//			return i;
-//		}
-//		i++;
-//	}
-//	return -1;
-//}
+void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
+	int i = 0;
+	int j = list_size(listaBloqueado);
+	printf("Hice el list_size \n");
+	while(i<j){
+		printf("Entre al while \n");
+		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
+		if(strcmp(esiClave->clave, clave) == 0){
+			list_remove(listaBloqueado, i);
+			list_add(listaReady, esiClave);
+			return;
+			}
+		i++;
+		}
+	}
 
-//int contains(t_list* lista, int elemento){
-//	int i = 0;
-//	int j = sizeof(lista);
-//	while (i<j){
-//		if (elemento == list_get(lista, i)){
-//			return true;
-//		}
-//		i++;
-//	}
-//	return false;
-//}
 
+int indexOf(t_list* lista, int valorBuscado){
+	int i;
+	int j = sizeof(lista);
+	while(i<j){
+		if(valorBuscado == list_get(lista, i)){
+			return i;
+		}
+		i++;
+	}
+	return -1;
+}
+
+int idEsi(struct_esi* esi){
+	return esi->ID;
+}
+
+char* claveEsiClaves(struct_esiClaves* esiClave){
+	return esiClave->clave;
+}
+
+bool esIgualA(void* elem1, void* elem2){
+	return elem1 == elem2;
+}
+
+bool contains(t_list* lista, void* elemento){
+	int i = 0;
+	int j = sizeof(lista);
+	while (i<j){
+		if (elemento == list_get(lista, i)){
+			return true;
+		}
+		i++;
+	}
+	return false;
+}
+
+struct_esiClaves* crearEsiClaves(struct_esi* esi, char* clave){
+	struct_esiClaves* esiClave = calloc(1, sizeof(struct_esiClaves));
+	esiClave->ESI = esi;
+	esiClave->clave = clave;
+
+	return esiClave;
+}
 
 void* consola() {
 	char * linea;
@@ -602,54 +622,54 @@ void* consola() {
 		if (!strncmp(comando, "bloquear", 8)) {
 			char* clave = strtok(parametros, " ");
 			char* id = strtok(NULL, " ");
-//			struct_esi* esiID = calloc(1, sizeof(struct_esi));
-//			esiID->ID = strtol(id, NULL, 10);
-//			if(!contains((list_map(listaReady, idEsi)), id) && !contains((list_map(listaEjecutando, idEsi)), id)){
-//				strcpy(id, "ESI NO EXISTENTE");
-//			    if(!contains(listaEsiClave, clave)){
-//			    	list_add(listaEsiClave, crearEsiClaves(NULL, clave));
-//			    		}
-//			    	}else{
-//			    			if(!contains(listaEsiClave, clave)){
-//			    				list_add(listaEsiClave, crearEsiClaves(esiID, clave));
-//			    			}
-//			    	 		if(contains((list_map(listaReady, idEsi)), id)){
-//			    				//bloquear(id, clave);
-//			    	 			int index = indexOf((list_map(listaReady, idEsi)), id);
-//			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
-//			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
-//			    	 			list_add(listaBloqueado, esiClavesBloqueado);
-//			    			}
-//			    	 		if(contains((list_map(listaEjecutando, idEsi)), id)){
-//			    				//bloquear(id, clave);
-//			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), id);
-//			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
-//			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
-//			    	 			list_add(listaBloqueado, esiClavesBloqueado);
-//			    			}
-//			    		}
+			struct_esi* esiID = calloc(1, sizeof(struct_esi));
+			esiID->ID = strtol(id, NULL, 10);
+			if(!contains((list_map(listaReady, idEsi)), id) && !contains((list_map(listaEjecutando, idEsi)), id)){
+				strcpy(id, "ESI NO EXISTENTE");
+			    if(!contains(list_map(listaEsiClave, claveEsiClaves), clave)){
+			    	list_add(listaEsiClave, crearEsiClaves(NULL, clave));
+			    		}
+			    	}else{
+			    			if(!contains(listaEsiClave, clave)){
+			    				list_add(listaEsiClave, crearEsiClaves(esiID, clave));
+			    			}
+			    	 		if(contains((list_map(listaReady, idEsi)), id)){
+			    				//bloquear(id, clave);
+			    	 			int index = indexOf((list_map(listaReady, idEsi)), id);
+			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
+			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+			    			}
+			    	 		if(contains((list_map(listaEjecutando, idEsi)), id)){
+			    				//bloquear(id, clave);
+			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), id);
+			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
+			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+			    			}
+			    		}
 			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
 		if (!strncmp(comando, "desbloquear", 11)) {
 
-			//if(!contains(listaClaves, parametros){
-			//	parametros = strcpy("NO EXISTE LA CLAVE");
-			//}else{
-			//	desbloquear(listaBloqueados, clave);
-			//}
+			if(!contains(listaClaves, parametros)){
+				strcpy(parametros, "NO EXISTE LA CLAVE");
+			}else{
+				desbloquear(listaBloqueado, listaReady, parametros);
+			}
 
 			printf("Se desbloqueo la clave %s \n", parametros);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
-		if (!strncmp(comando, "listar", 6)) {
+/*		if (!strncmp(comando, "listar", 6)) {
 
-			// t_list listaEsperando = filter(listaBloqueados, elem.clave == parametros);
-			// char* esperando = strcpy(toString(listaEsperando));
+			 t_list listaEsperando = list_filter(listaBloqueado);
+			 char* esperando = strcpy(toString(listaEsperando));
 
 			printf("El recurso %s esta siendo esperado por: \n", parametros);
 			//Lista los procesos encolados esperando al recurso.
-		}
+		}*/
 		if (!strncmp(comando, "kill", 4)) {
 			printf("Se elimino el proceso %s \n", parametros);
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.

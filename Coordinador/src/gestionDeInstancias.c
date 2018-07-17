@@ -22,7 +22,7 @@ void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanc
 }
 
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* logControlDeDistribucion, t_list* letrasDeLaInstancia){
-	letrasDeLaInstancia = list_create();
+
 
 	if (strcmp(coordConfig->algoritmo, "EL") == 0){
 		log_info(logger, "ALGORITMO EQUITATIVE LOAD");
@@ -42,9 +42,13 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 		else {
 			if (strcmp(coordConfig->algoritmo, "KE")==0){
 				log_info(logger, "ALGORITMO KE-----------------------------------");
+				letrasDeLaInstancia = list_create();
+				alfabeto = crearAlfabeto();
 				mostrarListaIntancias(listaDeInstancias);
-				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia);
+				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia, alfabeto);
 				log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
+				destruirLetrasDeLaInstancia(letrasDeLaInstancia);
+				destruirAlfabeto(alfabeto);
 				return instanciaElegida;
 			}
 			else{
@@ -52,7 +56,7 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 			}
 		}
 		}
-	destruirLetrasDeLaInstancia(letrasDeLaInstancia);
+	;
 	return NULL; //ESTO NO DEBERIA PASAR
 
 }
@@ -125,11 +129,16 @@ void destruirClaveConInstancia(claveConInstancia* claveConInstancia){
 	free(claveConInstancia);
 }
 
-
 void destruirLetrasDeLaInstancia(t_list* letrasDeLaInstancia){
-	for (int i=0; i< list_size(letrasDeLaInstancia);i++){
-		list_remove(letrasDeLaInstancia,i);
-	}
+	list_destroy_and_destroy_elements(letrasDeLaInstancia, (void *)destruirListaDeLetras);
+}
+
+void destruirListaDeLetras(instanciaYSusCaracteres* elementoLista){
+	list_destroy_and_destroy_elements(elementoLista->caracteres, (void *)destruirChar);
+}
+
+void destruirChar(char* letra){
+	free(letra);
 }
 
 

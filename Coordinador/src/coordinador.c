@@ -7,13 +7,14 @@ int main(int argc, char **argv) {
 	prepararConfiguracion();
 	crearListas();
 	crearServidor();
-	cerrarTodo();
+	killCoordinador();
 	return 0;
 
 }
 
 void cerrarTodo(){
 	close(listenningSocket);
+	close(socketPlani);
 	destroy_coordConfig(coordConfig);
 	config_destroy(config);
 
@@ -91,17 +92,21 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 				procesarInstruccion(instruccionAGuardar,sock);
 				retardo();
-
 				destruirInstruccion(instruccionAGuardar);
 				recibirMensaje(logger,sizeof(esi), &esi, sock);
 				instruccionAGuardar=recibirInstruccionDelEsi(sock);
 			}
 
-			if (esi == TERMINE_INSTRUCCIONES)
+			if (esi == TERMINE_INSTRUCCIONES){
 				log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
+				close(sock);
+			}
 
-			if (instruccionAGuardar== NULL)
+			if (instruccionAGuardar== NULL){
 				log_info(logger, "no me puedo conectar con esi");
+				close(sock);
+			}
+
 
 			break;
 
@@ -130,7 +135,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene este GET");
 				mostrarListaDeClaves(listaDeClavesConInstancia);
-				switch(estadoEsi(PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion->clave)){
+				switch(estadoEsi(logger,PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion)){
 					case CLAVE_DISPONIBLE:
 						enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 						break;
@@ -158,7 +163,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene este GET");
 
-				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE, socketPlani,instruccion->clave)){
+				switch(estadoEsi(logger,PREGUNTA_ESI_TIENE_CLAVE, socketPlani,instruccion)){
 
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
@@ -166,6 +171,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						if (instanciaQueTieneSetClave == NULL){
 							log_info(logControlDeDistribucion,"NO HAY SET PREVIO DE ESTA CLAVE");
 							instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+
 							bool seEnvio = enviarSETaInstancia(instanciaALlamar,sock, instruccion, false);
 							while(!seEnvio){
 								instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
@@ -176,6 +182,9 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 							log_info(logControlDeDistribucion,"HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: %d",instanciaQueTieneSetClave->socket );
 							enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion, true);
 						}
+
+
+
 						break;
 
 					case ESI_NO_TIENE_CLAVE:
@@ -195,7 +204,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			log_info(logger, "ESI ENVIO UN STORE");
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene esta clave");
-				switch(estadoEsi(PREGUNTA_ESI_TIENE_CLAVE,socketPlani,instruccion->clave)){
+				switch(estadoEsi(logger, PREGUNTA_ESI_TIENE_CLAVE,socketPlani,instruccion)){
 
 					case ESI_TIENE_CLAVE:
 						log_info(logger,"ESI TIENE CLAVE");
@@ -254,4 +263,22 @@ void instanciaCaida(int socketInstancia, int sock){
 
 void retardo(){
 	usleep(1000 * coordConfig->retardo);
+}
+
+void killCoordinador(){
+	destruirListas();
+	destruirLoggers();
+	cerrarTodo();
+}
+
+void destruirListas(){
+	list_destroy_and_destroy_elements(listaDeInstancias, (void *)destruirInstancia);
+	list_destroy_and_destroy_elements(listaDeClavesConInstancia, (void *)destruirClaveConInstancia);
+}
+
+void destruirLoggers(){
+	log_destroy(logger);
+	log_destroy(logDeOperaciones);
+	log_destroy(logControlDeDistribucion);
+
 }

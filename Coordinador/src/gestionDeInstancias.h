@@ -13,5 +13,7 @@ void destruirLetrasDeLaInstancia(t_list* letrasDeLaInstancia);
 claveConInstancia* instanciaQueTieneLaClave(char* clave, t_list* listaDeClavesConInstancia);
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva, t_list* listaDeClavesConInstancia);
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* logControlDeDistribucion, t_list* letrasDeLaInstancia);
-
+void destruirLetrasDeLaInstancia(t_list* letrasDeLaInstancia);
+void destruirListaDeLetras(instanciaYSusCaracteres* elementoLista);
+void destruirChar(char* letra);
 #endif /* GESTIONDEINSTANCIAS_H_ */

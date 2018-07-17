@@ -46,12 +46,13 @@ typedef struct instanciaYSusCaracteres {
 	t_list* caracteres;
 }instanciaYSusCaracteres;
 
+#include "alfabeto.h"
+#include "distribucion.h"
 #include "comunicacionConEsi.h"
 #include "comunicacionConInstancia.h"
 #include "comunicacionConPlanificador.h"
 #include "booleanasSobreListas.h"
 #include "mostrarListas.h"
-#include "distribucion.h"
 #include "configuracion.h"
 #include "logDeOperaciones.h"
 #include "handshakes.h"
@@ -66,6 +67,7 @@ t_log* logControlDeDistribucion;
 coordinador_config * coordConfig;
 t_config *config;
 
+t_list* alfabeto;
 t_list* letrasDeLaInstancia;
 t_list* listaDeInstancias;
 t_list* listaDeClavesConInstancia;
@@ -83,6 +85,9 @@ void procesarInstruccion(t_instruccion * instruccion, int sock);
 void destruirInstruccion(t_instruccion*);
 void instanciaCaida(int socketInstancia, int sock);
 void retardo();
+void destruirListas();
+void destruirLoggers();
+void killCoordinador();
 
 //Sockets
 

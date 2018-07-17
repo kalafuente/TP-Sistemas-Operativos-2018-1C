@@ -47,10 +47,8 @@ void mostrar(t_list* lista){
 	list_iterate(lista, (void *) mostrar);
 }
 
-instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribucion, char * clave, t_list* letrasDeLaInstancia){
+instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribucion, char * clave, t_list* letrasDeLaInstancia, t_list* alfabeto){
 	log_info(logControlDeDistribucion, "KE");
-	agregarAlfabeto();
-
 	int bloques = (int) ceil ((double) list_size(alfabeto)/ (double) list_size(listaDeInstancias));
 
 	for (int i=0; i <list_size(listaDeInstancias); i++){
@@ -76,7 +74,7 @@ instancia * KeyExplicit(t_list* listaDeInstancias, t_log* logControlDeDistribuci
 	obtenerInicial(clave, inicial);
 	printf ("la inicial es %s\n", inicial);
 	return (instanciaQueTieneLaLetra(letrasDeLaInstancia, inicial))->instancia;
-	destruirAlfabeto();
+
 
 }
 
@@ -86,25 +84,6 @@ void obtenerInicial(char * clave, char inicial [1]){
 	inicial[0] = clave[0];
 }
 
-void agregarAlfabeto(){
-	char l [1];
-	alfabeto = list_create();
-	for(int i =97; i<= 122; i++){
-		l[0] = i;
-		char * letra = string_new();
-		string_append(&letra, &l[0]);
-		list_add(alfabeto, letra);
-	}
-
-}
-
-void destruirAlfabeto(){
-	for(int i =0; i<= 25; i++){
-		char* elemento = list_get(alfabeto,i);
-		free (elemento);
-	}
-	list_destroy(alfabeto);
-}
 
 
 

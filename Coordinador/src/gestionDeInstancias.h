@@ -3,7 +3,7 @@
 #include "coordinador.h"
 
 void registrarEntradasOcupadasDeLaInstancia(int entradasOcupadas, instancia * instancia);
-void registrarInstancia(int sock);
+void registrarInstancia(int sock, char * id);
 void eliminarClave(int socket, t_list* listaDeClavesConInstancia);
 void eliminarInstancia(int socket, t_list* lista);
 void destruirInstancia(instancia* instancia);

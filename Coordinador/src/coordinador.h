@@ -27,6 +27,7 @@ typedef struct coordinador_config {
 }coordinador_config;
 
 typedef struct instancia{
+	char * identificador;
 	int socket;
 	int cantEntradasTotales;
 	int tamanioEntradas;
@@ -88,7 +89,8 @@ void retardo();
 void destruirListas();
 void destruirLoggers();
 void killCoordinador();
-
+bool existeID(char * id, t_list * listaInstancia);
+void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia);
 //Sockets
 
 void crearServidorMultiHilo();

@@ -66,6 +66,7 @@ void crearServidorMultiHilo() {
 
 }
 
+
 void *manejadorDeConexiones(void *socket_desc) {
 
 	int sock = *(int*) socket_desc;
@@ -76,9 +77,23 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
 			log_info(logger, "Se me conectó una Instancia");
+
+			char * id = recibirID(sock, logger);
 			mandarConfiguracionAInstancia(sock);
-			registrarInstancia(sock);
-			mostrarListaIntancias(listaDeInstancias);
+			if(existeID(id,listaDeInstancias)){
+				printf("Se reconecta instancia, socket nuevo: %d \n", sock);
+				printf("instancias viejas: \n");
+				mostrarListaIntancias(listaDeInstancias);
+				actualizarSocketInstancia(sock, id, listaDeInstancias);
+				printf("instancias actualizadas: \n");
+				mostrarListaIntancias(listaDeInstancias);
+			}
+			else{
+				printf("Nueva instancia");
+				registrarInstancia(sock, id);
+				mostrarListaIntancias(listaDeInstancias);
+			}
+
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
@@ -121,6 +136,31 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 	printf("\n termino el hilo\n ");
 	return NULL;
+}
+
+void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia){
+	bool yaExisteID(instancia* item) {
+				int rta = strcmp(id, item->identificador);
+				if (rta == 0)
+						return true;
+				else
+						return false;
+			}
+
+	instancia * instancia = list_find(listaInstancia, (void *) yaExisteID);
+	instancia->socket = sock;
+}
+
+
+bool existeID(char * id, t_list * listaInstancia){
+	bool yaExisteID(instancia* item) {
+			int rta = strcmp(id, item->identificador);
+			if (rta == 0)
+					return true;
+			else
+					return false;
+		}
+	return list_any_satisfy(listaInstancia,(void *) yaExisteID);
 }
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){

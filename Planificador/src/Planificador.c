@@ -215,7 +215,7 @@ void * manejarConexionCoordi(void * socket) {
 		case PREGUNTA_ESI_TIENE_CLAVE:
 			log_info(logger, "PREGUNTA_ESI_TIENE_CLAVE");
 
-			recibirClave(logger, *socketCoordinador, CLAVE);
+			CLAVE= recibirID( *socketCoordinador,logger);
 			log_info(logger, "La clave es %s", CLAVE);
 			respuesta_bool = perteneceClaveAlEsi(listaEsiClave, CLAVE);
 
@@ -230,7 +230,7 @@ void * manejarConexionCoordi(void * socket) {
 			break;
 		case PREGUNTA_CLAVE_DISPONIBLE:
 			log_info(logger, "PREGUNTA_CLAVE_DISPONIBLE");
-			recibirClave(logger, *socketCoordinador, CLAVE);
+			CLAVE= recibirID(*socketCoordinador, logger);
 			respuesta_bool = tieneAlgunEsiLaClave(listaEsiClave, CLAVE);
 			if (respuesta_bool)
 				respuesta = CLAVE_NO_DISPONIBLE;

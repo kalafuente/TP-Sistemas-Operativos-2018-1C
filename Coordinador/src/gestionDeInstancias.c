@@ -123,6 +123,7 @@ void eliminarInstancia(int socket, t_list* listaDeInstancias){
 
 
 void destruirInstancia(instancia* instancia){
+	free(instancia->identificador);
 	free(instancia);
 }
 

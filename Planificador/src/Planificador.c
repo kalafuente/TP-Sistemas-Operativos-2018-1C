@@ -115,11 +115,13 @@ int main(void) {
 				log_error(logger, "No deberias ver esto");
 				break;
 			}
+			actualizarBloqueado();
 			sem_post(&pausarPlanificacion);
 
 //IF (es con desalojo && llego un nuevo esi)->devolver a la listaReady && Salir del while------------------------------------------------------------------------------------------------------------
 
 		}
+		actualizarBloqueado();
 //Calcular estimacion para la proxima vez.
 	}
 //Cerrar sockets de los esis que quedaron en el valhalla
@@ -139,7 +141,20 @@ void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
 	list_add(listaBloqueado, elemento);
 }
 
-
+void actualizarBloqueado(){
+	int i = 0;
+	int j = list_size(listaBloqueado);
+	while(i<j){
+		struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
+		esiBloqueado = list_get(listaBloqueado, i);
+		if(indexOfString(list_map(listaEsiClave, claveEsiClaves), esiBloqueado->clave) == -1){
+			list_remove(listaBloqueado, i);
+			list_add(listaReady, esiBloqueado->ESI);
+			sem_post(&cantidadEsisEnReady);
+		}
+		i++;
+	}
+}
 
 //--------------------------CALMANDO PREOCUPACIONES DEL CORDI--------------------------------
 void * manejarConexionCoordi(void * socket) {
@@ -459,15 +474,13 @@ void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 	int i = 0;
 	int j = list_size(listaBloqueado);
 	printf("Hice el list_size \n");
+	list_remove(listaEsiClave, indexOfString(list_map(listaEsiClave, claveEsiClaves), clave));
 	while(i<j){
 		printf("Entre al while \n");
 		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
 		if(string_equals_ignore_case(esiClave->clave, clave)){
 			list_remove(listaBloqueado, i);
 			list_add(listaReady, esiClave->ESI);
-			int k;
-			k = indexOfString(list_map(listaEsiClave, claveEsiClaves), clave);
-			list_remove(listaEsiClave, k);
 			sem_post(&cantidadEsisEnReady);
 			return;
 			}
@@ -478,8 +491,6 @@ void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 int idEsi(struct_esi* esi){
 	return esi->ID;
 }
-
-
 
 bool esIgualA(void* elem1, void* elem2){
 	return elem1 == elem2;
@@ -497,13 +508,6 @@ bool contains(t_list* lista, void* elemento){
 	return false;
 }
 
-struct_esiClaves* crearEsiClaves(struct_esi* esi, char* clave){
-	struct_esiClaves* esiClave = calloc(1, sizeof(struct_esiClaves));
-	esiClave->ESI = esi;
-	esiClave->clave = clave;
-
-	return esiClave;
-}
 
 void* consola() {
 	char * linea;
@@ -543,44 +547,53 @@ void* consola() {
 		if (string_equals_ignore_case(comando, "bloquear")) {
 			char* clave = strtok(parametros, " ");
 			char* id = strtok(NULL, " ");
-			struct_esi* esiID = calloc(1, sizeof(struct_esi));
-			esiID->ID = strtol(id, NULL, 10);
-			if(!contains((list_map(listaReady, idEsi)), id) && !contains((list_map(listaEjecutando, idEsi)), id)){
+			int esSuClaveIgual(struct_esiClaves*elesi) {
+					return string_equals_ignore_case(clave, elesi->clave);
+				}
+			int ID = strtol(id, NULL, 10);
+			if(!contains((list_map(listaReady, idEsi)), ID) && !contains((list_map(listaEjecutando, idEsi)), ID)){
 				strcpy(id, "ESI NO EXISTENTE");
-			    if(!contains(list_map(listaEsiClave, claveEsiClaves), clave)){
-			    	list_add(listaEsiClave, crearEsiClaves(NULL, clave));
+				//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual)
+			    if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
+			    	list_add(listaEsiClave, crearEsiClave(NULL, clave));
 			    		}
 			    	}else{
-			    			if(!contains(listaEsiClave, clave)){
-			    				list_add(listaEsiClave, crearEsiClaves(esiID, clave));
-			    			}
-			    	 		if(contains((list_map(listaReady, idEsi)), id)){
+			    	 		if(contains((list_map(listaReady, idEsi)), ID)){
 			    				//bloquear(id, clave);
-			    	 			int index = indexOf((list_map(listaReady, idEsi)), id);
+			    	 			int index = indexOf((list_map(listaReady, idEsi)), ID);
 			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
-			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+			    	 			/*if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
+			    	 				list_add(listaEsiClave, esiClavesBloqueado);
+			    	 			}*/
 			    			}
-			    	 		if(contains((list_map(listaEjecutando, idEsi)), id)){
+			    	 		if(contains((list_map(listaEjecutando, idEsi)), ID)){
 			    				//bloquear(id, clave);
-			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), id);
+			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), ID);
 			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
-			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClaves(esiBloqueado, clave);
+			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
+			    	 			/*if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
+			    	 				list_add(listaEsiClave, esiClavesBloqueado);
+			    	 			}*/
 			    			}
 			    		}
 			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
 		if (string_equals_ignore_case(comando, "desbloquear")) {
-
-			if(!contains(list_map(listaEsiClave, claveEsiClaves), parametros)){
-				strcpy(parametros, "NO EXISTE LA CLAVE");
+			char* clave = strtok(parametros, " ");
+			int esSuClaveIgual(struct_esiClaves*elesi) {
+					return string_equals_ignore_case(clave, elesi->clave);
+			}
+			if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
+				strcpy(clave, "NO EXISTE LA CLAVE");
 			}else{
-				desbloquear(listaBloqueado, listaReady, parametros);
+				desbloquear(listaBloqueado, listaReady, clave);
 			}
 
-			printf("Se desbloqueo la clave %s \n", parametros);
+			printf("Se desbloqueo la clave %s \n", clave);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
 /*		if (string_equals_ignore_case(comando, "listar")) {

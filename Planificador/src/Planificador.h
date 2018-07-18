@@ -93,10 +93,16 @@ void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
 void sacarStructDeListaEsiClave(char*clave);
 void liberarEsi(char*clave);
 void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave);
+void actualizarBloqueado();
 
 void crearServidorMultiHilo(int listenningSocket);
 void *manejadorDeConexiones(void *socket_desc);
 
 void imprimirConfiguracion(planificador_config* plani);
+
+//FUNCIONES AUXILIARES
+int indexOfString(t_list* lista, char* valorBuscado);
+char* claveEsiClaves();
+
 #endif /* PLANIFICADOR_H_ */
 

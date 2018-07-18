@@ -47,20 +47,27 @@ typedef struct {
 } struct_esiClaves;
 
 
-int PlanificadorON = 1;
+#include "configuracion.h"
+#include "comunicacionConCoordinador.h"
+#include "sjf.h"
+
+planificador_config * planiConfig;
+t_config *config;
+int PlanificadorON;
 sem_t pausarPlanificacion;
 sem_t cantidadEsisEnReady;
 
 t_log* logger;
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,
 		*listaEsiClave; //creamos listas para situacion de los Esi's; //creamos listas para situacion de los Esi's
-int IdDisponible = 0;
+
+
+int IdDisponible;
 pthread_mutex_t mutex;
 
-void cambiarEstimacionSJF(struct_esi* esi, int alfa);
-ALGORITMO_PLANIFICACION traducir(char* algoritmo);
+
+void prepararConfiguracion();
 void procesarInstruccion(t_instruccion* instruccion, struct_esi * esi);
-void ordenarPorSJF(t_list* lista);
 void procesarLinea(char* linea,char ** comando, char ** parametros);
 void* consola();
 void crearListas();
@@ -76,6 +83,7 @@ void agregarEsi(int socketCliente);
 void *recibirEsi(void* socketEscucha);
 
 //FUNCIONES PARA EL CORDI
+
 void * manejarConexionCoordi(void * socket);
 int tieneAlgunEsiLaClave(t_list* lista, char *claveBuscada);
 int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
@@ -84,13 +92,11 @@ int perteneceClaveAlEsi(t_list *lista, char* claveBuscada);
 void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
 void sacarStructDeListaEsiClave(char*clave);
 void liberarEsi(char*clave);
-//FUNCIONES DE CONFIGURACION
+void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave);
 
-planificador_config * init_planificaorConfig();
-void destroy_planificadorConfig(planificador_config*);
 void crearServidorMultiHilo(int listenningSocket);
-void crearConfiguracion(planificador_config** planificador,t_config** config);
 void *manejadorDeConexiones(void *socket_desc);
 
-
+void imprimirConfiguracion(planificador_config* plani);
 #endif /* PLANIFICADOR_H_ */
+

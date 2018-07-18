@@ -3,6 +3,8 @@
 
 //empezamos sin la consola, pero separando bien
 int main(void) {
+	PlanificadorON = 1;
+	IdDisponible =0;
 	logger = crearLogger("loggerPlani.log", "loggerPlani");
 	sem_init(&pausarPlanificacion, 0, 1);
 	pthread_t tid;
@@ -10,32 +12,19 @@ int main(void) {
 	pthread_mutex_init(&mutex, NULL);
 
 	sem_init(&cantidadEsisEnReady, 0, 0);
-	planificador_config * planificadorConfig = init_planificaorConfig();
-	t_config * config;
-	crearConfiguracion(&planificadorConfig, &config);
+	prepararConfiguracion();
 	crearListas();
 //-------------CONEXION AL COORDINADOR------------------
-	int socketCoordinador = conectarseAlServidor(logger,
-			&planificadorConfig->ipCoordinador,
-			&planificadorConfig->puertoCoordinador);
-	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
-	recibirMensaje(logger, sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),
-			&handshakeCoordi, socketCoordinador);
-	PROTOCOLO_HANDSHAKE_CLIENTE handshakePlani =
-			HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR;
-	enviarMensaje(logger, sizeof(PROTOCOLO_HANDSHAKE_CLIENTE), &handshakePlani,
-			socketCoordinador);
+	int socketCoordinador = conectarseAlCoordinador(planiConfig);
 
 //-----------RECEPTOR DE ESI´S----------------------
 
-	int listenningSocket = crearSocketQueEscucha(
-			&planificadorConfig->puertoEscucha, &planificadorConfig->entradas);
-	pthread_t thread_id;
-	pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
-	pthread_t thread_coordi;
-
-	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,
-			(void*) &socketCoordinador);
+	int listenningSocket = crearSocketQueEscucha(&planiConfig->puertoEscucha, &planiConfig->entradas);
+		pthread_t thread_id;
+		pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
+		pthread_t thread_coordi;
+		pthread_create(&thread_coordi, NULL, manejarConexionCoordi,
+				(void*) &socketCoordinador);
 //-----------------------MANEJAR LOS ESI´s-------------------------------------
 	struct_esi *esiActual;
 	t_instruccion* instruccion;
@@ -46,49 +35,49 @@ int main(void) {
 		sem_wait(&cantidadEsisEnReady);
 		estadoEsi = TERMINE_BIEN;
 
-//Ordenamos la lista Esis segun criterio elegido en este momento-----------------------------------------------------------------------------
-		switch (planificadorConfig->algoritmoPlanificacion) {
-		case SJF_CD:
-			ordenarPorSJF(listaReady);
-			break;
+		//Ordenamos la lista Esis segun criterio elegido en este momento-----------------------------------------------------------------------------
+				switch (planiConfig->algoritmoPlanificacion) {
+				case SJF_CD:
+					ordenarPorSJF(listaReady);
+					break;
 
-		case SJF_SD:
-			ordenarPorSJF(listaReady);
-			break;
+				case SJF_SD:
+					ordenarPorSJF(listaReady);
+					break;
 
-		case HRRN:
-			//ordenarPorHRRN(listaReady);
-			break;
-		default:
-			log_error(logger, "ERROR INTERNO, REVISAR EL CODIGO");
-			break;
-		}
+				case HRRN:
+					//ordenarPorHRRN(listaReady);
+					break;
+				default:
+					log_error(logger, "ERROR INTERNO, REVISAR EL CODIGO");
+					break;
+				}
 
-		esiActual = list_remove(listaReady, 0);
-		list_add(listaEjecutando, esiActual);
+				esiActual = list_remove(listaReady, 0);
+				list_add(listaEjecutando, esiActual);
 
-		while (estadoEsi == TERMINE_BIEN) {
-			sem_wait(&pausarPlanificacion);
+				while (estadoEsi == TERMINE_BIEN) {
+					sem_wait(&pausarPlanificacion);
 
-			ordenarActuar(esiActual);
+					ordenarActuar(esiActual);
 
-			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
-					&estadoEsi, esiActual->socket) <= 0) {
-				log_error(logger, "ERROR ESI DESCONECTADO");
-				estadoEsi = ERROR;
-			}
-			log_info(logger, "se recibio estado %d", estadoEsi);
-//estadoEsi=recibirResultado(esiActual);
-			switch (estadoEsi) {
-			case TERMINE_BIEN:
-				esiActual->estimacion--;
-				esiActual->rafagaActual++;
-				instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
-				procesarInstruccion(instruccion, esiActual);
-//duracionRafaga++;
-//cambiarEstimacion(esiActual,-1);
-//sumar 1 a la espera te todos los esis en Ready para el HRRN
-				destruirInstruccion(instruccion);
+					if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),
+							&estadoEsi, esiActual->socket) <= 0) {
+						log_error(logger, "ERROR ESI DESCONECTADO");
+						estadoEsi = ERROR;
+					}
+					log_info(logger, "se recibio estado %d", estadoEsi);
+		//estadoEsi=recibirResultado(esiActual);
+					switch (estadoEsi) {
+					case TERMINE_BIEN:
+						esiActual->estimacion--;
+						esiActual->rafagaActual++;
+						instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
+						procesarInstruccion(instruccion, esiActual);
+		//duracionRafaga++;
+		//cambiarEstimacion(esiActual,-1);
+		//sumar 1 a la espera te todos los esis en Ready para el HRRN
+						destruirInstruccion(instruccion);
 
 
 				break;
@@ -102,7 +91,7 @@ int main(void) {
 				destruirInstruccion(instruccion);
 				log_info(logger, "esi %d bloqueado", esiActual->ID);
 				cambiarEstimacionSJF(esiActual,
-						planificadorConfig->alfaPlanificacion);
+						planiConfig->alfaPlanificacion);
 
 				break;
 			case TERMINE:
@@ -136,15 +125,10 @@ int main(void) {
 //Cerrar sockets de los esis que quedaron en el valhalla
 	close(listenningSocket);
 	close(socketCoordinador);
-	destroy_planificadorConfig(planificadorConfig);
+	destroy_planificadorConfig(planiConfig);
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
-}
-
-void cambiarEstimacionSJF(struct_esi* esi, int alfa) {
-	esi->estimacion = (esi->estimacion + esi->rafagaActual) * (1 - (alfa / 100))
-			+ (alfa / 100) * esi->rafagaActual;
 }
 
 void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
@@ -156,42 +140,7 @@ void agregarEnListaBloqueado(struct_esi *esiActual, char*clave) {
 }
 
 
-float actualizarDuracionDeRafagaSJF(struct_esi esi) {
-	float duracionEstimada;
-	duracionEstimada = 0; //obviamente esto se calcula con el alfa la duracion de la ultima rafaga y la duracion estimada anterior
 
-	return duracionEstimada;
-}
-
-double calcularSiguienteRafagaSJF(int t , int t0, double alfa) {
-	double t1;
-	t1 = (double) (alfa/100)*t + (double) (1-(alfa/100))*t0;
-	printf("Esta rafaga es de %f \n", t1);
-	return t1;
-}
-
-double calcularRafagaSJF(struct_esi* esi, double alfa){
-	int t0 = esi->estimacion;
-	int t = 0;// esi->duracionRafaga;
-	double t1 = calcularSiguienteRafagaSJF(t, t0, alfa);
-	return t1;
-}
-
-void actualizarEstimacionSJF(struct_esi* esi, double alfa){
-	esi->estimacion = calcularRafagaSJF(esi, alfa);
-	//esi->duracionRafaga = 0;
-}
-
-bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2) {
-	return esi1->estimacion < esi2->estimacion;
-}
-
-void ordenarPorSJF(t_list *listaAOrdenar) {
-	if (sizeof(listaAOrdenar) == 1) {
-		return;
-	}
-	list_sort(listaAOrdenar, (void*) tieneMenorRafaga);
-}
 //--------------------------CALMANDO PREOCUPACIONES DEL CORDI--------------------------------
 void * manejarConexionCoordi(void * socket) {
 	int *socketCoordinador = (int*) socket;
@@ -408,54 +357,9 @@ void * recibirEsi(void* socketEscucha) {
 
 }
 
-//--------------------------FUNCIONES DE CONFIGURACION--------------------------
-planificador_config * init_planificaorConfig() {
-	planificador_config * planificador = calloc(1, sizeof(planificador_config));
-	planificador->puertoEscucha = calloc(5, sizeof(char));
-	planificador->ipCoordinador = calloc(20, sizeof(char));
-	planificador->puertoCoordinador = calloc(5, sizeof(char));
-	//planificador->algoritmoPlanificacion = calloc(10, sizeof(char));
-	return planificador;
-}
 
-void crearConfiguracion(planificador_config** planificador, t_config** config) {
-	*config = config_create("configPlanificador.config");
 
-	ALGORITMO_PLANIFICACION i = traducir(
-			config_get_string_value(*config, "ALGORITMO"));
 
-	(*planificador)->algoritmoPlanificacion = i;
-	(*planificador)->ipCoordinador = config_get_string_value(*config,
-			"IP_COORDINADOR");
-
-	(*planificador)->puertoCoordinador = config_get_string_value(*config,
-			"PUERTO_COORDINADOR");
-	(*planificador)->puertoEscucha = config_get_string_value(*config,
-			"PUERTO_DE_ESCUCHA");
-	(*planificador)->alfaPlanificacion = config_get_int_value(*config, "ALFAP");
-	(*planificador)->estimacionInicial = config_get_double_value(*config,
-			"ESTIMACION");
-	(*planificador)->entradas = 500;
-}
-
-void destroy_planificadorConfig(planificador_config* planificador_config) {
-	free(planificador_config->ipCoordinador);
-	free(planificador_config->puertoCoordinador);
-	free(planificador_config->puertoEscucha);
-	free(planificador_config);
-}
-
-ALGORITMO_PLANIFICACION traducir(char* algoritmo) {
-	if (string_equals_ignore_case(algoritmo, "SJF_SD")) {
-		return SJF_SD;
-	}
-	if (string_equals_ignore_case(algoritmo, "HRRN")) {
-		return HRRN;
-	}
-
-	return SJF_CD;
-
-}
 
 //----------------------------------------------
 //------------------<CONSOLA>-------------------
@@ -706,6 +610,13 @@ void* consola() {
 	return 0;
 }
 
+
+
 //pthread_t tid;
 //pthread_create(&tid, NULL, consola, NULL);
+void prepararConfiguracion(){
+	config = config_create("configPlanificador.config");
+	planiConfig=  init_planificaorConfig();
+	crearConfiguracion(planiConfig,config);
+}
 

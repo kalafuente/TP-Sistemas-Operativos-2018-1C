@@ -47,3 +47,41 @@ void mandarConfiguracionAInstancia(int sock){
 	log_info(logger, "Envie tamanaño de entradas a la instancia");
 
 }
+
+void enviarClavesCorrespondientes(int sock,char * id, t_list* listaDeClavesConInstancia){
+	PROTOCOLO_INSTANCIA_A_COORDINADOR pedidoDeClave;
+	recibirMensaje(logger,sizeof(pedidoDeClave),&pedidoDeClave,sock);
+	t_list* clavesDeEstaInstancia = list_create();
+	clavesDeEstaInstancia = clavesDeLaInstancia(listaDeClavesConInstancia, id);
+
+	if (pedidoDeClave == PEDIDO_DE_CLAVES){
+
+		if (sizeof(clavesDeEstaInstancia) == 0){
+				enviarID(sock,"null",logger);
+		}
+		else{
+			void enviar(claveConInstancia* elem){
+				enviarID(sock,elem->clave,logger);
+			}
+		list_iterate(clavesDeEstaInstancia, (void *) enviar);
+		enviarID(sock,"null",logger);
+		}
+
+	}
+	list_destroy(clavesDeEstaInstancia);
+}
+
+t_list* clavesDeLaInstancia(t_list* list, void* value){
+
+	bool equals(claveConInstancia* item) {
+		int rta = strcmp(value, item->instancia->identificador);
+		if (rta == 0)
+				return true;
+		else
+				return false;
+	}
+
+	return list_filter(list, (void *) equals);
+}
+
+

@@ -13,6 +13,7 @@ void planificarESIs(){
 		esiActual = list_remove(listaReady, 0);
 		list_add(listaEjecutando, esiActual);
 		while (estadoEsi == TERMINE_BIEN) {
+			actualizarBloqueado();
 			sem_wait(&pausarPlanificacion);
 			ordenarActuar(esiActual);
 			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&estadoEsi, esiActual->socket) <= 0) {

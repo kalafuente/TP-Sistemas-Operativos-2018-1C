@@ -9,11 +9,12 @@ void planificarESIs(){
 	while (PlanificadorON) {
 		sem_wait(&cantidadEsisEnReady);
 		estadoEsi = TERMINE_BIEN;
+		pthread_mutex_lock(&mutex);
 		ordenarListaDeReady();
 		esiActual = list_remove(listaReady, 0);
 		list_add(listaEjecutando, esiActual);
+		pthread_mutex_unlock(&mutex);
 		while (estadoEsi == TERMINE_BIEN) {
-			actualizarBloqueado();
 			sem_wait(&pausarPlanificacion);
 			ordenarActuar(esiActual);
 			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&estadoEsi, esiActual->socket) <= 0) {
@@ -38,22 +39,29 @@ void planificarESIs(){
 					esiActual->estimacion--;
 					esiActual->rafagaActual++;
 					instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
+					cambiarEstimacionSJF(esiActual,planiConfig->alfaPlanificacion);
+					pthread_mutex_lock(&mutex);
 					list_remove(listaEjecutando, 0);
 					agregarEnListaBloqueado(esiActual, instruccion->clave);
+					pthread_mutex_unlock(&mutex);
 					destruirInstruccion(instruccion);
 					log_info(logger, "esi %d bloqueado", esiActual->ID);
-					cambiarEstimacionSJF(esiActual,planiConfig->alfaPlanificacion);
+
 					break;
 				case TERMINE:
+					pthread_mutex_lock(&mutex);
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
+					pthread_mutex_unlock(&mutex);
 					//liberar claves
 					log_info(logger, "termino el esi %d", esiActual->ID);
 					close(esiActual->socket);
 					break;
 				case ERROR:
+					pthread_mutex_lock(&mutex);
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
+					pthread_mutex_lock(&mutex);
 					//liberar claves
 					log_error(logger, "error con el esi %d", esiActual->ID);
 					close(esiActual->socket);
@@ -63,12 +71,10 @@ void planificarESIs(){
 					log_error(logger, "No deberias ver esto");
 					break;
 					}
-			actualizarBloqueado();
 			sem_post(&pausarPlanificacion);
 		//IF (es con desalojo && llego un nuevo esi)->devolver a la listaReady && Salir del while------------------------------------------------------------------------------------------------------------
 
 			}
-	actualizarBloqueado();
 	//Calcular estimacion para la proxima vez.
 	}
 }

@@ -76,7 +76,7 @@ void procesarLinea(char* linea,char ** comando, char ** parametros);
 void* consola();
 
 void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave);
-void actualizarBloqueado();
+void* actualizarBloqueado();
 
 void crearServidorMultiHilo(int listenningSocket);
 void *manejadorDeConexiones(void *socket_desc);

@@ -21,6 +21,8 @@ int main(void) {
 	pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
 	pthread_t thread_coordi;
 	pthread_create(&thread_coordi, NULL, manejarConexionCoordi,(void*) &socketCoordinador);
+	pthread_t thread_bloqueados;
+	pthread_create(&thread_bloqueados, NULL, actualizarBloqueado, NULL);
 
 	planificarESIs();
 
@@ -35,24 +37,29 @@ int main(void) {
 
 
 
-void actualizarBloqueado(){
-	int i = 0;
-	int j = list_size(listaBloqueado);
-	while(i<j){
-		struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
-		esiBloqueado = list_get(listaBloqueado, i);
-		char* clave = string_new();
-		string_append(&clave, esiBloqueado->clave);
-		int esSuClaveIgual(struct_esiClaves*elesi) {
-			return string_equals_ignore_case(clave, elesi->clave);
+void* actualizarBloqueado(){
+	while(1){
+		pthread_mutex_lock(&mutex);
+		int i = 0;
+		int j = list_size(listaBloqueado);
+		while(i<j){
+			struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
+			esiBloqueado = list_get(listaBloqueado, i);
+			char* clave = string_new();
+			string_append(&clave, esiBloqueado->clave);
+			int esSuClaveIgual(struct_esiClaves*elesi) {
+				return string_equals_ignore_case(clave, elesi->clave);
+			}
+			if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
+				list_remove(listaBloqueado, i);
+				list_add(listaReady, esiBloqueado->ESI);
+				sem_post(&cantidadEsisEnReady);
+			}
+			i++;
 		}
-		if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
-			list_remove(listaBloqueado, i);
-			list_add(listaReady, esiBloqueado->ESI);
-			sem_post(&cantidadEsisEnReady);
-		}
-		i++;
+		pthread_mutex_unlock(&mutex);
 	}
+	return 0;
 }
 
 
@@ -135,7 +142,7 @@ char* claveEsiClaves(struct_esiClaves* esiClave){
 	return esiClave->clave;
 }
 
-int indexOf(t_list* lista, void* valorBuscado){
+int indexOf(t_list* lista, int valorBuscado){
 	int i = 0;
 	int j = sizeof(lista);
 	while(i<j){
@@ -185,7 +192,7 @@ bool esIgualA(void* elem1, void* elem2){
 	return elem1 == elem2;
 }
 
-bool contains(t_list* lista, void* elemento){
+bool contains(t_list* lista, int elemento){
 	int i = 0;
 	int j = sizeof(lista);
 	while (i<j){
@@ -240,6 +247,7 @@ void* consola() {
 					return string_equals_ignore_case(clave, elesi->clave);
 				}
 			int ID = strtol(id, NULL, 10);
+			pthread_mutex_lock(&mutex);
 			if(!contains((list_map(listaReady, idEsi)), ID) && !contains((list_map(listaEjecutando, idEsi)), ID)){
 				strcpy(id, "ESI NO EXISTENTE");
 				//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual)
@@ -268,6 +276,7 @@ void* consola() {
 			    	 			}*/
 			    			}
 			    		}
+			pthread_mutex_unlock(&mutex);
 			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
@@ -276,11 +285,13 @@ void* consola() {
 			int esSuClaveIgual(struct_esiClaves*elesi) {
 					return string_equals_ignore_case(clave, elesi->clave);
 			}
+			pthread_mutex_lock(&mutex);
 			if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
 				strcpy(clave, "NO EXISTE LA CLAVE");
 			}else{
 				desbloquear(listaBloqueado, listaReady, clave);
 			}
+			pthread_mutex_unlock(&mutex);
 
 			printf("Se desbloqueo la clave %s \n", clave);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.

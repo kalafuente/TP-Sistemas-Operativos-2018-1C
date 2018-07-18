@@ -41,7 +41,12 @@ void actualizarBloqueado(){
 	while(i<j){
 		struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
 		esiBloqueado = list_get(listaBloqueado, i);
-		if(indexOfString(list_map(listaEsiClave, claveEsiClaves), esiBloqueado->clave) == -1){
+		char* clave = string_new();
+		string_append(&clave, esiBloqueado->clave);
+		int esSuClaveIgual(struct_esiClaves*elesi) {
+			return string_equals_ignore_case(clave, elesi->clave);
+		}
+		if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
 			list_remove(listaBloqueado, i);
 			list_add(listaReady, esiBloqueado->ESI);
 			sem_post(&cantidadEsisEnReady);

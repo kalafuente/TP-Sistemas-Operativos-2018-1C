@@ -513,7 +513,7 @@ void listar(t_list* lista, char* clave){
 		char* claveEsi = calloc(1, sizeof(esiClave->clave));
 		strcpy(claveEsi, esiClave->clave);
 		log_info(logger, "Copie la clave");
-		if(strcmp(claveEsi, clave) == 0){
+		if(string_equals_ignore_case(claveEsi, clave)){
 			log_info(logger, "Entre al if");
 			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
 		}
@@ -528,7 +528,7 @@ char* claveEsiClaves(struct_esiClaves* esiClave){
 }
 
 int indexOf(t_list* lista, void* valorBuscado){
-	int i;
+	int i = 0;
 	int j = sizeof(lista);
 	while(i<j){
 		if(valorBuscado == list_get(lista, i)){
@@ -540,10 +540,10 @@ int indexOf(t_list* lista, void* valorBuscado){
 }
 
 int indexOfString(t_list* lista, char* valorBuscado){
-	int i;
+	int i = 0;
 	int j = sizeof(lista);
 	while(i<j){
-		if(strcmp(valorBuscado, list_get(lista, i)) == 0){
+		if(string_equals_ignore_case(valorBuscado, list_get(lista, i))){
 			return i;
 		}
 		i++;
@@ -558,10 +558,11 @@ void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 	while(i<j){
 		printf("Entre al while \n");
 		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
-		if(strcmp(esiClave->clave, clave) == 0){
+		if(string_equals_ignore_case(esiClave->clave, clave)){
 			list_remove(listaBloqueado, i);
-			list_add(listaReady, esiClave);
-			int k = indexOfString(list_map(listaEsiClave, claveEsiClaves), clave);
+			list_add(listaReady, esiClave->ESI);
+			int k;
+			k = indexOfString(list_map(listaEsiClave, claveEsiClaves), clave);
 			list_remove(listaEsiClave, k);
 			sem_post(&cantidadEsisEnReady);
 			return;
@@ -625,17 +626,17 @@ void* consola() {
 		//Kill [ID]
 		//Estado [Clave]
 		//Deadlock
-		if (!strncmp(comando, "pausar", 6)) {
+		if (string_equals_ignore_case(comando, "pausar")) {
 			sem_wait(&pausarPlanificacion);
 			printf("La planificacion se detuvo \n");
 			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
 		}
-		if (!strncmp(comando, "resumir", 7)) {
+		if (string_equals_ignore_case(comando, "resumir")) {
 			sem_post(&pausarPlanificacion);
 			printf("Resumiendo planificacion \n");
 			//Resume la planificación
 		}
-		if (!strncmp(comando, "bloquear", 8)) {
+		if (string_equals_ignore_case(comando, "bloquear")) {
 			char* clave = strtok(parametros, " ");
 			char* id = strtok(NULL, " ");
 			struct_esi* esiID = calloc(1, sizeof(struct_esi));
@@ -667,7 +668,7 @@ void* consola() {
 			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
-		if (!strncmp(comando, "desbloquear", 11)) {
+		if (string_equals_ignore_case(comando, "desbloquear")) {
 
 			if(!contains(list_map(listaEsiClave, claveEsiClaves), parametros)){
 				strcpy(parametros, "NO EXISTE LA CLAVE");
@@ -678,7 +679,7 @@ void* consola() {
 			printf("Se desbloqueo la clave %s \n", parametros);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
-/*		if (!strncmp(comando, "listar", 6)) {
+/*		if (string_equals_ignore_case(comando, "listar")) {
 
 			 t_list listaEsperando = list_filter(listaBloqueado);
 			 char* esperando = strcpy(toString(listaEsperando));
@@ -686,16 +687,16 @@ void* consola() {
 			printf("El recurso %s esta siendo esperado por: \n", parametros);
 			//Lista los procesos encolados esperando al recurso.
 		}*/
-		if (!strncmp(comando, "kill", 4)) {
+		if (string_equals_ignore_case(comando, "kill")) {
 			printf("Se elimino el proceso %s \n", parametros);
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
 		}
-		if (!strncmp(comando, "estado", 6)) {
+		if (string_equals_ignore_case(comando, "estado")) {
 			printf("La siguiente clave %s , esta en el siguiente estado: \n",
 					parametros);
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
-		if (!strncmp(comando, "deadlock", 8)) {
+		if (string_equals_ignore_case(comando, "deadlock")) {
 			printf("El sistema no encuentra deadlocks actualmente \n");
 			//Esta consola también permitirá analizar los deadlocks que existan en el sistema y a que ESI están asociados.
 		}

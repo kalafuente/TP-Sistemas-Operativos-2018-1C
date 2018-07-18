@@ -46,26 +46,25 @@ typedef struct {
 	char* clave;
 } struct_esiClaves;
 
-int PlanificadorON;
-sem_t cantidadEsisEnReady;
-
 #include "configuracion.h"
 #include "comunicacionConCoordinador.h"
 #include "sjf.h"
 #include "booleanasSobreListas.h"
 #include "planificacionDeEsis.h"
+#include "comunicacionConEsis.h"
+#include "gestionDeEsis.h"
 
+int IdDisponible;
+int PlanificadorON;
 
 planificador_config * planiConfig;
 t_config *config;
+t_log* logger;
 
+sem_t cantidadEsisEnReady;
 sem_t pausarPlanificacion;
 
-t_log* logger;
-t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,
-		*listaEsiClave; //creamos listas para situacion de los Esi's; //creamos listas para situacion de los Esi's
-
-int IdDisponible;
+t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
 pthread_mutex_t mutex;
 
 void inicializar();
@@ -73,31 +72,15 @@ void prepararConfiguracion();
 void prepararLogger();
 void inicializarSemaforos();
 void crearListas();
-
 void procesarLinea(char* linea,char ** comando, char ** parametros);
 void* consola();
 
-PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
-
-struct_esiClaves* crearEsiClave(struct_esi* esi, char*clave);
-
-//FUNCIONES PARA EL ESI
-void ordenarActuar(struct_esi* esi);
-void agregarEsi(int socketCliente);
-void *recibirEsi(void* socketEscucha);
-
-
-//FUNCIONES DE LIBERACION/ BLOQUEO
-void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
-void sacarStructDeListaEsiClave(char*clave);
-void liberarEsi(char*clave);
 void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave);
 void actualizarBloqueado();
 
 void crearServidorMultiHilo(int listenningSocket);
 void *manejadorDeConexiones(void *socket_desc);
 
-void imprimirConfiguracion(planificador_config* plani);
 
 //FUNCIONES AUXILIARES
 int indexOfString(t_list* lista, char* valorBuscado);

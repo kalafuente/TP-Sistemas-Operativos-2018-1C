@@ -46,7 +46,6 @@ void* actualizarBloqueado(){
 			struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
 			esiBloqueado = list_get(listaBloqueado, i);
 			char* clave = string_new();
-
 			//printf("EN BLOQUEADO LA CLAVE DEL ESI ES %s \n", esiBloqueado->clave);
 			string_append(&clave, esiBloqueado->clave);
 			//printf("EN BLOQUEADO LA CLAVE ES %s \n", clave);
@@ -257,7 +256,9 @@ void* consola() {
 				strcpy(id, "ESI NO EXISTENTE");
 				//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual)
 			    if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
-			    	list_add(listaEsiClave, crearEsiClave(NULL, clave));
+			    	struct_esi* esiNoExistente = calloc(1, sizeof(struct_esi));
+			    	esiNoExistente->ID = -1;
+			    	list_add(listaEsiClave, crearEsiClave(esiNoExistente, clave));
 			    		}
 			    	}else{
 			    	 		if(contains((list_map(listaReady, idEsi)), ID)){

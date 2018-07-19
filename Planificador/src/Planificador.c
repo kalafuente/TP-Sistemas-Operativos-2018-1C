@@ -121,17 +121,18 @@ void procesarLinea(char* linea, char ** comando, char ** parametros) {
 }
 
 
-void listar(t_list* lista, char* clave){
-	log_info(logger, "Entre al listar");
+void listar(char* clave){
+	//log_info(logger, "Entre al listar");
 	int i = 0;
-	int j = sizeof(lista);
-	log_info(logger, "Hice el sizeof");
+	int j = list_size(listaBloqueado);
+	//log_info(logger, "Hice el sizeof");
 	while(i<j){
-		struct_esiClaves* esiClave = list_get(lista, i);
-		log_info(logger, "agarre el esiClave");
-		char* claveEsi = calloc(1, sizeof(esiClave->clave));
-		strcpy(claveEsi, esiClave->clave);
-		log_info(logger, "Copie la clave");
+		//printf("El valor de i es %i y el valor de j es %i \n", i, j);
+		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
+		//log_info(logger, "agarre el esiClave");
+		char* claveEsi = string_new();
+		string_append(&claveEsi, esiClave->clave);
+		//log_info(logger, "Copie la clave");
 		if(string_equals_ignore_case(claveEsi, clave)){
 			log_info(logger, "Entre al if");
 			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
@@ -173,10 +174,10 @@ int indexOfString(t_list* lista, char* valorBuscado){
 void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 	int i = 0;
 	int j = list_size(listaBloqueado);
-	printf("Hice el list_size \n");
+	//printf("Hice el list_size \n");
 	list_remove(listaEsiClave, indexOfString(list_map(listaEsiClave, (void *) claveEsiClaves), clave));
 	while(i<j){
-		printf("Entre al while \n");
+		//printf("Entre al while \n");
 		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
 		if(string_equals_ignore_case(esiClave->clave, clave)){
 			list_remove(listaBloqueado, i);
@@ -300,14 +301,14 @@ void* consola() {
 			printf("Se desbloqueo la clave %s \n", clave);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
-/*		if (string_equals_ignore_case(comando, "listar")) {
+		if (string_equals_ignore_case(comando, "listar")) {
 
-			 t_list listaEsperando = list_filter(listaBloqueado);
-			 char* esperando = strcpy(toString(listaEsperando));
-
+			char* clave = string_new();
+			string_append(&clave, parametros);
 			printf("El recurso %s esta siendo esperado por: \n", parametros);
+			listar(clave);
 			//Lista los procesos encolados esperando al recurso.
-		}*/
+		}
 		if (string_equals_ignore_case(comando, "kill")) {
 			printf("Se elimino el proceso %s \n", parametros);
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.

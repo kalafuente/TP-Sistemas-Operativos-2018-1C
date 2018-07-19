@@ -13,6 +13,7 @@ void destruirLetrasDeLaInstancia(t_list* letrasDeLaInstancia);
 claveConInstancia* instanciaQueTieneLaClave(char* clave, t_list* listaDeClavesConInstancia);
 void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanciaNueva, t_list* listaDeClavesConInstancia);
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* logControlDeDistribucion, t_list* letrasDeLaInstancia);
+instancia*  simulacionElegirInstanciaSegunAlgoritmo(char * clave, t_list* letrasDeLaInstancia);
 bool existeID(char * id, t_list * listaInstancia);
 void actualizarSocketInstancia(int sock, char * id, t_list * listaInstancia);
 void destruirLetrasDeLaInstancia(t_list* letrasDeLaInstancia);

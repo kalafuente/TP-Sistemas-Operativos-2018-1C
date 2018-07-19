@@ -97,6 +97,40 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 			break;
 
+		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
+			log_info(logger, "Se me conectó el planificador para pedir status");
+			char * claveAPedir = string_new();
+			claveAPedir = recibirID(sock,logger);
+			while(strcmp(claveAPedir, "null")!=0){
+				if (contieneClave(listaDeClavesConInstancia,claveAPedir)){
+					claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
+					if (instanciaALlamar->instancia == NULL){
+						enviarID(sock,"no hay valor",logger);
+						instancia * instanciaElegida = simulacionElegirInstanciaSegunAlgoritmo(claveAPedir,letrasDeLaInstancia);
+						enviarID(sock,instanciaElegida->identificador,logger);
+					}
+					else{
+						PROTOCOLO_COORDINADOR_A_INSTANCIA pedidoDeValor = PEDIDO_DE_VALOR;
+						enviarMensaje(logger,sizeof(pedidoDeValor),&pedidoDeValor,instanciaALlamar->instancia->socket);
+						char * valor = string_new();
+						valor = recibirID(instanciaALlamar->instancia->socket,logger);
+						if (strcmp(valor, "null")==0){
+						enviarID(sock,valor, logger);
+						}
+						else{
+							enviarID(sock,"no hay valor",logger);
+						}
+						enviarID(sock,instanciaALlamar->instancia->identificador,logger);
+						}
+				}
+				else {
+					enviarID(sock,"ClaveInexistente",logger);
+				}
+				claveAPedir = recibirID(sock,logger);
+			}
+			free(claveAPedir);
+			break;
+
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
 			log_info(logger, "Se me conectó un Esi");
 			PROTOCOLO_ESI_A_COORDI esi;

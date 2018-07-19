@@ -113,7 +113,7 @@ int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 			return -1;
 		}
 		if(total==0){
-			log_info(logger,"SE CORTO LA CONEXION");
+			log_error(logger,"SE CORTO LA CONEXION");
 			return 0;
 
 		}
@@ -145,7 +145,7 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 			//exitWithError(logger,unsocket,"Se cerro la conexion",buffer);
 		}
 		bytesHeader+=aux;
-		log_trace(logger,"Se recibieron %d bytes",aux);
+		log_info(logger,"Se recibieron %d bytes",aux);
 
 
 	}

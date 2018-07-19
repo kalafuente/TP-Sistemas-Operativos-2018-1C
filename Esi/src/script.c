@@ -22,6 +22,8 @@ void abrirScript(int argc, char *argv[]) {
 	}
 
 
+	log_info(logger,"Se abrió el archivo %s",argv[1]);
+
 }
 
 
@@ -33,6 +35,7 @@ t_instruccion* leerInstruccion(char* line) {
 	if (!parsed.valido) {
 		free(line);
 		enviarResultadoAlPlanificador(ERROR);
+		//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_COORDI), TERMINE_INSTRUCCIONES, socketCoordinador);
 		abortarEsi("CLAVE INVALIDA");
 	}
 	t_instruccion* instruccion;

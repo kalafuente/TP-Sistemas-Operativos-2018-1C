@@ -35,7 +35,8 @@ t_instruccion* leerInstruccion(char* line) {
 	if (!parsed.valido) {
 		free(line);
 		enviarResultadoAlPlanificador(ERROR);
-		//enviarMensaje(logger, sizeof(PROTOCOLO_ESI_A_COORDI), TERMINE_INSTRUCCIONES, socketCoordinador);
+		destruir_operacion(parsed);
+		//avisarAlCoordi(TERMINE_INSTRUCCIONES);
 		abortarEsi("CLAVE INVALIDA");
 	}
 	t_instruccion* instruccion;

@@ -31,7 +31,7 @@ void conectarseAlCoordinador() {
 void avisarAlCoordi(PROTOCOLO_ESI_A_COORDI mensaje){
 
 	enviarMensaje(logger,sizeof(mensaje),&mensaje, socketCoordinador);
-	log_info(logger,"Le dije al Coordi que voy a hacer je");
+
 }
 
 void enviarInstruccionAlCoordinador(t_instruccion* instruccion){

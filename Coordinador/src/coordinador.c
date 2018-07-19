@@ -79,7 +79,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 			log_info(logger, "Se me conectó una Instancia");
 			char * id = recibirID(sock, logger);
 			mandarConfiguracionAInstancia(sock);
-			enviarClavesCorrespondientes(sock,id,listaDeClavesConInstancia);
+			//enviarClavesCorrespondientes(sock,id,listaDeClavesConInstancia);
 
 			if(existeID(id,listaDeInstancias)){
 				printf("Se reconecta instancia, socket nuevo: %d \n", sock);

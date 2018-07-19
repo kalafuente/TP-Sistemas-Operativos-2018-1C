@@ -53,6 +53,7 @@ typedef struct {
 #include "planificacionDeEsis.h"
 #include "comunicacionConEsis.h"
 #include "gestionDeEsis.h"
+#include "deadlock.h"
 
 int IdDisponible;
 int PlanificadorON;

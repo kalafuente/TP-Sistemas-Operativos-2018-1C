@@ -46,7 +46,10 @@ void* actualizarBloqueado(){
 			struct_esiClaves* esiBloqueado = calloc(1, sizeof(struct_esiClaves));
 			esiBloqueado = list_get(listaBloqueado, i);
 			char* clave = string_new();
+
+			//printf("EN BLOQUEADO LA CLAVE DEL ESI ES %s \n", esiBloqueado->clave);
 			string_append(&clave, esiBloqueado->clave);
+			//printf("EN BLOQUEADO LA CLAVE ES %s \n", clave);
 			int esSuClaveIgual(struct_esiClaves*elesi) {
 				return string_equals_ignore_case(clave, elesi->clave);
 			}
@@ -54,6 +57,7 @@ void* actualizarBloqueado(){
 				list_remove(listaBloqueado, i);
 				list_add(listaReady, esiBloqueado->ESI);
 				sem_post(&cantidadEsisEnReady);
+				j = list_size(listaBloqueado);
 			}
 			i++;
 		}

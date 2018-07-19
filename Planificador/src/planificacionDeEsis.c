@@ -123,6 +123,7 @@ void procesarInstruccion(t_instruccion* instruccion, struct_esi*esi) {
 
 		sacarStructDeListaEsiClave(clave);
 		liberarEsi(clave);
+		sem_post(&huboDesalojoClaves);
 		//liberar la correspondiente
 		break;
 	}

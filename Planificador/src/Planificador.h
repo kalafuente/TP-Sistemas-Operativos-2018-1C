@@ -63,6 +63,7 @@ t_log* logger;
 
 sem_t cantidadEsisEnReady;
 sem_t pausarPlanificacion;
+sem_t huboDesalojoClaves;
 
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
 pthread_mutex_t mutex;

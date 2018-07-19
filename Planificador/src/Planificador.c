@@ -38,7 +38,8 @@ int main(void) {
 
 
 void* actualizarBloqueado(){
-	while(1){
+	while(PlanificadorON){
+		sem_wait(&huboDesalojoClaves);
 		pthread_mutex_lock(&mutex);
 		int i = 0;
 		int j = list_size(listaBloqueado);
@@ -57,8 +58,10 @@ void* actualizarBloqueado(){
 				list_add(listaReady, esiBloqueado->ESI);
 				sem_post(&cantidadEsisEnReady);
 				j = list_size(listaBloqueado);
-			}
+				i = 0;
+			}else{
 			i++;
+			}
 		}
 		pthread_mutex_unlock(&mutex);
 	}
@@ -175,6 +178,7 @@ void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 	int j = list_size(listaBloqueado);
 	//printf("Hice el list_size \n");
 	list_remove(listaEsiClave, indexOfString(list_map(listaEsiClave, (void *) claveEsiClaves), clave));
+	sem_post(&huboDesalojoClaves);
 	while(i<j){
 		//printf("Entre al while \n");
 		struct_esiClaves* esiClave = list_get(listaBloqueado, i);
@@ -350,4 +354,5 @@ void prepararLogger(){
 void inicializarSemaforos(){
 	sem_init(&pausarPlanificacion, 0, 1);
 	sem_init(&cantidadEsisEnReady, 0, 0);
+	sem_init(&huboDesalojoClaves, 0, 0);
 }

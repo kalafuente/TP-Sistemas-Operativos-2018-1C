@@ -63,6 +63,32 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 
 }
 
+instancia*  simulacionElegirInstanciaSegunAlgoritmo(char * clave, t_list* letrasDeLaInstancia){
+	if (strcmp(coordConfig->algoritmo, "EL")==0 ){
+		instancia * instanciaElegida = list_get(listaDeInstancias,0);
+	}
+	else{
+		if (strcmp(coordConfig->algoritmo, "LSU")==0){
+			mostrarListaIntancias(listaDeInstancias);
+			instancia* instanciaElegida =  LSU(listaDeInstancias, logControlDeDistribucion);
+			return instanciaElegida;
+		}
+		else {
+			if (strcmp(coordConfig->algoritmo, "KE")==0){
+				letrasDeLaInstancia = list_create();
+				alfabeto = crearAlfabeto();
+				mostrarListaIntancias(listaDeInstancias);
+				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia, alfabeto);
+				destruirLetrasDeLaInstancia(letrasDeLaInstancia);
+				destruirAlfabeto(alfabeto);
+				return instanciaElegida;
+			}
+		}
+	}
+	return NULL; //ESTO NO DEBERIA PASAR
+
+}
+
 claveConInstancia* instanciaQueTieneLaClave(char* clave, t_list* listaDeClavesConInstancia){
 	bool condicionDeClave(claveConInstancia* item) {
 			int rta = strcmp(clave, item->clave);

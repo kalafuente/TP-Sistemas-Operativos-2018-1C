@@ -8,7 +8,7 @@ PROTOCOLO_PLANIFICADOR_A_COORDINADOR  estadoEsi(t_log* logger,PROTOCOLO_COORDINA
 		killCoordinador();
 		exit(1);
 	}
-	if (enviarID(logger, instruccion->clave , socketPlani)==-1){
+	if (enviarID(socketPlani, instruccion->clave,logger)==-1){
 		log_error (logger,"Se desconecto plani, SISTEMA EN ESTADO INVALIDO");
 		destruirInstruccion(instruccion);
 		killCoordinador();

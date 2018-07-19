@@ -5,9 +5,8 @@
 #include <signal.h>
 
 int main(int argc, char **argv) {
-
-	abrirScript(argc, argv);
 	logger = crearLogger("loggerEsi.log", "loggerEsi");
+	abrirScript(argc, argv);
 
 	//-------ARCHIVO DE CONFIGURACION
 

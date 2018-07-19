@@ -36,7 +36,7 @@ void cerrarConexion(){
 
 
 void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
-	log_info(logger,"Esperando la orden del planificador");
+	log_trace(logger,"Esperando la orden del planificador");
 	if(recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 					orden, socketPlani)<0){
 		avisarAlCoordi(TERMINE);

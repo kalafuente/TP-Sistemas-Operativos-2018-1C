@@ -1,10 +1,3 @@
-/*
- * protocolos.h
- *
- *  Created on: 25 may. 2018
- *      Author: utnso
- */
-
 #include <commons/collections/dictionary.h>
 #include <commons/string.h>
 #include "manejoDeSockets.h"
@@ -104,8 +97,6 @@ typedef struct instruccion {
 
 void destruirInstruccion(t_instruccion* instruccion);
 int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
-int enviarClave(t_log* logger,char* clave, int sock);
-char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave);
 t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien);
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
 char* recibirID(int sock, t_log* logger);

@@ -17,7 +17,7 @@
 #include <semaphore.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-
+#include <library/archivos.h>
 #include <signal.h>
 typedef enum ALGORITMO_PLANIFICACION {
 	SJF_CD, SJF_SD, HRRN

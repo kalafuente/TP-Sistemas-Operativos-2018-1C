@@ -29,6 +29,7 @@ int main(int argc, char **argv) {
 //Cerrar sockets de los esis que quedaron en el valhalla
 	close(listenningSocket);
 	close(socketCoordinador);
+	destuirListas();
 	destroy_planificadorConfig(planiConfig);
 	config_destroy(config);
 	log_destroy(logger);
@@ -36,6 +37,16 @@ int main(int argc, char **argv) {
 
 }
 
+
+void destuirListas() {
+	destruirListaEsiClave(listaEsiClave);
+	destruirListaEsi(listaReady);
+	destruirListaEsi(listaTerminados);
+	destruirListaEsi(listaEjecutando);
+	destruirListaEsi(listaEjecutando);
+	destruirListaEsiClave(listaBloqueado);
+
+}
 
 
 void* actualizarBloqueado(){
@@ -227,6 +238,7 @@ void* consola() {
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
+			signal(SIGINT, SIG_DFL);
 			break;
 		}
 		// printf("Lei la linea \n");
@@ -326,8 +338,83 @@ void* consola() {
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {
-			printf("El sistema no encuentra deadlocks actualmente \n");
-			//Esta consola también permitirá analizar los deadlocks que existan en el sistema y a que ESI están asociados.
+			printf("Detección de deadlocks \n");
+
+			/* para testear enviarle a la fc mostrarEsisEnDeadlock(simulacionBloqueados, simulacionTomadas);
+			t_list* simulacionTomadas= list_create();
+
+			struct_esi *ESI1 = calloc(1, sizeof(struct_esi));
+						ESI1->estimacion = 5;
+						ESI1->rafagaActual = 0;
+						ESI1->socket = 1;
+						ESI1->tiempoDeEspera = 0;
+						ESI1->ID = 10;
+
+			struct_esi *ESI2 = calloc(1, sizeof(struct_esi));
+						ESI2->estimacion = 5;
+						ESI2->rafagaActual = 0;
+						ESI2->socket = 2;
+						ESI2->tiempoDeEspera = 0;
+						ESI2->ID = 20;
+
+			struct_esi *ESI3 = calloc(1, sizeof(struct_esi));
+						ESI3->estimacion = 5;
+						ESI3->rafagaActual = 0;
+						ESI3->socket = 2;
+						ESI3->tiempoDeEspera = 0;
+						ESI3->ID = 30;
+
+			struct_esi *ESI4 = calloc(1, sizeof(struct_esi));
+						ESI4->estimacion = 5;
+						ESI4->rafagaActual = 0;
+						ESI4->socket = 2;
+						ESI4->tiempoDeEspera = 0;
+						ESI4->ID = 50;
+
+			struct_esiClaves *nuevoEsiTomador1 = calloc(1, sizeof(struct_esi));
+					nuevoEsiTomador1->ESI = ESI1;
+					nuevoEsiTomador1->clave= "diosa";
+
+			struct_esiClaves *nuevoEsiTomador2 = calloc(1, sizeof(struct_esi));
+					nuevoEsiTomador2->ESI = ESI2;
+					nuevoEsiTomador2->clave= "mesi";
+
+			struct_esiClaves *nuevoEsiTomador3 = calloc(1, sizeof(struct_esi));
+					nuevoEsiTomador3->ESI = ESI3;
+					nuevoEsiTomador3->clave= "karen";
+
+
+			list_add(simulacionTomadas, nuevoEsiTomador1);
+			list_add(simulacionTomadas, nuevoEsiTomador2);
+			list_add(simulacionTomadas, nuevoEsiTomador3);
+
+			t_list* simulacionBloqueados= list_create();
+
+
+			struct_esiClaves *nuevoEsiBloqueado1= calloc(1, sizeof(struct_esi));
+			nuevoEsiBloqueado1->ESI = ESI1;
+			nuevoEsiBloqueado1->clave = "karen";
+
+			struct_esiClaves *nuevoEsiBloqueado2= calloc(1, sizeof(struct_esi));
+			nuevoEsiBloqueado2->ESI = ESI2;
+			nuevoEsiBloqueado2->clave = "diosa";
+
+			struct_esiClaves *nuevoEsiBloqueado3= calloc(1, sizeof(struct_esi));
+				nuevoEsiBloqueado3->ESI = ESI3;
+				nuevoEsiBloqueado3->clave = "mesi";
+
+			struct_esiClaves *nuevoEsiBloqueado4= calloc(1, sizeof(struct_esi));
+				nuevoEsiBloqueado4->ESI = ESI4;
+				nuevoEsiBloqueado4->clave = "mesi";
+
+
+			list_add(simulacionBloqueados, nuevoEsiBloqueado1);
+			list_add(simulacionBloqueados, nuevoEsiBloqueado2);
+			list_add(simulacionBloqueados, nuevoEsiBloqueado3);
+			list_add(simulacionBloqueados, nuevoEsiBloqueado4);
+*/
+
+			mostrarEsisEnDeadlock(listaBloqueado, listaEsiClave);
 		}
 		printf("%s\n", linea);
 		free(linea);

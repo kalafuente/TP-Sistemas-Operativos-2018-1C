@@ -409,6 +409,7 @@ void peticionValor()
 	enviarID(socketCoordinador, valor, logger);
 
 	free(valor);
+	free(clavePeticionada);
 }
 
 int procesarSET(t_instruccion* inst)

@@ -67,14 +67,14 @@ void procesarScript() {
 
 	while ((read = getline(&line, &len, script)) != -1) {
 
-		recibirOrdenDelPlanificador(&orden);
+		recibirOrdenDelPlanificador(&orden,line);
 		t_instruccion* inst = leerInstruccion(line);
 		enviarInstruccionAlCoordinador(inst);
 		recibirResultadoDelCoordiandor(&resultado);
 		evaluarRespuestaDelCoordinador(resultado, inst);
 
 		while (resultado == BLOQUEATE) {
-			recibirOrdenDelPlanificador(&orden);
+			recibirOrdenDelPlanificador(&orden,line);
 			enviarInstruccionAlCoordinador(inst);
 			recibirResultadoDelCoordiandor(&resultado);
 			evaluarRespuestaDelCoordinador(resultado, inst);

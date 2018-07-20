@@ -35,16 +35,20 @@ void cerrarConexion(){
 
 
 
-void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden){
+void recibirOrdenDelPlanificador(PROTOCOLO_PLANIFICADOR_A_ESI* orden,char*line){
 	log_info(logger,"Esperando la orden del planificador");
 	if(recibirMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
 					orden, socketPlani)<0){
 		avisarAlCoordi(TERMINE);
+		free(line);
 		abortarEsi("RIP Planificador");
+
 	}
 	if(*orden==FINALIZAR){
 		avisarAlCoordi(TERMINE);
-		abortarEsi("WHY PLANI?!!");
+		free(line);
+		abortarEsi("PLANI KILLED ME");
+
 	}
 
 	log_info(logger,"Orden recibida");

@@ -9,7 +9,7 @@
 
 t_config * abrirArchivoConfig(int argc, char *argv[],t_log* logger,void(*destroy)()){
 	if (argc < 2) {
-			log_error(logger,"NO PASASTE EL ARCHIVO LPTM");
+			log_error(logger,"NO PASASTE EL ARCHIVO MOSTRO");
 			destroy();
 			exit(EXIT_FAILURE);
 		}

@@ -1,47 +1,3 @@
-/*
- * instancia.h
- *
- *  Created on: 29 abr. 2018
- *      Author: utnso
- */
-/*
-#ifndef INSTANCIA_H_
-#define INSTANCIA_H_
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <commons/config.h>
-#include <manejoDeSockets/manejoDeSockets.h>
-
-typedef struct instancia_config {
-	char * ipCoordi ;
-	char * puertoCoordi;
-	char * algoritmo;
-	char * path ;
-	char * nombre ;
-	int intervalo;
-} instancia_config;
-
-//------------Variables globales
-t_log* logger;
-
-//------------Declaraciones de funciones
-instancia_config * init_instanciaConfig();
-void crearConfiguracion(instancia_config **, t_config**);
-void destroy_instanciaConfig(instancia_config*);
-
-*/
-
-//#endif /* INSTANCIA_H_ */
-
-
-/*
- * instancia.h
- *
- *  Created on: 29 abr. 2018
- *      Author: utnso
- */
-
 #ifndef INSTANCIA_H_
 #define INSTANCIA_H_
 
@@ -74,6 +30,7 @@ typedef struct t_tabla_entradas
 	char * clave;
 	int32_t numeroEntrada;
 	int32_t tamanioValor;
+	int momentoReferencia;
 
 } t_tabla_entradas;
 
@@ -83,11 +40,14 @@ int32_t socketCoordinador;
 instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 20; //Lo deje en 20 para probar
 int32_t tamanioEntrada = 10;// Idem
-char ** entradas = NULL; //Es Filas x Columnas ... char entradas[CantidadEntradas][TamanioEntrada]
+char * entradas = NULL; //Es un array grande donde la division de entradas sera logica. Es lo mismo que char entradas[cantidadEntradas x tamanioEntrada]
 t_list* tablaEntradas = NULL;
-int filaACambiar = 0; //Actua como el puntero que nos dice en que numero de entrada debemos guardar el valor
-int comenzarReemplazoDeValores = 0; //Es como un booleano, nos dice si llenamos las Entradas y tenemos que comenzar a reemplazar valores segun el algoritmo
-t_link_element * punteroReempAlgCirc;
+//int filaACambiar = 0; //Actua como el puntero que nos dice en que numero de entrada debemos guardar el valor
+//int comenzarReemplazoDeValores = 0; //Es como un booleano, nos dice si llenamos las Entradas y tenemos que comenzar a reemplazar valores segun el algoritmo
+t_link_element * punteroReempAlgCirc = NULL; //Inicializado cuando se agrega el primer elemento a la lista
+int * bitArray = NULL; //Es un array de bits que servira para saber cuales entradas estan libres
+int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guardara el valor en la tabla de entradas al ser referenciada una clave
+//int punteroAlgCIRC = 0;
 
 
 //------------Declaraciones de funciones
@@ -106,21 +66,40 @@ int procesarSentencias();
 int procesarSET(t_instruccion* inst);
 void eliminarDatosTablaDeEntradas(void * elemento);
 void eliminarTablaDeEntradas();
-int existeLaClave(char * clave, t_link_element ** nodo);
+t_link_element * existeLaClave(char * clave);
 // int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo); Por ahora ya no la uso
-int esAtomicoElValor(int32_t longitudDelValor);
+//int esAtomicoElValor(int32_t longitudDelValor);
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor);
-int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor);
-void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor);
-void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
-void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor);
-void moverPunteroAFila();
+void guardarValorEnEntradas(char * clave, char * valor, int posicionInicial);
+void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int entradasViejoValor, int entradasNuevoValor);
+//void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
+//void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor);
+//void moverPunteroAlgCIRC();
 void imprimirContenidoEntradas();
-int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
-int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
+//int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
+//int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
 void moverPunteroReempAlgCirc();
-int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar[cantidad]);
-void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor);
+int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad]);
+//void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor);
 int procesarSTORE(t_instruccion * sentencia);
+
+void almacenarValor(int entradaInicial, char * valor);
+
+void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numeroEntrada);
+
+int eleccionDeVictima();
+
+int victimaCIRC();
+
+// ------------------- Funciones bitArray
+void inicializarBitArray();
+int tamanioBitArray();
+void setBit(int numeroEntrada);
+void clearBit(int numeroEntrada);
+int testBit(int numeroEntrada);
+void eliminarBitArray();
+
+// ------------------ Metodos de ordenamiento de listas
+bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
 
 #endif /* INSTANCIA_H_ */

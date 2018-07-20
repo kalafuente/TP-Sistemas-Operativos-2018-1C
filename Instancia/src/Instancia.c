@@ -7,24 +7,27 @@ int main(void)
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
 	t_config * config = config_create("configuracionInstancia.config");
-	instanciaConfig = init_instanciaConfig();
-	crearConfiguracion(instanciaConfig, config);
-	imprimirConfiguracion(instanciaConfig);
-	conectarseAlCoordinador();
-	handShakeConElCoordinador();
-	recibirConfiguracionDeEntradas();
-	imprimirConfiguracionDeEntradas();
-	inicializarEntradas();
+	instanciaConfig = init_instanciaConfig(); //CHECK
+	crearConfiguracion(instanciaConfig, config); //CHECK
+	imprimirConfiguracion(instanciaConfig); //CHECK
+	conectarseAlCoordinador(); //CHECK
+	handShakeConElCoordinador(); //CHECK, PERO enviarID no CHECK
+	recibirConfiguracionDeEntradas(); //CHECK
+	imprimirConfiguracionDeEntradas(); //CHECK
+	inicializarEntradas(); //CHECK
+	inicializarBitArray(); //CHECK
 	tablaEntradas = list_create();
+	//REINCORPORACION
 	procesarSentencias();
 	imprimirContenidoEntradas();
 
 
 	close(socketCoordinador);
-	destroy_instanciaConfig(instanciaConfig);
-	config_destroy(config);
-	eliminarEntradas();
-	eliminarTablaDeEntradas();
+	destroy_instanciaConfig(instanciaConfig); //CHECK
+	config_destroy(config); //CHECK
+	eliminarEntradas(); //CHECK
+	eliminarTablaDeEntradas(); //CHECK
+	eliminarBitArray(); //CHECK
 
 
 	return 0;
@@ -106,8 +109,8 @@ int handShakeConElCoordinador()
 		return -1;
 	}
 
+	enviarID(socketCoordinador,instanciaConfig->nombre,logger); //Aca le enviamos el nombre de la instancia al Coordi para identificarnos. enviarID NO CHECKEADO
 	log_info(logger, "Handshake Exitoso!\n");
-	enviarID(socketCoordinador,instanciaConfig->nombre,logger);
 	return 1;
 }
 
@@ -172,7 +175,7 @@ void inicializarEntradas()
 {
 	log_info(logger, "Pedimos memoria para la totalidad de las Entradas\n");
 
-	entradas = (char **)malloc(cantidadEntradas * sizeof(char*));
+	entradas = (char *)malloc(cantidadEntradas * tamanioEntrada * sizeof(char));
 
 	if(entradas == NULL)
 	{
@@ -180,43 +183,103 @@ void inicializarEntradas()
 		return;
 	}
 
-	int fila, columna;
-
-	for(fila = 0; fila < cantidadEntradas; fila ++)
-	{
-		entradas[fila] = (char*)malloc(tamanioEntrada * sizeof(char));
-
-		if(entradas[fila] == NULL)
-		{
-			log_error(logger, "Fallo al intentar pedir memoria para la fila de las Entradas\n");
-			return;
-		}
-	}
-
 	log_info(logger, "Memoria alojada correctamente\n");
 	log_info(logger, "Inicializamos los valores de las Entradas en 0\n");
 
+	int pos;
 
-	for(fila = 0; fila < cantidadEntradas; fila ++)
+	for(pos = 0; pos < (cantidadEntradas * tamanioEntrada); pos ++)
 	{
-		for(columna = 0; columna < tamanioEntrada; columna ++)
-		{
-			entradas[fila][columna] = '0';
-		}
+			entradas[pos] = '0';
 	}
 
-	log_info(logger, "Inicializacion exitosa!\n");
+	log_info(logger, "Inicializacion de Entradas exitosa!\n");
+}
+
+void inicializarBitArray()
+{
+	log_info(logger, "Pedimos memoria para el bitArray\n");
+
+	int tamanioArrayDeBits = tamanioBitArray();
+
+	bitArray = (int *) malloc(tamanioArrayDeBits * sizeof(int));
+
+	if(bitArray == NULL)
+	{
+		log_error(logger, "Fallo al pedir memoria para el Array de Bits\n");
+		return;
+	}
+
+	log_info(logger, "Memoria alojada correctamente\n");
+	log_info(logger, "Inicializamos los valores del Array\n");
+
+	int entero;
+
+	for(entero = 0; entero < tamanioArrayDeBits; entero ++)
+	{
+		bitArray[entero] = 0;
+	}
+
+	log_info(logger, "Posiciones requeridas para el Array: %d", tamanioArrayDeBits);
+	log_info(logger, "Inicializacion del Array de Bits exitosa!\n");
+
+}
+
+int tamanioBitArray()
+{
+	int bitsPorEntero = sizeof(int) * 8;
+
+	return (cantidadEntradas - 1)/bitsPorEntero + 1;
+}
+
+void setBit(int numeroEntrada)
+{
+	int bitsPorEntero = sizeof(int) * 8;
+	int i = numeroEntrada/bitsPorEntero;
+	int pos = numeroEntrada%bitsPorEntero;
+
+	unsigned int flag = 1;
+
+	flag = flag << pos;
+
+	bitArray[i] = bitArray[i] | flag;
+}
+
+void clearBit(int numeroEntrada)
+{
+	int bitsPorEntero = sizeof(int) * 8;
+	int i = numeroEntrada/bitsPorEntero;
+	int pos = numeroEntrada%bitsPorEntero;
+
+	unsigned int flag = 1;
+
+	flag = flag << pos;
+	flag = ~flag;
+
+	bitArray[i] = bitArray[i] & flag;
+}
+
+int testBit(int numeroEntrada)
+{
+    int bitsPorEntero = sizeof(int) * 8;
+	int i = numeroEntrada/bitsPorEntero;
+    int pos = numeroEntrada%bitsPorEntero;
+
+    unsigned int flag = 1;
+
+    flag = flag << pos;
+
+    return  bitArray[i] & flag;
+}
+
+void eliminarBitArray()
+{
+	free(bitArray);
+	bitArray = NULL;
 }
 
 void eliminarEntradas()
 {
-	int fila;
-
-	for(fila = 0; fila < cantidadEntradas; fila ++)
-	{
-		free(entradas[fila]);
-	}
-
 	free(entradas);
 	entradas = NULL;
 }
@@ -236,6 +299,7 @@ int procesarSentencias()
 		log_info(logger, "Esperando proxima sentencia...\n");
 
 		sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
+		//Aca deberia ir un mutex para la mutua exclusion con el DUMP
 
 		if(sentencia == NULL)
 		{
@@ -245,7 +309,7 @@ int procesarSentencias()
 			return -1;
 		}
 
-		switch(sentencia->instruccion)
+		switch(sentencia->instruccion) //FALTAN INSTRUCCIONES, COMO COMPACTAR Y ENVIAR VALOR
 		{
 			/* No le deberian llegar.
 			case INSTRUCCION_GET:
@@ -300,44 +364,346 @@ int procesarSentencias()
 
 int procesarSET(t_instruccion* inst)
 {
+	contadorGlobal ++;
+
 	log_info(logger, "La operacion es SET\n");
+	//Aca tengo que ordenar la lista por numero de entrada, de menor a mayor
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
 
-	t_link_element * nodo = NULL;
-	int laClaveExiste = existeLaClave(inst->clave, &nodo);
-	t_tabla_entradas * datos = NULL;
+	t_link_element * nodo = existeLaClave(inst->clave);
 
-	//switch(existeLaClave(inst->clave, datos))
-	switch(laClaveExiste)
+	int32_t tamanioNuevoValor = (int32_t) (strlen(inst->valor) + 1);
+	int entradasQueOcupaNuevoValor = cuantasEntradasOcupaElValor(tamanioNuevoValor);
+
+	if(nodo == NULL)
 	{
-		case 0: //La clave no existe
-			//Guardamos el valor en las Entradas.
-			//Creamos un nuevo nodo en la Tabla de Entradas con su correspondiente clave, numero de entrada y tamanio del valor
-			log_info(logger, "La clave no existe. Intentamos guardar su valor en las Entradas\n");
-			if(guardarValorEnEntradas(inst->clave, inst->valor, (strlen(inst->valor)+1)) < 0)
+		log_info(logger, "La clave no existe\n");
+
+		int cantidadEntradasUsadas = list_size(tablaEntradas);
+		int cantidadEntradasLibres = cantidadEntradas - cantidadEntradasUsadas;
+
+		if(cantidadEntradasLibres >= entradasQueOcupaNuevoValor){ //Llave corrida
+
+			//Tenemos suficientes entradas libres
+
+		int contEntradasLibres = 0;
+		int pos = 0;
+		int centinela = 1;
+
+		//ALGORITMO TURBIO
+
+		//Tratamos de buscar que esten todas juntas
+
+		while(pos < cantidadEntradas && centinela)
+		{
+			if(testBit(pos))
 			{
-				log_error(logger, "Fallo en la operacion SET. No se pudo almacenar el valor\n");
-				//Enviar un mensaje avisando al coordinador del fallo?
-				return -1;
+				//Quiere decir que la entrada esta ocupada
+				pos++;
 			}
-			log_info(logger, "Se pudo almacenar el valor\n");
-			break;
+			else
+			{
+				//La entrada esta libre! Tengo que verificar que hayan (entradasQueOcupaNuevoValor - 1) entradas libres contiguas a la misma
+				//Aunque primero aumentamos el contador
 
-		case 2: //La clave existe y su valor almacenado es atomico
-			//Guardamos el valor en las entradas en la posicion que nos indica el nodo
-			//Actualizamos el nodo en el que estan los datos de la clave
-			datos = ((t_tabla_entradas *)nodo->data);
-			log_info(logger, "La clave existe. Se intenta actualizar su valor\n");
-			actualizarValorEnEntradas(datos, inst->valor, (strlen(inst->valor)+1));
-			log_info(logger, "Valor actualizado\n");
-			break;
+				contEntradasLibres++;
 
-		default: //Cuando devuelve 1, quiere decir que el valor almacenado de esa clave no es atomico
-			log_error(logger, "El valor de la clave en cuestion no es atomico, por lo que no se puede reemplazar\n");
+				if(contEntradasLibres == entradasQueOcupaNuevoValor)
+				{
+					//Son suficientes, entonces salgo del ciclo manteniendo el valor de pos
+					centinela = 0;
+					break;
+				}
+
+				while(contEntradasLibres < entradasQueOcupaNuevoValor && pos < cantidadEntradas && centinela)
+				{
+
+					pos++;
+					if(testBit(pos))
+					{
+						//La siguiente esta ocupada. Salgo del 2do while y reseteo el contador de entradas libres
+						contEntradasLibres = 0;
+						pos++;
+						break;
+					}
+					else
+					{
+						contEntradasLibres++;
+
+						if(contEntradasLibres == entradasQueOcupaNuevoValor)
+						{
+							//Son suficientes, entonces salgo del ciclo manteniendo el valor de pos
+							centinela = 0;
+							break;
+						}
+						else
+						{
+							//No son suficientes. No hago nada porque al principio del while avanza la posicion
+						}
+					}
+				}
+
+			}
+
+		}
+
+		//Hay que corroborar por que motivo salimos del ciclo.
+
+		if(pos >= cantidadEntradas)
+		{
+			//Significa que no hay suficientes entradas JUNTAS libres.
+			//Deberiamos buscar las primeras n entradas libres que necesitemos
+			//Sabemos que existen, asi que al encontrarlas deberemos compactar
+
+			int entradasLibres[entradasQueOcupaNuevoValor];
+			pos = 0;
+			contEntradasLibres = 0;
+
+			while(pos < cantidadEntradas && contEntradasLibres < entradasQueOcupaNuevoValor)
+			{
+				if(testBit(pos))
+				{
+					//Esta ocupada. No hacemos nada
+				}
+				else
+				{
+					//Hay una libre. La guardamos
+					entradasLibres[contEntradasLibres] = pos;
+					contEntradasLibres ++;
+				}
+
+				pos++;
+			}
+
+			//Tengo que saber por que sali del ciclo
+
+			if(pos >= cantidadEntradas)
+			{
+				//No es posible que esto suceda. Corroboramos antes con las entradas usadas que habia espacio suficiente
+				perror("Error inesperado. Pareciera que no hay entradas en las que guardar. Probablemente el Algoritmo no funciona bien\n");
+				return -10;
+			}
+			else
+			{
+				//Encontramos todas las entradas libres necesarias, pero no estan JUNTAS
+				// ************* COMPACTACION ***************
+			}
+
+
+		}
+		else
+		{
+			//Tenemos las entradas libres CONTIGUAS suficientes para guardar el nuevo valor.
+			//pos apunta a la ultima entrada libre del conjunto.
+			pos = pos - (entradasQueOcupaNuevoValor - 1);
+
+			//Ahora tenemos la posicion de la primera entrada libre
+			guardarValorEnEntradas(inst->clave, inst->valor, pos);
+
+		}
+	}
+		else
+		{
+			//No hay suficientes entradas libres. Debemos lanzar el Algoritmo de Reemplazo
+			//Tenemos que guardar las entradas libres en un array para desp saber si estan contiguas con las liberadas por el algoritmo.
+			int cantidadReemplazos = entradasQueOcupaNuevoValor - cantidadEntradasLibres;
+			int libres[cantidadReemplazos];
+			int j, encontradas = 0;
+
+			while(encontradas < cantidadEntradasLibres && j < cantidadEntradas)
+			{
+				if(testBit(j))
+				{
+					//Esta ocupada
+				}
+				else
+				{
+					libres[encontradas] = j;
+					encontradas ++;
+				}
+
+				j++;
+			}
+
+			//Ya guardamos las entradas libres, ahora a buscar las que quedan
+			int limite = encontradas; //Nos indica a partir de que posicion del array guardamos las entradas que se tienen que reemplazar. No las libres
+
+			while(cantidadReemplazos > 0)
+			{
+				int victima = eleccionDeVictima();
+
+				if(victima < 0)
+				{
+					//Quiere decir que no pudo encontrar un valor para reemplazar porque no hay mas valores atomicos
+					return -1;
+				}
+
+				libres[encontradas] = victima;
+				encontradas ++;
+				cantidadReemplazos --;
+			}
+
+			//Si salimos del while es porque pudimos encontrar suficientes valores para reemplazar
+			//Tenemos que liberar dichos valores
+			//O verificar que sean contiguos y despues decidir que hacer -- no me conviene, no puedo usar algunas funciones
+
+			t_link_element * actual = tablaEntradas->head;
+
+
+		}
+
+	}
+	else
+	{
+		log_info(logger, "La clave existe\n");
+		t_tabla_entradas * datos = (t_tabla_entradas *) nodo->data;
+		int entradasQueOcupaViejoValor = cuantasEntradasOcupaElValor(datos->tamanioValor);
+
+		if(entradasQueOcupaViejoValor < entradasQueOcupaNuevoValor)
+		{
+			//Quiere decir que se necesitan mas entradas para almacenar el nuevo valor. No alcanza con las que tenia antes, lo que no se puede hacer
+			//Hay que avisar al Coordi que el nuevo valor no entra en las entradas asignadas al anterior
 			return -2;
+		}
+		else
+		{
+			//El valor se puede reemplazar, ya sea que ocupen la misma cantidad o el nuevo valor ocupe menos
+			log_info(logger, "El valor se puede reemplazar por el nuevo\n");
+			actualizarValorEnEntradas(nodo, inst->valor, entradasQueOcupaViejoValor, entradasQueOcupaNuevoValor);
+		}
+
 	}
 
 	log_info(logger, "Operacion SET exitosa!\n");
 	//Enviar un mensaje al coordinador avisando de que se guardo todo bien?
+
+	return 1;
+}
+
+void guardarValorEnEntradas(char * clave, char * valor, int posicionInicial)
+{
+	//Guardamos el valor primero
+	almacenarValor(posicionInicial, valor);
+	int32_t tamanioValor = (int32_t) strlen(valor) + 1;
+	int32_t tamanioRestante = tamanioValor;
+
+	while(tamanioRestante >= 0)
+	{
+		tamanioRestante -= tamanioEntrada;
+		//Actualizamos el bitArray
+		setBit(posicionInicial);
+		crearyAgregarElementoTDE(clave, tamanioValor, (int32_t)posicionInicial);
+		posicionInicial ++;
+	}
+
+}
+
+void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numeroEntrada)
+{
+
+	t_tabla_entradas * nuevoCampoData = (t_tabla_entradas *) malloc(sizeof(t_tabla_entradas));
+	nuevoCampoData->clave = string_new();
+	string_append(&(nuevoCampoData->clave), clave);
+	nuevoCampoData->momentoReferencia = contadorGlobal;
+	nuevoCampoData->numeroEntrada = numeroEntrada;
+	nuevoCampoData->tamanioValor = tamanioValor;
+	list_add(tablaEntradas, nuevoCampoData);
+
+	if(list_size(tablaEntradas) == 1)
+	{
+		punteroReempAlgCirc = tablaEntradas->head;
+	}
+}
+
+int eleccionDeVictima()
+{
+	if(strcmp(instanciaConfig->algoritmo, "CIRC") == 0)
+	{
+		log_info(logger, "Se reemplazara por Algoritmo CIRC\n");
+		return victimaCIRC();
+	}
+	else
+	{
+		if(strcmp(instanciaConfig->algoritmo, "LRU") == 0)
+		{
+			log_info(logger, "Se reemplazara por Algoritmo LRU\n");
+			//alg
+			return 0;
+		}
+		else
+		{
+			if(strcmp(instanciaConfig->algoritmo, "BSU") == 0)
+			{
+				log_info(logger, "Se reemplazara por Algoritmo BSU\n");
+				//alg
+				return 0;
+			}
+			else
+			{
+				log_error(logger, "Algoritmo incompatible. Se debe revisar la configuracion inicial\n");
+				return -5;
+			}
+		}
+	}
+}
+
+int victimaCIRC()
+{
+	 t_link_element * posicionInicial = punteroReempAlgCirc;
+
+	do
+	{
+		//Verificamos si el valor es atomico
+		t_tabla_entradas * dato = (t_tabla_entradas *)punteroReempAlgCirc->data;
+		if(cuantasEntradasOcupaElValor(dato->tamanioValor) == 1)
+		{
+			//Es atomico! Lo podemos reemplazar
+			return dato->numeroEntrada;
+		}
+
+		moverPunteroReempAlgCirc();
+
+	}while(posicionInicial != punteroReempAlgCirc);
+
+	//Dio toda una vuelta. No hay entradas atomicas para reemplazar
+
+	return -1;
+}
+
+int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad])
+{
+	//Primero las tengo que ordenar - Bubble Sort porque es facil... (y tampoco va a ser muy grande el array)
+
+		int i, j, auxiliar;
+
+		for(i = 0; i < cantidad; i ++)
+		{
+			for(j = 1; j < (cantidad - 1); j ++)
+			{
+				if(entradasParaComprobar[j] < entradasParaComprobar[j-1])
+				{
+					auxiliar = entradasParaComprobar[j-1];
+					entradasParaComprobar[j-1] = entradasParaComprobar[j];
+					entradasParaComprobar[j] =  auxiliar;
+				}
+			}
+		}
+
+	i = 0;
+
+	while(i < (cantidad - 2))
+	{
+		if(entradasParaComprobar[i + 1] == (entradasParaComprobar[i] + 1))
+		{
+			//La segunda es el siguiente de la primera
+			i++;
+		}
+		else
+		{
+			//No son contiguas
+			return 0;
+		}
+	}
 
 	return 1;
 }
@@ -356,53 +722,26 @@ void eliminarTablaDeEntradas()
 }
 
 
-//******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
-int existeLaClave(char * clave, t_link_element ** nodo) //Si existe la clave devuelve si el valor es atomico (2) o no (1). Ademas devuelve el nodo donde esta la clave.
+t_link_element * existeLaClave(char * clave) //Si existe la clave devuelve un puntero al nodo de la lista
 {
-	/*
-	if(list_is_empty(tablaEntradas)) //Quizas no haga falta, pero por las dudas
-	{
-		return 0;
-	}
-	*/
-
 	t_link_element * actual = tablaEntradas->head;
 
 	while(actual != NULL)
 	{
 		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
 
-		//if(strcmp(clave, datos->clave) == 0)
-		if(strcmp(clave, datos->clave) == 0)
+		if(strcmp(clave, datos->clave) == 0) //Encontramos el primero. Devolvemos el puntero al mismo y si no es atomico podemos ir a los siguientes
 		{
-			*nodo = actual;
-			//return esAtomicoElValor(datos->tamanioValor) + 1;
-			return esAtomicoElValor(datos->tamanioValor) + 1;
+			return actual;
 		}
 
 		actual = actual->next;
 	}
 
-	return 0;
-
+	return NULL;
 }
 
-/* Ya no la uso
-
-int esAtomicoElValorDeLaClave(char * clave, t_link_element * nodo)
-{
-	t_link_element * siguiente = nodo->next;
-	t_tabla_entradas * datos = (t_tabla_entradas *) siguiente->data;
-
-	if(strcmp(clave, datos->clave) == 0)
-	{
-		return 0;
-	}
-
-	return 1;
-}
-
-*/
+/*
 
 int esAtomicoElValor(int32_t longitudDelValor)
 {
@@ -413,14 +752,16 @@ int esAtomicoElValor(int32_t longitudDelValor)
 
 	return 1;
 }
+*/
 
 int cuantasEntradasOcupaElValor(int32_t longitudDelValor)
 {
-	double entradasQueOcupa = (double)(longitudDelValor - 1) / (double)(tamanioEntrada - 1);
+	double entradasQueOcupa = (double)(longitudDelValor) / (double)tamanioEntrada;
 
 	return (int) ceil(entradasQueOcupa);
 }
 
+/*
 int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 {
 	int cuantasEntradasDeboEscribir = cuantasEntradasOcupaElValor(longitudDelValor);
@@ -469,16 +810,52 @@ int guardarValorEnEntradas(char * clave, char * valor, int32_t longitudDelValor)
 
 
 }
+*/
 
 //******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
-void actualizarValorEnEntradas(t_tabla_entradas * info, char * valor, int32_t longitudDelValor)
+//La lista debe estar ordenada por numero de entrada
+void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int entradasViejoValor, int entradasNuevoValor)
 {
-	strcpy(entradas[info->numeroEntrada], valor);
-	info->tamanioValor = longitudDelValor;
-	//Capaz tenga que agregar la hora en la que se modifico por ultima vez como un campo en la Tabla de entradas
-	//Habria que actualizarlo tambien
+	log_info(logger, "Actualizando valor y estructuras administrativas\n");
+
+	t_link_element * actual = nodo;
+	t_link_element * anterior = NULL;
+	int i;
+	int entradaInicial = ((t_tabla_entradas *) nodo->data)->numeroEntrada;
+
+	for(i = 0; i < entradasNuevoValor; i++)
+	{
+		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
+		datos->tamanioValor = strlen(nuevoValor) + 1;
+		datos->momentoReferencia = contadorGlobal;
+		anterior = actual;
+		actual = actual->next;
+	}
+
+	for(; i < entradasViejoValor; i++)
+	{
+		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
+		int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
+		eliminarDatosTablaDeEntradas((void *) datos);
+		anterior->next = actual->next; //linkeo
+		free(actual);
+		actual = anterior->next;
+		clearBit(entradaActual);
+	}
+
+	almacenarValor(entradaInicial, nuevoValor);
+
+	log_info(logger, "Valor almacenado correctamente\n");
+
 }
 
+void almacenarValor(int entradaInicial, char * valor)
+{
+	int posicion = entradaInicial * tamanioEntrada;
+	strcpy(&entradas[posicion], valor);
+}
+
+/* NO LA NECESITO MAS
 //La tuve que ajustar para que al final de cada pedazo de valor agregue un "\0". Parece que funciona, pero puede traer problemas...
 
 void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte])
@@ -509,6 +886,9 @@ void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantid
 	strings[i][caracter] = '\0';
 }
 
+*/
+
+/* NO SE USA
 void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor)
 {
 	strcpy(entradas[filaACambiar], valor);
@@ -526,18 +906,20 @@ void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor)
 		punteroReempAlgCirc = tablaEntradas->head;
 	}
 }
+*/
 
-void moverPunteroAFila()
+/*
+void moverPunteroAlgCIRC()
 {
-	if(filaACambiar == (cantidadEntradas - 1))
+	if(punteroAlgCIRC == (cantidadEntradas - 1))
 	{
-		filaACambiar = 0;
-		comenzarReemplazoDeValores = 1;
+		punteroAlgCIRC = 0;
 		return;
 	}
 
-	filaACambiar ++;
+	punteroAlgCIRC ++;
 }
+*/
 
 void imprimirContenidoEntradas()
 {
@@ -554,39 +936,24 @@ void imprimirContenidoEntradas()
 	while(lista != NULL)
 	{
 		t_tabla_entradas * datos = ((t_tabla_entradas *)lista->data);
-		int entradasQueOcupaElValor = cuantasEntradasOcupaElValor(datos->tamanioValor);
 
-		if(entradasQueOcupaElValor == 1)
+		log_info(logger, "La clave es: %s\n", datos->clave);
+		log_info(logger, "Su valor asociado es: %s\n", &entradas[datos->numeroEntrada * tamanioEntrada]);
+
+		t_tabla_entradas * siguiente = datos;
+
+		while(lista != NULL && (strcmp(siguiente->clave, datos->clave) == 0))
 		{
-			log_info(logger, "La clave es: %s\n", datos->clave);
-			log_info(logger, "Su valor asociado es: %s\n", entradas[datos->numeroEntrada]);
 			lista = lista->next;
+			siguiente = ((t_tabla_entradas *)lista->data);
 		}
-		else
-		{
-			//TIENE QUE SER UNA FUNCION APARTE. DELEGARLO DESPUES DE LA ENTREGA
-			char * valorCompleto = string_new();
-			char * key = datos->clave;
-			int parte;
 
-			for(parte = 0; parte < entradasQueOcupaElValor; parte ++)
-			{
-				string_append(&valorCompleto, entradas[datos->numeroEntrada]);
-				lista = lista->next;
-				datos = ((t_tabla_entradas *)lista->data);
-			}
-
-			log_info(logger, "La clave es: %s\n", key);
-			log_info(logger, "Su valor asociado es: %s\n", valorCompleto);
-
-			free(valorCompleto);
-
-		}
 	}
 
 	log_info(logger, "Los valores se han impreso correctamente\n");
 }
 
+/* NO SE USA
 int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp)
 {
 
@@ -620,7 +987,9 @@ int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitud
 	return -4;
 
 }
+*/
 
+/* NO SE USA
 int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp)
 {
 	int contador = 0;
@@ -688,8 +1057,11 @@ int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int can
 
 }
 
+*/
+
 void moverPunteroReempAlgCirc()
 {
+	//Cuando usamos esta funcion sabemos que la lista esta ordenada por numero entrada de menor a mayor
 	if(punteroReempAlgCirc->next == NULL) //Quiere decir que esta en el ultimo elemento
 	{
 		punteroReempAlgCirc = tablaEntradas->head;
@@ -699,6 +1071,7 @@ void moverPunteroReempAlgCirc()
 	punteroReempAlgCirc = punteroReempAlgCirc->next;
 }
 
+/* OTRA ACTUALIZADA
 int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar[cantidad])
 {
 	//Primero las tengo que ordenar - Bubble Sort porque es facil... (y tampoco va a ser muy grande el array)
@@ -735,8 +1108,10 @@ int sonEntradasContiguas(int cantidad, t_tabla_entradas * entradasParaReemplazar
 
 	return 1; //Devuelve verdadero porque son contiguas
 }
+*/
 
-//******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
+/* NO SE USA
+******************************* PROBABLEMENTE NO FUNCIONE COMO ESPERABA *******************************
 void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor)
 {
 	strcpy(entradas[filaACambiar], valor);
@@ -745,58 +1120,30 @@ void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor,
 	dato->numeroEntrada = filaACambiar;
 	dato->tamanioValor = longitudValor;
 }
+*/
 
 int procesarSTORE(t_instruccion * sentencia)
 {
+	contadorGlobal ++;
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
 	log_info(logger, "La operacion es STORE\n");
-
-	t_link_element * nodito = NULL;
-
-	char * valorCompleto = string_new();
 
 	log_info(logger, "Verificamos que la clave exista en la Tabla de Entradas\n");
 
-	int laClaveExiste = existeLaClave(sentencia->clave, &nodito);
-
-	log_info(logger, "Ya invocamos la funcion para saber si la clave existe\n");
-
-	if(laClaveExiste == 0)
-	{
-		log_error(logger, "LA CLAVE NO EXISTE. NO HAY NADA ALMACENADO PARA HACER UN BACKUP\n");
-		log_error(logger, "La clave recibida es: %s", sentencia->clave);
-		free(valorCompleto);
-		return -1;
-	}
+	t_link_element * nodito = existeLaClave(sentencia->clave);
 
 	if(nodito == NULL)
 	{
-		log_error(logger, "El nodo es NULL... Por que es NULL?\n");
-		log_info(logger, "existeLaClave() devolvio: %d\n", laClaveExiste);
+		log_error(logger, "LA CLAVE NO EXISTE. HA SIDO REEMPLAZADA. AVISAR COORDI. ABORTAR ESI?\n");
+		log_error(logger, "La clave recibida es: %s", sentencia->clave);
+		return -1;
 	}
+
 
 	t_tabla_entradas * dato = (t_tabla_entradas *)nodito->data;
 
-	log_info(logger, "La clave existe. Corroboraremos si su valor es atomico o no\n");
-
-	if(laClaveExiste == 2) //Quiere decir que el valor es atomico
-	{
-		string_append(&valorCompleto, entradas[dato->numeroEntrada]);
-	}
-	else
-	{
-		//TIENE QUE SER UNA FUNCION APARTE. DESPUES DE LA ENTREGA DELEGAR!
-		//char * valorCompleto = string_new();
-		//char * key = datos->clave;
-		int entradasQueOcupaElValor = cuantasEntradasOcupaElValor(dato->tamanioValor);
-		int parte;
-
-		for(parte = 0; parte < entradasQueOcupaElValor; parte ++)
-		{
-			string_append(&valorCompleto, entradas[dato->numeroEntrada]);
-			nodito = nodito->next;
-			dato = ((t_tabla_entradas *)nodito->data);
-		}
-	}
+	log_info(logger, "La clave existe!\n");
 
 	char * nombreDelArchivo = string_new();
 	string_append(&nombreDelArchivo, sentencia->clave);
@@ -807,34 +1154,30 @@ int procesarSTORE(t_instruccion * sentencia)
 	if(fd < 0)
 	{
 		log_error(logger, "No se pudo abrir o crear el archivo. Fallo el open()\n");
-		free(valorCompleto);
 		free(nombreDelArchivo);
 		return -1;
 	}
 
-	if(ftruncate(fd, strlen(valorCompleto) + 1) < 0)
+	if(ftruncate(fd, dato->tamanioValor) < 0)
 	{
 		log_error(logger, "No se pudo establecer el tamanio del archivo. Fallo ftruncate()\n");
-		free(valorCompleto);
 		free(nombreDelArchivo);
 		close(fd);
 		return -2;
 	}
 
-	char * pointermmap = mmap(NULL, strlen(valorCompleto) + 1, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	char * pointermmap = mmap(NULL, dato->tamanioValor, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
 	if(pointermmap == MAP_FAILED)
 	{
 		log_error(logger, "No se pudo mapear a memoria. Fallo mmap()\n");
-		free(valorCompleto);
 		free(nombreDelArchivo);
 		close(fd);
 		return -3;
 	}
 
-	strcpy(pointermmap, valorCompleto);
+	strcpy(pointermmap, &entradas[dato->numeroEntrada * tamanioEntrada]);
 	close(fd);
-	free(valorCompleto);
 	free(nombreDelArchivo);
 
 	log_info(logger, "Se pudo mapear correctamente a memoria\n");
@@ -843,23 +1186,10 @@ int procesarSTORE(t_instruccion * sentencia)
 
 }
 
-
-/*
-void procesarGET()
+bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)
 {
-	int32_t longitudKey = 41; //Es un valor fijo que contempla el fin de string
-	char key[longitudKey];
-
-	log_info(logger, "La sentencia es GET. Pedimos la clave\n");
-
-	if(recibirMensaje(logger, longitudKey, key, socketCoordinador) <= 0)
-	{
-		log_error(logger, "Imposible recibir clave\n"); //No tendria que pasar. Si nos llega GET atras deberia estar la clave
-
-		return;
-	}
-
-
+	return (primerElemento->numeroEntrada < segundoElemento->numeroEntrada);
 }
 
-*/
+
+

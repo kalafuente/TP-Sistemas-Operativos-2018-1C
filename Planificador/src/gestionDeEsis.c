@@ -40,6 +40,8 @@ void liberarEsi(char*clave) {
 	if (aux != NULL) {
 		list_add(listaReady, aux->ESI);
 		EsisNuevos++;
+		sem_post(&cantidadEsisEnReady);
+
 	}
 }
 

@@ -15,9 +15,23 @@ void planificarESIs(){
 			EsisNuevos = 0;
 			ordenarListaDeReady();
 		}
+		pthread_mutex_unlock(&mutex);
+
+		pthread_mutex_unlock(&mutexKillEsi);
+		sem_wait(&pausarPlanificacion);
+		sem_post(&pausarPlanificacion);
+		pthread_mutex_lock(&mutexKillEsi);
+
+		if (list_size(listaReady) == 0) {
+			continue;
+		}
+
+		pthread_mutex_lock(&mutex);
+
 		esiActual = list_remove(listaReady, 0);
 		list_add(listaEjecutando, esiActual);
 		pthread_mutex_unlock(&mutex);
+
 		while (estadoEsi == TERMINE_BIEN) {
 			sem_wait(&pausarPlanificacion);
 			ordenarActuar(esiActual);
@@ -78,15 +92,25 @@ void planificarESIs(){
 					log_error(logger, "No deberias ver esto");
 					break;
 					}
-			sem_post(&pausarPlanificacion);
 		//IF (es con desalojo && llego un nuevo esi)->devolver a la listaReady && Salir del while------------------------------------------------------------------------------------------------------------
 			if (planiConfig->algoritmoPlanificacion == SJF_CD
 					&& estadoEsi == TERMINE_BIEN && EsisNuevos) {
+				estadoEsi = TERMINE;
 				list_remove(listaEjecutando, 0);
 				list_add(listaReady, esiActual);
 				break;
 			}
+
+			sem_post(&pausarPlanificacion);
+			pthread_mutex_unlock(&mutexKillEsi);
+			pthread_mutex_lock(&mutexKillEsi);
+
+			if (list_size(listaEjecutando) == 0) {
+				estadoEsi = TERMINE;
+				break;
 			}
+
+		}
 	//Calcular estimacion para la proxima vez.
 	}
 	free(instruccion);

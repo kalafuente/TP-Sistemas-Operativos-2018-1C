@@ -69,7 +69,7 @@ sem_t pausarPlanificacion;
 sem_t huboDesalojoClaves;
 
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
-pthread_mutex_t mutex;
+pthread_mutex_t mutex, mutexKillEsi;
 
 void destuirListas();
 void inicializar();

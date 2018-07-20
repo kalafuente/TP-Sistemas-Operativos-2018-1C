@@ -12,6 +12,19 @@ void ordenarActuar(struct_esi* esi) {
 	}
 
 }
+
+void ordenarFinalizar(struct_esi*esi) {
+	PROTOCOLO_PLANIFICADOR_A_ESI mensajeParaEsi = FINALIZAR;
+
+	if (enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_ESI),
+			&mensajeParaEsi, esi->socket) <= 0) {
+		log_error(logger, "NO SE PUDO ENVIAR ORDEN AL ESI");
+	} else {
+		log_info(logger, "Se aviso al Esi que terminamos");
+	}
+
+}
+
 PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi) {
 	PROTOCOLO_ESI_A_PLANIFICADOR resultado;
 	recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR), &resultado,

@@ -10,8 +10,8 @@ int main(int argc, char **argv) {
 	pthread_t tid;
 	pthread_create(&tid, NULL, consola, NULL);
 	pthread_mutex_init(&mutex, NULL);
-
-
+	pthread_mutex_init(&mutexKillEsi, NULL);
+	pthread_mutex_lock(&mutexKillEsi);
 //-------------CONEXION AL COORDINADOR------------------
 	int socketCoordinador = conectarseAlCoordinador(planiConfig);
 //-----------RECEPTOR DE ESI´S----------------------
@@ -226,6 +226,8 @@ bool contains(t_list* lista, int elemento){
 
 
 void* consola() {
+	int IDaux;
+	struct_esi * Esiaux;
 	char * linea;
 	char * comando = calloc(10, sizeof(char*));
 	char * parametros = calloc(100, sizeof(char*));
@@ -268,9 +270,10 @@ void* consola() {
 			int esSuClaveIgual(struct_esiClaves*elesi) {
 					return string_equals_ignore_case(clave, elesi->clave);
 				}
-			int ID = strtol(id, NULL, 10);
+			IDaux = (int) strtol(id, (char**) NULL, 10);
 			pthread_mutex_lock(&mutex);
-			if(!contains((list_map(listaReady, idEsi)), ID) && !contains((list_map(listaEjecutando, idEsi)), ID)){
+			if (!contains((list_map(listaReady, idEsi)), IDaux)
+					&& !contains((list_map(listaEjecutando, idEsi)), IDaux)) {
 				strcpy(id, "ESI NO EXISTENTE");
 				//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual)
 			    if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
@@ -279,9 +282,9 @@ void* consola() {
 			    	list_add(listaEsiClave, crearEsiClave(esiNoExistente, clave));
 			    		}
 			    	}else{
-			    	 		if(contains((list_map(listaReady, idEsi)), ID)){
+				if (contains((list_map(listaReady, idEsi)), IDaux)) {
 			    				//bloquear(id, clave);
-			    	 			int index = indexOf((list_map(listaReady, idEsi)), ID);
+					int index = indexOf((list_map(listaReady, idEsi)), IDaux);
 			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
 			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
@@ -289,9 +292,10 @@ void* consola() {
 			    	 				list_add(listaEsiClave, esiClavesBloqueado);
 			    	 			}*/
 			    			}
-			    	 		if(contains((list_map(listaEjecutando, idEsi)), ID)){
+				if (contains((list_map(listaEjecutando, idEsi)), IDaux)) {
 			    				//bloquear(id, clave);
-			    	 			int index = indexOf((list_map(listaEjecutando, idEsi)), ID);
+					int index = indexOf((list_map(listaEjecutando, idEsi)),
+							IDaux);
 			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
 			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
@@ -329,11 +333,41 @@ void* consola() {
 			//Lista los procesos encolados esperando al recurso.
 		}
 		if (string_equals_ignore_case(comando, "kill")) {
-			printf("Se elimino el proceso %s \n", parametros);
+			char* id = strtok(parametros, " ");
+			IDaux = (int) strtol(id, (char**) NULL, 10);
+
+			int claveIgual(struct_esi* esi) {
+				return esi->ID == IDaux;
+			}
+			pthread_mutex_lock(&mutexKillEsi);
+			pthread_mutex_lock(&mutex);
+
+			Esiaux = list_remove_by_condition(listaReady, (void*) claveIgual);
+			pthread_mutex_unlock(&mutex);
+
+			if (Esiaux == NULL) {
+
+				Esiaux = list_remove_by_condition(listaEjecutando,
+						(void*) claveIgual);
+
+			}
+
+			if (Esiaux != NULL) {
+				list_add(listaTerminados, Esiaux);
+
+				ordenarFinalizar(Esiaux);
+				log_info(logger, "Se elimino el Esi %s \n", parametros);
+			} else {
+				log_error(logger, "No se encontro el Esi");
+			}
+			pthread_mutex_unlock(&mutexKillEsi);
+
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
 		}
 		if (string_equals_ignore_case(comando, "estado")) {
-			printf("La siguiente clave %s , esta en el siguiente estado: \n",
+
+			log_info(logger,
+					"La siguiente clave %s , esta en el siguiente estado: \n",
 					parametros);
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}

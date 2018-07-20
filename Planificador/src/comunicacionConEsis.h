@@ -3,6 +3,7 @@
 #include "Planificador.h"
 
 void ordenarActuar(struct_esi* esi);
+void ordenarFinalizar(struct_esi*esi);
 PROTOCOLO_ESI_A_PLANIFICADOR recibirResultado(struct_esi* esi);
 void * recibirEsi(void* socketEscucha);
 

@@ -56,6 +56,7 @@ typedef struct {
 #include "gestionDeEsis.h"
 #include "deadlock.h"
 #include "liberacionDeMemoria.h"
+int EsisNuevos;
 int IdDisponible;
 int PlanificadorON;
 

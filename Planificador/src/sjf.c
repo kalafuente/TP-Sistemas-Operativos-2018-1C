@@ -11,6 +11,19 @@ void ordenarPorSJF(t_list *listaAOrdenar) {
 	list_sort(listaAOrdenar, (void*) tieneMenorRafaga);
 }
 
+bool mayorResponseRatio(struct_esi* esi1, struct_esi* esi2) {
+	return 1 + esi1->estimacion / esi1->estimacion
+			> 1 + esi2->estimacion / esi2->estimacion;
+}
+
+void ordenarPorHRRN(t_list *listaAOrdenar) {
+	if (sizeof(listaAOrdenar) <= 1) {
+		return;
+	}
+	list_sort(listaAOrdenar, (void*) mayorResponseRatio);
+}
+
+
 float actualizarDuracionDeRafagaSJF(struct_esi esi) {
 	float duracionEstimada;
 	duracionEstimada = 0; //obviamente esto se calcula con el alfa la duracion de la ultima rafaga y la duracion estimada anterior

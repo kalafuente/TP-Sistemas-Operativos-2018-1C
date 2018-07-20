@@ -7,5 +7,6 @@ struct_esiClaves* crearEsiClave(struct_esi* esi, char*clave);
 void liberarEsi(char*clave);
 void sacarStructDeListaEsiClave(char*clave);
 void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
-
+void sumarUnoDeEspera(struct_esi* esi);
+void sumarEspera();
 #endif /* GESTIONDEESIS_H_ */

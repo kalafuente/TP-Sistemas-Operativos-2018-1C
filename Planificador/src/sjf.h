@@ -4,6 +4,8 @@
 
 bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2);
 void ordenarPorSJF(t_list *listaAOrdenar);
+bool mayorResponseRatio(struct_esi* esi1, struct_esi* esi2);
+void ordenarPorHRRN(t_list *listaAOrdenar);
 float actualizarDuracionDeRafagaSJF(struct_esi esi);
 double calcularSiguienteRafagaSJF(int t , int t0, double alfa);
 double calcularRafagaSJF(struct_esi* esi, double alfa);

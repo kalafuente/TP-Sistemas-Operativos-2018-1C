@@ -13,13 +13,17 @@ int main(int argc, char **argv) {
 	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[1]);
 
 	pthread_t tid;
-	pthread_create(&tid, NULL, consola, NULL);
 	pthread_mutex_init(&mutex, NULL);
 	pthread_mutex_init(&mutexKillEsi, NULL);
 	pthread_mutex_lock(&mutexKillEsi);
 //-------------CONEXION AL COORDINADOR------------------
-	int socketCoordinador = conectarseAlCoordinador(planiConfig);
+	int socketCoordinador = conectarseAlCoordinador(planiConfig,
+			HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR);
+	int socketStatus = conectarseAlCoordinador(planiConfig,
+			HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR);
 //-----------RECEPTOR DE ESI´S----------------------
+	pthread_create(&tid, NULL, consola, (void*) &socketStatus);
+
 
 	int listenningSocket = crearSocketQueEscucha(&planiConfig->puertoEscucha, &planiConfig->entradas);
 	pthread_t thread_id;
@@ -230,8 +234,10 @@ bool contains(t_list* lista, int elemento){
 }
 
 
-void* consola() {
+void* consola(void* socket) {
+	int *socketStatus = (int*) socket;
 	int IDaux;
+	char* Auxid = string_new();
 	struct_esiClaves*EsiClaveAux;
 	struct_esi * Esiaux;
 	char * linea;
@@ -257,13 +263,15 @@ void* consola() {
 		//Desbloquear [Clave]
 		//Listar [Recurso]
 		//Kill [ID]
-		//Estado [Clave]
+		//status  [Clave]
 		//Deadlock
 
 		if (string_equals_ignore_case(comando, "pausar")) {
 			sem_wait(&pausarPlanificacion);
 			printf("La planificacion se detuvo \n");
+
 			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
+		
 		}
 		if (string_equals_ignore_case(comando, "resumir")) {
 			sem_post(&pausarPlanificacion);
@@ -339,8 +347,8 @@ void* consola() {
 			//Lista los procesos encolados esperando al recurso.
 		}
 		if (string_equals_ignore_case(comando, "kill")) {
-			char* id = strtok(parametros, " ");
-			IDaux = (int) strtol(id, (char**) NULL, 10);
+			string_append(&Auxid, strtok(parametros, " "));
+			IDaux = (int) strtol(Auxid, (char**) NULL, 10);
 
 			int claveIgual(struct_esi* esi) {
 				return esi->ID == IDaux;
@@ -386,11 +394,27 @@ void* consola() {
 
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
 		}
-		if (string_equals_ignore_case(comando, "estado")) {
-
+		if (string_equals_ignore_case(comando, "status")) {
+			string_append(&Auxid, strtok(parametros, " "));
+			enviarID(*socketStatus, Auxid, logger);
+			log_info(logger, "La clave %s , esta en el siguiente estado: \n");
+			log_info(logger, "Valor:	 ");
+			log_info(logger, "%s \n", recibirID(*socketStatus, logger));
+			log_info(logger, "Instancia Actual: 	");
+			log_info(logger, "%s\n", recibirID(*socketStatus, logger));
 			log_info(logger,
-					"La siguiente clave %s , esta en el siguiente estado: \n",
-					parametros);
+					"Instancia a la que corresponderia en este momento:		 ");
+			log_info(logger, "%s\n", recibirID(*socketStatus, logger));
+
+			log_info(logger, "Esis que esperan esta clave: 		");
+
+			void mostrarSiClaveCoincide(struct_esiClaves*esiClave) {
+				if (string_equals_ignore_case(Auxid, esiClave->clave)) {
+					log_info(logger, "Esi  %d\n", esiClave->ESI->ID);
+				}
+
+			}
+			list_iterate(listaBloqueado, (void*) mostrarSiClaveCoincide);
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {

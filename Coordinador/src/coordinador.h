@@ -16,6 +16,7 @@
 #include <commons/collections/list.h>
 #include <library/manejoDeSockets.h>
 #include <library/protocolos.h>
+#include <library/archivos.h>
 
 
 typedef struct coordinador_config {
@@ -77,7 +78,7 @@ int32_t socketPlani;
 int listenningSocket;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
-void prepararConfiguracion();
+void prepararConfiguracion(int argc, char **argv);
 void prepararLoggers();
 void crearListas();
 void crearServidor();
@@ -89,7 +90,7 @@ void retardo();
 void destruirListas();
 void destruirLoggers();
 void killCoordinador();
-
+void mostrarValoresArchConfig(coordinador_config* config);
 //Sockets
 
 void crearServidorMultiHilo();

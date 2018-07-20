@@ -4,7 +4,7 @@
 int main(int argc, char **argv) {
 
 	prepararLoggers();
-	prepararConfiguracion();
+	prepararConfiguracion(argc,argv);
 	crearListas();
 	crearServidor();
 	killCoordinador();
@@ -25,11 +25,23 @@ void prepararLoggers(){
 	logDeOperaciones = crearLogger("logDeOperaciones.log", "logDeOperaciones");
 	logControlDeDistribucion = crearLogger("logControlDeDistribucion.log", "logControlDeDistribucion");
 }
-void prepararConfiguracion(){
-	config = config_create("configuracion.config");
+void prepararConfiguracion(int argc, char **argv){
+
+	config= abrirArchivoConfig(argc,argv,logger,destruirLoggers);
+	//config = config_create("configuracion.config");
 	coordConfig = init_coordConfig();
 	crearConfiguracion(coordConfig,config);
+	mostrarValoresArchConfig(coordConfig);
+
 }
+
+void mostrarValoresArchConfig(coordinador_config* config){
+	printf("ALGORITMO DE DISTRIBUCION: %s \n",config->algoritmo);
+	printf("ENTRADAS: %d \n",config->entradas);
+	printf("TAMANIO ENTRADAS: %d \n",config->tamanioEntradas);
+	printf("RETARDO: %d \n",config->retardo);
+}
+
 
 void crearListas(){
 	listaDeInstancias= list_create();

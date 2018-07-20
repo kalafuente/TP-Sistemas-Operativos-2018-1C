@@ -93,6 +93,8 @@ int eleccionDeVictima();
 
 int victimaCIRC();
 
+void peticionValor();
+
 
 // ------------------- Funciones bitArray
 void inicializarBitArray();

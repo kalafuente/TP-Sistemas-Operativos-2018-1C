@@ -349,6 +349,11 @@ int procesarSentencias()
 				respuesta = SE_CREO_EL_ARCHIVO;
 				break;
 
+			case PEDIDO_VALOR:
+				peticionValor();
+				respuesta = VALOR_ENVIADO;
+				break;
+
 			default:
 
 				log_error(logger, "La sentencia no puede ser interpretada\n");
@@ -365,6 +370,45 @@ int procesarSentencias()
 	}
 
 	return 1;
+}
+
+void peticionValor()
+{
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
+	char * clavePeticionada = recibirID(socketCoordinador, logger);
+
+	log_info(logger, "Nos piden el valor de la siguiente clave: %s", clavePeticionada);
+
+	t_link_element * actual = tablaEntradas->head;
+
+	char * valor = string_new();
+
+	int noEncontrado = 1;
+
+	while(actual != NULL && noEncontrado)
+	{
+		t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
+
+		if(strcmp(dato->clave, clavePeticionada) == 0)
+		{
+			string_append(&valor, &entradas[dato->numeroEntrada * tamanioEntrada]);
+			noEncontrado = 0;
+		}
+
+		actual = actual->next;
+	}
+
+	if(noEncontrado)
+	{
+		string_append(&valor, "null");
+	}
+
+	log_info(logger, "Enviando valor: %s", valor);
+
+	enviarID(socketCoordinador, valor, logger);
+
+	free(valor);
 }
 
 int procesarSET(t_instruccion* inst)

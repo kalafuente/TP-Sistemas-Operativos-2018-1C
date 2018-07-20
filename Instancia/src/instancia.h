@@ -14,7 +14,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/mman.h>
-
+#include <library/archivos.h>
 
 typedef struct instancia_config {
 	char * ipCoordi ;
@@ -50,6 +50,7 @@ int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guar
 //int punteroAlgCIRC = 0;
 
 
+void destruirLogger();
 //------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
 void crearConfiguracion(instancia_config *, t_config*);
@@ -90,6 +91,7 @@ void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numero
 int eleccionDeVictima();
 
 int victimaCIRC();
+
 
 // ------------------- Funciones bitArray
 void inicializarBitArray();

@@ -1,12 +1,14 @@
 #include "instancia.h"
 
 
-int main(void)
+int main(int argc,char**argv)
 {
 
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
-	t_config * config = config_create("configuracionInstancia.config");
+	//t_config * config = config_create("configuracionInstancia.config");
+	t_config * config = abrirArchivoConfig(argc,argv,logger,destruirLogger);
+
 	instanciaConfig = init_instanciaConfig(); //CHECK
 	crearConfiguracion(instanciaConfig, config); //CHECK
 	imprimirConfiguracion(instanciaConfig); //CHECK
@@ -34,6 +36,9 @@ int main(void)
 
 }
 
+void destruirLogger(){
+	log_destroy(logger);
+}
 
 int recibirConfiguracionDeEntradas()
 {

@@ -1,3 +1,3 @@
-GET  afutbol:messaaig
-SET afutbol:messaaig LOKAAA
-STORE  afutbol:messaaig
+GET  futbol:messi
+SET futbol:messi
+STORE  futbol:messi

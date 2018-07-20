@@ -459,7 +459,9 @@ int procesarSET(t_instruccion* inst)
 			//Significa que no hay suficientes entradas JUNTAS libres.
 			//Deberiamos buscar las primeras n entradas libres que necesitemos
 			//Sabemos que existen, asi que al encontrarlas deberemos compactar
+			// PARA QUE LAS QUIERO ENCONTRAR SI YA SE QUE HAY QUE COMPACTAR?
 
+			/*
 			int entradasLibres[entradasQueOcupaNuevoValor];
 			pos = 0;
 			contEntradasLibres = 0;
@@ -494,6 +496,10 @@ int procesarSET(t_instruccion* inst)
 				// ************* COMPACTACION ***************
 			}
 
+			*/
+
+
+			//********** compactacion derecho ****************
 
 		}
 		else
@@ -551,9 +557,73 @@ int procesarSET(t_instruccion* inst)
 			//Si salimos del while es porque pudimos encontrar suficientes valores para reemplazar
 			//Tenemos que liberar dichos valores
 			//O verificar que sean contiguos y despues decidir que hacer -- no me conviene, no puedo usar algunas funciones
+			//NOTA: EL ALGORITMO PUEDE REORDENAR LA LISTA Y LA NECESITAMOS POR NUMERO DE ENTRADA
+
+			if(strcmp(instanciaConfig->algoritmo, "CIRC") != 0)
+			{
+				list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+			}
 
 			t_link_element * actual = tablaEntradas->head;
+			t_link_element * anterior = NULL;
 
+			while(actual != NULL && limite < encontradas)
+			{
+				t_tabla_entradas * datos = (t_tabla_entradas *)actual->data;
+
+				if(datos->numeroEntrada == libres[limite])
+				{
+					//Encontramos el nodo. Debemos liberarlo y linkearlo
+
+					if(punteroReempAlgCirc == actual)
+					{
+						punteroReempAlgCirc = actual->next;
+					}
+
+					int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
+					eliminarDatosTablaDeEntradas((void *) datos);
+					if(actual == tablaEntradas->head)
+					{
+						tablaEntradas->head = actual->next;
+						anterior = actual;
+						actual = actual->next;
+						anterior->next = NULL;
+						free(anterior);
+					}
+					else
+					{
+						anterior->next = actual->next; //linkeo
+						actual->next = NULL;
+						free(actual);
+						actual = anterior->next;
+					}
+
+					clearBit(entradaActual);
+					limite ++;
+
+				}
+				else
+				{
+					anterior= actual;
+					actual = actual->next;
+				}
+			}
+
+			//Ya estan todas liberadas
+			//Hay que verificar si son todas contiguas
+
+			if(sonEntradasContiguas(encontradas, libres))
+			{
+				//Son contiguas! Guardamos el valor y todo lo demas
+				//Sabemos que estan ordenados por la funcion anterior
+
+				guardarValorEnEntradas(inst->clave, inst->valor, libres[0]);
+			}
+			else
+			{
+				//Ya tenemos todo lo que necesitamos, pero no son contiguas
+				//************* COMPACTACION ***************
+			}
 
 		}
 
@@ -839,10 +909,16 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 
 	for(; i < entradasViejoValor; i++)
 	{
+		if(punteroReempAlgCirc == actual)
+		{
+			punteroReempAlgCirc = actual->next;
+		}
+
 		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
 		int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
 		eliminarDatosTablaDeEntradas((void *) datos);
 		anterior->next = actual->next; //linkeo
+		actual->next = NULL;
 		free(actual);
 		actual = anterior->next;
 		clearBit(entradaActual);

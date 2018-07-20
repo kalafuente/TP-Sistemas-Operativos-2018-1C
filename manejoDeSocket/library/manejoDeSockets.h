@@ -24,8 +24,7 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket);
 int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket);
 int crearSocketQueEscucha(char ** puerto, int * entradas);
 t_log* crearLogger(char* nombreDelArchivo, char* nombreAMostrar);
-int conectarAlServidor(t_log* logger, char * ip, char * puerto);
 void exitGracefully(t_log* logger, int valorDeRetorno);
-
+int conectarseAlServidor(t_log* logger, char ** ip, char ** puerto);
 
 #endif /* BIBLIOTECA_MANEJODESOCKETS_H_ */

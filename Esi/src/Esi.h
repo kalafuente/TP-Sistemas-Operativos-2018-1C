@@ -61,6 +61,8 @@ t_instruccion* leerInstruccion(char* line);
 void procesarScript();
 void abrirScript(int argc,char **argv);
 void abortarEsi(const char* causa);
+
+void cargarLogger();
 //------------------VARIABLES GLOBALES
 t_log* logger;
 esi_config * esiConfig;
@@ -68,5 +70,8 @@ t_config *config;
 FILE* script;
 int socketCoordinador;
 int socketPlani;
+
+
+
 
 #endif /* ESI_H_ */

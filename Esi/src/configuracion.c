@@ -64,15 +64,5 @@ void killEsi() {
 }
 
 
-void cargarLogger(int argc, char*argv[]) {
-	if (argc < 2) {
-		perror("Te olvidaste el path del logger capo");
-		exit(1);
-	}
-	char* path =strdup(argv[0]);
-	logger = crearLogger(path, "loggerEsi");
-
-
-}
 
 

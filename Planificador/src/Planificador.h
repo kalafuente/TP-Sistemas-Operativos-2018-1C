@@ -17,7 +17,8 @@
 #include <semaphore.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-
+#include <library/archivos.h>
+#include <signal.h>
 typedef enum ALGORITMO_PLANIFICACION {
 	SJF_CD, SJF_SD, HRRN
 } ALGORITMO_PLANIFICACION;
@@ -53,7 +54,8 @@ typedef struct {
 #include "planificacionDeEsis.h"
 #include "comunicacionConEsis.h"
 #include "gestionDeEsis.h"
-
+#include "deadlock.h"
+#include "liberacionDeMemoria.h"
 int IdDisponible;
 int PlanificadorON;
 
@@ -63,12 +65,14 @@ t_log* logger;
 
 sem_t cantidadEsisEnReady;
 sem_t pausarPlanificacion;
+sem_t huboDesalojoClaves;
 
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
 pthread_mutex_t mutex;
 
+void destuirListas();
 void inicializar();
-void prepararConfiguracion();
+void prepararConfiguracion(int argc, char **argv);
 void prepararLogger();
 void inicializarSemaforos();
 void crearListas();
@@ -85,6 +89,7 @@ void *manejadorDeConexiones(void *socket_desc);
 //FUNCIONES AUXILIARES
 int indexOfString(t_list* lista, char* valorBuscado);
 char* claveEsiClaves();
+void destruirLogger();
 
 #endif /* PLANIFICADOR_H_ */
 

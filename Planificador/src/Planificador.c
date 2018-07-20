@@ -29,12 +29,23 @@ int main(void) {
 //Cerrar sockets de los esis que quedaron en el valhalla
 	close(listenningSocket);
 	close(socketCoordinador);
+	destuirListas();
 	destroy_planificadorConfig(planiConfig);
 	config_destroy(config);
 	return EXIT_SUCCESS;
 
 }
 
+
+void destuirListas() {
+	destruirListaEsiClave(listaEsiClave);
+	destruirListaEsi(listaReady);
+	destruirListaEsi(listaTerminados);
+	destruirListaEsi(listaEjecutando);
+	destruirListaEsi(listaEjecutando);
+	destruirListaEsiClave(listaBloqueado);
+
+}
 
 
 void* actualizarBloqueado(){
@@ -226,6 +237,7 @@ void* consola() {
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
+			signal(SIGINT, SIG_DFL);
 			break;
 		}
 		// printf("Lei la linea \n");

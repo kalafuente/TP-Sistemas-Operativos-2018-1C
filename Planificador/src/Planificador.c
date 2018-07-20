@@ -1,11 +1,16 @@
 #include "Planificador.h"
 
 int main(int argc, char **argv) {
+
 	inicializar();
 	prepararLogger();
 	prepararConfiguracion(argc,argv);
 	inicializarSemaforos();
 	crearListas();
+
+	cargarClavesPrebloqueadas();
+	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[0]);
+	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[1]);
 
 	pthread_t tid;
 	pthread_create(&tid, NULL, consola, NULL);
@@ -489,9 +494,16 @@ void destruirLogger(){ //Poner
 }
 
 void inicializar(){
+	EsiSistema = calloc(1, sizeof(struct_esi));
+	EsiSistema->ID = 0;
+	EsiSistema->estimacion = 0;
+	EsiSistema->rafagaActual = 0;
+	EsiSistema->socket = 0;
+	EsiSistema->tiempoDeEspera = 0;
+	
 	EsisNuevos = 0;
 	PlanificadorON = 1;
-	IdDisponible =0;
+	IdDisponible = 1;
 }
 
 void prepararLogger(){
@@ -502,3 +514,14 @@ void inicializarSemaforos(){
 	sem_init(&cantidadEsisEnReady, 0, 0);
 	sem_init(&huboDesalojoClaves, 0, 0);
 }
+
+void cargarClavesPrebloqueadas() {
+	int i = 0;
+	while (planiConfig->clavesPrebloqueadas[i] != NULL) {
+		list_add(listaEsiClave,
+				crearEsiClave(EsiSistema, planiConfig->clavesPrebloqueadas[i]));
+
+		i++;
+	}
+}
+

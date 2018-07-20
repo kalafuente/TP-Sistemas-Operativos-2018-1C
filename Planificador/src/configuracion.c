@@ -9,11 +9,12 @@ planificador_config * init_planificaorConfig(){
 	planificador->algoritmoPlanificacion=SJF_SD;
 	planificador->entradas= 0;
 	planificador->estimacionInicial=0;
+	planificador->clavesPrebloqueadas = (char**) calloc(30, sizeof(char*));
 	return planificador;
 }
 
 void crearConfiguracion(planificador_config* planificador, t_config* config){
-
+	int aux = 0;
 	ALGORITMO_PLANIFICACION i = traducir(config_get_string_value(config, "ALGORITMO"));
 
 	string_append(&(planificador->ipCoordinador), config_get_string_value(config, "IP_COORDINADOR"));
@@ -23,6 +24,14 @@ void crearConfiguracion(planificador_config* planificador, t_config* config){
 	planificador->estimacionInicial = config_get_double_value(config,"ESTIMACION");
 	planificador->entradas = 500;
 	planificador->algoritmoPlanificacion = i;
+
+	while (config_get_array_value(config, "CLAVES_PREBLOQUEADAS")[aux] != NULL) {
+		planificador->clavesPrebloqueadas[aux] = string_new();
+		string_append(&(planificador->clavesPrebloqueadas[aux]),
+				config_get_array_value(config, "CLAVES_PREBLOQUEADAS")[aux]);
+		aux++;
+	}
+
 }
 
 void destroy_planificadorConfig(planificador_config* planificador_config) {

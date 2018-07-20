@@ -31,7 +31,7 @@ typedef struct planificador_config{
 	char * ipCoordinador;
 	char * puertoCoordinador;
 	int entradas;
-
+	char** clavesPrebloqueadas;
 }planificador_config;
 
 typedef struct {
@@ -56,9 +56,11 @@ typedef struct {
 #include "gestionDeEsis.h"
 #include "deadlock.h"
 #include "liberacionDeMemoria.h"
+struct_esi*EsiSistema;
 int EsisNuevos;
 int IdDisponible;
 int PlanificadorON;
+
 
 planificador_config * planiConfig;
 t_config *config;
@@ -78,6 +80,7 @@ void prepararLogger();
 void inicializarSemaforos();
 void crearListas();
 void procesarLinea(char* linea,char ** comando, char ** parametros);
+void cargarClavesPrebloqueadas();
 void* consola();
 
 void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave);

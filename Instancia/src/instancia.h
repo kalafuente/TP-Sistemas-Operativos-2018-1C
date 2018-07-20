@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <sys/mman.h>
 #include <library/archivos.h>
+//#include <pthread.h>
 
 typedef struct instancia_config {
 	char * ipCoordi ;

@@ -22,6 +22,21 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 	}
 
 	log_info(logger, "recibirInstruccion:: Instruccion recibida\n");
+
+	// --------------------- ESTO AGREGUE --------------------------
+
+	if(instruccion == PEDIDO_VALOR || instruccion == COMPACTAR)
+	{
+		t_instruccion* instruccionACrear = malloc(sizeof(t_instruccion));
+		instruccionACrear->instruccion = instruccion;
+		instruccionACrear->clave = NULL;
+		instruccionACrear->valor = NULL;
+
+		return instruccionACrear;
+	}
+
+	// --------------------- HASTA ACA -------------------------
+
 	log_info(logger, "recibirInstruccion:: Pedimos la longitud de la clave\n");
 
 	if(recibirMensaje(logger,sizeof(int32_t),&lenClave,sock) <= 0)
@@ -85,6 +100,15 @@ int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 			log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR PROTOCOLO");
 			return -1;
 	}
+
+	//------------------ ESTO ES LO QUE AGREGUE ---------------------
+
+	if(instruccion->instruccion == PEDIDO_VALOR || instruccion->instruccion == COMPACTAR)
+	{
+		return 1;
+	}
+
+	// ----------------- HASTA ACA -----------------------
 
 	int resultado2 = enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
 

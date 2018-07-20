@@ -103,5 +103,6 @@ void eliminarBitArray();
 
 // ------------------ Metodos de ordenamiento de listas
 bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
+bool ordenarPorMomentoDeReferencia(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
 
 #endif /* INSTANCIA_H_ */

@@ -1224,6 +1224,23 @@ int procesarSTORE(t_instruccion * sentencia)
 
 	t_tabla_entradas * dato = (t_tabla_entradas *)nodito->data;
 
+	//Hay que actualizar el momento de referencia para la clave en cuestion
+
+	char * centinela = string_new();
+	string_append(&centinela, dato->clave);
+
+	t_tabla_entradas * datito = dato;
+
+	while(strcmp(datito->clave, centinela) == 0)
+	{
+		datito->momentoReferencia = contadorGlobal;
+		nodito = nodito->next;
+		datito = (t_tabla_entradas *)nodito->data;
+	}
+
+	free(centinela);
+	centinela = NULL;
+
 	log_info(logger, "La clave existe!\n");
 
 	char * nombreDelArchivo = string_new();
@@ -1270,6 +1287,11 @@ int procesarSTORE(t_instruccion * sentencia)
 bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)
 {
 	return (primerElemento->numeroEntrada < segundoElemento->numeroEntrada);
+}
+
+bool ordenarPorMomentoDeReferencia(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)
+{
+	return (primerElemento->momentoReferencia < segundoElemento->momentoReferencia);
 }
 
 

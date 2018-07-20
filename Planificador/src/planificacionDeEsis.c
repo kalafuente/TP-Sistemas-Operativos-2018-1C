@@ -2,7 +2,7 @@
 void planificarESIs(){
 
 	struct_esi *esiActual;
-	t_instruccion* instruccion;
+	t_instruccion* instruccion = calloc(1, sizeof(t_instruccion));
 	PROTOCOLO_ESI_A_PLANIFICADOR estadoEsi;
 
 
@@ -10,7 +10,11 @@ void planificarESIs(){
 		sem_wait(&cantidadEsisEnReady);
 		estadoEsi = TERMINE_BIEN;
 		pthread_mutex_lock(&mutex);
-		ordenarListaDeReady();
+		if (EsisNuevos || planiConfig->algoritmoPlanificacion == HRRN) {
+
+			EsisNuevos = 0;
+			ordenarListaDeReady();
+		}
 		esiActual = list_remove(listaReady, 0);
 		list_add(listaEjecutando, esiActual);
 		pthread_mutex_unlock(&mutex);
@@ -23,19 +27,22 @@ void planificarESIs(){
 			}
 			log_info(logger, "se recibio estado %d", estadoEsi);
 				//estadoEsi=recibirResultado(esiActual);
+
+			pthread_mutex_lock(&mutex);
+
+			sumarEspera();
+
+			pthread_mutex_unlock(&mutex);
+
 			switch (estadoEsi) {
 				case TERMINE_BIEN:
 					esiActual->estimacion--;
 					esiActual->rafagaActual++;
 					instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
 					procesarInstruccion(instruccion, esiActual);
-				//duracionRafaga++;
-				//cambiarEstimacion(esiActual,-1);
-				//sumar 1 a la espera te todos los esis en Ready para el HRRN
 					destruirInstruccion(instruccion);
 					break;
 				case BLOQUEADO_CON_CLAVE:
-					//cambiarEstimacion();
 					esiActual->estimacion--;
 					esiActual->rafagaActual++;
 					instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
@@ -73,10 +80,16 @@ void planificarESIs(){
 					}
 			sem_post(&pausarPlanificacion);
 		//IF (es con desalojo && llego un nuevo esi)->devolver a la listaReady && Salir del while------------------------------------------------------------------------------------------------------------
-
+			if (planiConfig->algoritmoPlanificacion == SJF_CD
+					&& estadoEsi == TERMINE_BIEN && EsisNuevos) {
+				list_remove(listaEjecutando, 0);
+				list_add(listaReady, esiActual);
+				break;
+			}
 			}
 	//Calcular estimacion para la proxima vez.
 	}
+	free(instruccion);
 }
 
 void ordenarListaDeReady(){
@@ -90,7 +103,7 @@ void ordenarListaDeReady(){
 			break;
 
 		case HRRN:
-			//ordenarPorHRRN(listaReady);
+		ordenarPorHRRN(listaReady);
 			break;
 		default:
 			log_error(logger, "ERROR INTERNO, REVISAR EL CODIGO");

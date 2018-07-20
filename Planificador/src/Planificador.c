@@ -438,6 +438,7 @@ void destruirLogger(){ //Poner
 }
 
 void inicializar(){
+	EsisNuevos = 0;
 	PlanificadorON = 1;
 	IdDisponible =0;
 }

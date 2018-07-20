@@ -2,13 +2,14 @@
 
 void agregarEsi(int socketCliente) {
 	struct_esi *nuevoEsi = calloc(1, sizeof(struct_esi));
-	nuevoEsi->estimacion = 5;
+	nuevoEsi->estimacion = planiConfig->estimacionInicial;
 	nuevoEsi->rafagaActual = 0;
 	nuevoEsi->socket = socketCliente;
 	nuevoEsi->tiempoDeEspera = 0;
 	nuevoEsi->ID = IdDisponible;
 	IdDisponible++;
 	list_add(listaReady, nuevoEsi);
+	EsisNuevos++;
 	sem_post(&cantidadEsisEnReady);
 }
 
@@ -38,6 +39,7 @@ void liberarEsi(char*clave) {
 			(void*) esSuClaveIgual);
 	if (aux != NULL) {
 		list_add(listaReady, aux->ESI);
+		EsisNuevos++;
 	}
 }
 
@@ -48,4 +50,12 @@ void sacarStructDeListaEsiClave(char*clave) {
 
 	list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual);
 }
+void sumarUnoDeEspera(struct_esi* esi) {
+	esi->tiempoDeEspera++;
+}
+
+void sumarEspera() {
+	list_iterate(listaReady, (void*) sumarUnoDeEspera);
+}
+
 

@@ -45,6 +45,22 @@ void liberarEsi(char*clave) {
 	}
 }
 
+void liberarTodasLasClavesDeEsi(struct_esi*esi) {
+
+	int Aux = 0;
+	
+	void liberarSiSonIguales(struct_esiClaves*structEsi) {
+		if (structEsi->ESI->ID == esi->ID) {
+			list_remove(listaEsiClave, Aux);
+			liberarEsi(structEsi->clave);
+			destruirStructEsiClaveSinEsi(structEsi);
+		}
+		Aux++;
+	}
+
+	list_iterate(listaEsiClave, (void*) liberarSiSonIguales);
+}
+
 void sacarStructDeListaEsiClave(char*clave) {
 	int esSuClaveIgual(struct_esiClaves*elesi) {
 		return string_equals_ignore_case(clave, elesi->clave);

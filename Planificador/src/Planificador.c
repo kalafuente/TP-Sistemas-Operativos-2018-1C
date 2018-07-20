@@ -227,6 +227,7 @@ bool contains(t_list* lista, int elemento){
 
 void* consola() {
 	int IDaux;
+	struct_esiClaves*EsiClaveAux;
 	struct_esi * Esiaux;
 	char * linea;
 	char * comando = calloc(10, sizeof(char*));
@@ -339,6 +340,9 @@ void* consola() {
 			int claveIgual(struct_esi* esi) {
 				return esi->ID == IDaux;
 			}
+			int bloqueadoClaveIgual(struct_esiClaves* esi) {
+				return esi->ESI->ID == IDaux;
+			}
 			pthread_mutex_lock(&mutexKillEsi);
 			pthread_mutex_lock(&mutex);
 
@@ -352,10 +356,23 @@ void* consola() {
 
 			}
 
+			if (Esiaux == NULL) {
+
+				EsiClaveAux = list_remove_by_condition(listaBloqueado,
+						(void*) bloqueadoClaveIgual);
+				if (EsiClaveAux != NULL) {
+				Esiaux = EsiClaveAux->ESI;
+				destruirStructEsiClaveSinEsi(EsiClaveAux);
+				}
+			}
+			
+
 			if (Esiaux != NULL) {
 				list_add(listaTerminados, Esiaux);
-
+				liberarTodasLasClavesDeEsi(Esiaux);
 				ordenarFinalizar(Esiaux);
+
+
 				log_info(logger, "Se elimino el Esi %s \n", parametros);
 			} else {
 				log_error(logger, "No se encontro el Esi");

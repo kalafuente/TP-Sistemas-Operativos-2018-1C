@@ -42,6 +42,7 @@
 								</option>
 								<option id="gnu.c.link.option.libs.585446913" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="commons"/>
+									<listOptionValue builtIn="false" value="pthread"/>
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="manejoDeSocket"/>
 								</option>

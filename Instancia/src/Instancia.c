@@ -16,10 +16,12 @@ int main(int argc,char**argv)
 	handShakeConElCoordinador(); //CHECK, PERO enviarID no CHECK
 	recibirConfiguracionDeEntradas(); //CHECK
 	imprimirConfiguracionDeEntradas(); //CHECK
+	inicializarMutex();
 	inicializarEntradas(); //CHECK
 	inicializarBitArray(); //CHECK
 	tablaEntradas = list_create();
 	//REINCORPORACION
+	crearHiloParaDump();
 	procesarSentencias();
 	imprimirContenidoEntradas();
 
@@ -314,6 +316,8 @@ int procesarSentencias()
 			return -1;
 		}
 
+		pthread_mutex_lock(&mutex);
+
 		switch(sentencia->instruccion) //FALTAN INSTRUCCIONES, COMO COMPACTAR Y ENVIAR VALOR
 		{
 			/* No le deberian llegar.
@@ -367,6 +371,8 @@ int procesarSentencias()
 		int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
 		enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 		destruirInstruccion(sentencia);
+
+		pthread_mutex_unlock(&mutex);
 	}
 
 	return 1;
@@ -1288,8 +1294,21 @@ int procesarSTORE(t_instruccion * sentencia)
 
 	log_info(logger, "La clave existe!\n");
 
+	if(almacenarArchivo("", sentencia->clave, dato->tamanioValor, dato->numeroEntrada) < 0)
+	{
+		log_error(logger, "No se pudo guardar el Archivo\n");
+		return -10;
+	}
+
+	return 1;
+
+}
+
+int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, int32_t numeroEntrada)
+{
 	char * nombreDelArchivo = string_new();
-	string_append(&nombreDelArchivo, sentencia->clave);
+	string_append(&nombreDelArchivo, pathAbsoluto); //Si lo usa el DUMP envia el path, si lo usa el STORE envia un string vacio ""
+	string_append(&nombreDelArchivo, clave);
 	string_append(&nombreDelArchivo, ".txt");
 
 	int fd = open(nombreDelArchivo, O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO); //Abrimos el archivo con todos los permisos para todos (777), para lectura y escritura, y le decimos que lo cree
@@ -1301,7 +1320,7 @@ int procesarSTORE(t_instruccion * sentencia)
 		return -1;
 	}
 
-	if(ftruncate(fd, dato->tamanioValor) < 0)
+	if(ftruncate(fd, tamanioValor) < 0)
 	{
 		log_error(logger, "No se pudo establecer el tamanio del archivo. Fallo ftruncate()\n");
 		free(nombreDelArchivo);
@@ -1309,7 +1328,7 @@ int procesarSTORE(t_instruccion * sentencia)
 		return -2;
 	}
 
-	char * pointermmap = mmap(NULL, dato->tamanioValor, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	char * pointermmap = mmap(NULL, tamanioValor, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
 	if(pointermmap == MAP_FAILED)
 	{
@@ -1319,14 +1338,58 @@ int procesarSTORE(t_instruccion * sentencia)
 		return -3;
 	}
 
-	strcpy(pointermmap, &entradas[dato->numeroEntrada * tamanioEntrada]);
+	strcpy(pointermmap, &entradas[numeroEntrada * tamanioEntrada]);
 	close(fd);
 	free(nombreDelArchivo);
 
 	log_info(logger, "Se pudo mapear correctamente a memoria\n");
 
 	return 1;
+}
 
+void crearHiloParaDump()
+{
+	pthread_t thread_id;
+
+	if (pthread_create(&thread_id, NULL, DUMP, NULL) < 0) {
+		log_error(logger, "No se pudo crear el hilo");
+	}
+
+}
+
+void * DUMP()
+{
+	while(1)
+	{
+		sleep(instanciaConfig->intervalo);
+		pthread_mutex_lock(&mutex);
+
+		list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
+
+
+
+
+
+
+
+
+
+
+		pthread_mutex_unlock(&mutex);
+
+	}
+
+
+	return NULL;
+}
+
+void inicializarMutex()
+{
+    if (pthread_mutex_init(&mutex, NULL) != 0)
+    {
+        log_info(logger, "Fallo en la inicializacion del mutex\n");
+    }
 }
 
 bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)

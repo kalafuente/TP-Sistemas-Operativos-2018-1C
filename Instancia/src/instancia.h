@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <sys/mman.h>
 #include <library/archivos.h>
-//#include <pthread.h>
+#include <pthread.h>
 
 typedef struct instancia_config {
 	char * ipCoordi ;
@@ -49,6 +49,8 @@ t_link_element * punteroReempAlgCirc = NULL; //Inicializado cuando se agrega el 
 int * bitArray = NULL; //Es un array de bits que servira para saber cuales entradas estan libres
 int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guardara el valor en la tabla de entradas al ser referenciada una clave
 //int punteroAlgCIRC = 0;
+
+pthread_mutex_t mutex;
 
 
 void destruirLogger();
@@ -94,6 +96,15 @@ int eleccionDeVictima();
 int victimaCIRC();
 
 void peticionValor();
+
+int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, int32_t numeroEntrada);
+
+//DUMP
+void crearHiloParaDump();
+void * DUMP();
+
+//MUTEX
+void inicializarMutex();
 
 
 // ------------------- Funciones bitArray

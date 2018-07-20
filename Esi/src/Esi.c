@@ -5,7 +5,8 @@
 #include <signal.h>
 
 int main(int argc, char **argv) {
-	logger = crearLogger("loggerEsi.log", "loggerEsi");
+
+	cargarLogger();
 	abrirScript(argc, argv);
 
 	//-------ARCHIVO DE CONFIGURACION
@@ -24,7 +25,9 @@ int main(int argc, char **argv) {
 
 }
 
-
+void cargarLogger(){
+	logger = crearLogger("loggerEsi.log", "loggerEsi");
+}
 
 
 void abortarEsi(const char * causa){

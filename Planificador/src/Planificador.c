@@ -1,9 +1,9 @@
 #include "Planificador.h"
 
-int main(void) {
+int main(int argc, char **argv) {
 	inicializar();
-	prepararConfiguracion();
 	prepararLogger();
+	prepararConfiguracion(argc,argv);
 	inicializarSemaforos();
 	crearListas();
 
@@ -31,6 +31,7 @@ int main(void) {
 	close(socketCoordinador);
 	destroy_planificadorConfig(planiConfig);
 	config_destroy(config);
+	log_destroy(logger);
 	return EXIT_SUCCESS;
 
 }
@@ -238,6 +239,7 @@ void* consola() {
 		//Kill [ID]
 		//Estado [Clave]
 		//Deadlock
+
 		if (string_equals_ignore_case(comando, "pausar")) {
 			sem_wait(&pausarPlanificacion);
 			printf("La planificacion se detuvo \n");
@@ -337,10 +339,15 @@ void* consola() {
 
 //pthread_t tid;
 //pthread_create(&tid, NULL, consola, NULL);
-void prepararConfiguracion(){
-	config = config_create("configPlanificador.config");
+void prepararConfiguracion(int argc, char **argv){
+	config=abrirArchivoConfig(argc,argv,logger,destruirLogger);
+	//config = config_create("configPlanificador.config");
 	planiConfig=  init_planificaorConfig();
 	crearConfiguracion(planiConfig,config);
+}
+
+void destruirLogger(){ //Poner
+	log_destroy(logger);
 }
 
 void inicializar(){

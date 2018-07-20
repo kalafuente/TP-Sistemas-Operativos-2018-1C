@@ -17,6 +17,7 @@
 #include <semaphore.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <library/archivos.h>
 
 typedef enum ALGORITMO_PLANIFICACION {
 	SJF_CD, SJF_SD, HRRN
@@ -70,7 +71,7 @@ t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaC
 pthread_mutex_t mutex;
 
 void inicializar();
-void prepararConfiguracion();
+void prepararConfiguracion(int argc, char **argv);
 void prepararLogger();
 void inicializarSemaforos();
 void crearListas();
@@ -87,6 +88,7 @@ void *manejadorDeConexiones(void *socket_desc);
 //FUNCIONES AUXILIARES
 int indexOfString(t_list* lista, char* valorBuscado);
 char* claveEsiClaves();
+void destruirLogger();
 
 #endif /* PLANIFICADOR_H_ */
 

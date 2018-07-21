@@ -245,9 +245,10 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			}
 			else{
 				log_info(logger, "La lista de claves NO contiene este GET");
+				claveConInstancia* clavenueva;
 				switch(estadoEsi(logger,PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion)){
 								case CLAVE_DISPONIBLE:
-									claveConInstancia* clavenueva =  nuevaClaveConInstancia(instruccion->clave);
+									clavenueva =  nuevaClaveConInstancia(instruccion->clave);
 									list_add(listaDeClavesConInstancia, clavenueva);
 									log_info(logger, "Se agrego esta clave: %s", clavenueva->clave);
 									mostrarListaDeClaves(listaDeClavesConInstancia);

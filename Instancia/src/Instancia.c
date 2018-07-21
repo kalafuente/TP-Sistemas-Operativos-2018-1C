@@ -298,7 +298,7 @@ int procesarSentencias()
 
 	PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta;
 
-	t_instruccion* sentencia;
+	t_instruccion* sentencia = NULL;
 
 	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
 
@@ -313,65 +313,72 @@ int procesarSentencias()
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
 			respuesta = ERROR_INSTRUCCION;
-			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
-			return -1;
 		}
-
-		pthread_mutex_lock(&mutex);
-
-		switch(sentencia->instruccion) //FALTAN INSTRUCCIONES, COMO COMPACTAR Y ENVIAR VALOR
+		else
 		{
-			/* No le deberian llegar.
-			case INSTRUCCION_GET:
-				procesarGET();
-				break;
-			*/
 
-			case INSTRUCCION_SET:
-				if(procesarSET(sentencia) < 0)
-				{
-					log_error(logger, "Fallo en la operacion SET\n");
-					respuesta = NO_SE_PUDO_GUARDAR_VALOR;
-					enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
-					destruirInstruccion(sentencia);
-					return -2;
-				}
+			pthread_mutex_lock(&mutex);
 
-				respuesta = SE_PUDO_GUARDAR_VALOR;
-				break;
+			switch(sentencia->instruccion)
+			{
+				/* No le deberian llegar.
+					case INSTRUCCION_GET:
+					procesarGET();
+					break;
+				 */
 
-			case INSTRUCCION_STORE:
-				if(procesarSTORE(sentencia) < 0)
-				{
-					log_error(logger, "Fallo en la operacion STORE\n");
-					respuesta = NO_SE_CREO_EL_ARCHIVO;
-					enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
-					destruirInstruccion(sentencia);
-					return -3;
-				}
+				case INSTRUCCION_SET:
+					if(procesarSET(sentencia) < 0)
+					{
+						log_error(logger, "Fallo en la operacion SET\n");
+						respuesta = NO_SE_PUDO_GUARDAR_VALOR;
+						break;
+					}
+					else
+					{
+						respuesta = SE_PUDO_GUARDAR_VALOR;
+						break;
+					}
 
-				log_info(logger, "Operacion STORE exitosa!\n");
-				respuesta = SE_CREO_EL_ARCHIVO;
-				break;
+				case INSTRUCCION_STORE:
+					if(procesarSTORE(sentencia) < 0)
+					{
+						log_error(logger, "Fallo en la operacion STORE\n");
+						respuesta = NO_SE_CREO_EL_ARCHIVO;
+						break;
+					}
+					else
+					{
 
-			case PEDIDO_DE_VALOR:
-				peticionValor();
-				respuesta = VALOR_ENVIADO;
-				break;
+						log_info(logger, "Operacion STORE exitosa!\n");
+						respuesta = SE_CREO_EL_ARCHIVO;
+						break;
+					}
 
-			default:
+				case PEDIDO_DE_VALOR:
+					peticionValor();
+					respuesta = VALOR_ENVIADO;
+					break;
 
-				log_error(logger, "La sentencia no puede ser interpretada\n");
-				respuesta = ERROR_INSTRUCCION;
-				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
-				destruirInstruccion(sentencia);
-				return -1;
+				case COMPACTAR:
+					//COMPACTACION
+					respuesta = COMPACTACION_EXITOSA;
+					break;
+
+				default:
+
+					log_error(logger, "La sentencia no puede ser interpretada\n");
+					respuesta = ERROR_INSTRUCCION;
+			}
 		}
 
 		enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 		int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
 		enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
-		destruirInstruccion(sentencia);
+		if(sentencia != NULL)
+		{
+			destruirInstruccion(sentencia);
+		}
 
 		pthread_mutex_unlock(&mutex);
 	}
@@ -553,6 +560,22 @@ int procesarSET(t_instruccion* inst)
 
 			//********** compactacion derecho ****************
 
+			PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta = SE_NECESITA_COMPACTAR;
+			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+			int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
+			enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+
+			t_instruccion * sentencia = NULL;
+			sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
+
+			if(sentencia->instruccion != COMPACTAR)
+			{
+				return -42;
+			}
+
+			destruirInstruccion(sentencia);
+			//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
+
 		}
 		else
 		{
@@ -675,6 +698,23 @@ int procesarSET(t_instruccion* inst)
 			{
 				//Ya tenemos todo lo que necesitamos, pero no son contiguas
 				//************* COMPACTACION ***************
+
+				PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta = SE_NECESITA_COMPACTAR;
+				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+				int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
+				enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+
+				t_instruccion * sentencia = NULL;
+				sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
+
+				if(sentencia->instruccion != COMPACTAR)
+				{
+					return -42;
+				}
+
+				destruirInstruccion(sentencia);
+
+				//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
 			}
 
 		}

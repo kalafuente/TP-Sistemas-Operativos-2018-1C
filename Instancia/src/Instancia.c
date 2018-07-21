@@ -353,7 +353,7 @@ int procesarSentencias()
 				respuesta = SE_CREO_EL_ARCHIVO;
 				break;
 
-			case PEDIDO_VALOR:
+			case PEDIDO_DE_VALOR:
 				peticionValor();
 				respuesta = VALOR_ENVIADO;
 				break;
@@ -1396,6 +1396,23 @@ void * DUMP()
 
 
 	return NULL;
+}
+
+void reincorporarse()
+{
+	// --------- PIDO LAS CLAVES AL COORDINADOR ------------
+
+	char * clave = NULL;
+
+	do
+	{
+
+
+	}while(strcmp(clave, "null") == 0);
+
+	// -----------------------------------------------------
+
+
 }
 
 void inicializarMutex()

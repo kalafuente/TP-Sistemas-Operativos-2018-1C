@@ -82,7 +82,7 @@ void planificarESIs(){
 					pthread_mutex_lock(&mutex);
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
-					pthread_mutex_lock(&mutex);
+				pthread_mutex_unlock(&mutex);
 					//liberar claves
 					log_error(logger, "error con el esi %d", esiActual->ID);
 					close(esiActual->socket);
@@ -163,5 +163,7 @@ void procesarInstruccion(t_instruccion* instruccion, struct_esi*esi) {
 		sem_post(&huboDesalojoClaves);
 		//liberar la correspondiente
 		break;
+	default:
+		log_error(logger, "!!!!! ERRRORRRR  !!!!  INTRUCCION INVALIDA");
 	}
 }

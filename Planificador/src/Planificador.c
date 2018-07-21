@@ -237,7 +237,8 @@ bool contains(t_list* lista, int elemento){
 void* consola(void* socket) {
 	int *socketStatus = (int*) socket;
 	int IDaux;
-	char* Auxid = string_new();
+	char* Auxid;
+	char * valor;
 	struct_esiClaves*EsiClaveAux;
 	struct_esi * Esiaux;
 	char * linea;
@@ -347,6 +348,7 @@ void* consola(void* socket) {
 			//Lista los procesos encolados esperando al recurso.
 		}
 		if (string_equals_ignore_case(comando, "kill")) {
+			Auxid = string_new();
 			string_append(&Auxid, strtok(parametros, " "));
 			IDaux = (int) strtol(Auxid, (char**) NULL, 10);
 
@@ -367,6 +369,8 @@ void* consola(void* socket) {
 				Esiaux = list_remove_by_condition(listaEjecutando,
 						(void*) claveIgual);
 
+			} else {
+				sem_post(&cantidadEsisEnReady);
 			}
 
 			if (Esiaux == NULL) {
@@ -390,11 +394,13 @@ void* consola(void* socket) {
 			} else {
 				log_error(logger, "No se encontro el Esi");
 			}
+			free(Auxid);
 			pthread_mutex_unlock(&mutexKillEsi);
 
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
 		}
 		if (string_equals_ignore_case(comando, "status")) {
+			Auxid = string_new();
 			string_append(&Auxid, strtok(parametros, " "));
 
 			printf ("la clave que se preguntara al cordi es %s \n",Auxid);
@@ -403,7 +409,7 @@ void* consola(void* socket) {
 				printf("no se pudo enviar %s \n", Auxid);
 			}
 
-			char * valor = recibirID(*socketStatus, logger);
+			valor = recibirID(*socketStatus, logger);
 			if (strcmp(valor,"ClaveInexistente") == 0){
 				log_info(logger, "La clave %s no existe \n", Auxid);
 			}
@@ -433,7 +439,7 @@ void* consola(void* socket) {
 
 			}
 			list_iterate(listaBloqueado, (void*) mostrarSiClaveCoincide);
-
+			free(Auxid);
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {

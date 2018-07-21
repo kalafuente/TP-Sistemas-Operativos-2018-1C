@@ -7,7 +7,10 @@ void planificarESIs(){
 
 
 	while (PlanificadorON) {
+		pthread_mutex_unlock(&mutexKillEsi);
 		sem_wait(&cantidadEsisEnReady);
+		pthread_mutex_lock(&mutexKillEsi);
+
 		estadoEsi = TERMINE_BIEN;
 		pthread_mutex_lock(&mutex);
 		if (EsisNuevos || planiConfig->algoritmoPlanificacion == HRRN) {

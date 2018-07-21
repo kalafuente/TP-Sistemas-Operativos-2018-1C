@@ -1428,6 +1428,7 @@ void reincorporarse()
 	enviarMensaje(logger, sizeof(pedidoClaves), &pedidoClaves, socketCoordinador);
 
 	char * clave = recibirID(socketCoordinador, logger);
+	int pos = 0;
 
 	if(strcmp(clave, "null") == 0)
 	{
@@ -1436,16 +1437,84 @@ void reincorporarse()
 		return;
 	}
 
-	while(strcmp(clave, "null") == 0)
+	while(strcmp(clave, "null") != 0)
 	{
-		//char * key = recibirID(socketCoordinador, logger);
+		//char * key = recibirID(socketCoordinador, logger); //Necesito que quede igual para guardarlo despues
+		char * nombreCompleto = string_new();
+		string_append(&nombreCompleto, clave);
+		string_append(&nombreCompleto, ".txt");
+
+		DIR *dir;
+		struct dirent *ent;
+
+		if ((dir = opendir (instanciaConfig->path)) != NULL)
+		{
+		  //El directorio existe, vamos a ir recorriendo todo lo que hay en el
+
+		  while ((ent = readdir (dir)) != NULL)
+		  {
+
+			  if(strcmp(ent->d_name, nombreCompleto) != 0)
+			  {
+				  //Este no es el archivo que estoy buscando. Seguimos recorriendo el directorio
+			  }
+			  else
+			  {
+				//Encontramos el archivo. Hay que abrirlo y guardar su contenido
+				  char * rutaAbsoluta = string_new();
+				  string_append(&rutaAbsoluta, instanciaConfig->path);
+				  string_append(&rutaAbsoluta, nombreCompleto);
+
+				FILE *fp = fopen(nombreCompleto, "r+"); //Hay que pasarle el path absoluto.
+
+				if(fp == NULL)
+				{
+					log_error(logger, "No se pudo abrir el archivo");
+					free(clave);
+					free(nombreCompleto);
+					free(rutaAbsoluta);
+					closedir(dir);
+					return;
+				}
+
+				fseek(fp, 0, SEEK_END);
+				int32_t longitudValor = ftell(fp);
+				char * valor = (char *) malloc(longitudValor * sizeof(char));
+				fseek(fp, 0, SEEK_SET);
+				fread(valor, sizeof(char), longitudValor, fp);
+
+				guardarValorEnEntradas(clave, valor, pos);
+				pos += cuantasEntradasOcupaElValor(longitudValor);
+
+				free(nombreCompleto);
+				free(rutaAbsoluta);
+				free(valor);
+				fclose(fp);
+
+				break;
+
+			  }
+
+		  }
+
+		  closedir (dir);
+
+		}
+		else
+		{
+		  perror ("No se puede abrir el directorio\n");
+		  return;
+		}
 
 
-
+		char * key = clave;
+		clave =recibirID(socketCoordinador, logger);
+		free(key);
 	}
 
 	// -----------------------------------------------------
 
+	log_info(logger, "Reincorporacion terminada\n");
 
 }
 

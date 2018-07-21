@@ -754,8 +754,7 @@ int eleccionDeVictima()
 		if(strcmp(instanciaConfig->algoritmo, "LRU") == 0)
 		{
 			log_info(logger, "Se reemplazara por Algoritmo LRU\n");
-			//alg
-			return 0;
+			return victimaLRU();
 		}
 		else
 		{
@@ -778,6 +777,12 @@ int victimaCIRC()
 {
 	 t_link_element * posicionInicial = punteroReempAlgCirc;
 
+	 if(punteroReempAlgCirc == NULL)
+	 {
+		 log_error(logger, "El puntero de Reemplazo por Alg CIRC es NULO!\n");
+		 perror("Se viene SF");
+	 }
+
 	do
 	{
 		//Verificamos si el valor es atomico
@@ -797,26 +802,147 @@ int victimaCIRC()
 	return -1;
 }
 
+int victimaLRU()
+{
+	list_sort(tablaEntradas, (void*)ordenarPorMomentoDeReferencia);
+
+	//PUEDEN EMPATAR SI FUERON RECUPERADOR POR LOS ARCHIVOS DEL DUMP
+
+	t_link_element * actual = tablaEntradas->head;
+
+	int posiblesVictimas[cantidadEntradas];
+	int cantVictimas = 0;
+	int victima;
+
+	while(actual != NULL)
+	{
+
+		t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
+
+		if(1 != cuantasEntradasOcupaElValor(dato->tamanioValor))
+		{
+			//No es atomico. Hay que ir al siguiente
+			actual = actual->next;
+		}
+		else
+		{
+			//Es atomico
+
+			victima = dato->numeroEntrada;
+
+			if(actual->next == NULL)
+			{
+				return victima;
+			}
+
+			t_link_element * siguiente = actual->next;
+			t_tabla_entradas * datoSig = (t_tabla_entradas *)siguiente->data;
+
+			if(1 != cuantasEntradasOcupaElValor(datoSig->tamanioValor))
+			{
+				return victima;
+			}
+
+			//El siguiente tambien es atomico. Hay que checkear el momento de referencia
+
+			if(dato->momentoReferencia != datoSig->momentoReferencia)
+			{
+				return victima;
+			}
+
+			//En este caso ambos son atomicos y ambos fueron referenciados en el mismo instante
+			//Hay que buscar si hay mas
+
+			posiblesVictimas[cantVictimas] = victima;
+			cantVictimas++;
+			posiblesVictimas[cantVictimas] = datoSig->numeroEntrada;
+			cantVictimas++;
+
+			siguiente = siguiente->next;
+
+			while(siguiente != NULL)
+			{
+				datoSig = (t_tabla_entradas *)siguiente->data;
+
+				if(1 != cuantasEntradasOcupaElValor(datoSig->tamanioValor))
+				{
+					//No es atomico. Paramos de buscar porque no hay mas victimas
+					break;
+				}
+
+				if(dato->momentoReferencia != datoSig->momentoReferencia)
+				{
+					//No es el mismo valor de ref. No hay mas victimas posibles
+					break;
+				}
+
+				//Hay una posible victima mas. La agregamos al array
+
+				posiblesVictimas[cantVictimas] = datoSig->numeroEntrada;
+				cantVictimas++;
+				siguiente = siguiente->next;
+
+			}
+
+			//Tenemos todas las victimas posibles. Hay que ordenarlas y ver cual esta mas cerca del puntero de reempl CIRC
+
+			ordenarArray(cantVictimas, posiblesVictimas);
+
+			return desempatePorCIRC(cantVictimas, posiblesVictimas);
+
+		}
+	}
+
+	return -1;
+}
+
+int desempatePorCIRC(int tamanio, int array[tamanio])
+{
+	int i = 0;
+	int entradaCIRC = ((t_tabla_entradas *)punteroReempAlgCirc->data)->numeroEntrada;
+
+	while(i < tamanio)
+	{
+		if(array[i] < entradaCIRC)
+		{
+			i++;
+		}
+		else
+		{
+			return array[i];
+		}
+	}
+
+	//Todas las entradas estan antes, entonces devolvemos la primera del array
+
+	return array[0];
+}
+
+void ordenarArray(int tamanio, int array[tamanio])
+{
+	int i, j, auxiliar;
+
+	for(i = 0; i < tamanio; i ++)
+	{
+		for(j = 1; j < (tamanio - 1); j ++)
+		{
+			if(array[j] < array[j-1])
+			{
+				auxiliar = array[j-1];
+				array[j-1] = array[j];
+				array[j] =  auxiliar;
+			}
+		}
+	}
+}
+
 int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad])
 {
 	//Primero las tengo que ordenar - Bubble Sort porque es facil... (y tampoco va a ser muy grande el array)
 
-		int i, j, auxiliar;
+	ordenarArray(cantidad, entradasParaComprobar);
 
-		for(i = 0; i < cantidad; i ++)
-		{
-			for(j = 1; j < (cantidad - 1); j ++)
-			{
-				if(entradasParaComprobar[j] < entradasParaComprobar[j-1])
-				{
-					auxiliar = entradasParaComprobar[j-1];
-					entradasParaComprobar[j-1] = entradasParaComprobar[j];
-					entradasParaComprobar[j] =  auxiliar;
-				}
-			}
-		}
-
-	i = 0;
+	int i = 0;
 
 	while(i < (cantidad - 2))
 	{
@@ -1295,7 +1421,7 @@ int procesarSTORE(t_instruccion * sentencia)
 
 	log_info(logger, "La clave existe!\n");
 
-	if(almacenarArchivo("", sentencia->clave, dato->tamanioValor, dato->numeroEntrada) < 0)
+	if(almacenarArchivo(instanciaConfig->path, sentencia->clave, dato->tamanioValor, dato->numeroEntrada) < 0)
 	{
 		log_error(logger, "No se pudo guardar el Archivo\n");
 		return -10;
@@ -1533,7 +1659,19 @@ bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entrad
 
 bool ordenarPorMomentoDeReferencia(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)
 {
-	return (primerElemento->momentoReferencia < segundoElemento->momentoReferencia);
+	//return (primerElemento->momentoReferencia < segundoElemento->momentoReferencia);
+
+	if(primerElemento->momentoReferencia < segundoElemento->momentoReferencia)
+	{
+		return true;
+	}
+
+	if(primerElemento->momentoReferencia == segundoElemento->momentoReferencia)
+	{
+		return (1 == cuantasEntradasOcupaElValor(primerElemento->tamanioValor));
+	}
+
+	return false;
 }
 
 

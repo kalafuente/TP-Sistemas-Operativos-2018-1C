@@ -93,13 +93,18 @@ int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad]);
 //void reemplazarValorAtomico(t_tabla_entradas * dato, char * clave, char * valor, int32_t longitudValor);
 int procesarSTORE(t_instruccion * sentencia);
 
+void ordenarArray(int tamanio, int array[tamanio]);
+
 void almacenarValor(int entradaInicial, char * valor);
 
 void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numeroEntrada);
 
 int eleccionDeVictima();
 
+//VICTIMAS
 int victimaCIRC();
+int victimaLRU();
+int desempatePorCIRC(int tamanio, int array[tamanio]);
 
 void peticionValor();
 

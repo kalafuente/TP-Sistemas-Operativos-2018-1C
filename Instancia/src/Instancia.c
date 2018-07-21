@@ -1364,17 +1364,31 @@ void * DUMP()
 		sleep(instanciaConfig->intervalo);
 		pthread_mutex_lock(&mutex);
 
+		log_info(logger, "Comienza el DUMP\n");
+
 		list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
 
+		t_link_element * actual = tablaEntradas->head;
 
+		while(actual != NULL)
+		{
+			t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
 
+			char * claveActual = string_new();
+			string_append(&claveActual, dato->clave);
 
+			almacenarArchivo(instanciaConfig->path, claveActual, dato->tamanioValor, dato->numeroEntrada);
 
+			while(actual != NULL && (strcmp(claveActual, dato->clave) == 0))
+			{
+				actual = actual->next;
+				dato = (t_tabla_entradas *)actual->data;
+			}
 
+			free(claveActual);
+		}
 
-
-
-
+		log_info(logger, "Finalizo el DUMP\n");
 
 		pthread_mutex_unlock(&mutex);
 

@@ -629,7 +629,7 @@ int procesarSET(t_instruccion* inst)
 
 					if(punteroReempAlgCirc == actual)
 					{
-						punteroReempAlgCirc = actual->next;
+						moverPunteroReempAlgCirc();
 					}
 
 					int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
@@ -1181,7 +1181,7 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 	{
 		if(punteroReempAlgCirc == actual)
 		{
-			punteroReempAlgCirc = actual->next;
+			moverPunteroReempAlgCirc();
 		}
 
 		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;

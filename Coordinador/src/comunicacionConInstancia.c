@@ -23,7 +23,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
 							break;
-						case NO_SE_PUDO_GUARDAR_VALOR:
+			case NO_SE_PUDO_GUARDAR_VALOR:
 							instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
 								if (instanciaNUEVAALlamar == NULL){
 									log_error(logger, "NO HAY MÁS INSTANCIAS");
@@ -39,7 +39,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 											}
 								}
 							break;
-						case SE_NECESITA_COMPACTAR:
+			case SE_NECESITA_COMPACTAR:
 							pedirCompactar(listaDeInstancias);
 							PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
 							recibirMensaje(logger,sizeof(rtaInstancia),&rta, instanciaALlamar->socket);
@@ -50,7 +50,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 								exit(1);
 							}
 							break;
-						default:
+			default:
 							log_error(logger, "ERROR EN RTA AL SET");
 							destruirInstruccion(instruccion);
 							killCoordinador();
@@ -85,8 +85,8 @@ void pedirCompactar(t_list* lista){
 			if (enviarInstruccion(logger,falsa,elem->socket)==-1){
 				log_error (logger, "no se pudo pedir compactar");
 			}
-	}
 			list_iterate(lista, (void *) compactar);
+		}
 	}
 	free (falsa);
 }

@@ -1316,6 +1316,8 @@ int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, in
 	if(fd < 0)
 	{
 		log_error(logger, "No se pudo abrir o crear el archivo. Fallo el open()\n");
+		log_error(logger, "Nombre archivo: %s", nombreDelArchivo);
+		printf("Valor de errno: %d\n", errno);
 		free(nombreDelArchivo);
 		return -1;
 	}

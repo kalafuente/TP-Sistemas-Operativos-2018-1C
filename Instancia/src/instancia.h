@@ -104,6 +104,7 @@ int eleccionDeVictima();
 //VICTIMAS
 int victimaCIRC();
 int victimaLRU();
+int victimaBSU();
 int desempatePorCIRC(int tamanio, int array[tamanio]);
 
 void peticionValor();
@@ -133,5 +134,6 @@ void eliminarBitArray();
 // ------------------ Metodos de ordenamiento de listas
 bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
 bool ordenarPorMomentoDeReferencia(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
+bool ordenarPorEspacioUsado(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);
 
 #endif /* INSTANCIA_H_ */

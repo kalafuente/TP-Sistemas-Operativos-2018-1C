@@ -761,8 +761,7 @@ int eleccionDeVictima()
 			if(strcmp(instanciaConfig->algoritmo, "BSU") == 0)
 			{
 				log_info(logger, "Se reemplazara por Algoritmo BSU\n");
-				//alg
-				return 0;
+				return victimaBSU();
 			}
 			else
 			{
@@ -894,6 +893,99 @@ int victimaLRU()
 	}
 
 	return -1;
+}
+
+int victimaBSU()
+{
+	list_sort(tablaEntradas, (void*)ordenarPorEspacioUsado);
+
+	t_link_element * actual = tablaEntradas->head;
+
+	int posiblesVictimas[cantidadEntradas];
+	int cantVictimas = 0;
+	int victima;
+
+	while(actual != NULL)
+	{
+
+		t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
+
+		if(1 != cuantasEntradasOcupaElValor(dato->tamanioValor))
+		{
+			//Si no es atomico, al estar ordenados por atomicidad quiere decir que no hay valores.
+			return -1;
+		}
+		else
+		{
+			//Es atomico
+
+			victima = dato->numeroEntrada;
+
+			if(actual->next == NULL)
+			{
+				return victima;
+			}
+
+			t_link_element * siguiente = actual->next;
+			t_tabla_entradas * datoSig = (t_tabla_entradas *)siguiente->data;
+
+			if(1 != cuantasEntradasOcupaElValor(datoSig->tamanioValor))
+			{
+				return victima;
+			}
+
+			//El siguiente tambien es atomico. Hay que checkear el espacio usado
+
+			if(dato->tamanioValor != datoSig->tamanioValor)
+			{
+				return victima;
+			}
+
+			//En este caso ambos son atomicos y ambos ocupan el mismo espacio
+			//Hay que buscar si hay mas
+
+			posiblesVictimas[cantVictimas] = victima;
+			cantVictimas++;
+			posiblesVictimas[cantVictimas] = datoSig->numeroEntrada;
+			cantVictimas++;
+
+			siguiente = siguiente->next;
+
+			while(siguiente != NULL)
+			{
+				datoSig = (t_tabla_entradas *)siguiente->data;
+
+				if(1 != cuantasEntradasOcupaElValor(datoSig->tamanioValor))
+				{
+					//No es atomico. Paramos de buscar porque no hay mas victimas
+					break;
+				}
+
+				if(dato->tamanioValor != datoSig->tamanioValor)
+				{
+					//No es el mismo espacio usado. No hay mas victimas posibles
+					break;
+				}
+
+				//Hay una posible victima mas. La agregamos al array
+
+				posiblesVictimas[cantVictimas] = datoSig->numeroEntrada;
+				cantVictimas++;
+				siguiente = siguiente->next;
+
+			}
+
+			//Tenemos todas las victimas posibles. Hay que ordenarlas y ver cual esta mas cerca del puntero de reempl CIRC
+
+			ordenarArray(cantVictimas, posiblesVictimas);
+
+			return desempatePorCIRC(cantVictimas, posiblesVictimas);
+
+		}
+	}
+
+	return -1;
+
 }
 
 int desempatePorCIRC(int tamanio, int array[tamanio])
@@ -1672,6 +1764,21 @@ bool ordenarPorMomentoDeReferencia(t_tabla_entradas * primerElemento, t_tabla_en
 	}
 
 	return false;
+}
+
+bool ordenarPorEspacioUsado(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento)
+{
+	if(1 != cuantasEntradasOcupaElValor(primerElemento->tamanioValor))
+	{
+		return false;
+	}
+
+	if(1 != cuantasEntradasOcupaElValor(segundoElemento->tamanioValor))
+	{
+		return true;
+	}
+
+	return (primerElemento->tamanioValor > segundoElemento->tamanioValor);
 }
 
 

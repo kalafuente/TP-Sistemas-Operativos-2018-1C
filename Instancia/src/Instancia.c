@@ -446,23 +446,32 @@ int procesarSET(t_instruccion* inst)
 		int cantidadEntradasUsadas = list_size(tablaEntradas);
 		int cantidadEntradasLibres = cantidadEntradas - cantidadEntradasUsadas;
 
-		if(cantidadEntradasLibres >= entradasQueOcupaNuevoValor){ //Llave corrida
-
-			//Tenemos suficientes entradas libres
-
 		int contEntradasLibres = 0;
 		int pos = 0;
 		int centinela = 1;
 
+		if(cantidadEntradasLibres >= entradasQueOcupaNuevoValor){ //Llave corrida
+
+			//Tenemos suficientes entradas libres
+
+		log_info(logger, "Hay suficientes entradas libres para almacenar el valor\n");
+
 		//ALGORITMO TURBIO
+
+		log_info(logger, "Empieza ALGORITMO TURBIO\n");
 
 		//Tratamos de buscar que esten todas juntas
 
+		log_info(logger, "Recorremos el bitArray\n");
+
 		while(pos < cantidadEntradas && centinela)
 		{
+			log_info(logger, "Estamos en la pos: %d", pos);
+
 			if(testBit(pos))
 			{
 				//Quiere decir que la entrada esta ocupada
+				log_info(logger, "La entrada %d esta ocupada, seguimos buscando\n", pos);
 				pos++;
 			}
 			else
@@ -470,14 +479,20 @@ int procesarSET(t_instruccion* inst)
 				//La entrada esta libre! Tengo que verificar que hayan (entradasQueOcupaNuevoValor - 1) entradas libres contiguas a la misma
 				//Aunque primero aumentamos el contador
 
+				log_info(logger, "La entrada %d esta libre\n", pos);
+				log_info(logger, "Tenemos que ver que las %d entradas necesarias sean contiguas\n", entradasQueOcupaNuevoValor);
+
 				contEntradasLibres++;
 
 				if(contEntradasLibres == entradasQueOcupaNuevoValor)
 				{
 					//Son suficientes, entonces salgo del ciclo manteniendo el valor de pos
+					log_info(logger, "El valor es atomico y tenemos una entrada libre\n");
 					centinela = 0;
 					break;
 				}
+
+				log_info(logger, "El valor ocupa mas de una entrada. Hay que buscar mas contiguas\n");
 
 				while(contEntradasLibres < entradasQueOcupaNuevoValor && pos < cantidadEntradas && centinela)
 				{
@@ -486,6 +501,8 @@ int procesarSET(t_instruccion* inst)
 					if(testBit(pos))
 					{
 						//La siguiente esta ocupada. Salgo del 2do while y reseteo el contador de entradas libres
+						log_info(logger, "La siguiente esta ocupada. Las entradas libres vuelven a cero y seguimos buscando contiguas\n");
+
 						contEntradasLibres = 0;
 						pos++;
 						break;
@@ -494,15 +511,19 @@ int procesarSET(t_instruccion* inst)
 					{
 						contEntradasLibres++;
 
+						log_info(logger, "La siguiente esta libre. Sumamos uno a las libres: %d", contEntradasLibres);
+
 						if(contEntradasLibres == entradasQueOcupaNuevoValor)
 						{
 							//Son suficientes, entonces salgo del ciclo manteniendo el valor de pos
+							log_info(logger, "Las %d entradas libres alcanzan y estan juntas\n", contEntradasLibres);
 							centinela = 0;
 							break;
 						}
 						else
 						{
 							//No son suficientes. No hago nada porque al principio del while avanza la posicion
+							log_info(logger, "Todavia no alcanzan las %d libres. Seguimos buscando\n", contEntradasLibres);
 						}
 					}
 				}
@@ -512,6 +533,8 @@ int procesarSET(t_instruccion* inst)
 		}
 
 		//Hay que corroborar por que motivo salimos del ciclo.
+
+		log_info(logger, "Salimos del ciclo. Hay que verificar por que\n");
 
 		if(pos >= cantidadEntradas)
 		{
@@ -557,6 +580,9 @@ int procesarSET(t_instruccion* inst)
 
 			*/
 
+			log_info(logger, "Hay suficientes entradas libres pero no estan JUNTAS\n");
+			log_error(logger, "Hay que COMPACTAR. ROMPE TODO\n");
+
 
 			//********** compactacion derecho ****************
 
@@ -585,9 +611,15 @@ int procesarSET(t_instruccion* inst)
 		{
 			//Tenemos las entradas libres CONTIGUAS suficientes para guardar el nuevo valor.
 			//pos apunta a la ultima entrada libre del conjunto.
+
+			log_info(logger, "Tenemos suficientes entradas CONTIGUAS libres disponibles\n");
 			pos = pos - (entradasQueOcupaNuevoValor - 1);
+			log_info(logger, "La posicion actual es: %d", pos);
+			log_info(logger, "El tamanio del valor a guardar es: %d", tamanioNuevoValor);
+			log_info(logger, "El valor ocupa %d entradas\n", entradasQueOcupaNuevoValor);
 
 			//Ahora tenemos la posicion de la primera entrada libre
+			log_info(logger, "Se procede a guardar el valor en las entradas\n");
 			guardarValorEnEntradas(inst->clave, inst->valor, pos);
 
 		}
@@ -596,18 +628,28 @@ int procesarSET(t_instruccion* inst)
 		{
 			//No hay suficientes entradas libres. Debemos lanzar el Algoritmo de Reemplazo
 			//Tenemos que guardar las entradas libres en un array para desp saber si estan contiguas con las liberadas por el algoritmo.
-			int cantidadReemplazos = entradasQueOcupaNuevoValor - cantidadEntradasLibres;
+			log_info(logger, "No tenemos suficientes entradas libres. Hay que reemplazar existentes\n");
+			log_info(logger, "Cantidad de entradas que ocupa el valor: %d", entradasQueOcupaNuevoValor);
+			log_info(logger, "Entradas libres encontradas: %d", contEntradasLibres);
+
+			int cantidadReemplazos = entradasQueOcupaNuevoValor - contEntradasLibres;
+
+			log_info(logger, "Cantidad de entradas a reemplazar: %d", cantidadReemplazos);
 			int libres[cantidadReemplazos];
 			int j, encontradas = 0;
+
+			log_info(logger, "Tenemos que buscar otra vez las entradas libres y guardarlas\n");
 
 			while(encontradas < cantidadEntradasLibres && j < cantidadEntradas)
 			{
 				if(testBit(j))
 				{
 					//Esta ocupada
+					log_info(logger, "La entrada esta ocupada. Seguimos\n");
 				}
 				else
 				{
+					log_info(logger, "La entrada esta libre. La guardamos y aumentamos las encontradas\n");
 					libres[encontradas] = j;
 					encontradas ++;
 				}
@@ -616,17 +658,22 @@ int procesarSET(t_instruccion* inst)
 			}
 
 			//Ya guardamos las entradas libres, ahora a buscar las que quedan
+			log_info(logger, "Entradas libres guardadas. Ahora buscamos las que tenemos que reemplazar\n");
 			int limite = encontradas; //Nos indica a partir de que posicion del array guardamos las entradas que se tienen que reemplazar. No las libres
 
 			while(cantidadReemplazos > 0)
 			{
+				log_info(logger, "Buscamos la victima segun el algoritmo\n");
 				int victima = eleccionDeVictima();
 
 				if(victima < 0)
 				{
 					//Quiere decir que no pudo encontrar un valor para reemplazar porque no hay mas valores atomicos
+					log_info(logger, "No hay mas victimas posibles. Buscar otra Instancia\n");
 					return -1;
 				}
+
+				log_info(logger, "La encontramos. La guardamos en el array\n");
 
 				libres[encontradas] = victima;
 				encontradas ++;
@@ -638,6 +685,8 @@ int procesarSET(t_instruccion* inst)
 			//O verificar que sean contiguos y despues decidir que hacer -- no me conviene, no puedo usar algunas funciones
 			//NOTA: EL ALGORITMO PUEDE REORDENAR LA LISTA Y LA NECESITAMOS POR NUMERO DE ENTRADA
 
+			log_info(logger, "Encontramos suficientes valores para reempalzar");
+
 			if(strcmp(instanciaConfig->algoritmo, "CIRC") != 0)
 			{
 				list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
@@ -645,6 +694,8 @@ int procesarSET(t_instruccion* inst)
 
 			t_link_element * actual = tablaEntradas->head;
 			t_link_element * anterior = NULL;
+
+			log_info(logger, "Hay que eliminar los nodos victima");
 
 			while(actual != NULL && limite < encontradas)
 			{
@@ -654,20 +705,29 @@ int procesarSET(t_instruccion* inst)
 				{
 					//Encontramos el nodo. Debemos liberarlo y linkearlo
 
-					if(punteroReempAlgCirc == actual)
+					log_info(logger, "Encontramos el nodo");
+
+					if(strcmp(instanciaConfig->algoritmo, "CIRC") == 0)
 					{
-						moverPunteroReempAlgCirc();
+
+						if(punteroReempAlgCirc == actual)
+						{
+							moverPunteroReempAlgCirc();
+						}
 					}
 
 					int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
+					log_info(logger, "Eliminamos el campo data del nodo");
 					eliminarDatosTablaDeEntradas((void *) datos);
 					if(actual == tablaEntradas->head)
 					{
+						log_info(logger, "Es la cabecera de la lista");
 						tablaEntradas->head = actual->next;
 						anterior = actual;
 						actual = actual->next;
 						anterior->next = NULL;
 						free(anterior);
+						log_info(logger, "Cosa turbia no rompio (linkeo)");
 					}
 					else
 					{
@@ -675,9 +735,11 @@ int procesarSET(t_instruccion* inst)
 						actual->next = NULL;
 						free(actual);
 						actual = anterior->next;
+						log_info(logger, "Cosa turbia 2 no rompio (linkeo)");
 					}
 
 					clearBit(entradaActual);
+					log_info(logger, "Actualizamos el array de bits");
 					limite ++;
 
 				}
@@ -1732,7 +1794,7 @@ void reincorporarse()
 				  string_append(&rutaAbsoluta, instanciaConfig->path);
 				  string_append(&rutaAbsoluta, nombreCompleto);
 
-				FILE *fp = fopen(nombreCompleto, "r+"); //Hay que pasarle el path absoluto.
+				FILE *fp = fopen(rutaAbsoluta, "r+"); //Hay que pasarle el path absoluto.
 
 				if(fp == NULL)
 				{

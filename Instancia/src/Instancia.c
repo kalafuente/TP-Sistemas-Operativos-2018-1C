@@ -353,7 +353,7 @@ int procesarSentencias()
 				respuesta = SE_CREO_EL_ARCHIVO;
 				break;
 
-			case PEDIDO_VALOR:
+			case PEDIDO_DE_VALOR:
 				peticionValor();
 				respuesta = VALOR_ENVIADO;
 				break;

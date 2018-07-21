@@ -2,6 +2,7 @@
 
 bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion, bool avisarClaveInaccesible){
 
+
 	if (enviarInstruccion(logger, instruccion, instanciaALlamar->socket)==-1)
 	{
 		if (avisarClaveInaccesible){
@@ -12,20 +13,53 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 	}
 
 	else{
+		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+			recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+			instancia* instanciaNUEVAALlamar;
+			switch (rtaInstancia){
+			case SE_PUDO_GUARDAR_VALOR:
+							log_info(logger, "instancia guardo valor");
+							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
+							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
+							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
+							break;
+						case NO_SE_PUDO_GUARDAR_VALOR:
+							instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+								if (instanciaNUEVAALlamar == NULL){
+									log_error(logger, "NO HAY MÁS INSTANCIAS");
+									destruirInstruccion(instruccion);
+									killCoordinador();
+									exit(1);
+								}
+								else{
+									bool seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
+											while(!seEnvio){
+											instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+											seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
+											}
+								}
+							break;
+						case SE_NECESITA_COMPACTAR:
+							pedirCompactar(listaDeInstancias);
+							PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
+							recibirMensaje(logger,sizeof(rtaInstancia),&rta, instanciaALlamar->socket);
+							if (rta != COMPACTACION_EXITOSA){
+								log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN O NO LLEGÓ EL MSJ COMPACTACION_EXITOSA, una pena, pero metanle garra a la proxima entrega no todo está perdido... o sí");
+								destruirInstruccion(instruccion);
+								killCoordinador();
+								exit(1);
+							}
+							break;
+						default:
+							log_error(logger, "ERROR EN RTA AL SET");
+							destruirInstruccion(instruccion);
+							killCoordinador();
+							exit(1);
+							break;
 
-	PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
-	recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+			}
 
-	if (rtaInstancia == SE_PUDO_GUARDAR_VALOR) {
 
-		log_info(logger, "instancia guardo valor");
-		modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
-		enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
-		log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
-		}
-	else
-	log_info(logger, "instancia no guardo valor");
-	//-----------------------no sé que pasaría acá
 	}
 
 	int32_t entradasEnUsoDeLaInstancia;
@@ -35,6 +69,27 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 }
 
 
+
+
+void pedirCompactar(t_list* lista){
+	t_instruccion * falsa = malloc (sizeof(t_instruccion));
+	falsa->instruccion = COMPACTAR;
+	falsa->clave = "null";
+	falsa->valor = "null";
+
+	if (list_size(lista)==0){
+			printf("No hay instancias \n");
+		}
+	else {
+		void compactar(instancia * elem){
+			if (enviarInstruccion(logger,falsa,elem->socket)==-1){
+				log_error (logger, "no se pudo pedir compactar");
+			}
+	}
+			list_iterate(lista, (void *) compactar);
+	}
+	free (falsa);
+}
 
 void mandarConfiguracionAInstancia(int sock){
 

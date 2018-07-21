@@ -331,6 +331,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 									break;
 								case NO_SE_CREO_EL_ARCHIVO:
 									log_info(logger, "NO_SE_CREO_EL_ARCHIVO");
+									instanciaCaida(instruccion->clave,sock);
 									break;
 								default:
 									log_error(logger, "ERROR ESTE MENSAJE, MENSAJE NO ANTICIPADO ");

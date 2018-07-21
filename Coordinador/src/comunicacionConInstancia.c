@@ -1,6 +1,7 @@
 #include "comunicacionConInstancia.h"
 
 bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion * instruccion, bool avisarClaveInaccesible){
+	int32_t entradasEnUsoDeLaInstancia;
 
 
 	if (enviarInstruccion(logger, instruccion, instanciaALlamar->socket)==-1)
@@ -14,14 +15,18 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 
 	else{
 		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
-			recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
-			instancia* instanciaNUEVAALlamar;
-			switch (rtaInstancia){
+		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaCompactar;
+		recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+		instancia* instanciaNUEVAALlamar;
+		switch (rtaInstancia){
 			case SE_PUDO_GUARDAR_VALOR:
 							log_info(logger, "instancia guardo valor");
 							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
 							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
+							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
+							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+
 							break;
 			case NO_SE_PUDO_GUARDAR_VALOR:
 							instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
@@ -40,15 +45,18 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 								}
 							break;
 			case SE_NECESITA_COMPACTAR:
-							pedirCompactar(listaDeInstancias);
-							PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
-							recibirMensaje(logger,sizeof(rtaInstancia),&rta, instanciaALlamar->socket);
-							if (rta != COMPACTACION_EXITOSA){
-								log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN O NO LLEGÓ EL MSJ COMPACTACION_EXITOSA, una pena, pero metanle garra a la proxima entrega no todo está perdido... o sí");
+							log_info(logger,"me llegó que se necesita compactar");
+							pedirCompactar(listaDeInstancias,instruccion);
+							recibirMensaje(logger,sizeof(rtaCompactar),&rtaCompactar, instanciaALlamar->socket);
+							if (rtaCompactar != SE_PUDO_GUARDAR_VALOR){
+								log_error(logger, "NO ME LLEGO SE_PUDO_GUARDAR_VALOR DSP DE MANDAR LA COMPACTACION");
 								destruirInstruccion(instruccion);
 								killCoordinador();
 								exit(1);
 							}
+							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
+							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+
 							break;
 			default:
 							log_error(logger, "ERROR EN RTA AL SET");
@@ -58,20 +66,15 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 							break;
 
 			}
-
-
 	}
 
-	int32_t entradasEnUsoDeLaInstancia;
-	recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
-	registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
 	return true;
 }
 
 
 
 
-void pedirCompactar(t_list* lista){
+void pedirCompactar(t_list* lista,t_instruccion * instruccion){
 	t_instruccion * falsa = malloc (sizeof(t_instruccion));
 	falsa->instruccion = COMPACTAR;
 	falsa->clave = "null";
@@ -85,9 +88,23 @@ void pedirCompactar(t_list* lista){
 			if (enviarInstruccion(logger,falsa,elem->socket)==-1){
 				log_error (logger, "no se pudo pedir compactar");
 			}
+			int32_t entradasEnUsoDeLaInstancia;
+			PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
+			recibirMensaje(logger,sizeof(rta),&rta, elem->socket);
+			if (rta != COMPACTACION_EXITOSA){
+				log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN O NO LLEGÓ EL MSJ COMPACTACION_EXITOSA, una pena, pero metanle garra a la proxima entrega no todo está perdido... o sí");
+				destruirInstruccion(instruccion);
+				free (falsa);
+				killCoordinador();
+				exit(1);
+			}
+			recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, elem->socket);
+			registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,elem);
+
+		}
 			list_iterate(lista, (void *) compactar);
 		}
-	}
+
 	free (falsa);
 }
 

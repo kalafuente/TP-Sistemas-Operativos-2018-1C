@@ -752,17 +752,26 @@ int procesarSET(t_instruccion* inst)
 
 			//Ya estan todas liberadas
 			//Hay que verificar si son todas contiguas
+			log_info(logger, "Ya las liberamos todas. Hay que ver que sean contiguas");
 
 			if(sonEntradasContiguas(encontradas, libres))
 			{
 				//Son contiguas! Guardamos el valor y todo lo demas
 				//Sabemos que estan ordenados por la funcion anterior
 
+				log_info(logger, "Son contiguas. Se suponen ordenadas por la funcion");
+				log_info(logger, "Intentamos guardar el valor en la primera entrada del conjunto");
+
 				guardarValorEnEntradas(inst->clave, inst->valor, libres[0]);
+
+				log_info(logger, "Almacenamiento exitoso");
 			}
 			else
 			{
 				//Ya tenemos todo lo que necesitamos, pero no son contiguas
+
+				log_info(logger, "Tenemos todo pero no son contiguas");
+				log_error(logger, "HAY QUE COMPACTAR. ROMPE TODO");
 				//************* COMPACTACION ***************
 
 				PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta = SE_NECESITA_COMPACTAR;

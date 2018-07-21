@@ -21,7 +21,7 @@ int main(int argc,char**argv)
 	inicializarBitArray(); //CHECK
 	tablaEntradas = list_create();
 	crearDirectorio();
-	//REINCORPORACION
+	reincorporarse();
 	crearHiloParaDump();
 	procesarSentencias();
 	imprimirContenidoEntradas();

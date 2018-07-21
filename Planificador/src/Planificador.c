@@ -408,17 +408,24 @@ void* consola(void* socket) {
 				log_info(logger, "La clave %s no existe \n", Auxid);
 			}
 			else {
+				char * instancia = recibirID(*socketStatus, logger);
+
 				if (strcmp(valor, "no hay valor, pero hay get")==0){
 					log_info(logger, "La clave %s no tiene valor seteado \n", Auxid);
-					char * instancia = recibirID(*socketStatus, logger);
 					log_info(logger, "Todavía no está en ninguna instancia, pero se estima que estará en %s \n", instancia);
 
 				}
 				else {
-					log_info(logger, "La clave %s , esta en el siguiente estado: \n", Auxid);
-					log_info(logger, "Valor: % s \n", valor);
-					char * instancia = recibirID(*socketStatus, logger);
-					log_info(logger, "Instancia donde se encuentra:%s \n", instancia);
+					if (strcmp(valor, "no hay valor, se cayó la instancia")==0){
+						log_info(logger, "La clave %s estaba en la instancia %s pero se cayó \n", Auxid,instancia );
+
+					}
+					else {
+						log_info(logger, "La clave %s , esta en el siguiente estado: \n", Auxid);
+						log_info(logger, "Valor: % s \n", valor);
+						log_info(logger, "Instancia donde se encuentra:%s \n", instancia);
+
+					}
 
 				}
 

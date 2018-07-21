@@ -124,37 +124,46 @@ void *manejadorDeConexiones(void *socket_desc) {
 						enviarID(sock,instanciaElegida->identificador,logger);
 					}
 					else{
-						t_instruccion * falsa = malloc (sizeof(t_instruccion));
-						falsa->instruccion = PEDIDO_DE_VALOR;
-						falsa->clave = "null";
-						falsa->valor = "null";
+							t_instruccion * falsa = malloc (sizeof(t_instruccion));
+							falsa->instruccion = PEDIDO_DE_VALOR;
+							falsa->clave = "null";
+							falsa->valor = "null";
 
-						PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
-						enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket);
+							PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
+							if (enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket)==-1){
+								enviarID(sock,"no hay valor, se cayó la instancia",logger);
+								enviarID(sock,instanciaALlamar->instancia->identificador,logger);
+							}
+							else {
+								if (enviarID(instanciaALlamar->instancia->socket,claveAPedir,logger)==-1){
+									enviarID(sock,"no hay valor, se cayó la instancia",logger);
+									enviarID(sock,instanciaALlamar->instancia->identificador,logger);
+								}
+								else{
+									char * valor;
+										valor = recibirID(instanciaALlamar->instancia->socket,logger);
+										recibirMensaje(logger,sizeof(rta),&rta, instanciaALlamar->instancia->socket);
 
-						enviarID(instanciaALlamar->instancia->socket,claveAPedir,logger);
-						char * valor;
-						valor = recibirID(instanciaALlamar->instancia->socket,logger);
+										if (strcmp(valor, "null")!=0)
+										enviarID(sock,valor,logger);
 
-						recibirMensaje(logger,sizeof(rta),&rta, instanciaALlamar->instancia->socket);
+										else
+										enviarID(sock,"no hay valor",logger);
 
-
-						if (strcmp(valor, "null")!=0){
-						enviarID(sock,valor, logger);
+										enviarID(sock,instanciaALlamar->instancia->identificador,logger);
+								}
 						}
-						else{
-							enviarID(sock,"no hay valor",logger);
-						}
-						enviarID(sock,instanciaALlamar->instancia->identificador,logger);
 
 
-						}
+
+					}
 				}
-				else {
+				else
 					enviarID(sock,"ClaveInexistente",logger);
-				}
-				claveAPedir = recibirID(sock,logger);
+
+			claveAPedir = recibirID(sock,logger);
 			}
+
 			free(claveAPedir);
 			break;
 

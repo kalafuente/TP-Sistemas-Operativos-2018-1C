@@ -25,7 +25,7 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 
 	// --------------------- ESTO AGREGUE --------------------------
 
-	if(instruccion == PEDIDO_VALOR || instruccion == COMPACTAR)
+	if(instruccion == PEDIDO_DE_VALOR || instruccion == COMPACTAR)
 	{
 		t_instruccion* instruccionACrear = malloc(sizeof(t_instruccion));
 		instruccionACrear->instruccion = instruccion;
@@ -103,7 +103,7 @@ int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 
 	//------------------ ESTO ES LO QUE AGREGUE ---------------------
 
-	if(instruccion->instruccion == PEDIDO_VALOR || instruccion->instruccion == COMPACTAR)
+	if(instruccion->instruccion == PEDIDO_DE_VALOR || instruccion->instruccion == COMPACTAR)
 	{
 		return 1;
 	}
@@ -153,6 +153,11 @@ t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char *
 
 void destruirInstruccion(t_instruccion* instruccion)
 {
+	if(instruccion->instruccion == PEDIDO_DE_VALOR || instruccion->instruccion == COMPACTAR)
+	{
+		return;
+	}
+
 	free(instruccion->clave);
 
 	if(instruccion->instruccion != INSTRUCCION_SET)

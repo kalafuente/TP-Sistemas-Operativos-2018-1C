@@ -78,6 +78,7 @@ void* actualizarBloqueado(){
 				list_remove(listaBloqueado, i);
 				list_add(listaReady, esiBloqueado->ESI);
 				sem_post(&cantidadEsisEnReady);
+				EsisNuevos = 1;
 				j = list_size(listaBloqueado);
 				i = 0;
 			}else{
@@ -195,6 +196,7 @@ void desbloquear(t_list* listaBloqueado, t_list* listaReady, char* clave){
 			list_remove(listaBloqueado, i);
 			list_add(listaReady, esiClave->ESI);
 			sem_post(&cantidadEsisEnReady);
+			EsisNuevos = 1;
 			return;
 			}
 		i++;

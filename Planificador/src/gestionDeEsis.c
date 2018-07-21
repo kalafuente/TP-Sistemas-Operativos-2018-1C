@@ -9,7 +9,7 @@ void agregarEsi(int socketCliente) {
 	nuevoEsi->ID = IdDisponible;
 	IdDisponible++;
 	list_add(listaReady, nuevoEsi);
-	EsisNuevos++;
+	EsisNuevos = 1;
 	sem_post(&cantidadEsisEnReady);
 }
 
@@ -39,8 +39,9 @@ void liberarEsi(char*clave) {
 			(void*) esSuClaveIgual);
 	if (aux != NULL) {
 		list_add(listaReady, aux->ESI);
-		EsisNuevos++;
+		EsisNuevos = 1;
 		sem_post(&cantidadEsisEnReady);
+		sem_post(&huboDesalojoClaves);
 
 	}
 }

@@ -101,7 +101,6 @@ void planificarESIs(){
 				estadoEsi = TERMINE;
 				list_remove(listaEjecutando, 0);
 				list_add(listaReady, esiActual);
-				break;
 			}
 
 			sem_post(&pausarPlanificacion);
@@ -110,7 +109,6 @@ void planificarESIs(){
 
 			if (list_size(listaEjecutando) == 0) {
 				estadoEsi = TERMINE;
-				break;
 			}
 
 		}

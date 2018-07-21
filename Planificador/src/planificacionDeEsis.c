@@ -74,7 +74,7 @@ void planificarESIs(){
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
 					pthread_mutex_unlock(&mutex);
-					//liberar claves
+				liberarTodasLasClavesDeEsi(esiActual);
 					log_info(logger, "termino el esi %d", esiActual->ID);
 					close(esiActual->socket);
 					break;
@@ -83,7 +83,7 @@ void planificarESIs(){
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
 				pthread_mutex_unlock(&mutex);
-					//liberar claves
+				//liberar claves(?
 					log_error(logger, "error con el esi %d", esiActual->ID);
 					close(esiActual->socket);
 					break;

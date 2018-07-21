@@ -20,6 +20,7 @@ int main(int argc,char**argv)
 	inicializarEntradas(); //CHECK
 	inicializarBitArray(); //CHECK
 	tablaEntradas = list_create();
+	crearDirectorio();
 	//REINCORPORACION
 	crearHiloParaDump();
 	procesarSentencias();
@@ -1383,8 +1384,8 @@ void * DUMP()
 
 			while(actual != NULL && (strcmp(claveActual, dato->clave) == 0))
 			{
-				actual = actual->next;
 				dato = (t_tabla_entradas *)actual->data;
+				actual = actual->next;
 			}
 
 			free(claveActual);
@@ -1400,17 +1401,48 @@ void * DUMP()
 	return NULL;
 }
 
+void crearDirectorio()
+{
+	struct stat st = {0};
+
+	if (stat(instanciaConfig->path, &st) == -1)
+	{
+	    log_info(logger, "El directorio de montaje no existe, se creara\n");
+
+	    if(mkdir(instanciaConfig->path, S_IRWXU | S_IRWXG | S_IRWXO) < 0)
+	    {
+	    	log_error(logger, "No se pudo crear el directorio\n");
+	    	return;
+	    }
+
+	    log_info(logger, "mkdir exitoso\n");
+	}
+}
+
 void reincorporarse()
 {
 	// --------- PIDO LAS CLAVES AL COORDINADOR ------------
 
-	char * clave = NULL;
+	PROTOCOLO_INSTANCIA_A_COORDINADOR pedidoClaves = PEDIDO_DE_CLAVES;
 
-	do
+	enviarMensaje(logger, sizeof(pedidoClaves), &pedidoClaves, socketCoordinador);
+
+	char * clave = recibirID(socketCoordinador, logger);
+
+	if(strcmp(clave, "null") == 0)
 	{
+		log_info(logger, "No hay nada que recuperar\n");
+		free(clave);
+		return;
+	}
+
+	while(strcmp(clave, "null") == 0)
+	{
+		//char * key = recibirID(socketCoordinador, logger);
 
 
-	}while(strcmp(clave, "null") == 0);
+
+	}
 
 	// -----------------------------------------------------
 

@@ -1481,3 +1481,20 @@
 [ERROR] 13:11:11:887 loggerPlani/(5467:5467): ERROR ESI DESCONECTADO
 [INFO] 13:11:11:887 loggerPlani/(5467:5467): se recibio estado 4
 [ERROR] 13:11:11:887 loggerPlani/(5467:5467): error con el esi 1
+[INFO] 12:35:45:88 loggerPlani/(6333:6333): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 12:35:45:111 loggerPlani/(6333:6333): El puerto del Coordinador es: 9191
+
+[INFO] 12:35:45:116 loggerPlani/(6333:6333): Se recibieron 4 bytes
+[INFO] 12:35:45:116 loggerPlani/(6333:6333): Se recibieron los datos
+[INFO] 12:35:45:116 loggerPlani/(6333:6333): Se enviaron 4 bytes
+[INFO] 12:35:45:116 loggerPlani/(6333:6333): Se envio el mensaje
+[INFO] 12:35:45:117 loggerPlani/(6333:6333): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 12:35:45:117 loggerPlani/(6333:6333): El puerto del Coordinador es: 9191
+
+[INFO] 12:35:45:121 loggerPlani/(6333:6333): Se recibieron 4 bytes
+[INFO] 12:35:45:122 loggerPlani/(6333:6333): Se recibieron los datos
+[INFO] 12:35:45:122 loggerPlani/(6333:6333): Se enviaron 4 bytes
+[INFO] 12:35:45:122 loggerPlani/(6333:6333): Se envio el mensaje
+[INFO] 12:35:45:123 loggerPlani/(6333:6340): Iniciada recepcion de consultas del coordi

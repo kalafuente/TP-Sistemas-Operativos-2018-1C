@@ -1,7 +1,13 @@
 all:
-	-gcc -c -Wall -fpic manejoDeSockets.c
-	-gcc -c -Wall -fpic protocolos.c
-	-gcc -shared -o libmanejoDeSockets.so protocolos.o manejoDeSockets.o
+	-gcc -c -Wall -fpic ../../manejoDeSocket/library/manejoDeSockets.c
+	-gcc -c -Wall -fpic ../../manejoDeSocket/library/protocolos.c
+	-gcc -c -Wall -fpic ../../manejoDeSocket/library/archivos.c
+	-gcc -shared -o libmanejoDeSockets.so protocolos.o manejoDeSockets.o archivos.o
 	-cp libmanejoDeSockets.so /usr/lib
 	-mkdir /usr/include/library
 	-cp *.h /usr/include/library
+clean:
+	-rm *.so
+	-rm *.o
+	-rm -r /usr/include/library
+	-rm /usr/lib/libmanejoDeSockets.so

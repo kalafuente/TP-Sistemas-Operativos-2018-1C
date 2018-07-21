@@ -702,3 +702,15 @@
 [ERROR] 10:54:54:343 loggerCoordi/(3942:3970): SE CORTO LA CONEXION
 [ERROR] 10:54:54:344 loggerCoordi/(3942:3970): No se pudo recibir la Instruccion
 
+[ERROR] 12:09:00:115 loggerCoordi/(3956:3956): NO PASASTE EL ARCHIVO MOSTRO
+[INFO] 12:35:45:117 loggerCoordi/(6293:6335): Se enviaron 4 bytes
+[INFO] 12:35:45:117 loggerCoordi/(6293:6335): Se envio el mensaje
+[INFO] 12:35:45:117 loggerCoordi/(6293:6335): Se recibieron 4 bytes
+[INFO] 12:35:45:117 loggerCoordi/(6293:6335): Se recibieron los datos
+[INFO] 12:35:45:117 loggerCoordi/(6293:6335): Se me conectó el planificador
+[INFO] 12:35:45:122 loggerCoordi/(6293:6336): Se enviaron 4 bytes
+[INFO] 12:35:45:122 loggerCoordi/(6293:6336): Se envio el mensaje
+[INFO] 12:35:45:123 loggerCoordi/(6293:6336): Se recibieron 4 bytes
+[INFO] 12:35:45:123 loggerCoordi/(6293:6336): Se recibieron los datos
+[INFO] 12:35:45:123 loggerCoordi/(6293:6336): Se me conectó el planificador para pedir status
+[ERROR] 12:35:49:962 loggerCoordi/(6293:6336): recibirMensaje:: SE CORTO LA CONEXION

@@ -1,10 +1,3 @@
-/*
- * protocolos.h
- *
- *  Created on: 25 may. 2018
- *      Author: utnso
- */
-
 #include <commons/collections/dictionary.h>
 #include <commons/string.h>
 #include "manejoDeSockets.h"
@@ -15,7 +8,8 @@
 typedef enum PROTOCOLO_HANDSHAKE_CLIENTE {
 	HANDSHAKE_CONECTAR_ESI_A_COORDINADOR,
 	HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR,
-	HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR
+	HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR,
+	HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR,
 } PROTOCOLO_HANDSHAKE_CLIENTE;
 
 typedef enum CONSULTA{
@@ -37,12 +31,11 @@ typedef enum PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI {
 
 typedef enum PROTOCOLO_COORDINADOR_A_INSTANCIA {
 	ENTRADAS,
-	PEDIDO_DE_VALOR,
 
 } PROTOCOLO_COORDINADOR_A_INSTANCIA;
 
 typedef enum PROTOCOLO_INSTRUCCIONES {
-	INSTRUCCION_GET, INSTRUCCION_SET, INSTRUCCION_STORE,
+	INSTRUCCION_GET, INSTRUCCION_SET, INSTRUCCION_STORE, PEDIDO_DE_VALOR, COMPACTAR
 } PROTOCOLO_INSTRUCCIONES;
 
 typedef enum PROTOCOLO_ESI_A_COORDI {
@@ -64,12 +57,16 @@ typedef enum PROTOCOLO_PLANIFICADOR_A_ESI {
 } PROTOCOLO_PLANIFICADOR_A_ESI;
 
 typedef enum PROTOCOLO_INSTANCIA_A_COORDINADOR{
+	PEDIDO_DE_CLAVES,
 	SE_PUDO_GUARDAR_VALOR,
 	NO_SE_PUDO_GUARDAR_VALOR,
 	SE_SOBREESCRIBIO_LA_CLAVE, //Despues deberia enviar el tamanio y la clave en cuestion (3 mensajes)
 	SE_CREO_EL_ARCHIVO,
 	NO_SE_CREO_EL_ARCHIVO,
-	ERROR_INSTRUCCION
+	ERROR_INSTRUCCION,
+	VALOR_ENVIADO,
+	SE_NECESITA_COMPACTAR,
+	COMPACTACION_EXITOSA
 
 } PROTOCOLO_INSTANCIA_A_COORDINADOR;
 
@@ -102,8 +99,9 @@ typedef struct instruccion {
 
 void destruirInstruccion(t_instruccion* instruccion);
 int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock);
-void enviarClave(t_log* logger,char* clave, int sock);
-char * recibirClave(t_log* logger,int sock, char * dondeGuardarClave);
 t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien);
 t_instruccion * crearInstruccion(PROTOCOLO_INSTRUCCIONES tipoInstruccion, char * clave, char * valor);
+char* recibirID(int sock, t_log* logger);
+int enviarID(int sock ,char* mensaje, t_log* logger);
+
 #endif /* PROTOCOLOS_PROTOCOLOS_H_ */

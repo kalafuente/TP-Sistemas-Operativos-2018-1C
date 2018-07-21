@@ -16,6 +16,7 @@
 #include <sys/mman.h>
 #include <library/archivos.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include <errno.h>
 
@@ -106,6 +107,7 @@ int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, in
 //DUMP
 void crearHiloParaDump();
 void * DUMP();
+void crearDirectorio();
 
 //MUTEX
 void inicializarMutex();

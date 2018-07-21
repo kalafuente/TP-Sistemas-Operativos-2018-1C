@@ -576,6 +576,10 @@ int procesarSET(t_instruccion* inst)
 			destruirInstruccion(sentencia);
 			//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
 
+			respuesta = COMPACTACION_EXITOSA;
+			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+			entradasEnUso = (int32_t) list_size(tablaEntradas);
+			enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 		}
 		else
 		{
@@ -715,6 +719,11 @@ int procesarSET(t_instruccion* inst)
 				destruirInstruccion(sentencia);
 
 				//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
+
+				respuesta = COMPACTACION_EXITOSA;
+				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+				entradasEnUso = (int32_t) list_size(tablaEntradas);
+				enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 			}
 
 		}

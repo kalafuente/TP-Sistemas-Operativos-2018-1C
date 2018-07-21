@@ -170,18 +170,6 @@ char* claveEsiClaves(struct_esiClaves* esiClave){
 	return esiClave->clave;
 }
 
-int indexOf(t_list* lista, int valorBuscado){
-	int i = 0;
-	int j = sizeof(lista);
-	while(i<j){
-		if(valorBuscado == list_get(lista, i)){
-			return i;
-		}
-		i++;
-	}
-	return -1;
-}
-
 int indexOfString(t_list* lista, char* valorBuscado){
 	int i = 0;
 	int j = sizeof(lista);
@@ -222,15 +210,12 @@ bool esIgualA(void* elem1, void* elem2){
 }
 
 bool contains(t_list* lista, int elemento){
-	int i = 0;
-	int j = sizeof(lista);
-	while (i<j){
-		if (elemento == list_get(lista, i)){
-			return true;
-		}
-		i++;
+
+	int tieneMismoId(struct_esi* esi) {
+		return (esi->ID == elemento);
 	}
-	return false;
+
+	return list_any_satisfy(lista, (void*) tieneMismoId);
 }
 
 
@@ -282,13 +267,21 @@ void* consola(void* socket) {
 		if (string_equals_ignore_case(comando, "bloquear")) {
 			char* clave = strtok(parametros, " ");
 			char* id = strtok(NULL, " ");
+
 			int esSuClaveIgual(struct_esiClaves*elesi) {
 					return string_equals_ignore_case(clave, elesi->clave);
 				}
+
+
 			IDaux = (int) strtol(id, (char**) NULL, 10);
+			int esSuIdIgual(struct_esi*elesi) {
+				return elesi->ID == IDaux;
+			}
+
+
 			pthread_mutex_lock(&mutex);
-			if (!contains((list_map(listaReady, idEsi)), IDaux)
-					&& !contains((list_map(listaEjecutando, idEsi)), IDaux)) {
+			if (!contains(listaReady, IDaux)
+					&& !contains(listaEjecutando, IDaux)) {
 				strcpy(id, "ESI NO EXISTENTE");
 				//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual)
 			    if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
@@ -297,21 +290,20 @@ void* consola(void* socket) {
 			    	list_add(listaEsiClave, crearEsiClave(esiNoExistente, clave));
 			    		}
 			    	}else{
-				if (contains((list_map(listaReady, idEsi)), IDaux)) {
-			    				//bloquear(id, clave);
-					int index = indexOf((list_map(listaReady, idEsi)), IDaux);
-			    	 			struct_esi* esiBloqueado = list_remove(listaReady, index);
+				if (contains(listaReady, IDaux)) {
+					//bloquear(id, clave)
+					struct_esi* esiBloqueado = list_remove_by_condition(
+							listaReady, (void*) esSuIdIgual);
 			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
 			    	 			/*if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
 			    	 				list_add(listaEsiClave, esiClavesBloqueado);
 			    	 			}*/
 			    			}
-				if (contains((list_map(listaEjecutando, idEsi)), IDaux)) {
+				if (contains(listaEjecutando, IDaux)) {
 			    				//bloquear(id, clave);
-					int index = indexOf((list_map(listaEjecutando, idEsi)),
-							IDaux);
-			    	 			struct_esi* esiBloqueado = list_remove(listaEjecutando, index);
+					struct_esi* esiBloqueado = list_remove_by_condition(
+							listaEjecutando, (void*) esSuIdIgual);
 			    	 			struct_esiClaves* esiClavesBloqueado = crearEsiClave(esiBloqueado, clave);
 			    	 			list_add(listaBloqueado, esiClavesBloqueado);
 			    	 			/*if(!list_any_satisfy(listaEsiClave, (void*) esSuClaveIgual)){
@@ -334,6 +326,7 @@ void* consola(void* socket) {
 			}else{
 				desbloquear(listaBloqueado, listaReady, clave);
 			}
+
 			pthread_mutex_unlock(&mutex);
 
 			printf("Se desbloqueo la clave %s \n", clave);
@@ -341,10 +334,11 @@ void* consola(void* socket) {
 		}
 		if (string_equals_ignore_case(comando, "listar")) {
 
-			char* clave = string_new();
-			string_append(&clave, parametros);
+			Auxid = string_new();
+			string_append(&Auxid, parametros);
 			printf("El recurso %s esta siendo esperado por: \n", parametros);
-			listar(clave);
+			listar(Auxid);
+			free(Auxid);
 			//Lista los procesos encolados esperando al recurso.
 		}
 		if (string_equals_ignore_case(comando, "kill")) {

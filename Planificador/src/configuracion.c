@@ -38,7 +38,15 @@ void destroy_planificadorConfig(planificador_config* planificador_config) {
 	free(planificador_config->ipCoordinador);
 	free(planificador_config->puertoCoordinador);
 	free(planificador_config->puertoEscucha);
+	int i = 0;
+
+	while (planificador_config->clavesPrebloqueadas[i] != NULL) {
+		free(planificador_config->clavesPrebloqueadas[i]);
+		i++;
+	}
+	free(planificador_config->clavesPrebloqueadas);
 	free(planificador_config);
+
 }
 
 ALGORITMO_PLANIFICACION traducir(char* algoritmo) {

@@ -111,8 +111,10 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
 			log_info(logger, "Se me conectó el planificador para pedir status");
-			char * claveAPedir = string_new();
+			char * claveAPedir;
+			printf("esperando clave del status \n");
 			claveAPedir = recibirID(sock,logger);
+			printf("la clave que me pidio saber el plani es %s", claveAPedir);
 			while(strcmp(claveAPedir, "null")!=0){
 				if (contieneClave(listaDeClavesConInstancia,claveAPedir)){
 					claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
@@ -122,10 +124,19 @@ void *manejadorDeConexiones(void *socket_desc) {
 						enviarID(sock,instanciaElegida->identificador,logger);
 					}
 					else{
-						PROTOCOLO_COORDINADOR_A_INSTANCIA pedidoDeValor = PEDIDO_DE_VALOR;
-						enviarMensaje(logger,sizeof(pedidoDeValor),&pedidoDeValor,instanciaALlamar->instancia->socket);
-						char * valor = string_new();
+						t_instruccion * falsa = malloc (sizeof(t_instruccion));
+						falsa->instruccion = PEDIDO_DE_VALOR;
+						falsa->clave = "null";
+						falsa->valor = "null";
+
+						PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
+						enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket);
+
+						char * valor;
 						valor = recibirID(instanciaALlamar->instancia->socket,logger);
+
+						recibirMensaje(logger,sizeof(rta),&rta, instanciaALlamar->instancia->socket);
+
 						if (strcmp(valor, "null")==0){
 						enviarID(sock,valor, logger);
 						}
@@ -133,6 +144,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 							enviarID(sock,"no hay valor",logger);
 						}
 						enviarID(sock,instanciaALlamar->instancia->identificador,logger);
+
+
 						}
 				}
 				else {

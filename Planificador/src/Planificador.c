@@ -396,15 +396,25 @@ void* consola(void* socket) {
 		}
 		if (string_equals_ignore_case(comando, "status")) {
 			string_append(&Auxid, strtok(parametros, " "));
-			enviarID(*socketStatus, Auxid, logger);
-			log_info(logger, "La clave %s , esta en el siguiente estado: \n");
+
+			printf ("la clave que se preguntara al cordi es %s \n",Auxid);
+
+			if (enviarID(*socketStatus, Auxid, logger)==-1){
+				printf("no se pudo enviar %s \n", Auxid);
+			}
+
+			log_info(logger, "La clave %s , esta en el siguiente estado: \n", Auxid);
 			log_info(logger, "Valor:	 ");
-			log_info(logger, "%s \n", recibirID(*socketStatus, logger));
+
+			char * valor = recibirID(*socketStatus, logger);
+
+			log_info(logger, "%s \n", valor);
 			log_info(logger, "Instancia Actual: 	");
-			log_info(logger, "%s\n", recibirID(*socketStatus, logger));
-			log_info(logger,
-					"Instancia a la que corresponderia en este momento:		 ");
-			log_info(logger, "%s\n", recibirID(*socketStatus, logger));
+
+			char * instancia = recibirID(*socketStatus, logger);
+
+			log_info(logger, "%s\n", instancia);
+
 
 			log_info(logger, "Esis que esperan esta clave: 		");
 

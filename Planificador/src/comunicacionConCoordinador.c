@@ -19,7 +19,7 @@ void * manejarConexionCoordi(void * socket) {
 	PROTOCOLO_PLANIFICADOR_A_COORDINADOR respuesta;
 	PROTOCOLO_COORDINADOR_A_PLANIFICADOR mensajeRecibido;
 	//int ID;
-	char * CLAVE = string_new();
+	char * CLAVE;
 	struct_esi* ESI;
 	int respuesta_bool;
 	log_info(logger, "Iniciada recepcion de consultas del coordi");

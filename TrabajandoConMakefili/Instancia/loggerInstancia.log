@@ -422,3 +422,98 @@
 
 [INFO] 10:54:54:303 loggerInstancia/(3948:3948): Esperando la Instruccion
 
+[INFO] 13:21:09:221 loggerInstancia/(8905:8905): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 13:21:39:110 loggerInstancia/(8921:8921): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 13:22:15:304 loggerInstancia/(8956:8956): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 13:22:15:304 loggerInstancia/(8956:8956): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 13:22:15:304 loggerInstancia/(8956:8956): El puerto del Coordinador es: 9191
+
+[INFO] 13:22:15:304 loggerInstancia/(8956:8956): El algoritmo es: CIRC
+
+[INFO] 13:22:15:304 loggerInstancia/(8956:8956): El path es: /home/utnso/inst1/
+
+[INFO] 13:22:15:305 loggerInstancia/(8956:8956): El nombre es: Inst1
+
+[INFO] 13:22:15:305 loggerInstancia/(8956:8956): El intervalo es: 10
+
+[INFO] 13:22:15:305 loggerInstancia/(8956:8956): Intento conectarme al Coordinador
+
+[INFO] 13:22:15:305 loggerInstancia/(8956:8956): Conexion exitosa!
+[INFO] 13:22:15:305 loggerInstancia/(8956:8956): Intentando establecer un handshake con el Coordinador
+
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se recibieron 4 bytes
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se recibieron los datos
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se enviaron 4 bytes
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se envio el mensaje
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se enviaron 4 bytes
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Se envio el mensaje
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Handshake Exitoso!
+
+[INFO] 13:22:15:306 loggerInstancia/(8956:8956): Esperando configuracion de entradas
+
+[INFO] 13:22:15:308 loggerInstancia/(8956:8956): Se recibieron 4 bytes
+[INFO] 13:22:15:308 loggerInstancia/(8956:8956): Se recibieron los datos
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron 4 bytes
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron los datos
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron 4 bytes
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron los datos
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): El tamanio de la entrada es: 20
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): La cantidad de entradas es: 50
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Memoria alojada correctamente
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Inicializamos los valores de las Entradas en 0
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Inicializacion de Entradas exitosa!
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Pedimos memoria para el bitArray
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Memoria alojada correctamente
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Inicializamos los valores del Array
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Posiciones requeridas para el Array: 2
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Inicializacion del Array de Bits exitosa!
+
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se enviaron 4 bytes
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se envio el mensaje
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron 4 bytes
+[INFO] 13:22:15:347 loggerInstancia/(8956:8956): Se recibieron los datos
+[INFO] 13:22:15:387 loggerInstancia/(8956:8956): No hay nada que recuperar
+
+[INFO] 13:22:15:387 loggerInstancia/(8956:8956): Comienzo a recibir sentencias del coordinador
+
+[INFO] 13:22:15:387 loggerInstancia/(8956:8956): Esperando proxima sentencia...
+
+[INFO] 13:22:15:387 loggerInstancia/(8956:8956): Esperando la Instruccion
+
+[INFO] 13:22:25:389 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:22:25:390 loggerInstancia/(8956:8960): Finalizo el DUMP
+
+[INFO] 13:22:35:392 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:22:35:392 loggerInstancia/(8956:8960): Finalizo el DUMP
+
+[INFO] 13:22:45:394 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:22:45:394 loggerInstancia/(8956:8960): Finalizo el DUMP
+
+[INFO] 13:22:55:396 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:22:55:425 loggerInstancia/(8956:8960): Finalizo el DUMP
+
+[INFO] 13:23:05:427 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:23:05:427 loggerInstancia/(8956:8960): Finalizo el DUMP
+
+[INFO] 13:23:15:429 loggerInstancia/(8956:8960): Comienza el DUMP
+
+[INFO] 13:23:15:430 loggerInstancia/(8956:8960): Finalizo el DUMP
+

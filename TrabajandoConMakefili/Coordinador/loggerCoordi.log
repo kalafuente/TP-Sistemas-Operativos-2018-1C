@@ -714,3 +714,24 @@
 [INFO] 12:35:45:123 loggerCoordi/(6293:6336): Se recibieron los datos
 [INFO] 12:35:45:123 loggerCoordi/(6293:6336): Se me conectó el planificador para pedir status
 [ERROR] 12:35:49:962 loggerCoordi/(6293:6336): recibirMensaje:: SE CORTO LA CONEXION
+[INFO] 13:22:15:307 loggerCoordi/(8698:8957): Se enviaron 4 bytes
+[INFO] 13:22:15:307 loggerCoordi/(8698:8957): Se envio el mensaje
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se recibieron 4 bytes
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se recibieron los datos
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se me conectó una Instancia
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se recibieron 4 bytes
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se recibieron los datos
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se enviaron 4 bytes
+[INFO] 13:22:15:308 loggerCoordi/(8698:8957): Se envio el mensaje
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Se enviaron 4 bytes
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Se envio el mensaje
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Envie cantidad de entradas a la instancia
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Se enviaron 4 bytes
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Se envio el mensaje
+[INFO] 13:22:15:309 loggerCoordi/(8698:8957): Envie tamanaño de entradas a la instancia
+[INFO] 13:22:15:347 loggerCoordi/(8698:8957): Se recibieron 4 bytes
+[INFO] 13:22:15:347 loggerCoordi/(8698:8957): Se recibieron los datos
+[INFO] 13:22:15:347 loggerCoordi/(8698:8957): Se enviaron 4 bytes
+[INFO] 13:22:15:347 loggerCoordi/(8698:8957): Se envio el mensaje
+[INFO] 13:22:15:347 loggerCoordi/(8698:8957): 
+ Se registro instancia

@@ -1282,7 +1282,7 @@ int procesarSTORE(t_instruccion * sentencia)
 
 	t_tabla_entradas * datito = dato;
 
-	while(strcmp(datito->clave, centinela) == 0)
+	while(nodito != NULL && strcmp(datito->clave, centinela) == 0)
 	{
 		datito = (t_tabla_entradas *)nodito->data;
 		datito->momentoReferencia = contadorGlobal;

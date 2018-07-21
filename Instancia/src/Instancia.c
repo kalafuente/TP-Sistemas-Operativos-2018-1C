@@ -1284,13 +1284,13 @@ int procesarSTORE(t_instruccion * sentencia)
 
 	while(strcmp(datito->clave, centinela) == 0)
 	{
+		datito = (t_tabla_entradas *)nodito->data;
 		datito->momentoReferencia = contadorGlobal;
 		nodito = nodito->next;
-		datito = (t_tabla_entradas *)nodito->data;
 	}
 
 	free(centinela);
-	centinela = NULL;
+	//centinela = NULL;
 
 	log_info(logger, "La clave existe!\n");
 

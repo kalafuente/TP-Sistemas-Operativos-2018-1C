@@ -575,7 +575,8 @@ void cargarClavesPrebloqueadas() {
 	int i = 0;
 	while (planiConfig->clavesPrebloqueadas[i] != NULL) {
 		list_add(listaEsiClave,
-				crearEsiClave(EsiSistema, planiConfig->clavesPrebloqueadas[i]));
+				crearEsiClave(EsiSistema,
+						(planiConfig->clavesPrebloqueadas)[i]));
 
 		i++;
 	}

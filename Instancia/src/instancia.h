@@ -106,6 +106,9 @@ void * DUMP();
 //MUTEX
 void inicializarMutex();
 
+//REINCORPORACION
+void reincorporarse();
+
 
 // ------------------- Funciones bitArray
 void inicializarBitArray();

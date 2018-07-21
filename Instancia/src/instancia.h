@@ -17,6 +17,8 @@
 #include <library/archivos.h>
 #include <pthread.h>
 
+#include <errno.h>
+
 typedef struct instancia_config {
 	char * ipCoordi ;
 	char * puertoCoordi;
@@ -51,6 +53,8 @@ int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guar
 //int punteroAlgCIRC = 0;
 
 pthread_mutex_t mutex;
+
+extern int errno ;
 
 
 void destruirLogger();

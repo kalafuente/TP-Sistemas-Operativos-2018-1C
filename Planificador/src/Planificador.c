@@ -403,28 +403,37 @@ void* consola(void* socket) {
 				printf("no se pudo enviar %s \n", Auxid);
 			}
 
-			log_info(logger, "La clave %s , esta en el siguiente estado: \n", Auxid);
-			log_info(logger, "Valor:	 ");
-
 			char * valor = recibirID(*socketStatus, logger);
+			if (strcmp(valor,"ClaveInexistente") == 0){
+				log_info(logger, "La clave %s no existe \n", Auxid);
+			}
+			else {
+				if (strcmp(valor, "no hay valor, pero hay get")==0){
+					log_info(logger, "La clave %s no tiene valor seteado \n", Auxid);
+					char * instancia = recibirID(*socketStatus, logger);
+					log_info(logger, "Todavía no está en ninguna instancia, pero se estima que estará en %s \n", instancia);
 
-			log_info(logger, "%s \n", valor);
-			log_info(logger, "Instancia Actual: 	");
+				}
+				else {
+					log_info(logger, "La clave %s , esta en el siguiente estado: \n", Auxid);
+					log_info(logger, "Valor: % s \n", valor);
+					char * instancia = recibirID(*socketStatus, logger);
+					log_info(logger, "Instancia donde se encuentra:%s \n", instancia);
 
-			char * instancia = recibirID(*socketStatus, logger);
+				}
 
-			log_info(logger, "%s\n", instancia);
-
-
-			log_info(logger, "Esis que esperan esta clave: 		");
+			}
+			free(valor);
+			log_info(logger, "Esis que esperan esta clave: 	");
 
 			void mostrarSiClaveCoincide(struct_esiClaves*esiClave) {
-				if (string_equals_ignore_case(Auxid, esiClave->clave)) {
+				if (strcmp(Auxid, esiClave->clave)==0) {
 					log_info(logger, "Esi  %d\n", esiClave->ESI->ID);
 				}
 
 			}
 			list_iterate(listaBloqueado, (void*) mostrarSiClaveCoincide);
+
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {
@@ -506,7 +515,7 @@ void* consola(void* socket) {
 
 			mostrarEsisEnDeadlock(listaBloqueado, listaEsiClave);
 		}
-		printf("%s\n", linea);
+
 		free(linea);
 	}
 	return 0;

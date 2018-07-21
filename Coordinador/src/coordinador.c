@@ -119,7 +119,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 				if (contieneClave(listaDeClavesConInstancia,claveAPedir)){
 					claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
 					if (instanciaALlamar->instancia == NULL){
-						enviarID(sock,"no hay valor",logger);
+						enviarID(sock,"no hay valor, pero hay get",logger);
 						instancia * instanciaElegida = simulacionElegirInstanciaSegunAlgoritmo(claveAPedir,letrasDeLaInstancia);
 						enviarID(sock,instanciaElegida->identificador,logger);
 					}
@@ -132,12 +132,14 @@ void *manejadorDeConexiones(void *socket_desc) {
 						PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
 						enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket);
 
+						enviarID(instanciaALlamar->instancia->socket,claveAPedir,logger);
 						char * valor;
 						valor = recibirID(instanciaALlamar->instancia->socket,logger);
 
 						recibirMensaje(logger,sizeof(rta),&rta, instanciaALlamar->instancia->socket);
 
-						if (strcmp(valor, "null")==0){
+
+						if (strcmp(valor, "null")!=0){
 						enviarID(sock,valor, logger);
 						}
 						else{

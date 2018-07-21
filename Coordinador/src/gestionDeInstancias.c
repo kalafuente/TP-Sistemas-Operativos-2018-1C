@@ -65,7 +65,7 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 
 instancia*  simulacionElegirInstanciaSegunAlgoritmo(char * clave, t_list* letrasDeLaInstancia){
 	if (strcmp(coordConfig->algoritmo, "EL")==0 ){
-		instancia * instanciaElegida = list_get(listaDeInstancias,0);
+		return list_get(listaDeInstancias,0);
 	}
 	else{
 		if (strcmp(coordConfig->algoritmo, "LSU")==0){

@@ -101,6 +101,9 @@ void planificarESIs(){
 				estadoEsi = TERMINE;
 				list_remove(listaEjecutando, 0);
 				list_add(listaReady, esiActual);
+				sem_post(&cantidadEsisEnReady);
+				sem_post(&pausarPlanificacion);
+				break;
 			}
 
 			sem_post(&pausarPlanificacion);

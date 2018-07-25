@@ -222,6 +222,7 @@ bool contains(t_list* lista, int elemento){
 
 
 void* consola(void* socket) {
+	int enPausa = 0;
 	int *socketStatus = (int*) socket;
 	int IDaux;
 	char* Auxid;
@@ -240,7 +241,7 @@ void* consola(void* socket) {
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
-			signal(SIGINT, SIG_DFL);
+			kill(getpid(), SIGINT);
 			break;
 		}
 		// printf("Lei la linea \n");
@@ -255,15 +256,20 @@ void* consola(void* socket) {
 		//Deadlock
 
 		if (string_equals_ignore_case(comando, "pausar")) {
+			if (enPausa == 0) {
 			sem_wait(&pausarPlanificacion);
 			log_info(logger, "La planificacion se detuvo \n");
-
+				enPausa++;
+			}
 			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
 		
 		}
 		if (string_equals_ignore_case(comando, "resumir")) {
+			if (enPausa) {
 			sem_post(&pausarPlanificacion);
 			log_info(logger, "Resumiendo planificacion \n");
+				enPausa = 0;
+			}
 			//Resume la planificación
 		}
 		if (string_equals_ignore_case(comando, "bloquear")) {

@@ -256,14 +256,14 @@ void* consola(void* socket) {
 
 		if (string_equals_ignore_case(comando, "pausar")) {
 			sem_wait(&pausarPlanificacion);
-			printf("La planificacion se detuvo \n");
+			log_info(logger, "La planificacion se detuvo \n");
 
 			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
 		
 		}
 		if (string_equals_ignore_case(comando, "resumir")) {
 			sem_post(&pausarPlanificacion);
-			printf("Resumiendo planificacion \n");
+			log_info(logger, "Resumiendo planificacion \n");
 			//Resume la planificación
 		}
 		if (string_equals_ignore_case(comando, "bloquear")) {
@@ -314,7 +314,8 @@ void* consola(void* socket) {
 			    			}
 			    		}
 			pthread_mutex_unlock(&mutex);
-			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
+			log_info(logger, "Se bloqueo la Clave %s para el ESI %s \n", clave,
+					id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
 		if (string_equals_ignore_case(comando, "desbloquear")) {

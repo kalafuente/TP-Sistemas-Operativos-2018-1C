@@ -159,7 +159,8 @@ void listar(char* clave){
 		//log_info(logger, "Copie la clave");
 		if(string_equals_ignore_case(claveEsi, clave)){
 			log_info(logger, "Entre al if");
-			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
+			log_info(logger, "El esi numero %i necesita la clave %s \n",
+					esiClave->ESI->ID, clave);
 		}
 		i++;
 	}
@@ -237,11 +238,12 @@ void* consola(void* socket) {
 		if (linea)
 			add_history(linea);
 		if (!strncmp(linea, "exit", 4)) {
+			pthread_mutex_lock(&mutex);
 			free(linea);
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
-			kill(getpid(), SIGINT);
+			exit(1);
 			break;
 		}
 		// printf("Lei la linea \n");
@@ -338,14 +340,15 @@ void* consola(void* socket) {
 
 			pthread_mutex_unlock(&mutex);
 
-			printf("Se desbloqueo la clave %s \n", clave);
+			log_info(logger, "Se desbloqueo la clave %s \n", clave);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
 		if (string_equals_ignore_case(comando, "listar")) {
 
 			Auxid = string_new();
 			string_append(&Auxid, parametros);
-			printf("El recurso %s esta siendo esperado por: \n", parametros);
+			log_info(logger, "El recurso %s esta siendo esperado por: \n",
+					parametros);
 			listar(Auxid);
 			free(Auxid);
 			//Lista los procesos encolados esperando al recurso.
@@ -406,10 +409,11 @@ void* consola(void* socket) {
 			Auxid = string_new();
 			string_append(&Auxid, strtok(parametros, " "));
 
-			printf ("la clave que se preguntara al cordi es %s \n",Auxid);
+			log_info(logger, "la clave que se preguntara al cordi es %s \n",
+					Auxid);
 
 			if (enviarID(*socketStatus, Auxid, logger)==-1){
-				printf("no se pudo enviar %s \n", Auxid);
+				log_info(logger, "no se pudo enviar %s \n", Auxid);
 			}
 
 			valor = recibirID(*socketStatus, logger);
@@ -453,7 +457,7 @@ void* consola(void* socket) {
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {
-			printf("Detección de deadlocks \n");
+			log_info(logger, "Detección de deadlocks \n");
 
 			/* para testear enviarle a la fc mostrarEsisEnDeadlock(simulacionBloqueados, simulacionTomadas);
 			t_list* simulacionTomadas= list_create();

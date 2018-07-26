@@ -11,7 +11,7 @@ void mostrarEsisEnDeadlock(t_list* esisBloqueados, t_list* clavesTomadas){
 		log_info(logger, "\n Esis que estan en deadlock: \n ");
 
 			if (list_size(esis)==0){
-					printf("Estamos bien, no hay deadlock \n");
+			log_info(logger, "Estamos bien, no hay deadlock \n");
 				}
 			else {
 				void mostrar(struct_esiClaves * esi){

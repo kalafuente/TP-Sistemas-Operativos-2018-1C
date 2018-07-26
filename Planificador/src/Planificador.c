@@ -13,6 +13,10 @@ int main(int argc, char **argv) {
 	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[1]);
 
 	pthread_t tid;
+	pthread_mutex_init(&mutexConsolaEnEspera, NULL);
+	pthread_mutex_init(&mutexPlanificacion, NULL);
+
+	pthread_mutex_init(&mutexConsola, NULL);
 	pthread_mutex_init(&mutex, NULL);
 	pthread_mutex_init(&mutexKillEsi, NULL);
 	pthread_mutex_lock(&mutexKillEsi);
@@ -223,6 +227,7 @@ bool contains(t_list* lista, int elemento){
 
 
 void* consola(void* socket) {
+	consolaOn = 0;
 	int enPausa = 0;
 	int *socketStatus = (int*) socket;
 	int IDaux;
@@ -235,8 +240,20 @@ void* consola(void* socket) {
 	char * parametros = calloc(100, sizeof(char*));
 	while (1) {
 		linea = readline((">"));
+
+		if (pthread_mutex_trylock(&mutexConsola) == 0) {
+
+		} else {
+			consolaOn++;
+			pthread_mutex_lock(&mutexConsolaEnEspera);
+		}
+
 		if (linea)
+		{
 			add_history(linea);
+
+		}
+		
 		if (!strncmp(linea, "exit", 4)) {
 			pthread_mutex_lock(&mutex);
 			free(linea);
@@ -443,6 +460,8 @@ void* consola(void* socket) {
 				}
 
 			}
+
+
 			free(valor);
 			log_info(logger, "Esis que esperan esta clave: 	");
 
@@ -535,7 +554,12 @@ void* consola(void* socket) {
 
 			mostrarEsisEnDeadlock(listaBloqueado, listaEsiClave);
 		}
-
+		if (consolaOn == 0) {
+			pthread_mutex_unlock(&mutexConsola);
+		} else {
+			consolaOn = 0;
+			pthread_mutex_unlock(&mutexPlanificacion);
+		}
 		free(linea);
 	}
 	return 0;

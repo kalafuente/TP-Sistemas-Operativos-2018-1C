@@ -60,7 +60,7 @@ struct_esi*EsiSistema;
 int EsisNuevos;
 int IdDisponible;
 int PlanificadorON;
-
+int consolaOn;
 
 planificador_config * planiConfig;
 t_config *config;
@@ -71,7 +71,8 @@ sem_t pausarPlanificacion;
 sem_t huboDesalojoClaves;
 
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
-pthread_mutex_t mutex, mutexKillEsi;
+pthread_mutex_t mutex, mutexKillEsi, mutexConsola, mutexConsolaEnEspera,
+		mutexPlanificacion;
 
 void destuirListas();
 void inicializar();

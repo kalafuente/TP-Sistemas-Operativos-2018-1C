@@ -1,16 +1,27 @@
 #include "coordinador.h"
 
-
 int main(int argc, char **argv) {
-
+	banderaTerminarHilos = 0;
 	prepararLoggers();
 	prepararConfiguracion(argc,argv);
 	crearListas();
 	crearServidor();
 	killCoordinador();
 	return 0;
-
 }
+
+
+void terminarHilos(){
+
+	void cerrarHilos(pthread_t elem){
+			pthread_cancel(elem);
+			printf("cierro hilo");
+		}
+	list_iterate(hilos, (void *) cerrarHilos);
+	list_destroy(hilos);
+}
+
+
 
 void cerrarTodo(){
 	close(listenningSocket);
@@ -46,6 +57,7 @@ void mostrarValoresArchConfig(coordinador_config* config){
 void crearListas(){
 	listaDeInstancias= list_create();
 	listaDeClavesConInstancia= list_create();
+	hilos=list_create();
 }
 
 void crearServidor(){
@@ -54,13 +66,14 @@ void crearServidor(){
 }
 
 void crearServidorMultiHilo() {
+
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
 	int socketCliente;
 	pthread_t thread_id;
 
-
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
+
 		puts("Cliente conectado. Esperando mensajes prueba:\n");
 
 		if (pthread_create(&thread_id, NULL, manejadorDeConexiones, (void*) &socketCliente) < 0) {
@@ -68,32 +81,57 @@ void crearServidorMultiHilo() {
 			exit(1);
 		}
 
+		/*pthread_join(thread_id,NULL); SI ESTA FUNCIÓN FUERA NO BLOQUEANTE
+		 * if (banderaTerminarHilos !=0){
+				printf("la bandera es: %d \n", banderaTerminarHilos);
+				break;
+			}
+		 */
 		puts("Manejador de conexiones asignado");
+		printf("la bandera es: %d \n", banderaTerminarHilos);
+
+
 	}
 
 	if (socketCliente < 0) {
 		perror("falló la aceptación");
 		exit(1);
 	}
-
 }
 
 
 void *manejadorDeConexiones(void *socket_desc) {
-
+	pthread_t  id = pthread_self();
 	int sock = *(int*) socket_desc;
+
 	t_instruccion* instruccionAGuardar;
 	saludar(sock);
 
+
 	switch(recibirSaludo(sock)){
 
+		case HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR:
+			log_info(logger, "Planificador conectado");
+			socketPlani = sock;
+			break;
+
+		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
+			log_info(logger, "Se espera el pedido de status");
+			status(sock);
+			close(sock);
+			break;
+
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
+
+			list_add(hilos, &id);
 			log_info(logger, "Se me conectó una Instancia");
+
 			char * id = recibirID(sock, logger);
 			mandarConfiguracionAInstancia(sock);
 			enviarClavesCorrespondientes(sock,id,listaDeClavesConInstancia);
 
 			if(existeID(id,listaDeInstancias)){
+
 				printf("Se reconecta instancia, socket nuevo: %d \n", sock);
 				printf("instancias viejas: \n");
 				mostrarListaIntancias(listaDeInstancias);
@@ -102,82 +140,15 @@ void *manejadorDeConexiones(void *socket_desc) {
 				mostrarListaIntancias(listaDeInstancias);
 			}
 			else{
-				printf("Nueva instancia");
-				registrarInstancia(sock, id);
-				mostrarListaIntancias(listaDeInstancias);
-			}
-
-			break;
-
-		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
-			log_info(logger, "Se me conectó el planificador para pedir status");
-			char * claveAPedir; char * valor;
-			printf("esperando clave del status \n");
-			claveAPedir = recibirID(sock,logger);
-			printf("la clave que me pidio saber el plani es %s", claveAPedir);
-			while(strcmp(claveAPedir, "null")!=0){
-				if (contieneClave(listaDeClavesConInstancia,claveAPedir)){
-					claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
-					if (instanciaALlamar->instancia == NULL){
-						enviarID(sock,"no hay valor, pero hay get",logger);
-						instancia * instanciaElegida = simulacionElegirInstanciaSegunAlgoritmo(claveAPedir,letrasDeLaInstancia);
-						enviarID(sock,instanciaElegida->identificador,logger);
-					}
-					else{
-							t_instruccion * falsa = malloc (sizeof(t_instruccion));
-							falsa->instruccion = PEDIDO_DE_VALOR;
-							falsa->clave = "null";
-							falsa->valor = "null";
-
-							PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
-							if (enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket)==-1){
-								enviarID(sock,"no hay valor, se cayó la instancia",logger);
-								enviarID(sock,instanciaALlamar->instancia->identificador,logger);
-							}
-							else {
-								if (enviarID(instanciaALlamar->instancia->socket,claveAPedir,logger)==-1){
-									enviarID(sock,"no hay valor, se cayó la instancia",logger);
-									enviarID(sock,instanciaALlamar->instancia->identificador,logger);
-								}
-								else{
-										valor = recibirID(instanciaALlamar->instancia->socket,logger);
-										printf("recibi valor %s \n", valor);
-										if (strcmp(valor, "null")!=0){
-											enviarID(sock,valor,logger);
-											printf("envié valor: %s \n", valor);
-										}
-
-
-										else
-										enviarID(sock,"no hay valor",logger);
-
-										enviarID(sock,instanciaALlamar->instancia->identificador,logger);
-
-								}
-						}
-							recibirMensaje(logger,sizeof(rta),&rta, instanciaALlamar->instancia->socket);
-							int32_t entradasEnUsoDeLaInstancia;
-							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->instancia->socket);
-
-							free(falsa);
+						printf("Nueva instancia");
+						registrarInstancia(sock, id);
+						mostrarListaIntancias(listaDeInstancias);
 					}
 
-				}
-				else
-					enviarID(sock,"ClaveInexistente",logger);
-
-
-
-			free(claveAPedir);
-			claveAPedir = recibirID(sock,logger);
-			free(valor);
-
-			}
-			free(valor);
-			free(claveAPedir);
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
+			list_add(hilos, &id);
 			log_info(logger, "Se me conectó un Esi");
 			PROTOCOLO_ESI_A_COORDI esi;
 
@@ -191,33 +162,26 @@ void *manejadorDeConexiones(void *socket_desc) {
 				destruirInstruccion(instruccionAGuardar);
 				recibirMensaje(logger,sizeof(esi), &esi, sock);
 				instruccionAGuardar=recibirInstruccionDelEsi(sock);
+
 			}
 
-			if (esi == TERMINE_INSTRUCCIONES){
+			if (esi == TERMINE_INSTRUCCIONES)
 				log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
-				close(sock);
-			}
 
-			if (instruccionAGuardar== NULL){
+
+			if (instruccionAGuardar== NULL)
 				log_info(logger, "no me puedo conectar con esi");
-				close(sock);
-			}
 
 
+
+			close(sock);
 			break;
-
-		case HANDSHAKE_CONECTAR_PLANIFICADOR_A_COORDINADOR:
-			log_info(logger, "Se me conectó el planificador");
-			socketPlani = sock;
-			printf("\n socket: %d", sock);
-			printf("\n socketguardado: %d", socketPlani);
-			break;
-
 	}
 
 	printf("\n termino el hilo\n ");
-	return NULL;
+	pthread_exit(EXIT_SUCCESS);
 }
+
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
 
@@ -375,6 +339,7 @@ void retardo(){
 }
 
 void killCoordinador(){
+	terminarHilos();
 	destruirListas();
 	destruirLoggers();
 	cerrarTodo();

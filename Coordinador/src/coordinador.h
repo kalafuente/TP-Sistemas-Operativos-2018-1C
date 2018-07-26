@@ -17,6 +17,7 @@
 #include <library/manejoDeSockets.h>
 #include <library/protocolos.h>
 #include <library/archivos.h>
+#include <semaphore.h>
 
 
 typedef struct coordinador_config {
@@ -59,7 +60,7 @@ typedef struct instanciaYSusCaracteres {
 #include "logDeOperaciones.h"
 #include "handshakes.h"
 #include "gestionDeInstancias.h"
-
+#include "status.h"
 
 //---------------------------VARIABLES GLOBALES-----------------------------
 t_log* logger;
@@ -73,15 +74,20 @@ t_list* alfabeto;
 t_list* letrasDeLaInstancia;
 t_list* listaDeInstancias;
 t_list* listaDeClavesConInstancia;
+t_list* hilos;
 
+int banderaTerminarHilos;
 int32_t socketPlani;
 int listenningSocket;
+
+pthread_mutex_t mutex;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 void prepararConfiguracion(int argc, char **argv);
 void prepararLoggers();
 void crearListas();
 void crearServidor();
+void terminarHilos();
 void cerrarTodo();
 void procesarInstruccion(t_instruccion * instruccion, int sock);
 void destruirInstruccion(t_instruccion*);
@@ -91,6 +97,9 @@ void destruirListas();
 void destruirLoggers();
 void killCoordinador();
 void mostrarValoresArchConfig(coordinador_config* config);
+void eliminarEsteHilo(pthread_t hilo);
+
+
 //Sockets
 
 void crearServidorMultiHilo();

@@ -19,6 +19,8 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 		recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
 		instancia* instanciaNUEVAALlamar;
 		switch (rtaInstancia){
+
+
 			case SE_PUDO_GUARDAR_VALOR:
 							log_info(logger, "instancia guardo valor");
 							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
@@ -26,8 +28,9 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
-
 							break;
+
+
 			case NO_SE_PUDO_GUARDAR_VALOR:
 							instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
 								if (instanciaNUEVAALlamar == NULL){
@@ -44,6 +47,8 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 											}
 								}
 							break;
+
+
 			case SE_NECESITA_COMPACTAR:
 							log_info(logger,"me llegó que se necesita compactar");
 							pedirCompactar(listaDeInstancias,instruccion);
@@ -56,8 +61,8 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 							}
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
-
 							break;
+
 			default:
 							log_error(logger, "ERROR EN RTA AL SET");
 							destruirInstruccion(instruccion);

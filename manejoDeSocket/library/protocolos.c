@@ -169,27 +169,27 @@ void destruirInstruccion(t_instruccion* instruccion)
 	free(instruccion);
 }
 char* recibirID(int sock, t_log* logger) {
-	int32_t lenClave = 0;
-	recibirMensaje(logger,sizeof(int32_t),&lenClave,sock);
+	int32_t sizeClave = 0;
+	recibirMensaje(logger,sizeof(int32_t),&sizeClave,sock);
 	char* buffer;
 
-	if (lenClave < 0) {
+	if (sizeClave < 0) {
 		log_error(logger,"Error al recibir tamaño");
 		return NULL;
 	}
-	if(lenClave == 0 ){
+	if(sizeClave == 0 ){
 		return NULL;
 	}
 
-	buffer = malloc(lenClave+1);
+	buffer = malloc(sizeClave+1);
 
-	if (recv(sock, buffer,lenClave, MSG_WAITALL) < 0) {
+	if (recv(sock, buffer,sizeClave, MSG_WAITALL) < 0) {
 		log_error(logger,"Error al recibir string");
 		free(buffer);
 		return NULL;
 	}
 
-	buffer[lenClave] = '\0';
+	buffer[sizeClave] = '\0';
 
 	return buffer;
 }

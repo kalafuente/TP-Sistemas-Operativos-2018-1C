@@ -735,3 +735,2162 @@
 [INFO] 13:22:15:347 loggerCoordi/(8698:8957): Se envio el mensaje
 [INFO] 13:22:15:347 loggerCoordi/(8698:8957): 
  Se registro instancia
+[INFO] 16:39:53:291 loggerCoordi/(11264:11266): Se envio el mensaje
+[INFO] 16:39:53:291 loggerCoordi/(11264:11266): Se recibieron los datos
+[INFO] 16:39:53:291 loggerCoordi/(11264:11266): Se me conectó el planificador
+[INFO] 16:39:53:292 loggerCoordi/(11264:11267): Se envio el mensaje
+[INFO] 16:39:53:292 loggerCoordi/(11264:11267): Se recibieron los datos
+[INFO] 16:39:53:292 loggerCoordi/(11264:11267): Se me conectó el planificador para pedir status
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se envio el mensaje
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se recibieron los datos
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se me conectó una Instancia
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se recibieron los datos
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se envio el mensaje
+[INFO] 16:40:10:846 loggerCoordi/(11264:11275): Se envio el mensaje
+[INFO] 16:40:10:847 loggerCoordi/(11264:11275): Envie cantidad de entradas a la instancia
+[INFO] 16:40:10:847 loggerCoordi/(11264:11275): Se envio el mensaje
+[INFO] 16:40:10:847 loggerCoordi/(11264:11275): Envie tamanaño de entradas a la instancia
+[INFO] 16:40:10:885 loggerCoordi/(11264:11275): Se recibieron los datos
+[INFO] 16:40:10:886 loggerCoordi/(11264:11275): Se envio el mensaje
+[INFO] 16:40:10:886 loggerCoordi/(11264:11275): 
+ Se registro instancia
+[INFO] 16:40:17:887 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:17:887 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:887 loggerCoordi/(11264:11278): Se me conectó un Esi
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:888 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:889 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:17:890 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:17:890 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:17:890 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:17:890 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:17:890 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:17:891 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:17:928 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:17:928 loggerCoordi/(11264:11278): Se agrego esta clave: sony:consola:ps1
+[INFO] 16:40:17:929 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:17:929 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:18:230 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:230 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:18:231 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:232 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:18:232 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:18:232 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:232 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:40:18:233 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:18:233 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:233 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 16:40:18:233 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:18:235 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:235 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:236 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:237 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:277 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:278 loggerCoordi/(11264:11278): Se agrego esta clave: sony:consola:ps2
+[INFO] 16:40:18:278 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:278 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:18:580 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:581 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:18:582 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:583 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:18:584 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:18:584 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:587 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:40:18:588 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:18:590 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:590 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 16:40:18:590 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:18:592 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:593 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:597 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:18:597 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:18:597 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:18:597 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:18:597 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:18:598 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:598 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:637 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:637 loggerCoordi/(11264:11278): Se agrego esta clave: sony:consola:ps3
+[INFO] 16:40:18:637 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:638 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:18:941 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:949 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:18:949 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:949 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:951 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 16:40:18:952 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:18:953 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:954 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:955 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:18:955 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:18:959 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:18:959 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:18:959 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:18:959 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:959 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:996 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:18:996 loggerCoordi/(11264:11278): Se agrego esta clave: sony:consola:ps4
+[INFO] 16:40:18:996 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:18:996 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:19:299 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:299 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:19:299 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:301 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:19:301 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:19:302 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:303 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 16:40:19:303 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:19:305 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:305 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 16:40:19:306 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:19:310 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:313 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:314 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:19:314 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:19:314 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:19:314 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:19:314 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:19:315 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:315 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:352 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:352 loggerCoordi/(11264:11278): Se agrego esta clave: microsoft:consola:xbox
+[INFO] 16:40:19:352 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:352 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:19:654 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:656 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:19:657 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:657 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:19:658 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:19:658 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:659 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:40:19:659 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:19:659 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:660 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 16:40:19:660 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:19:663 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:663 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:669 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:19:669 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:19:669 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:19:669 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:19:669 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:19:671 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:671 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:709 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:19:709 loggerCoordi/(11264:11278): Se agrego esta clave: microsoft:consola:xbox360
+[INFO] 16:40:19:709 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:19:709 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:20:11 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 16:40:20:13 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:20:16 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:16 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:16 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:20:16 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:20:18 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:20:19 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:20:19 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:20:22 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:22 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:61 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:61 loggerCoordi/(11264:11278): Se agrego esta clave: microsoft:consola:xboxone
+[INFO] 16:40:20:62 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:67 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:20:371 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:371 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:40:20:373 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:20:377 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:377 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:377 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:20:377 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:20:377 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:20:378 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:20:378 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:20:378 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:379 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:416 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:416 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:nes
+[INFO] 16:40:20:416 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:416 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:20:718 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:718 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:20:720 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:720 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:20:721 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:20:722 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:723 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:40:20:724 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:20:724 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:725 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:40:20:726 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:20:727 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:727 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:727 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:20:727 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:20:728 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:20:728 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:20:728 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:20:729 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:729 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:765 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:20:765 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:snes
+[INFO] 16:40:20:765 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:20:766 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:21:68 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:69 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:21:69 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:69 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:21:70 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:21:70 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:71 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:40:21:71 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:21:71 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:71 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:40:21:71 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:21:74 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:74 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:74 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:21:74 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:21:75 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:21:76 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:21:76 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:21:92 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:92 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:129 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:129 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:nintendo64
+[INFO] 16:40:21:130 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:130 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:21:435 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:436 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:21:437 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:437 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:21:437 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:21:437 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:438 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:40:21:438 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:21:438 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:438 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:40:21:438 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:21:440 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:440 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:442 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:21:442 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:21:443 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:21:444 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:21:444 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:21:445 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:445 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:481 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:481 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:gamecube
+[INFO] 16:40:21:482 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:482 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:21:784 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:784 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:21:785 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:21:786 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:788 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:788 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:21:788 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:21:790 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:21:790 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:21:790 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:21:790 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:791 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:828 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:21:828 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:wii
+[INFO] 16:40:21:828 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:21:828 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:22:131 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:133 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:22:134 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:134 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:22:134 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:22:135 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:136 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:40:22:137 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:22:137 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:139 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 16:40:22:139 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:22:149 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:149 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:149 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:22:149 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:22:150 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:22:150 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:22:150 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:22:150 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:151 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:189 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:189 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:wiiu
+[INFO] 16:40:22:189 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:190 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:22:492 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:492 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:22:493 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:494 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 16:40:22:495 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:22:496 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:497 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:498 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:22:499 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:22:505 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:22:506 loggerCoordi/(11264:11278): ESI ENVIO UN GET
+[INFO] 16:40:22:506 loggerCoordi/(11264:11278): La lista de claves NO contiene este GET
+[INFO] 16:40:22:515 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:516 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:544 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:544 loggerCoordi/(11264:11278): Se agrego esta clave: nintendo:consola:switch
+[INFO] 16:40:22:544 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:544 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:22:846 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:846 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:22:846 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:847 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:40:22:848 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:40:22:849 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:849 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 16:40:22:849 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:40:22:849 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:850 loggerCoordi/(11264:11278): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 16:40:22:850 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:22:851 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:851 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:851 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:22:851 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:22:852 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:22:852 loggerCoordi/(11264:11278): ESI ENVIO UN SET
+[INFO] 16:40:22:852 loggerCoordi/(11264:11278): La lista de claves contiene este GET
+[INFO] 16:40:22:853 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:853 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): ESI TIENE CLAVE
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:889 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:891 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:22:891 loggerCoordi/(11264:11278): instancia guardo valor
+[INFO] 16:40:22:891 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:22:893 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:22:928 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:230 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:231 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:23:233 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:233 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:23:233 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 16:40:23:235 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:40:23:236 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:236 loggerCoordi/(11264:11278): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 16:40:23:236 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:23:241 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:241 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:241 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:23:241 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:23:242 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:23:245 loggerCoordi/(11264:11278): ESI ENVIO UN SET
+[INFO] 16:40:23:245 loggerCoordi/(11264:11278): La lista de claves contiene este GET
+[INFO] 16:40:23:245 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:247 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:284 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:284 loggerCoordi/(11264:11278): ESI TIENE CLAVE
+[INFO] 16:40:23:284 loggerCoordi/(11264:11278): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:40:23:284 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:285 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:285 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:285 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:285 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:328 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:328 loggerCoordi/(11264:11278): instancia guardo valor
+[INFO] 16:40:23:328 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:328 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:23:333 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:636 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:638 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:23:638 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:638 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:23:638 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:23:639 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:639 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:40:23:639 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:23:639 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:639 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 16:40:23:640 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:23:642 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:643 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:643 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:23:643 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:23:644 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:23:644 loggerCoordi/(11264:11278): ESI ENVIO UN SET
+[INFO] 16:40:23:646 loggerCoordi/(11264:11278): La lista de claves contiene este GET
+[INFO] 16:40:23:646 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:646 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:685 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:685 loggerCoordi/(11264:11278): ESI TIENE CLAVE
+[INFO] 16:40:23:685 loggerCoordi/(11264:11278): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:40:23:686 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:686 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:686 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:686 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:686 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:745 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:23:745 loggerCoordi/(11264:11278): instancia guardo valor
+[INFO] 16:40:23:745 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:23:745 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:23:747 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:49 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:59 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:24:63 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:63 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:24:64 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:24:64 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:64 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:40:24:83 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:24:83 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:83 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:40:24:83 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:40:24:84 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:84 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud del valor recibida: 20
+
+[INFO] 16:40:24:85 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:40:24:85 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:85 loggerCoordi/(11264:11278): recibirInstruccion:: Valor recibido: FinalFantasyTactics
+
+[INFO] 16:40:24:85 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:24:90 loggerCoordi/(11264:11278): ESI ENVIO UN SET
+[INFO] 16:40:24:91 loggerCoordi/(11264:11278): La lista de claves contiene este GET
+[INFO] 16:40:24:94 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:94 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): ESI TIENE CLAVE
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:132 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:174 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:174 loggerCoordi/(11264:11278): instancia guardo valor
+[INFO] 16:40:24:174 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:176 loggerCoordi/(11264:11278): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:40:24:177 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:481 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:483 loggerCoordi/(11264:11278): Esperando la Instruccion
+
+[INFO] 16:40:24:483 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:485 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:40:24:485 loggerCoordi/(11264:11278): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:40:24:486 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:40:24:487 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:488 loggerCoordi/(11264:11278): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 16:40:24:489 loggerCoordi/(11264:11278): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:40:24:490 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:491 loggerCoordi/(11264:11278): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 16:40:24:492 loggerCoordi/(11264:11278): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:40:24:498 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:498 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:498 loggerCoordi/(11264:11278): el ID del esi segun plani fue recibido
+[INFO] 16:40:24:498 loggerCoordi/(11264:11278): el id es: 1
+[INFO] 16:40:24:499 loggerCoordi/(11264:11278): entro a procesarInstruccion
+[INFO] 16:40:24:499 loggerCoordi/(11264:11278): ESI ENVIO UN SET
+[INFO] 16:40:24:499 loggerCoordi/(11264:11278): La lista de claves contiene este GET
+[INFO] 16:40:24:500 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:501 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se recibieron los datos
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): ESI TIENE CLAVE
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se envio el mensaje
+[INFO] 16:40:24:537 loggerCoordi/(11264:11278): Se envio el mensaje
+[ERROR] 16:40:24:752 loggerCoordi/(11264:11278): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 16:40:24:752 loggerCoordi/(11264:11278): ERROR EN RTA AL SET
+[INFO] 16:42:28:159 loggerCoordi/(11708:11710): Se envio el mensaje
+[INFO] 16:42:28:159 loggerCoordi/(11708:11710): Se recibieron los datos
+[INFO] 16:42:28:159 loggerCoordi/(11708:11710): Se me conectó el planificador
+[INFO] 16:42:28:160 loggerCoordi/(11708:11711): Se envio el mensaje
+[INFO] 16:42:28:160 loggerCoordi/(11708:11711): Se recibieron los datos
+[INFO] 16:42:28:160 loggerCoordi/(11708:11711): Se me conectó el planificador para pedir status
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se envio el mensaje
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se recibieron los datos
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se me conectó una Instancia
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se recibieron los datos
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se envio el mensaje
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Se envio el mensaje
+[INFO] 16:42:32:659 loggerCoordi/(11708:11717): Envie cantidad de entradas a la instancia
+[INFO] 16:42:32:660 loggerCoordi/(11708:11717): Se envio el mensaje
+[INFO] 16:42:32:660 loggerCoordi/(11708:11717): Envie tamanaño de entradas a la instancia
+[INFO] 16:42:32:698 loggerCoordi/(11708:11717): Se recibieron los datos
+[INFO] 16:42:32:698 loggerCoordi/(11708:11717): Se envio el mensaje
+[INFO] 16:42:32:698 loggerCoordi/(11708:11717): 
+ Se registro instancia
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Se me conectó un Esi
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:641 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 16:43:01:642 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:643 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:681 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:681 loggerCoordi/(11708:11829): Se agrego esta clave: sony:consola:ps1
+[INFO] 16:43:01:682 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:682 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:01:985 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:985 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:01:985 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:986 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:01:987 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 16:43:01:988 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:01:990 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:01:990 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:01:990 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:01:990 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:01:990 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:01:991 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:01:991 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:01:993 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:9 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:31 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:31 loggerCoordi/(11708:11829): Se agrego esta clave: sony:consola:ps2
+[INFO] 16:43:02:31 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:31 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:02:333 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:334 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:02:335 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:336 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:02:336 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 16:43:02:338 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:02:340 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:340 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:341 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:02:385 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:02:386 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:02:390 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:02:390 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:02:390 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:390 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:429 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:429 loggerCoordi/(11708:11829): Se agrego esta clave: sony:consola:ps3
+[INFO] 16:43:02:429 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:429 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:02:731 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:731 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:02:731 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:02:732 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:737 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:738 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:02:738 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:02:739 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:02:739 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:02:740 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:02:753 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:753 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:777 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:02:777 loggerCoordi/(11708:11829): Se agrego esta clave: sony:consola:ps4
+[INFO] 16:43:02:777 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:02:778 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:03:81 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:82 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:124 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:124 loggerCoordi/(11708:11829): Se agrego esta clave: microsoft:consola:xbox
+[INFO] 16:43:03:124 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:124 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:03:425 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:425 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:03:425 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:425 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:03:426 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:427 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:465 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:465 loggerCoordi/(11708:11829): Se agrego esta clave: microsoft:consola:xbox360
+[INFO] 16:43:03:465 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:465 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:03:768 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:769 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:03:769 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:770 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:03:770 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:03:770 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:770 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:43:03:771 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:03:771 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:771 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 16:43:03:772 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:03:774 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:775 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:775 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:03:776 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:03:776 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:03:776 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:03:776 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:03:778 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:778 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:818 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:03:818 loggerCoordi/(11708:11829): Se agrego esta clave: microsoft:consola:xboxone
+[INFO] 16:43:03:818 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:03:819 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:04:122 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:123 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:04:132 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:138 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:43:04:139 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:04:142 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:04:143 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:143 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:181 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:181 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:nes
+[INFO] 16:43:04:181 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:181 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:04:484 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:485 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:04:485 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:43:04:486 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:04:487 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:488 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:488 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:04:488 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:04:488 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:04:489 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:04:489 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:04:489 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:489 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:526 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:526 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:snes
+[INFO] 16:43:04:526 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:528 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:04:829 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:830 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:04:830 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:831 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:04:831 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:04:831 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:831 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:43:04:832 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:04:832 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:832 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:43:04:832 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:04:834 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:834 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:834 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:04:834 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:04:834 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:04:837 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:04:837 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:04:838 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:839 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:877 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:04:877 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:nintendo64
+[INFO] 16:43:04:877 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:04:877 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:05:178 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:179 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:05:180 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:180 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:05:180 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:43:05:182 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:05:183 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:184 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:184 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:05:184 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:05:184 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:05:185 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:05:186 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:05:188 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:199 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:225 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:225 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:gamecube
+[INFO] 16:43:05:225 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:226 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:05:527 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:528 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:05:529 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:529 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:05:529 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:43:05:530 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:05:533 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:533 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:533 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:05:534 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:05:535 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:05:535 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:05:535 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:05:536 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:536 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:573 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:573 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:wii
+[INFO] 16:43:05:573 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:573 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:05:875 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:876 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:05:876 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:876 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:05:876 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:05:876 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:877 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:43:05:878 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:05:878 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:878 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 16:43:05:878 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:05:880 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:880 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:880 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:05:881 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:05:881 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:05:882 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:05:882 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:05:883 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:883 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:921 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:05:921 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:wiiu
+[INFO] 16:43:05:921 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:05:921 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:06:223 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:223 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:06:225 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 16:43:06:226 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:06:228 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:229 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:229 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:06:229 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:06:229 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:06:229 loggerCoordi/(11708:11829): ESI ENVIO UN GET
+[INFO] 16:43:06:230 loggerCoordi/(11708:11829): La lista de claves NO contiene este GET
+[INFO] 16:43:06:230 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:231 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:269 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:269 loggerCoordi/(11708:11829): Se agrego esta clave: nintendo:consola:switch
+[INFO] 16:43:06:269 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:269 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:06:571 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:572 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:06:573 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:573 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:06:573 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:43:06:574 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:575 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 16:43:06:575 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:43:06:575 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:576 loggerCoordi/(11708:11829): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 16:43:06:577 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:06:579 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:579 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:579 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:06:579 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:06:580 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:06:580 loggerCoordi/(11708:11829): ESI ENVIO UN SET
+[INFO] 16:43:06:580 loggerCoordi/(11708:11829): La lista de claves contiene este GET
+[INFO] 16:43:06:581 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:582 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:622 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:622 loggerCoordi/(11708:11829): ESI TIENE CLAVE
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:623 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:644 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:06:644 loggerCoordi/(11708:11829): instancia guardo valor
+[INFO] 16:43:06:654 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:06:654 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:06:682 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:43:30:474 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): ESI ENVIO UN SET
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): La lista de claves contiene este GET
+[INFO] 16:43:30:475 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:476 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): ESI TIENE CLAVE
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:513 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:553 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:553 loggerCoordi/(11708:11829): instancia guardo valor
+[INFO] 16:43:30:553 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:553 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:30:554 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:855 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:856 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:858 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:43:30:859 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:43:30:859 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:860 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 16:43:30:861 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:43:30:863 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:863 loggerCoordi/(11708:11829): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 16:43:30:864 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): ESI ENVIO UN SET
+[INFO] 16:43:30:874 loggerCoordi/(11708:11829): La lista de claves contiene este GET
+[INFO] 16:43:30:875 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:875 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:913 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:913 loggerCoordi/(11708:11829): ESI TIENE CLAVE
+[INFO] 16:43:30:913 loggerCoordi/(11708:11829): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:43:30:914 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:914 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:915 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:915 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:915 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:954 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:30:954 loggerCoordi/(11708:11829): instancia guardo valor
+[INFO] 16:43:30:954 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:30:955 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:30:955 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:257 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:257 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:31:258 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:258 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:31:259 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:31:259 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud del valor recibida: 20
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:43:31:260 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:262 loggerCoordi/(11708:11829): recibirInstruccion:: Valor recibido: FinalFantasyTactics
+
+[INFO] 16:43:31:263 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:31:266 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:266 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:266 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:31:266 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:31:272 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:31:272 loggerCoordi/(11708:11829): ESI ENVIO UN SET
+[INFO] 16:43:31:272 loggerCoordi/(11708:11829): La lista de claves contiene este GET
+[INFO] 16:43:31:279 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:279 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): ESI TIENE CLAVE
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:309 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:354 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:354 loggerCoordi/(11708:11829): instancia guardo valor
+[INFO] 16:43:31:354 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:355 loggerCoordi/(11708:11829): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:43:31:365 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:667 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:673 loggerCoordi/(11708:11829): Esperando la Instruccion
+
+[INFO] 16:43:31:673 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:684 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:43:31:684 loggerCoordi/(11708:11829): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:43:31:698 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:699 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:43:31:700 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:43:31:700 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:700 loggerCoordi/(11708:11829): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:43:31:700 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 16:43:31:701 loggerCoordi/(11708:11829): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): el ID del esi segun plani fue recibido
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): el id es: 1
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): entro a procesarInstruccion
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): ESI ENVIO UN SET
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): La lista de claves contiene este GET
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:702 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se recibieron los datos
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): ESI TIENE CLAVE
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se envio el mensaje
+[INFO] 16:43:31:741 loggerCoordi/(11708:11829): Se envio el mensaje
+[ERROR] 16:43:32:32 loggerCoordi/(11708:11829): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 16:43:32:32 loggerCoordi/(11708:11829): ERROR EN RTA AL SET
+[INFO] 16:45:01:739 loggerCoordi/(11899:11911): Se envio el mensaje
+[INFO] 16:45:01:739 loggerCoordi/(11899:11911): Se recibieron los datos
+[INFO] 16:45:01:739 loggerCoordi/(11899:11911): Se me conectó el planificador
+[INFO] 16:45:01:739 loggerCoordi/(11899:11912): Se envio el mensaje
+[INFO] 16:45:01:740 loggerCoordi/(11899:11912): Se recibieron los datos
+[INFO] 16:45:01:740 loggerCoordi/(11899:11912): Se me conectó el planificador para pedir status
+[INFO] 16:45:04:248 loggerCoordi/(11899:11918): Se envio el mensaje
+[INFO] 16:45:04:248 loggerCoordi/(11899:11918): Se recibieron los datos
+[INFO] 16:45:04:248 loggerCoordi/(11899:11918): Se me conectó una Instancia
+[INFO] 16:45:04:248 loggerCoordi/(11899:11918): Se recibieron los datos
+[INFO] 16:45:04:249 loggerCoordi/(11899:11918): Se envio el mensaje
+[INFO] 16:45:04:249 loggerCoordi/(11899:11918): Se envio el mensaje
+[INFO] 16:45:04:249 loggerCoordi/(11899:11918): Envie cantidad de entradas a la instancia
+[INFO] 16:45:04:249 loggerCoordi/(11899:11918): Se envio el mensaje
+[INFO] 16:45:04:249 loggerCoordi/(11899:11918): Envie tamanaño de entradas a la instancia
+[INFO] 16:45:04:289 loggerCoordi/(11899:11918): Se recibieron los datos
+[INFO] 16:45:04:290 loggerCoordi/(11899:11918): Se envio el mensaje
+[INFO] 16:45:04:290 loggerCoordi/(11899:11918): 
+ Se registro instancia
+[INFO] 16:45:06:683 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:06:683 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:683 loggerCoordi/(11899:11921): Se me conectó un Esi
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:06:684 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:06:685 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:06:686 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:06:686 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:06:686 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:06:686 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:06:724 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:06:725 loggerCoordi/(11899:11921): Se agrego esta clave: sony:consola:ps1
+[INFO] 16:45:06:725 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:06:725 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:07:27 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:28 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:07:29 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:07:30 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:31 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 16:45:07:31 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:07:33 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:07:34 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:07:34 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:34 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:73 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:73 loggerCoordi/(11899:11921): Se agrego esta clave: sony:consola:ps2
+[INFO] 16:45:07:73 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:73 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:07:374 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:374 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:07:374 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:374 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:07:375 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:377 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:07:378 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:393 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:420 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:420 loggerCoordi/(11899:11921): Se agrego esta clave: sony:consola:ps3
+[INFO] 16:45:07:420 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:421 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:07:724 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:724 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:07:724 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:725 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:07:725 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 16:45:07:726 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:07:734 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:734 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:734 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:07:734 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:07:749 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:07:749 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:07:749 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:07:749 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:749 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:789 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:07:789 loggerCoordi/(11899:11921): Se agrego esta clave: sony:consola:ps4
+[INFO] 16:45:07:789 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:07:789 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:08:89 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:89 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:08:89 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:08:90 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:91 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:130 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:130 loggerCoordi/(11899:11921): Se agrego esta clave: microsoft:consola:xbox
+[INFO] 16:45:08:130 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:130 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:08:432 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:434 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:08:435 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:435 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:08:436 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:08:436 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:437 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:45:08:438 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:08:438 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:439 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 16:45:08:439 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:08:442 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:443 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:446 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:08:446 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:08:446 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:08:446 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:08:446 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:08:447 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:448 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:486 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:486 loggerCoordi/(11899:11921): Se agrego esta clave: microsoft:consola:xbox360
+[INFO] 16:45:08:486 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:486 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:08:790 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:792 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:08:792 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:792 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:08:792 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:08:798 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:799 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:45:08:799 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:08:800 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:806 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 16:45:08:806 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:08:807 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:808 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:810 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:08:810 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:08:810 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:08:810 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:08:811 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:08:818 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:818 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:858 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:08:858 loggerCoordi/(11899:11921): Se agrego esta clave: microsoft:consola:xboxone
+[INFO] 16:45:08:860 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:08:874 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:09:177 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:178 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:09:179 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:179 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:09:179 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:09:180 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:180 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:45:09:180 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:09:182 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:09:185 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:09:186 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:09:186 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:09:188 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:194 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:225 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:225 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:nes
+[INFO] 16:45:09:225 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:225 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:09:527 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:527 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:09:528 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:528 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:09:528 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:09:528 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:528 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:45:09:530 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:09:530 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:530 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:45:09:530 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:09:531 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:09:532 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:532 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:570 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:570 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:snes
+[INFO] 16:45:09:570 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:573 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:09:894 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:895 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:09:896 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:896 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:09:896 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:09:900 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:901 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:45:09:901 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:09:902 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:902 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:45:09:906 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:09:908 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:908 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:908 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:09:908 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:09:908 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:09:909 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:09:909 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:09:910 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:910 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:949 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:09:949 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:nintendo64
+[INFO] 16:45:09:950 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:09:950 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:10:252 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:253 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:10:253 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:253 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:254 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:45:10:255 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:10:256 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:257 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:257 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:10:257 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:10:258 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:10:259 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:10:259 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:10:262 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:264 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:303 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:303 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:gamecube
+[INFO] 16:45:10:307 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:311 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:10:612 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:612 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:10:613 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:45:10:614 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:10:615 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:615 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:616 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:10:616 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:10:616 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:10:616 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:10:616 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:10:618 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:618 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:654 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:654 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:wii
+[INFO] 16:45:10:655 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:655 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:10:957 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:958 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:10:958 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:959 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:10:959 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:10:960 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:960 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:45:10:960 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:10:962 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:963 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 16:45:10:963 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:10:966 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:966 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:10:966 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:10:966 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:10:967 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:10:973 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:10:973 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:10:977 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:10:978 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:13 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:13 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:wiiu
+[INFO] 16:45:11:13 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:13 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:11:315 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:316 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:11:316 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:318 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:11:318 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:11:319 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:319 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 16:45:11:320 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:11:322 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:322 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 16:45:11:322 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:11:325 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:325 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:325 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:11:325 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:11:332 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:11:333 loggerCoordi/(11899:11921): ESI ENVIO UN GET
+[INFO] 16:45:11:333 loggerCoordi/(11899:11921): La lista de claves NO contiene este GET
+[INFO] 16:45:11:341 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:342 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:370 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:370 loggerCoordi/(11899:11921): Se agrego esta clave: nintendo:consola:switch
+[INFO] 16:45:11:370 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:370 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:11:672 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:675 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:11:675 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:675 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:11:676 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:11:677 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:45:11:678 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:679 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 16:45:11:679 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:45:11:679 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:679 loggerCoordi/(11899:11921): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 16:45:11:679 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:11:682 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:683 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:683 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:11:702 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:11:702 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:11:702 loggerCoordi/(11899:11921): ESI ENVIO UN SET
+[INFO] 16:45:11:702 loggerCoordi/(11899:11921): La lista de claves contiene este GET
+[INFO] 16:45:11:703 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:703 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): ESI TIENE CLAVE
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:742 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:744 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:11:744 loggerCoordi/(11899:11921): instancia guardo valor
+[INFO] 16:45:11:744 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:11:748 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:11:781 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:82 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:83 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:12:83 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:83 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:45:12:85 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:86 loggerCoordi/(11899:11921): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 16:45:12:86 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:12:87 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:87 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:87 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:12:88 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:12:88 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:12:88 loggerCoordi/(11899:11921): ESI ENVIO UN SET
+[INFO] 16:45:12:88 loggerCoordi/(11899:11921): La lista de claves contiene este GET
+[INFO] 16:45:12:89 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:90 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): ESI TIENE CLAVE
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:126 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:167 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:12:167 loggerCoordi/(11899:11921): instancia guardo valor
+[INFO] 16:45:12:167 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:12:173 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:12:179 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:871 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:871 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 16:45:40:872 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): ESI ENVIO UN SET
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): La lista de claves contiene este GET
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:873 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:913 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:913 loggerCoordi/(11899:11921): ESI TIENE CLAVE
+[INFO] 16:45:40:913 loggerCoordi/(11899:11921): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:45:40:913 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:914 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:914 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:914 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:914 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:955 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:40:955 loggerCoordi/(11899:11921): instancia guardo valor
+[INFO] 16:45:40:955 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:40:955 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:40:956 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:258 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:258 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:41:259 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:259 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:41:260 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud del valor recibida: 20
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Valor recibido: FinalFantasyTactics
+
+[INFO] 16:45:41:262 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:41:266 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:266 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:268 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:41:274 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:41:274 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:41:274 loggerCoordi/(11899:11921): ESI ENVIO UN SET
+[INFO] 16:45:41:274 loggerCoordi/(11899:11921): La lista de claves contiene este GET
+[INFO] 16:45:41:283 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:283 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): ESI TIENE CLAVE
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:313 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:353 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:353 loggerCoordi/(11899:11921): instancia guardo valor
+[INFO] 16:45:41:354 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:354 loggerCoordi/(11899:11921): Le dije al esi que todo ok, pues CLAVE DISPONIBLE
+[INFO] 16:45:41:354 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:655 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:655 loggerCoordi/(11899:11921): Esperando la Instruccion
+
+[INFO] 16:45:41:655 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:655 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la clave
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Esperamos el valor
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 16:45:41:656 loggerCoordi/(11899:11921): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 16:45:41:658 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:658 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:658 loggerCoordi/(11899:11921): el ID del esi segun plani fue recibido
+[INFO] 16:45:41:658 loggerCoordi/(11899:11921): el id es: 1
+[INFO] 16:45:41:659 loggerCoordi/(11899:11921): entro a procesarInstruccion
+[INFO] 16:45:41:659 loggerCoordi/(11899:11921): ESI ENVIO UN SET
+[INFO] 16:45:41:659 loggerCoordi/(11899:11921): La lista de claves contiene este GET
+[INFO] 16:45:41:659 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:659 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se recibieron los datos
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): ESI TIENE CLAVE
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): ALGORITMO EQUITATIVE LOAD
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se envio el mensaje
+[INFO] 16:45:41:697 loggerCoordi/(11899:11921): Se envio el mensaje
+[ERROR] 16:45:41:929 loggerCoordi/(11899:11921): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 16:45:41:929 loggerCoordi/(11899:11921): ERROR EN RTA AL SET
+[INFO] 16:47:05:308 loggerCoordi/(11972:11974): Se envio el mensaje
+[INFO] 16:47:05:308 loggerCoordi/(11972:11974): Se recibieron los datos
+[INFO] 16:47:05:308 loggerCoordi/(11972:11974): Se me conectó el planificador
+[INFO] 16:47:05:309 loggerCoordi/(11972:11975): Se envio el mensaje
+[INFO] 16:47:05:309 loggerCoordi/(11972:11975): Se recibieron los datos
+[INFO] 16:47:05:309 loggerCoordi/(11972:11975): Se me conectó el planificador para pedir status
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se envio el mensaje
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se recibieron los datos
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se me conectó una Instancia
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se recibieron los datos
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se envio el mensaje
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Se envio el mensaje
+[INFO] 16:47:08:435 loggerCoordi/(11972:11981): Envie cantidad de entradas a la instancia
+[INFO] 16:47:08:436 loggerCoordi/(11972:11981): Se envio el mensaje
+[INFO] 16:47:08:436 loggerCoordi/(11972:11981): Envie tamanaño de entradas a la instancia
+[INFO] 16:47:08:474 loggerCoordi/(11972:11981): Se recibieron los datos
+[INFO] 16:47:08:474 loggerCoordi/(11972:11981): Se envio el mensaje
+[INFO] 16:47:08:475 loggerCoordi/(11972:11981): 
+ Se registro instancia
+[INFO] 16:47:12:663 loggerCoordi/(11972:11985): Se envio el mensaje
+[INFO] 16:47:12:663 loggerCoordi/(11972:11985): Se recibieron los datos
+[INFO] 16:47:12:663 loggerCoordi/(11972:11985): Se me conectó un Esi
+[INFO] 16:49:00:940 loggerCoordi/(12011:12018): Se envio el mensaje
+[INFO] 16:49:00:940 loggerCoordi/(12011:12018): Se recibieron los datos
+[INFO] 16:49:00:940 loggerCoordi/(12011:12018): Se me conectó el planificador
+[INFO] 16:49:00:941 loggerCoordi/(12011:12019): Se envio el mensaje
+[INFO] 16:49:00:941 loggerCoordi/(12011:12019): Se recibieron los datos
+[INFO] 16:49:00:941 loggerCoordi/(12011:12019): Se me conectó el planificador para pedir status
+[INFO] 16:49:03:609 loggerCoordi/(12011:12030): Se envio el mensaje
+[INFO] 16:49:03:609 loggerCoordi/(12011:12030): Se recibieron los datos
+[INFO] 16:49:03:609 loggerCoordi/(12011:12030): Se me conectó una Instancia
+[INFO] 16:49:03:609 loggerCoordi/(12011:12030): Se recibieron los datos
+[INFO] 16:49:03:610 loggerCoordi/(12011:12030): Se envio el mensaje
+[INFO] 16:49:03:610 loggerCoordi/(12011:12030): Se envio el mensaje
+[INFO] 16:49:03:610 loggerCoordi/(12011:12030): Envie cantidad de entradas a la instancia
+[INFO] 16:49:03:610 loggerCoordi/(12011:12030): Se envio el mensaje
+[INFO] 16:49:03:610 loggerCoordi/(12011:12030): Envie tamanaño de entradas a la instancia
+[INFO] 16:49:03:649 loggerCoordi/(12011:12030): Se recibieron los datos
+[INFO] 16:49:03:650 loggerCoordi/(12011:12030): Se envio el mensaje
+[INFO] 16:49:03:650 loggerCoordi/(12011:12030): 
+ Se registro instancia
+[INFO] 16:49:09:120 loggerCoordi/(12011:12033): Se envio el mensaje
+[INFO] 16:49:09:120 loggerCoordi/(12011:12033): Se recibieron los datos
+[INFO] 16:49:09:120 loggerCoordi/(12011:12033): Se me conectó un Esi
+[ERROR] 16:49:12:322 loggerCoordi/(12011:12033): recibirMensaje:: SE CORTO LA CONEXION
+[INFO] 16:49:12:326 loggerCoordi/(12011:12033): Esperando la Instruccion
+
+[ERROR] 16:49:12:327 loggerCoordi/(12011:12033): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 16:49:12:327 loggerCoordi/(12011:12033): SE CORTÓ LA CONEXIÓN CON ESI
+[INFO] 16:49:12:327 loggerCoordi/(12011:12033): no me puedo conectar con esi

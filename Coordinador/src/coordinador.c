@@ -123,7 +123,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
 
-			list_add(hilos, &id);
+			//list_add(hilos, &id);
 			log_info(logger, "Se me conectó una Instancia");
 
 			char * id = recibirID(sock, logger);

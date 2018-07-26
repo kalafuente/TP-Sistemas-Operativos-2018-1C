@@ -1,19 +1,19 @@
 #include "sjf.h"
 
 bool tieneMenorRafaga(struct_esi* esi1, struct_esi* esi2) {
-	return esi1->estimacion < esi2->estimacion;
+	return esi1->estimacion <= esi2->estimacion;
 }
 
 void ordenarPorSJF(t_list *listaAOrdenar) {
-	if (sizeof(listaAOrdenar) == 1) {
+	if (sizeof(listaAOrdenar) <= 1) {
 		return;
 	}
 	list_sort(listaAOrdenar, (void*) tieneMenorRafaga);
 }
 
 bool mayorResponseRatio(struct_esi* esi1, struct_esi* esi2) {
-	return 1 + esi1->estimacion / esi1->estimacion
-			> 1 + esi2->estimacion / esi2->estimacion;
+	return (1 + esi1->estimacion / esi1->estimacion)
+			>= (1 + esi2->estimacion / esi2->estimacion);
 }
 
 void ordenarPorHRRN(t_list *listaAOrdenar) {
@@ -34,7 +34,7 @@ float actualizarDuracionDeRafagaSJF(struct_esi esi) {
 double calcularSiguienteRafagaSJF(int t , int t0, double alfa) {
 	double t1;
 	t1 = (double) (alfa/100)*t + (double) (1-(alfa/100))*t0;
-	printf("Esta rafaga es de %f \n", t1);
+	log_info(logger, "Esta rafaga es de %f \n", t1);
 	return t1;
 }
 

@@ -13,6 +13,10 @@ int main(int argc, char **argv) {
 	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[1]);
 
 	pthread_t tid;
+	pthread_mutex_init(&mutexConsolaEnEspera, NULL);
+	pthread_mutex_init(&mutexPlanificacion, NULL);
+
+	pthread_mutex_init(&mutexConsola, NULL);
 	pthread_mutex_init(&mutex, NULL);
 	pthread_mutex_init(&mutexKillEsi, NULL);
 	pthread_mutex_lock(&mutexKillEsi);
@@ -159,7 +163,8 @@ void listar(char* clave){
 		//log_info(logger, "Copie la clave");
 		if(string_equals_ignore_case(claveEsi, clave)){
 			log_info(logger, "Entre al if");
-			printf("El esi numero %i necesita la clave %s \n", esiClave->ESI->ID, clave);
+			log_info(logger, "El esi numero %i necesita la clave %s \n",
+					esiClave->ESI->ID, clave);
 		}
 		i++;
 	}
@@ -222,6 +227,8 @@ bool contains(t_list* lista, int elemento){
 
 
 void* consola(void* socket) {
+	consolaOn = 0;
+	int enPausa = 0;
 	int *socketStatus = (int*) socket;
 	int IDaux;
 	char* Auxid;
@@ -233,14 +240,27 @@ void* consola(void* socket) {
 	char * parametros = calloc(100, sizeof(char*));
 	while (1) {
 		linea = readline((">"));
+
+		if (pthread_mutex_trylock(&mutexConsola) == 0) {
+
+		} else {
+			consolaOn++;
+			pthread_mutex_lock(&mutexConsolaEnEspera);
+		}
+
 		if (linea)
+		{
 			add_history(linea);
+
+		}
+		
 		if (!strncmp(linea, "exit", 4)) {
+			pthread_mutex_lock(&mutex);
 			free(linea);
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
-			signal(SIGINT, SIG_DFL);
+			exit(1);
 			break;
 		}
 		// printf("Lei la linea \n");
@@ -255,15 +275,20 @@ void* consola(void* socket) {
 		//Deadlock
 
 		if (string_equals_ignore_case(comando, "pausar")) {
+			if (enPausa == 0) {
 			sem_wait(&pausarPlanificacion);
-			printf("La planificacion se detuvo \n");
-
+			log_info(logger, "La planificacion se detuvo \n");
+				enPausa++;
+			}
 			//El Planificador no le dará nuevas órdenes de ejecución a NINGÚN ESI mientras se encuentre pausado.
 		
 		}
 		if (string_equals_ignore_case(comando, "resumir")) {
+			if (enPausa) {
 			sem_post(&pausarPlanificacion);
-			printf("Resumiendo planificacion \n");
+			log_info(logger, "Resumiendo planificacion \n");
+				enPausa = 0;
+			}
 			//Resume la planificación
 		}
 		if (string_equals_ignore_case(comando, "bloquear")) {
@@ -314,7 +339,8 @@ void* consola(void* socket) {
 			    			}
 			    		}
 			pthread_mutex_unlock(&mutex);
-			printf("Se bloqueo la Clave %s para el ESI %s \n", clave, id);
+			log_info(logger, "Se bloqueo la Clave %s para el ESI %s \n", clave,
+					id);
 			//Se bloqueará el proceso ESI hasta ser desbloqueado, especificado por dicho ID en la cola del recurso clave.
 		}
 		if (string_equals_ignore_case(comando, "desbloquear")) {
@@ -331,14 +357,15 @@ void* consola(void* socket) {
 
 			pthread_mutex_unlock(&mutex);
 
-			printf("Se desbloqueo la clave %s \n", clave);
+			log_info(logger, "Se desbloqueo la clave %s \n", clave);
 			//Se desbloqueara el primer proceso ESI bloquedo por la clave especificada.
 		}
 		if (string_equals_ignore_case(comando, "listar")) {
 
 			Auxid = string_new();
 			string_append(&Auxid, parametros);
-			printf("El recurso %s esta siendo esperado por: \n", parametros);
+			log_info(logger, "El recurso %s esta siendo esperado por: \n",
+					parametros);
 			listar(Auxid);
 			free(Auxid);
 			//Lista los procesos encolados esperando al recurso.
@@ -399,10 +426,11 @@ void* consola(void* socket) {
 			Auxid = string_new();
 			string_append(&Auxid, strtok(parametros, " "));
 
-			printf ("la clave que se preguntara al cordi es %s \n",Auxid);
+			log_info(logger, "la clave que se preguntara al cordi es %s \n",
+					Auxid);
 
 			if (enviarID(*socketStatus, Auxid, logger)==-1){
-				printf("no se pudo enviar %s \n", Auxid);
+				log_info(logger, "no se pudo enviar %s \n", Auxid);
 			}
 
 			valor = recibirID(*socketStatus, logger);
@@ -432,6 +460,8 @@ void* consola(void* socket) {
 				}
 
 			}
+
+
 			free(valor);
 			log_info(logger, "Esis que esperan esta clave: 	");
 
@@ -446,7 +476,7 @@ void* consola(void* socket) {
 			//Conocer el estado de una clave y de probar la correcta distribución de las mismas
 		}
 		if (string_equals_ignore_case(comando, "deadlock")) {
-			printf("Detección de deadlocks \n");
+			log_info(logger, "Detección de deadlocks \n");
 
 			/* para testear enviarle a la fc mostrarEsisEnDeadlock(simulacionBloqueados, simulacionTomadas);
 			t_list* simulacionTomadas= list_create();
@@ -524,7 +554,12 @@ void* consola(void* socket) {
 
 			mostrarEsisEnDeadlock(listaBloqueado, listaEsiClave);
 		}
-
+		if (consolaOn == 0) {
+			pthread_mutex_unlock(&mutexConsola);
+		} else {
+			consolaOn = 0;
+			pthread_mutex_unlock(&mutexPlanificacion);
+		}
 		free(linea);
 	}
 	return 0;

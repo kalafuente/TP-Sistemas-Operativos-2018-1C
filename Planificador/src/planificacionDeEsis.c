@@ -8,7 +8,10 @@ void planificarESIs(){
 
 	while (PlanificadorON) {
 		pthread_mutex_unlock(&mutexKillEsi);
+		pthread_mutex_unlock(&mutexConsola);
 		sem_wait(&cantidadEsisEnReady);
+		pthread_mutex_lock(&mutexConsola);
+
 		pthread_mutex_lock(&mutexKillEsi);
 
 		estadoEsi = TERMINE_BIEN;
@@ -20,11 +23,23 @@ void planificarESIs(){
 		}
 		pthread_mutex_unlock(&mutex);
 
+		if (consolaOn) {
+			pthread_mutex_unlock(&mutexConsolaEnEspera);
+			pthread_mutex_unlock(&mutexKillEsi);
+
+
+			pthread_mutex_lock(&mutexPlanificacion);
+			pthread_mutex_lock(&mutexKillEsi);
+
+		}
 		pthread_mutex_unlock(&mutexKillEsi);
 		sem_wait(&pausarPlanificacion);
 		sem_post(&pausarPlanificacion);
 		pthread_mutex_lock(&mutexKillEsi);
 
+
+
+		
 		if (list_size(listaReady) == 0) {
 			continue;
 		}
@@ -101,12 +116,20 @@ void planificarESIs(){
 				estadoEsi = TERMINE;
 				list_remove(listaEjecutando, 0);
 				list_add(listaReady, esiActual);
+				sem_post(&cantidadEsisEnReady);
+				sem_post(&pausarPlanificacion);
+				break;
 			}
 
 			sem_post(&pausarPlanificacion);
+			
+			if (consolaOn) {
+				pthread_mutex_unlock(&mutexConsolaEnEspera);
 			pthread_mutex_unlock(&mutexKillEsi);
-			pthread_mutex_lock(&mutexKillEsi);
+				pthread_mutex_lock(&mutexPlanificacion);
+				pthread_mutex_lock(&mutexKillEsi);
 
+			}
 			if (list_size(listaEjecutando) == 0) {
 				estadoEsi = TERMINE;
 			}

@@ -313,6 +313,7 @@ int procesarSentencias()
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
 			respuesta = ERROR_INSTRUCCION;
+			corte = 0;
 		}
 		else
 		{
@@ -332,6 +333,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion SET\n");
 						respuesta = NO_SE_PUDO_GUARDAR_VALOR;
+						corte = 0;
 						break;
 					}
 					else
@@ -345,6 +347,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion STORE\n");
 						respuesta = NO_SE_CREO_EL_ARCHIVO;
+						corte = 0;
 						break;
 					}
 					else
@@ -369,6 +372,7 @@ int procesarSentencias()
 
 					log_error(logger, "La sentencia no puede ser interpretada\n");
 					respuesta = ERROR_INSTRUCCION;
+					corte = 0;
 			}
 		}
 

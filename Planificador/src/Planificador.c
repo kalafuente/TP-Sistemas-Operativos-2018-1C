@@ -422,10 +422,10 @@ void* consola(void* socket) {
 
 			//Finaliza el proceso. Al momento de eliminar el ESI, se debloquearan las claves que tenga tomadas.
 		}
-		if (string_equals_ignore_case(comando, "status")) {
+		if (string_equals_ignore_case(comando, "status") && parametros != NULL) {
 			Auxid = string_new();
 			string_append(&Auxid, strtok(parametros, " "));
-
+			
 			log_info(logger, "la clave que se preguntara al cordi es %s \n",
 					Auxid);
 

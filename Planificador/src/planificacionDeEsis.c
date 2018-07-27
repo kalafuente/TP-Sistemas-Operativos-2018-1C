@@ -32,9 +32,11 @@ void planificarESIs(){
 			pthread_mutex_lock(&mutexKillEsi);
 
 		}
+		pthread_mutex_unlock(&mutexConsola);
 		pthread_mutex_unlock(&mutexKillEsi);
 		sem_wait(&pausarPlanificacion);
 		sem_post(&pausarPlanificacion);
+		pthread_mutex_lock(&mutexConsola);
 		pthread_mutex_lock(&mutexKillEsi);
 
 
@@ -51,7 +53,20 @@ void planificarESIs(){
 		pthread_mutex_unlock(&mutex);
 
 		while (estadoEsi == TERMINE_BIEN) {
+
+			pthread_mutex_unlock(&mutexConsola);
+			pthread_mutex_unlock(&mutexKillEsi);
+
 			sem_wait(&pausarPlanificacion);
+			pthread_mutex_lock(&mutexConsola);
+			pthread_mutex_lock(&mutexKillEsi);
+
+			if (!list_size(listaEjecutando)) {
+				sem_post(&pausarPlanificacion);
+
+				break;
+			}
+
 			ordenarActuar(esiActual);
 			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&estadoEsi, esiActual->socket) <= 0) {
 				log_error(logger, "ERROR ESI DESCONECTADO");
@@ -120,16 +135,22 @@ void planificarESIs(){
 				sem_post(&pausarPlanificacion);
 				break;
 			}
-
 			sem_post(&pausarPlanificacion);
+
 			
 			if (consolaOn) {
 				pthread_mutex_unlock(&mutexConsolaEnEspera);
-			pthread_mutex_unlock(&mutexKillEsi);
+				pthread_mutex_unlock(&mutexKillEsi);
+
 				pthread_mutex_lock(&mutexPlanificacion);
 				pthread_mutex_lock(&mutexKillEsi);
 
 			}
+
+
+
+
+
 			if (list_size(listaEjecutando) == 0) {
 				estadoEsi = TERMINE;
 			}

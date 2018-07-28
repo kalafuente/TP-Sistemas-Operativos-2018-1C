@@ -647,7 +647,8 @@ int procesarSET(t_instruccion* inst)
 
 			log_info(logger, "Cantidad de entradas a reemplazar: %d", cantidadReemplazos);
 			int libres[cantidadReemplazos];
-			int j, encontradas = 0;
+			int j = 0;
+			int encontradas = 0;
 
 			log_info(logger, "Tenemos que buscar otra vez las entradas libres y guardarlas\n");
 

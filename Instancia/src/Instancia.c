@@ -6,6 +6,10 @@ int main(int argc,char**argv)
 
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
+
+	logOperaciones= crearLogger("logOperaciones.log","logOperaciones");
+	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
+
 	//t_config * config = config_create("configuracionInstancia.config");
 	t_config * config = abrirArchivoConfig(argc,argv,logger,destruirLogger);
 
@@ -26,14 +30,14 @@ int main(int argc,char**argv)
 	procesarSentencias();
 	imprimirContenidoEntradas();
 
-
+	//Antes de liberar todo esperamos que finalice el hilo
+	pthread_join(thread_id, NULL);
 	close(socketCoordinador);
 	destroy_instanciaConfig(instanciaConfig); //CHECK
 	config_destroy(config); //CHECK
 	eliminarEntradas(); //CHECK
 	eliminarTablaDeEntradas(); //CHECK
 	eliminarBitArray(); //CHECK
-
 
 	return 0;
 
@@ -294,7 +298,6 @@ void eliminarEntradas()
 
 int procesarSentencias()
 {
-	int corte = 1;
 
 	PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta;
 
@@ -302,7 +305,7 @@ int procesarSentencias()
 
 	log_info(logger, "Comienzo a recibir sentencias del coordinador\n");
 
-	while(corte) //Habria que ver cuando cortar
+	while(finInstancia) //Habria que ver cuando cortar
 	{
 		log_info(logger, "Esperando proxima sentencia...\n");
 
@@ -313,7 +316,9 @@ int procesarSentencias()
 		{
 			log_error(logger, "No se pudo recibir la sentencia\n");
 			respuesta = ERROR_INSTRUCCION;
-			corte = 0;
+			pthread_mutex_lock(&mutex);
+			finInstancia = 0;
+
 		}
 		else
 		{
@@ -333,7 +338,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion SET\n");
 						respuesta = NO_SE_PUDO_GUARDAR_VALOR;
-						corte = 0;
+						finInstancia = 0;
 						break;
 					}
 					else
@@ -347,7 +352,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion STORE\n");
 						respuesta = NO_SE_CREO_EL_ARCHIVO;
-						corte = 0;
+						finInstancia = 0;
 						break;
 					}
 					else
@@ -372,7 +377,7 @@ int procesarSentencias()
 
 					log_error(logger, "La sentencia no puede ser interpretada\n");
 					respuesta = ERROR_INSTRUCCION;
-					corte = 0;
+					finInstancia = 0;
 			}
 		}
 
@@ -383,6 +388,8 @@ int procesarSentencias()
 		{
 			destruirInstruccion(sentencia);
 		}
+
+		estructurasLuegoDeOperacion();
 
 		pthread_mutex_unlock(&mutex);
 	}
@@ -1428,6 +1435,45 @@ void imprimirContenidoEntradas()
 	log_info(logger, "Los valores se han impreso correctamente\n");
 }
 
+void estructurasLuegoDeOperacion()
+{
+	if(list_is_empty(tablaEntradas))
+	{
+		log_info(logOperaciones, "No se guardo nada en las Entradas. No hay nada que imprimir\n");
+		return;
+	}
+
+	log_info(logOperaciones, "Comenzamos a imprimir los valores\n");
+
+	t_link_element * lista = tablaEntradas->head;
+
+	while(lista != NULL)
+	{
+		t_tabla_entradas * datos = ((t_tabla_entradas *)lista->data);
+
+		log_info(logOperaciones, "La clave es: %s\n", datos->clave);
+		log_info(logOperaciones, "El momento de referencia es: %d\n", datos->momentoReferencia);
+		log_info(logOperaciones, "El numero de entrada inicial es: %d", datos->numeroEntrada);
+		log_info(logOperaciones, "El tamanio del valor es: %d", datos->tamanioValor);
+		log_info(logOperaciones, "Su valor asociado es: %s\n", &entradas[datos->numeroEntrada * tamanioEntrada]);
+
+		t_tabla_entradas * siguiente = datos;
+
+		while(lista != NULL && (strcmp(siguiente->clave, datos->clave) == 0))
+		{
+			log_info(logOperaciones, "El momento de referencia es: %d\n", datos->momentoReferencia);
+			log_info(logOperaciones, "El numero de entrada es: %d", datos->numeroEntrada);
+			log_info(logOperaciones, "El tamanio del valor es: %d", datos->tamanioValor);
+
+			lista = lista->next;
+			siguiente = ((t_tabla_entradas *)lista->data);
+		}
+
+	}
+
+	log_info(logOperaciones, "Los valores se han impreso correctamente\n");
+}
+
 /* NO SE USA
 int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp)
 {
@@ -1694,8 +1740,6 @@ int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, in
 
 void crearHiloParaDump()
 {
-	pthread_t thread_id;
-
 	if (pthread_create(&thread_id, NULL, DUMP, NULL) < 0) {
 		log_error(logger, "No se pudo crear el hilo");
 	}
@@ -1704,33 +1748,41 @@ void crearHiloParaDump()
 
 void * DUMP()
 {
-	while(1)
+	while(finInstancia)
 	{
 		sleep(instanciaConfig->intervalo);
 		pthread_mutex_lock(&mutex);
 
 		log_info(logger, "Comienza el DUMP\n");
 
-		list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
-
-		t_link_element * actual = tablaEntradas->head;
-
-		while(actual != NULL)
+		if(tablaEntradas->head == NULL)
 		{
-			t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
+			//No hago nada, que siga tratando de hacer el DUMP
+		}
+		else
+		{
 
-			char * claveActual = string_new();
-			string_append(&claveActual, dato->clave);
+			list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
 
-			almacenarArchivo(instanciaConfig->path, claveActual, dato->tamanioValor, dato->numeroEntrada);
+			t_link_element * actual = tablaEntradas->head;
 
-			while(actual != NULL && (strcmp(claveActual, dato->clave) == 0))
+			while(actual != NULL)
 			{
-				dato = (t_tabla_entradas *)actual->data;
-				actual = actual->next;
-			}
+				t_tabla_entradas * dato = (t_tabla_entradas *)actual->data;
 
-			free(claveActual);
+				char * claveActual = string_new();
+				string_append(&claveActual, dato->clave);
+
+				almacenarArchivo(instanciaConfig->path, claveActual, dato->tamanioValor, dato->numeroEntrada);
+
+				while(actual != NULL && (strcmp(claveActual, dato->clave) == 0))
+				{
+					dato = (t_tabla_entradas *)actual->data;
+					actual = actual->next;
+				}
+
+				free(claveActual);
+			}
 		}
 
 		log_info(logger, "Finalizo el DUMP\n");
@@ -1738,6 +1790,8 @@ void * DUMP()
 		pthread_mutex_unlock(&mutex);
 
 	}
+
+	pthread_exit(NULL);
 
 
 	return NULL;
@@ -1765,9 +1819,15 @@ void reincorporarse()
 {
 	// --------- PIDO LAS CLAVES AL COORDINADOR ------------
 
+	log_info(logger, "Intentando reincorporarse");
+
 	PROTOCOLO_INSTANCIA_A_COORDINADOR pedidoClaves = PEDIDO_DE_CLAVES;
 
-	enviarMensaje(logger, sizeof(pedidoClaves), &pedidoClaves, socketCoordinador);
+	if(enviarMensaje(logger, sizeof(pedidoClaves), &pedidoClaves, socketCoordinador) < 0)
+	{
+		log_error(logger, "No se pudo reincorporar");
+		return;
+	}
 
 	char * clave = recibirID(socketCoordinador, logger);
 	int pos = 0;

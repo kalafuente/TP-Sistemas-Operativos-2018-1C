@@ -41,6 +41,7 @@ typedef struct t_tabla_entradas
 
 //------------Variables globales
 t_log* logger;
+t_log * logOperaciones;
 int32_t socketCoordinador;
 instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 20; //Lo deje en 20 para probar
@@ -53,8 +54,13 @@ t_link_element * punteroReempAlgCirc = NULL; //Inicializado cuando se agrega el 
 int * bitArray = NULL; //Es un array de bits que servira para saber cuales entradas estan libres
 int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guardara el valor en la tabla de entradas al ser referenciada una clave
 //int punteroAlgCIRC = 0;
+int finInstancia = 1;
 
 pthread_mutex_t mutex;
+
+//ID del hilo del DUMP
+
+pthread_t thread_id;
 
 extern int errno ;
 
@@ -100,6 +106,8 @@ void almacenarValor(int entradaInicial, char * valor);
 void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numeroEntrada);
 
 int eleccionDeVictima();
+
+void estructurasLuegoDeOperacion();
 
 //VICTIMAS
 int victimaCIRC();

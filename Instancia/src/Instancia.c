@@ -1427,7 +1427,10 @@ void imprimirContenidoEntradas()
 		while(lista != NULL && (strcmp(siguiente->clave, datos->clave) == 0))
 		{
 			lista = lista->next;
-			siguiente = ((t_tabla_entradas *)lista->data);
+			if(lista != NULL)
+			{
+				siguiente = ((t_tabla_entradas *)lista->data);
+			}
 		}
 
 	}
@@ -1466,7 +1469,11 @@ void estructurasLuegoDeOperacion()
 			log_info(logOperaciones, "El tamanio del valor es: %d", datos->tamanioValor);
 
 			lista = lista->next;
-			siguiente = ((t_tabla_entradas *)lista->data);
+
+			if(lista != NULL)
+			{
+				siguiente = ((t_tabla_entradas *)lista->data);
+			}
 		}
 
 	}

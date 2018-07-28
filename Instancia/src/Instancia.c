@@ -1447,7 +1447,7 @@ void estructurasLuegoDeOperacion()
 		return;
 	}
 
-	log_info(logOperaciones, "Comenzamos a imprimir los valores\n");
+	log_info(logOperaciones, "--------------- Comenzamos a imprimir los valores ---------------\n");
 
 	t_link_element * lista = tablaEntradas->head;
 
@@ -1455,20 +1455,23 @@ void estructurasLuegoDeOperacion()
 	{
 		t_tabla_entradas * datos = ((t_tabla_entradas *)lista->data);
 
+		log_info(logOperaciones, "--------------- NUEVO VALOR ---------------");
 		log_info(logOperaciones, "La clave es: %s\n", datos->clave);
 		log_info(logOperaciones, "El momento de referencia es: %d\n", datos->momentoReferencia);
-		log_info(logOperaciones, "El numero de entrada inicial es: %d", datos->numeroEntrada);
-		log_info(logOperaciones, "El tamanio del valor es: %d", datos->tamanioValor);
+		log_info(logOperaciones, "El numero de entrada inicial es: %d\n", datos->numeroEntrada);
+		log_info(logOperaciones, "El tamanio del valor es: %d\n", datos->tamanioValor);
+		log_info(logOperaciones, "El valor ocupa %d entradas\n", cuantasEntradasOcupaElValor(datos->tamanioValor));
 		log_info(logOperaciones, "Su valor asociado es: %s\n", &entradas[datos->numeroEntrada * tamanioEntrada]);
 
 		t_tabla_entradas * siguiente = datos;
 
 		while(lista != NULL && (strcmp(siguiente->clave, datos->clave) == 0))
 		{
-			log_info(logOperaciones, "El momento de referencia es: %d\n", datos->momentoReferencia);
-			log_info(logOperaciones, "El numero de entrada es: %d", datos->numeroEntrada);
-			log_info(logOperaciones, "El tamanio del valor es: %d", datos->tamanioValor);
 
+			log_info(logOperaciones, "El momento de referencia es: %d\n", siguiente->momentoReferencia);
+			log_info(logOperaciones, "El numero de entrada es: %d\n", siguiente->numeroEntrada);
+			log_info(logOperaciones, "El tamanio del valor es: %d\n", siguiente->tamanioValor);
+			log_info(logOperaciones, "-------- OTRO NODO --------");
 			lista = lista->next;
 
 			if(lista != NULL)
@@ -1479,7 +1482,7 @@ void estructurasLuegoDeOperacion()
 
 	}
 
-	log_info(logOperaciones, "Los valores se han impreso correctamente\n");
+	log_info(logOperaciones, "--------------- Los valores se han impreso correctamente ---------------\n");
 }
 
 /* NO SE USA

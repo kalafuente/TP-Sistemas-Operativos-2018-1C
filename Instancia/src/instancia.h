@@ -55,6 +55,7 @@ int * bitArray = NULL; //Es un array de bits que servira para saber cuales entra
 int contadorGlobal = 0; //Con cada operacion SET y STORE aumentara en 1. Se guardara el valor en la tabla de entradas al ser referenciada una clave
 //int punteroAlgCIRC = 0;
 int finInstancia = 1;
+int posCIRC = 0;
 
 pthread_mutex_t mutex;
 
@@ -91,7 +92,7 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 //void separarStringEnNPartesIguales(char * cadena, int longitudCadena, int cantidadPartes, int tamanioParte, char strings[cantidadPartes][tamanioParte]);
 //void escribirValorAtomico(char * clave, char * valor, int32_t longitudValor);
 //void moverPunteroAlgCIRC();
-void imprimirContenidoEntradas();
+void imprimirContenidoEntradas(t_log* log);
 //int implementarAlgoritmoDeReemplazo(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
 //int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int cantidadEntradasAReemp);
 void moverPunteroReempAlgCirc();
@@ -107,7 +108,11 @@ void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numero
 
 int eleccionDeVictima();
 
-void estructurasLuegoDeOperacion();
+int minimo(int valor1, int valor2);
+
+void actualizarPunteroCIRC();
+
+//void estructurasLuegoDeOperacion();
 
 //VICTIMAS
 int victimaCIRC();

@@ -155,6 +155,7 @@ void destruirInstruccion(t_instruccion* instruccion)
 {
 	if(instruccion->instruccion == PEDIDO_DE_VALOR || instruccion->instruccion == COMPACTAR)
 	{
+		free(instruccion);
 		return;
 	}
 

@@ -28,7 +28,7 @@ int main(int argc,char**argv)
 	reincorporarse();
 	crearHiloParaDump();
 	procesarSentencias();
-	imprimirContenidoEntradas();
+	imprimirContenidoEntradas(logger);
 
 	//Antes de liberar todo esperamos que finalice el hilo
 	pthread_join(thread_id, NULL);
@@ -389,7 +389,7 @@ int procesarSentencias()
 			destruirInstruccion(sentencia);
 		}
 
-		estructurasLuegoDeOperacion();
+		imprimirContenidoEntradas(logOperaciones);
 
 		pthread_mutex_unlock(&mutex);
 	}
@@ -407,7 +407,7 @@ void peticionValor()
 
 	t_link_element * actual = tablaEntradas->head;
 
-	char * valor = string_new();
+	char * valor = NULL;
 
 	int noEncontrado = 1;
 
@@ -417,7 +417,9 @@ void peticionValor()
 
 		if(strcmp(dato->clave, clavePeticionada) == 0)
 		{
-			string_append(&valor, &entradas[dato->numeroEntrada * tamanioEntrada]);
+			valor = (char*)malloc(sizeof(char) * (dato->tamanioValor + 1));
+			memcpy((void*)valor, (void*)&entradas[dato->numeroEntrada * tamanioEntrada], dato->tamanioValor);
+			valor[dato->tamanioValor] = '\0';
 			noEncontrado = 0;
 		}
 
@@ -426,6 +428,7 @@ void peticionValor()
 
 	if(noEncontrado)
 	{
+		valor = string_new();
 		string_append(&valor, "null");
 	}
 
@@ -447,7 +450,7 @@ int procesarSET(t_instruccion* inst)
 
 	t_link_element * nodo = existeLaClave(inst->clave);
 
-	int32_t tamanioNuevoValor = (int32_t) (strlen(inst->valor) + 1);
+	int32_t tamanioNuevoValor = (int32_t) (strlen(inst->valor));
 	int entradasQueOcupaNuevoValor = cuantasEntradasOcupaElValor(tamanioNuevoValor);
 
 	if(nodo == NULL)
@@ -686,6 +689,7 @@ int procesarSET(t_instruccion* inst)
 				}
 
 				log_info(logger, "La encontramos. La guardamos en el array\n");
+				log_info(logger, "La victima esta en la pos %d", victima);
 
 				libres[encontradas] = victima;
 				encontradas ++;
@@ -719,14 +723,11 @@ int procesarSET(t_instruccion* inst)
 
 					log_info(logger, "Encontramos el nodo");
 
-					if(strcmp(instanciaConfig->algoritmo, "CIRC") == 0)
-					{
-
 						if(punteroReempAlgCirc == actual)
 						{
+							log_info(logger, "El puntero apunta al nodo a eliminar, entonces lo movemos\n");
 							moverPunteroReempAlgCirc();
 						}
-					}
 
 					int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
 					log_info(logger, "Eliminamos el campo data del nodo");
@@ -739,6 +740,9 @@ int procesarSET(t_instruccion* inst)
 						actual = actual->next;
 						anterior->next = NULL;
 						free(anterior);
+
+						//HAY QUE MODIFICAR LA CANTIDAD DE ELEMENTOS DE LA LISTA
+
 						log_info(logger, "Cosa turbia no rompio (linkeo)");
 					}
 					else
@@ -749,6 +753,8 @@ int procesarSET(t_instruccion* inst)
 						actual = anterior->next;
 						log_info(logger, "Cosa turbia 2 no rompio (linkeo)");
 					}
+
+					tablaEntradas->elements_count--;
 
 					clearBit(entradaActual);
 					log_info(logger, "Actualizamos el array de bits");
@@ -772,7 +778,7 @@ int procesarSET(t_instruccion* inst)
 				//Sabemos que estan ordenados por la funcion anterior
 
 				log_info(logger, "Son contiguas. Se suponen ordenadas por la funcion");
-				log_info(logger, "Intentamos guardar el valor en la primera entrada del conjunto");
+				log_info(logger, "Intentamos guardar el valor en la primera entrada del conjunto, %d", libres[0]);
 
 				guardarValorEnEntradas(inst->clave, inst->valor, libres[0]);
 
@@ -843,10 +849,10 @@ void guardarValorEnEntradas(char * clave, char * valor, int posicionInicial)
 {
 	//Guardamos el valor primero
 	almacenarValor(posicionInicial, valor);
-	int32_t tamanioValor = (int32_t) strlen(valor) + 1;
+	int32_t tamanioValor = (int32_t) strlen(valor);
 	int32_t tamanioRestante = tamanioValor;
 
-	while(tamanioRestante >= 0)
+	while(tamanioRestante > 0)
 	{
 		tamanioRestante -= tamanioEntrada;
 		//Actualizamos el bitArray
@@ -867,9 +873,11 @@ void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numero
 	nuevoCampoData->numeroEntrada = numeroEntrada;
 	nuevoCampoData->tamanioValor = tamanioValor;
 	list_add(tablaEntradas, nuevoCampoData);
+	int tamanioLista = list_size(tablaEntradas);
 
-	if(list_size(tablaEntradas) == 1)
+	if(tamanioLista == 1)
 	{
+		log_info(logger, "La lista tiene un elemento, hacemos que el puntero apunte al mismo\n");
 		punteroReempAlgCirc = tablaEntradas->head;
 	}
 }
@@ -906,7 +914,9 @@ int eleccionDeVictima()
 
 int victimaCIRC()
 {
-	 t_link_element * posicionInicial = punteroReempAlgCirc;
+	actualizarPunteroCIRC();
+
+	t_link_element * posicionInicial = punteroReempAlgCirc;
 
 	 if(punteroReempAlgCirc == NULL)
 	 {
@@ -921,6 +931,7 @@ int victimaCIRC()
 		if(cuantasEntradasOcupaElValor(dato->tamanioValor) == 1)
 		{
 			//Es atomico! Lo podemos reemplazar
+			moverPunteroReempAlgCirc();
 			return dato->numeroEntrada;
 		}
 
@@ -1122,6 +1133,8 @@ int victimaBSU()
 
 int desempatePorCIRC(int tamanio, int array[tamanio])
 {
+	actualizarPunteroCIRC();
+
 	int i = 0;
 	int entradaCIRC = ((t_tabla_entradas *)punteroReempAlgCirc->data)->numeroEntrada;
 
@@ -1303,7 +1316,7 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 	for(i = 0; i < entradasNuevoValor; i++)
 	{
 		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
-		datos->tamanioValor = strlen(nuevoValor) + 1;
+		datos->tamanioValor = strlen(nuevoValor);
 		datos->momentoReferencia = contadorGlobal;
 		anterior = actual;
 		actual = actual->next;
@@ -1313,8 +1326,11 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 	{
 		if(punteroReempAlgCirc == actual)
 		{
+			log_info(logger, "El puntero apunta al nodo a eliminar, lo movemos\n");
 			moverPunteroReempAlgCirc();
 		}
+
+		log_info(logger, "Se liberaran entradas\n");
 
 		t_tabla_entradas * datos = (t_tabla_entradas *) actual->data;
 		int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
@@ -1324,6 +1340,9 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 		free(actual);
 		actual = anterior->next;
 		clearBit(entradaActual);
+
+		//HAY QUE REDUCIR LA CANTIDAD DE ELEMENTOS SIEMPRE QUE ELIMINO UN NODO
+		tablaEntradas->elements_count--;
 	}
 
 	almacenarValor(entradaInicial, nuevoValor);
@@ -1335,7 +1354,8 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 void almacenarValor(int entradaInicial, char * valor)
 {
 	int posicion = entradaInicial * tamanioEntrada;
-	strcpy(&entradas[posicion], valor);
+	int tamanioValor = strlen(valor);
+	memcpy((void*)&entradas[posicion], (void*)valor, tamanioValor);
 }
 
 /* NO LA NECESITO MAS
@@ -1404,6 +1424,7 @@ void moverPunteroAlgCIRC()
 }
 */
 
+/*
 void imprimirContenidoEntradas()
 {
 	if(list_is_empty(tablaEntradas))
@@ -1438,16 +1459,21 @@ void imprimirContenidoEntradas()
 
 	log_info(logger, "Los valores se han impreso correctamente\n");
 }
+*/
 
-void estructurasLuegoDeOperacion()
+void imprimirContenidoEntradas(t_log* log)
 {
 	if(list_is_empty(tablaEntradas))
 	{
-		log_info(logOperaciones, "No se guardo nada en las Entradas. No hay nada que imprimir\n");
+		log_info(log, "No se guardo nada en las Entradas. No hay nada que imprimir\n");
 		return;
 	}
 
-	log_info(logOperaciones, "--------------- Comenzamos a imprimir los valores ---------------\n");
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
+	int valorRestante = 0;
+
+	log_info(log, "--------------- Comenzamos a imprimir los valores ---------------\n");
 
 	t_link_element * lista = tablaEntradas->head;
 
@@ -1455,34 +1481,77 @@ void estructurasLuegoDeOperacion()
 	{
 		t_tabla_entradas * datos = ((t_tabla_entradas *)lista->data);
 
-		log_info(logOperaciones, "--------------- NUEVO VALOR ---------------");
-		log_info(logOperaciones, "La clave es: %s\n", datos->clave);
-		log_info(logOperaciones, "El momento de referencia es: %d\n", datos->momentoReferencia);
-		log_info(logOperaciones, "El numero de entrada inicial es: %d\n", datos->numeroEntrada);
-		log_info(logOperaciones, "El tamanio del valor es: %d\n", datos->tamanioValor);
-		log_info(logOperaciones, "El valor ocupa %d entradas\n", cuantasEntradasOcupaElValor(datos->tamanioValor));
-		log_info(logOperaciones, "Su valor asociado es: %s\n", &entradas[datos->numeroEntrada * tamanioEntrada]);
+		log_info(log, "--------------- NUEVO VALOR ---------------");
+		log_info(log, "La clave es: %s\n", datos->clave);
+		log_info(log, "El momento de referencia es: %d\n", datos->momentoReferencia);
+		log_info(log, "El numero de entrada es: %d\n", datos->numeroEntrada);
+		log_info(log, "El tamanio del valor es: %d\n", datos->tamanioValor);
+		log_info(log, "El valor ocupa %d entradas\n", cuantasEntradasOcupaElValor(datos->tamanioValor));
 
-		t_tabla_entradas * siguiente = datos;
+		int masChico = minimo(tamanioEntrada, datos->tamanioValor);
 
-		while(lista != NULL && (strcmp(siguiente->clave, datos->clave) == 0))
+		char * valorNow = malloc(masChico + 1);
+		memcpy((void*)valorNow, (void*)&entradas[datos->numeroEntrada * tamanioEntrada], masChico);
+		valorNow[masChico] = '\0';
+		log_info(log, "Su valor asociado es: %s\n", valorNow);
+
+		char * claveActual = datos->clave;
+
+		valorRestante = datos->tamanioValor;
+
+		free(valorNow);
+
+		lista = lista->next;
+
+		if(lista == NULL)
 		{
+			break;
+		}
 
-			log_info(logOperaciones, "El momento de referencia es: %d\n", siguiente->momentoReferencia);
-			log_info(logOperaciones, "El numero de entrada es: %d\n", siguiente->numeroEntrada);
-			log_info(logOperaciones, "El tamanio del valor es: %d\n", siguiente->tamanioValor);
-			log_info(logOperaciones, "-------- OTRO NODO --------");
+		datos = ((t_tabla_entradas *)lista->data);
+
+		while(lista != NULL && (strcmp(claveActual, datos->clave) == 0))
+		{
+			log_info(log, "--------------- NUEVO VALOR ---------------");
+			log_info(log, "La clave es: %s\n", datos->clave);
+			log_info(log, "El momento de referencia es: %d\n", datos->momentoReferencia);
+			log_info(log, "El numero de entrada es: %d\n", datos->numeroEntrada);
+			log_info(log, "El tamanio del valor es: %d\n", datos->tamanioValor);
+			log_info(log, "El valor ocupa %d entradas\n", cuantasEntradasOcupaElValor(datos->tamanioValor));
+
+			valorRestante = valorRestante - tamanioEntrada;
+			masChico = minimo(tamanioEntrada, valorRestante);
+
+			char * loQueQueda = malloc(masChico + 1);
+			memcpy((void*)loQueQueda, (void*)&entradas[datos->numeroEntrada * tamanioEntrada], masChico);
+			loQueQueda[masChico] = '\0';
+			log_info(log, "Su valor asociado es: %s\n", loQueQueda);
+
+			free(loQueQueda);
+
 			lista = lista->next;
 
-			if(lista != NULL)
+			if(lista == NULL)
 			{
-				siguiente = ((t_tabla_entradas *)lista->data);
+				break;
 			}
+
+			datos = ((t_tabla_entradas *)lista->data);
 		}
 
 	}
 
-	log_info(logOperaciones, "--------------- Los valores se han impreso correctamente ---------------\n");
+	log_info(log, "--------------- Los valores se han impreso correctamente ---------------\n");
+}
+
+int minimo(int valor1, int valor2)
+{
+	if(valor1 >= valor2)
+	{
+		return valor2;
+	}
+
+	return valor1;
 }
 
 /* NO SE USA
@@ -1591,16 +1660,59 @@ int algoritmoCircular(char * clave, char * valor, int32_t longitudValor, int can
 
 */
 
+void actualizarPunteroCIRC()
+{
+	int noEncontrado = 1;
+
+	t_link_element * actual = tablaEntradas->head;
+
+	while(actual != NULL && noEncontrado)
+	{
+		t_tabla_entradas * datos = (t_tabla_entradas *)actual->data;
+
+		if(datos->numeroEntrada == posCIRC)
+		{
+			punteroReempAlgCirc = actual;
+			noEncontrado = 0;
+		}
+
+		actual = actual->next;
+	}
+
+	if(noEncontrado)
+	{
+		perror("La entrada a reemplazar no esta en la Tabla de Entradas!\n");
+	}
+}
+
 void moverPunteroReempAlgCirc()
 {
 	//Cuando usamos esta funcion sabemos que la lista esta ordenada por numero entrada de menor a mayor
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
+	/*
 	if(punteroReempAlgCirc->next == NULL) //Quiere decir que esta en el ultimo elemento
 	{
+		log_info(logger, "Se mueve el puntero a la cabecera porque esta en el ultimo nodo\n");
 		punteroReempAlgCirc = tablaEntradas->head;
 		return;
 	}
 
+	log_info(logger, "Se movio el puntero al siguiente\n");
 	punteroReempAlgCirc = punteroReempAlgCirc->next;
+	log_info(logger, "El puntero apunta a la entrada %d", ((t_tabla_entradas*)punteroReempAlgCirc->data)->numeroEntrada);
+	*/
+
+	if(posCIRC == (cantidadEntradas - 1))
+	{
+		posCIRC = 0;
+	}
+	else
+	{
+		posCIRC++;
+	}
+
+	actualizarPunteroCIRC();
 }
 
 /* OTRA ACTUALIZADA
@@ -1740,7 +1852,7 @@ int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, in
 		return -3;
 	}
 
-	strcpy(pointermmap, &entradas[numeroEntrada * tamanioEntrada]);
+	memcpy((void*)pointermmap, (void*)&entradas[numeroEntrada * tamanioEntrada], tamanioValor);
 	close(fd);
 	free(nombreDelArchivo);
 
@@ -1788,8 +1900,14 @@ void * DUMP()
 
 				while(actual != NULL && (strcmp(claveActual, dato->clave) == 0))
 				{
-					dato = (t_tabla_entradas *)actual->data;
 					actual = actual->next;
+
+					if(actual == NULL)
+					{
+						break;
+					}
+
+					dato = (t_tabla_entradas *)actual->data;
 				}
 
 				free(claveActual);
@@ -1892,12 +2010,15 @@ void reincorporarse()
 
 				fseek(fp, 0, SEEK_END);
 				int32_t longitudValor = ftell(fp);
-				char * valor = (char *) malloc(longitudValor * sizeof(char));
+				char * valor = (char *) malloc((longitudValor + 1) * sizeof(char));
 				fseek(fp, 0, SEEK_SET);
 				fread(valor, sizeof(char), longitudValor, fp);
+				valor[longitudValor] = '\0';
 
 				guardarValorEnEntradas(clave, valor, pos);
 				pos += cuantasEntradasOcupaElValor(longitudValor);
+
+				log_info(logger, "Se guardo el valor %s, cuya clave es %s en la entrada %d\n", valor, clave, pos);
 
 				free(nombreCompleto);
 				free(rutaAbsoluta);

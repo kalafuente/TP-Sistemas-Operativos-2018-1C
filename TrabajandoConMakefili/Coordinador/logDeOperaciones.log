@@ -1,76 +1,293 @@
-[INFO] 16:27:08:194 logDeOperaciones/(9746:10190): ESI  1 GET sony:consola:ps1
-[INFO] 16:27:08:546 logDeOperaciones/(9746:10190): ESI  1 GET sony:consola:ps2
-[INFO] 16:27:08:899 logDeOperaciones/(9746:10190): ESI  1 GET sony:consola:ps3
-[INFO] 16:27:09:244 logDeOperaciones/(9746:10190): ESI  1 GET sony:consola:ps4
-[INFO] 16:27:09:596 logDeOperaciones/(9746:10190): ESI  1 GET microsoft:consola:xbox
-[INFO] 16:27:10:5 logDeOperaciones/(9746:10190): ESI  1 GET microsoft:consola:xbox360
-[INFO] 16:27:10:362 logDeOperaciones/(9746:10190): ESI  1 GET microsoft:consola:xboxone
-[INFO] 16:27:10:722 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:nes
-[INFO] 16:27:11:76 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:snes
-[INFO] 16:27:11:445 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:nintendo64
-[INFO] 16:27:11:797 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:gamecube
-[INFO] 16:27:12:150 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:wii
-[INFO] 16:27:12:499 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:wiiu
-[INFO] 16:27:12:849 logDeOperaciones/(9746:10190): ESI  1 GET nintendo:consola:switch
-[INFO] 16:27:13:218 logDeOperaciones/(9746:10190): ESI  1 SET nintendo:consola:nes Mario
-[INFO] 16:27:13:647 logDeOperaciones/(9746:10190): ESI  1 SET nintendo:consola:snes SuperMario
-[INFO] 16:27:14:104 logDeOperaciones/(9746:10190): ESI  1 SET nintendo:consola:nintendo64 Mario64
-[INFO] 16:27:14:512 logDeOperaciones/(9746:10190): ESI  1 SET nintendo:consola:gamecube FinalFantasyTactics
-[INFO] 16:27:14:916 logDeOperaciones/(9746:10190): ESI  1 SET nintendo:consola:wii MarioGalaxy
-[INFO] 16:40:17:890 logDeOperaciones/(11264:11278): ESI  1 GET sony:consola:ps1
-[INFO] 16:40:18:237 logDeOperaciones/(11264:11278): ESI  1 GET sony:consola:ps2
-[INFO] 16:40:18:597 logDeOperaciones/(11264:11278): ESI  1 GET sony:consola:ps3
-[INFO] 16:40:18:957 logDeOperaciones/(11264:11278): ESI  1 GET sony:consola:ps4
-[INFO] 16:40:19:314 logDeOperaciones/(11264:11278): ESI  1 GET microsoft:consola:xbox
-[INFO] 16:40:19:669 logDeOperaciones/(11264:11278): ESI  1 GET microsoft:consola:xbox360
-[INFO] 16:40:20:18 logDeOperaciones/(11264:11278): ESI  1 GET microsoft:consola:xboxone
-[INFO] 16:40:20:377 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:nes
-[INFO] 16:40:20:728 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:snes
-[INFO] 16:40:21:75 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:nintendo64
-[INFO] 16:40:21:443 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:gamecube
-[INFO] 16:40:21:789 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:wii
-[INFO] 16:40:22:149 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:wiiu
-[INFO] 16:40:22:501 logDeOperaciones/(11264:11278): ESI  1 GET nintendo:consola:switch
-[INFO] 16:40:22:851 logDeOperaciones/(11264:11278): ESI  1 SET nintendo:consola:nes Mario
-[INFO] 16:40:23:242 logDeOperaciones/(11264:11278): ESI  1 SET nintendo:consola:snes SuperMario
-[INFO] 16:40:23:643 logDeOperaciones/(11264:11278): ESI  1 SET nintendo:consola:nintendo64 Mario64
-[INFO] 16:40:24:90 logDeOperaciones/(11264:11278): ESI  1 SET nintendo:consola:gamecube FinalFantasyTactics
-[INFO] 16:40:24:499 logDeOperaciones/(11264:11278): ESI  1 SET nintendo:consola:wii MarioGalaxy
-[INFO] 16:43:01:643 logDeOperaciones/(11708:11829): ESI  1 GET sony:consola:ps1
-[INFO] 16:43:01:990 logDeOperaciones/(11708:11829): ESI  1 GET sony:consola:ps2
-[INFO] 16:43:02:385 logDeOperaciones/(11708:11829): ESI  1 GET sony:consola:ps3
-[INFO] 16:43:02:739 logDeOperaciones/(11708:11829): ESI  1 GET sony:consola:ps4
-[INFO] 16:43:03:82 logDeOperaciones/(11708:11829): ESI  1 GET microsoft:consola:xbox
-[INFO] 16:43:03:426 logDeOperaciones/(11708:11829): ESI  1 GET microsoft:consola:xbox360
-[INFO] 16:43:03:776 logDeOperaciones/(11708:11829): ESI  1 GET microsoft:consola:xboxone
-[INFO] 16:43:04:142 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:nes
-[INFO] 16:43:04:488 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:snes
-[INFO] 16:43:04:834 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:nintendo64
-[INFO] 16:43:05:184 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:gamecube
-[INFO] 16:43:05:534 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:wii
-[INFO] 16:43:05:881 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:wiiu
-[INFO] 16:43:06:229 logDeOperaciones/(11708:11829): ESI  1 GET nintendo:consola:switch
-[INFO] 16:43:06:579 logDeOperaciones/(11708:11829): ESI  1 SET nintendo:consola:nes Mario
-[INFO] 16:43:30:475 logDeOperaciones/(11708:11829): ESI  1 SET nintendo:consola:snes SuperMario
-[INFO] 16:43:30:874 logDeOperaciones/(11708:11829): ESI  1 SET nintendo:consola:nintendo64 Mario64
-[INFO] 16:43:31:267 logDeOperaciones/(11708:11829): ESI  1 SET nintendo:consola:gamecube FinalFantasyTactics
-[INFO] 16:43:31:702 logDeOperaciones/(11708:11829): ESI  1 SET nintendo:consola:wii MarioGalaxy
-[INFO] 16:45:06:685 logDeOperaciones/(11899:11921): ESI  1 GET sony:consola:ps1
-[INFO] 16:45:07:33 logDeOperaciones/(11899:11921): ESI  1 GET sony:consola:ps2
-[INFO] 16:45:07:378 logDeOperaciones/(11899:11921): ESI  1 GET sony:consola:ps3
-[INFO] 16:45:07:740 logDeOperaciones/(11899:11921): ESI  1 GET sony:consola:ps4
-[INFO] 16:45:08:91 logDeOperaciones/(11899:11921): ESI  1 GET microsoft:consola:xbox
-[INFO] 16:45:08:446 logDeOperaciones/(11899:11921): ESI  1 GET microsoft:consola:xbox360
-[INFO] 16:45:08:810 logDeOperaciones/(11899:11921): ESI  1 GET microsoft:consola:xboxone
-[INFO] 16:45:09:184 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:nes
-[INFO] 16:45:09:531 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:snes
-[INFO] 16:45:09:908 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:nintendo64
-[INFO] 16:45:10:258 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:gamecube
-[INFO] 16:45:10:616 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:wii
-[INFO] 16:45:10:966 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:wiiu
-[INFO] 16:45:11:332 logDeOperaciones/(11899:11921): ESI  1 GET nintendo:consola:switch
-[INFO] 16:45:11:702 logDeOperaciones/(11899:11921): ESI  1 SET nintendo:consola:nes Mario
-[INFO] 16:45:12:88 logDeOperaciones/(11899:11921): ESI  1 SET nintendo:consola:snes SuperMario
-[INFO] 16:45:40:873 logDeOperaciones/(11899:11921): ESI  1 SET nintendo:consola:nintendo64 Mario64
-[INFO] 16:45:41:274 logDeOperaciones/(11899:11921): ESI  1 SET nintendo:consola:gamecube FinalFantasyTactics
-[INFO] 16:45:41:658 logDeOperaciones/(11899:11921): ESI  1 SET nintendo:consola:wii MarioGalaxy
+[INFO] 16:56:00:734 logDeOperaciones/(10266:10611): ESI  1 GET e3:sony:juegos
+[INFO] 16:56:00:987 logDeOperaciones/(10266:10611): ESI  1 GET e3:microsoft:juegos
+[INFO] 16:56:01:245 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 16:56:01:535 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 16:56:01:824 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 16:56:02:121 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 16:56:02:408 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 16:56:02:700 logDeOperaciones/(10266:10611): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 16:56:02:993 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 16:56:03:290 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 16:56:03:573 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 16:56:03:861 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 16:56:04:150 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 16:56:04:433 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 16:56:04:716 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 16:56:05:7 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 16:56:05:297 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 16:56:05:582 logDeOperaciones/(10266:10611): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 16:56:05:864 logDeOperaciones/(10266:10611): ESI  1 STORE e3:microsoft:juegos
+[INFO] 16:56:06:148 logDeOperaciones/(10266:10611): ESI  1 STORE e3:sony:juegos
+[INFO] 17:03:28:946 logDeOperaciones/(10927:10939): ESI  1 GET e3:sony:juegos
+[INFO] 17:03:29:189 logDeOperaciones/(10927:10939): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:03:29:435 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:03:29:717 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:03:30:4 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:03:30:303 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:03:30:603 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:03:30:893 logDeOperaciones/(10927:10939): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:03:31:209 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:03:31:512 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:03:31:796 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:03:32:92 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:03:32:376 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:03:32:664 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:03:32:952 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:03:33:243 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:03:33:526 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:03:33:811 logDeOperaciones/(10927:10939): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:03:34:95 logDeOperaciones/(10927:10939): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:03:34:377 logDeOperaciones/(10927:10939): ESI  1 STORE e3:sony:juegos
+[INFO] 17:04:16:390 logDeOperaciones/(10991:11003): ESI  1 GET e3:sony:juegos
+[INFO] 17:04:16:641 logDeOperaciones/(10991:11003): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:04:16:888 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:04:17:190 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:04:17:520 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:04:17:809 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:04:18:99 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:04:18:404 logDeOperaciones/(10991:11003): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:04:18:708 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:04:18:991 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:04:19:299 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:04:19:606 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:04:19:903 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:04:20:197 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:04:20:496 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:04:20:780 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:04:21:68 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:04:21:350 logDeOperaciones/(10991:11003): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:04:21:647 logDeOperaciones/(10991:11003): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:04:21:955 logDeOperaciones/(10991:11003): ESI  1 STORE e3:sony:juegos
+[INFO] 17:04:49:970 logDeOperaciones/(11050:11062): ESI  1 GET e3:sony:juegos
+[INFO] 17:04:50:212 logDeOperaciones/(11050:11062): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:04:50:454 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:04:50:751 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:04:51:34 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:04:51:333 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:04:51:621 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:04:51:913 logDeOperaciones/(11050:11062): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:04:52:195 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:04:52:478 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:04:52:765 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:04:53:52 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:04:53:334 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:04:53:622 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:04:53:907 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:04:54:197 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:04:54:478 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:04:54:765 logDeOperaciones/(11050:11062): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:04:55:50 logDeOperaciones/(11050:11062): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:04:55:333 logDeOperaciones/(11050:11062): ESI  1 STORE e3:sony:juegos
+[INFO] 17:12:26:904 logDeOperaciones/(11647:11659): ESI  1 GET e3:sony:juegos
+[INFO] 17:12:27:200 logDeOperaciones/(11647:11659): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:12:27:417 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:12:27:696 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:12:27:996 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:12:28:281 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:12:28:563 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:12:28:852 logDeOperaciones/(11647:11659): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:12:29:150 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:12:29:441 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:12:29:727 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:12:30:12 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:12:30:305 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:12:30:592 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:12:30:895 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:12:31:180 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:12:31:469 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:12:31:756 logDeOperaciones/(11647:11659): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:12:32:40 logDeOperaciones/(11647:11659): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:12:32:324 logDeOperaciones/(11647:11659): ESI  1 STORE e3:sony:juegos
+[INFO] 17:20:24:942 logDeOperaciones/(11871:11883): ESI  1 GET e3:sony:juegos
+[INFO] 17:20:25:183 logDeOperaciones/(11871:11883): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:20:25:424 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:20:25:703 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:20:25:985 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:20:26:273 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:20:26:566 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:20:26:873 logDeOperaciones/(11871:11883): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:20:27:169 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:20:27:452 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:20:27:764 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:20:28:52 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:20:28:340 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:20:28:649 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:20:28:932 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:20:29:228 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:20:29:518 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:20:29:808 logDeOperaciones/(11871:11883): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:20:30:98 logDeOperaciones/(11871:11883): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:20:30:383 logDeOperaciones/(11871:11883): ESI  1 STORE e3:sony:juegos
+[INFO] 17:37:20:551 logDeOperaciones/(12251:12264): ESI  1 GET e3:sony:juegos
+[INFO] 17:37:20:823 logDeOperaciones/(12251:12264): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:37:21:116 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:37:21:442 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:37:21:750 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:37:22:61 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:37:22:405 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:37:22:706 logDeOperaciones/(12251:12264): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:37:23:48 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:37:23:402 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:37:23:727 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:37:24:59 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:37:24:395 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:37:24:734 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:37:25:49 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:37:25:400 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:37:25:700 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:37:26:32 logDeOperaciones/(12251:12264): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:37:26:368 logDeOperaciones/(12251:12264): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:37:26:695 logDeOperaciones/(12251:12264): ESI  1 STORE e3:sony:juegos
+[INFO] 17:40:19:166 logDeOperaciones/(12313:12326): ESI  1 GET e3:sony:juegos
+[INFO] 17:40:19:495 logDeOperaciones/(12313:12326): ESI  1 GET e3:microsoft:juegos
+[INFO] 17:40:19:804 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 17:40:20:215 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 17:40:20:559 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:40:20:904 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 17:40:21:248 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:40:21:569 logDeOperaciones/(12313:12326): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:40:21:931 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:40:22:275 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:40:22:611 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 17:40:22:987 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:40:23:341 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 17:40:23:676 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:40:24:34 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:40:24:449 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:40:24:780 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:40:25:161 logDeOperaciones/(12313:12326): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:40:25:501 logDeOperaciones/(12313:12326): ESI  1 STORE e3:microsoft:juegos
+[INFO] 17:40:25:860 logDeOperaciones/(12313:12326): ESI  1 STORE e3:sony:juegos
+[INFO] 17:42:31:948 logDeOperaciones/(12332:12358): ESI  1 GET sony:consola:ps1
+[INFO] 17:42:32:279 logDeOperaciones/(12332:12358): ESI  1 GET sony:consola:ps2
+[INFO] 17:42:32:635 logDeOperaciones/(12332:12358): ESI  1 GET sony:consola:ps3
+[INFO] 17:42:32:936 logDeOperaciones/(12332:12358): ESI  1 GET sony:consola:ps4
+[INFO] 17:42:33:231 logDeOperaciones/(12332:12358): ESI  1 GET microsoft:consola:xbox
+[INFO] 17:42:33:531 logDeOperaciones/(12332:12358): ESI  1 GET microsoft:consola:xbox360
+[INFO] 17:42:33:792 logDeOperaciones/(12332:12358): ESI  1 GET microsoft:consola:xboxone
+[INFO] 17:42:34:79 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:nes
+[INFO] 17:42:34:392 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:snes
+[INFO] 17:42:34:684 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:nintendo64
+[INFO] 17:42:34:963 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:gamecube
+[INFO] 17:42:35:256 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:wii
+[INFO] 17:42:35:536 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:wiiu
+[INFO] 17:42:35:842 logDeOperaciones/(12332:12358): ESI  1 GET nintendo:consola:switch
+[INFO] 17:42:36:114 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:nes Mario
+[INFO] 17:42:36:563 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:snes SuperMario
+[INFO] 17:42:36:875 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:nintendo64 Mario64
+[INFO] 17:42:37:257 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:gamecube Mario
+[INFO] 17:42:37:625 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:wii MarioGalaxy
+[INFO] 17:42:37:991 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:wiiu RIP
+[INFO] 17:42:38:343 logDeOperaciones/(12332:12358): ESI  1 SET nintendo:consola:switch MarioOddysey
+[INFO] 17:42:38:709 logDeOperaciones/(12332:12358): ESI  1 SET sony:consola:ps1 FinalFantasy
+[INFO] 17:42:39:116 logDeOperaciones/(12332:12358): ESI  1 SET sony:consola:ps2 GodOfWar
+[INFO] 17:42:39:507 logDeOperaciones/(12332:12358): ESI  1 SET sony:consola:ps3 TLOU
+[INFO] 17:42:39:849 logDeOperaciones/(12332:12358): ESI  1 SET sony:consola:ps4 Bloodborne
+[INFO] 17:42:40:211 logDeOperaciones/(12332:12358): ESI  1 SET microsoft:consola:xbox Halo
+[INFO] 17:42:40:583 logDeOperaciones/(12332:12358): ESI  1 SET microsoft:consola:xbox360 Halo
+[INFO] 17:42:40:978 logDeOperaciones/(12332:12358): ESI  1 SET microsoft:consola:xboxone Halo
+[INFO] 17:42:46:102 logDeOperaciones/(12332:12360): ESI  2 GET e3:sony:juegos
+[INFO] 17:42:46:414 logDeOperaciones/(12332:12360): ESI  2 GET e3:microsoft:juegos
+[INFO] 17:42:46:712 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos TLOU2
+[INFO] 17:42:47:103 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos Spiderman
+[INFO] 17:42:47:401 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos GhostOfTsushima
+[INFO] 17:42:47:847 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos DeathStranding
+[INFO] 17:42:48:148 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 17:42:48:465 logDeOperaciones/(12332:12360): ESI  2 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 17:42:48:784 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos DLCCuphead
+[INFO] 17:42:49:123 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 17:42:49:474 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos Gears5
+[INFO] 17:42:49:796 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos MetroExodus
+[INFO] 17:42:50:196 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos Fallout76
+[INFO] 17:42:50:524 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos TheDivision2
+[INFO] 17:42:50:845 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos DyingLight2
+[INFO] 17:42:51:187 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos Crackdown3
+[INFO] 17:42:51:509 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos HaloInfinite
+[INFO] 17:42:51:852 logDeOperaciones/(12332:12360): ESI  2 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 17:42:52:164 logDeOperaciones/(12332:12360): ESI  2 STORE e3:microsoft:juegos
+[INFO] 17:42:52:501 logDeOperaciones/(12332:12360): ESI  2 STORE e3:sony:juegos
+[INFO] 18:12:22:727 logDeOperaciones/(13741:13753): ESI  1 GET e3:sony:juegos
+[INFO] 18:12:23:52 logDeOperaciones/(13741:13753): ESI  1 GET e3:microsoft:juegos
+[INFO] 18:12:23:347 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos TLOU2
+[INFO] 18:12:23:778 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos Spiderman
+[INFO] 18:12:24:113 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos GhostOfTsushima
+[INFO] 18:12:24:469 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos DeathStranding
+[INFO] 18:12:24:835 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos ResidenEvil2Remake
+[INFO] 18:12:25:184 logDeOperaciones/(13741:13753): ESI  1 SET e3:sony:juegos Destiny2DLCForsaken
+[INFO] 18:12:25:539 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos DLCCuphead
+[INFO] 18:12:25:904 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos ForzaHorizon4
+[INFO] 18:12:26:248 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos Gears5
+[INFO] 18:12:26:617 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos MetroExodus
+[INFO] 18:12:26:932 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos Fallout76
+[INFO] 18:12:27:256 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos TheDivision2
+[INFO] 18:12:27:611 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos DyingLight2
+[INFO] 18:12:27:956 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos Crackdown3
+[INFO] 18:12:28:337 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos HaloInfinite
+[INFO] 18:12:28:697 logDeOperaciones/(13741:13753): ESI  1 SET e3:microsoft:juegos KingdomHearts3
+[INFO] 18:12:29:47 logDeOperaciones/(13741:13753): ESI  1 STORE e3:microsoft:juegos
+[INFO] 18:12:29:417 logDeOperaciones/(13741:13753): ESI  1 STORE e3:sony:juegos
+[INFO] 18:13:14:977 logDeOperaciones/(13741:13758): ESI  2 GET sony:consola:ps1
+[INFO] 18:13:15:276 logDeOperaciones/(13741:13758): ESI  2 GET sony:consola:ps2
+[INFO] 18:13:15:588 logDeOperaciones/(13741:13758): ESI  2 GET sony:consola:ps3
+[INFO] 18:13:15:848 logDeOperaciones/(13741:13758): ESI  2 GET sony:consola:ps4
+[INFO] 18:13:16:109 logDeOperaciones/(13741:13758): ESI  2 GET microsoft:consola:xbox
+[INFO] 18:13:16:405 logDeOperaciones/(13741:13758): ESI  2 GET microsoft:consola:xbox360
+[INFO] 18:13:16:697 logDeOperaciones/(13741:13758): ESI  2 GET microsoft:consola:xboxone
+[INFO] 18:13:16:963 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:nes
+[INFO] 18:13:17:227 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:snes
+[INFO] 18:13:17:541 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:nintendo64
+[INFO] 18:13:17:856 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:gamecube
+[INFO] 18:13:18:125 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:wii
+[INFO] 18:13:18:411 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:wiiu
+[INFO] 18:13:18:740 logDeOperaciones/(13741:13758): ESI  2 GET nintendo:consola:switch
+[INFO] 18:13:39:740 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:nes Mario
+[INFO] 18:13:40:86 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:snes SuperMario
+[INFO] 18:13:40:435 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:nintendo64 Mario64
+[INFO] 18:13:40:827 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:gamecube Mario
+[INFO] 18:13:41:204 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:wii MarioGalaxy
+[INFO] 18:13:41:548 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:wiiu RIP
+[INFO] 18:13:41:934 logDeOperaciones/(13741:13758): ESI  2 SET nintendo:consola:switch MarioOddysey
+[INFO] 18:13:43:131 logDeOperaciones/(13741:13758): ESI  67489726 SET sony:consola:ps1 FinalFantasy
+[INFO] 18:15:18:299 logDeOperaciones/(13785:13796): ESI  1 GET sony:consola:ps1
+[INFO] 18:15:18:641 logDeOperaciones/(13785:13796): ESI  1 GET sony:consola:ps2
+[INFO] 18:15:18:937 logDeOperaciones/(13785:13796): ESI  1 GET sony:consola:ps3
+[INFO] 18:15:19:213 logDeOperaciones/(13785:13796): ESI  1 GET sony:consola:ps4
+[INFO] 18:15:19:532 logDeOperaciones/(13785:13796): ESI  1 GET microsoft:consola:xbox
+[INFO] 18:15:19:820 logDeOperaciones/(13785:13796): ESI  1 GET microsoft:consola:xbox360
+[INFO] 18:15:20:121 logDeOperaciones/(13785:13796): ESI  1 GET microsoft:consola:xboxone
+[INFO] 18:15:20:416 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:nes
+[INFO] 18:15:20:711 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:snes
+[INFO] 18:15:21:45 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:nintendo64
+[INFO] 18:15:21:341 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:gamecube
+[INFO] 18:15:21:613 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:wii
+[INFO] 18:15:21:921 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:wiiu
+[INFO] 18:15:22:223 logDeOperaciones/(13785:13796): ESI  1 GET nintendo:consola:switch
+[INFO] 18:15:22:577 logDeOperaciones/(13785:13796): ESI  1 SET nintendo:consola:nes Mario
+[INFO] 18:17:45:139 logDeOperaciones/(13827:13840): ESI  1 GET sony:consola:ps1
+[INFO] 18:17:45:476 logDeOperaciones/(13827:13840): ESI  1 GET sony:consola:ps2
+[INFO] 18:17:45:779 logDeOperaciones/(13827:13840): ESI  1 GET sony:consola:ps3
+[INFO] 18:17:46:74 logDeOperaciones/(13827:13840): ESI  1 GET sony:consola:ps4
+[INFO] 18:17:46:392 logDeOperaciones/(13827:13840): ESI  1 GET microsoft:consola:xbox
+[INFO] 18:17:46:676 logDeOperaciones/(13827:13840): ESI  1 GET microsoft:consola:xbox360
+[INFO] 18:17:46:998 logDeOperaciones/(13827:13840): ESI  1 GET microsoft:consola:xboxone
+[INFO] 18:17:47:272 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:nes
+[INFO] 18:17:47:545 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:snes
+[INFO] 18:17:47:836 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:nintendo64
+[INFO] 18:17:48:141 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:gamecube
+[INFO] 18:17:48:435 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:wii
+[INFO] 18:17:48:725 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:wiiu
+[INFO] 18:17:49:42 logDeOperaciones/(13827:13840): ESI  1 GET nintendo:consola:switch
+[INFO] 18:17:49:352 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:nes Mario
+[INFO] 18:17:49:781 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:snes SuperMario
+[INFO] 18:17:50:119 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:nintendo64 Mario64
+[INFO] 18:17:50:502 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:gamecube Mario
+[INFO] 18:17:50:868 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:wii MarioGalaxy
+[INFO] 18:17:51:244 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:wiiu RIP
+[INFO] 18:17:51:618 logDeOperaciones/(13827:13840): ESI  1 SET nintendo:consola:switch MarioOddysey
+[INFO] 18:17:51:987 logDeOperaciones/(13827:13840): ESI  1 SET sony:consola:ps1 FinalFantasy
+[INFO] 18:17:52:357 logDeOperaciones/(13827:13840): ESI  1 SET sony:consola:ps2 GodOfWar
+[INFO] 18:17:52:754 logDeOperaciones/(13827:13840): ESI  1 SET sony:consola:ps3 TLOU
+[INFO] 18:17:53:154 logDeOperaciones/(13827:13840): ESI  1 SET sony:consola:ps4 Bloodborne
+[INFO] 18:17:53:494 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xbox Halo
+[INFO] 18:17:53:887 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xbox360 Halo
+[INFO] 18:17:54:287 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xboxone Halo

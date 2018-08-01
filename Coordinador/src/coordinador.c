@@ -73,10 +73,10 @@ void crearServidorMultiHilo() {
 
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
 
-		puts("Cliente conectado. Esperando mensajes prueba:\n");
+		puts("Cliente conectado. \n");
 
 		if (pthread_create(&thread_id, NULL, manejadorDeConexiones, (void*) &socketCliente) < 0) {
-			perror("No se pudo crear el hilo");
+			log_error(logger,"No se pudo crear el hilo");
 			exit(1);
 		}
 
@@ -86,10 +86,8 @@ void crearServidorMultiHilo() {
 				break;
 			}
 		 */
-		puts("Manejador de conexiones asignado");
-		printf("la bandera es: %d \n", banderaTerminarHilos);
-
-
+		puts("Manejador de conexiones asignado \n");
+		//printf("la bandera es: %d \n", banderaTerminarHilos);
 	}
 
 	if (socketCliente < 0) {
@@ -102,7 +100,7 @@ void crearServidorMultiHilo() {
 void *manejadorDeConexiones(void *socket_desc) {
 	int sock = *(int*) socket_desc;
 	pthread_t  idHilo = pthread_self();
-	printf ("hilo: %lu \n", idHilo);
+	//printf ("hilo: %lu \n", idHilo);
 	t_instruccion* instruccionAGuardar;
 	saludar(sock);
 
@@ -116,14 +114,12 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
 			//list_add(hilos, &idHilo);
-			log_info(logger, "Se espera el pedido de status");
+			//log_info(logger, "Se espera el pedido de status");
 			status(sock);
 			close(sock);
 			break;
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
-
-			//list_add(hilos, &id);
 			log_info(logger, "Se me conectó una Instancia");
 
 			char * id = recibirID(sock, logger);
@@ -132,17 +128,17 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 			if(existeID(id,listaDeInstancias)){
 
-				printf("Se reconecta instancia, socket nuevo: %d \n", sock);
-				printf("instancias viejas: \n");
-				mostrarListaIntancias(listaDeInstancias);
+				//printf("Se reconecta instancia, socket nuevo: %d \n", sock);
+				//printf("instancias viejas: \n");
+				//mostrarListaIntancias(listaDeInstancias);
 				actualizarSocketInstancia(sock, id, listaDeInstancias);
-				printf("instancias actualizadas: \n");
-				mostrarListaIntancias(listaDeInstancias);
+				//printf("instancias actualizadas: \n");
+				//mostrarListaIntancias(listaDeInstancias);
 			}
 			else{
-						printf("Nueva instancia");
+						printf("Nueva instancia \n");
 						registrarInstancia(sock, id);
-						mostrarListaIntancias(listaDeInstancias);
+						//mostrarListaIntancias(listaDeInstancias);
 					}
 
 			break;
@@ -180,7 +176,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 	}
 
-	printf("\n termino el hilo\n ");
+	//printf("\n termino el hilo\n ");
 	pthread_exit(EXIT_SUCCESS);
 }
 

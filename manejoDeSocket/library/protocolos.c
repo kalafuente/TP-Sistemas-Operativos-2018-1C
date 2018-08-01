@@ -7,7 +7,7 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 
 	PROTOCOLO_INSTRUCCIONES instruccion;
 
-	log_info(logger, "Esperando la Instruccion\n");
+	//log_info(logger, "Esperando la Instruccion\n");
 
 	int resultado = recibirMensaje(logger, sizeof(instruccion), &instruccion, sock);
 	if (resultado == -3){
@@ -21,7 +21,7 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 		return NULL;
 	}
 
-	log_info(logger, "recibirInstruccion:: Instruccion recibida\n");
+	//log_info(logger, "recibirInstruccion:: Instruccion recibida\n");
 
 	// --------------------- ESTO AGREGUE --------------------------
 
@@ -37,7 +37,7 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 
 	// --------------------- HASTA ACA -------------------------
 
-	log_info(logger, "recibirInstruccion:: Pedimos la longitud de la clave\n");
+	//log_info(logger, "recibirInstruccion:: Pedimos la longitud de la clave\n");
 
 	if(recibirMensaje(logger,sizeof(int32_t),&lenClave,sock) <= 0)
 	{
@@ -45,22 +45,22 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 		return NULL;
 	}
 
-	log_info(logger, "recibirInstruccion:: Longitud de la clave recibida: %d\n", lenClave);
-	log_info(logger, "recibirInstruccion:: Esperamos la clave\n");
+	//log_info(logger, "recibirInstruccion:: Longitud de la clave recibida: %d\n", lenClave);
+	//log_info(logger, "recibirInstruccion:: Esperamos la clave\n");
 
 	char key[lenClave];
 
 	if(recibirMensaje(logger, lenClave, key, sock) <= 0)
 	{
-		log_error(logger, "recibirInstruccion:: No se pudo recibir la clave\n");
+		//log_error(logger, "recibirInstruccion:: No se pudo recibir la clave\n");
 		return NULL;
 	}
 
-	log_info(logger, "recibirInstruccion:: Clave recibida: %s\n", key);
+	//log_info(logger, "recibirInstruccion:: Clave recibida: %s\n", key);
 
 	if(instruccion == INSTRUCCION_SET)
 	{
-		log_info(logger, "recibirInstruccion:: Esperamos la longitud del valor a almacenar\n");
+		//log_info(logger, "recibirInstruccion:: Esperamos la longitud del valor a almacenar\n");
 
 		if(recibirMensaje(logger, sizeof(lenValor), &lenValor, sock) <= 0)
 		{
@@ -68,8 +68,8 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 			return NULL;
 		}
 
-		log_info(logger, "recibirInstruccion:: Longitud del valor recibida: %d\n", lenValor);
-		log_info(logger, "recibirInstruccion:: Esperamos el valor\n");
+		//log_info(logger, "recibirInstruccion:: Longitud del valor recibida: %d\n", lenValor);
+		//log_info(logger, "recibirInstruccion:: Esperamos el valor\n");
 
 		char valor[lenValor];
 
@@ -79,13 +79,13 @@ t_instruccion * recibirInstruccion(t_log* logger,int sock, char* deQuien)
 			return NULL;
 		}
 
-		log_info(logger, "recibirInstruccion:: Valor recibido: %s\n", valor);
-		log_info(logger, "recibirInstruccion:: Instruccion recibida correctamente\n");
+		//log_info(logger, "recibirInstruccion:: Valor recibido: %s\n", valor);
+		//log_info(logger, "recibirInstruccion:: Instruccion recibida correctamente\n");
 
 		return crearInstruccion(instruccion, key, valor);
 	}
 
-	log_info(logger, "recibirInstruccion:: Instruccion recibida correctamente\n");
+	//log_info(logger, "recibirInstruccion:: Instruccion recibida correctamente\n");
 	return crearInstruccion(instruccion, key, NULL);
 
 }
@@ -97,7 +97,7 @@ int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 	int resultado = enviarMensaje(logger,sizeof(PROTOCOLO_INSTRUCCIONES),&instruccion->instruccion,sock);
 
 	if (resultado <= 0){
-			log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR PROTOCOLO");
+			//log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR PROTOCOLO");
 			return -1;
 	}
 
@@ -113,13 +113,13 @@ int enviarInstruccion(t_log* logger,t_instruccion* instruccion, int sock)
 	int resultado2 = enviarMensaje(logger,sizeof(int32_t),&lenClave,sock);
 
 	if (resultado2 <= 0){
-				log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR TAMAÑOCLAVE");
+				//log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR TAMAÑOCLAVE");
 				return -1;
 			}
 	int resultado3= enviarMensaje(logger,lenClave,instruccion->clave,sock);
 
 	if (resultado3 <= 0){
-					log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR CLAVE");
+					//log_info(logger,"enviarInstruccion:: ERROR AL ENVIAR CLAVE");
 					return -1;
 	}
 

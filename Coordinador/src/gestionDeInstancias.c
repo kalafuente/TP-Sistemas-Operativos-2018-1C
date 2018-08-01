@@ -3,17 +3,17 @@
 void registrarInstancia(int sock, char * id){
 	instancia * registrarInstancia = malloc(sizeof(instancia ));
 	registrarInstancia->socket=sock;
-	printf("\n socket de esta instancia: %d", sock);
+//	printf("\n socket de esta instancia: %d", sock);
 	registrarInstancia->identificador = id;
-	printf("\n id de esta instancia: %s", registrarInstancia->identificador);
+//	printf("\n id de esta instancia: %s", registrarInstancia->identificador);
 	registrarInstancia->cantEntradasTotales = coordConfig->entradas;
 	registrarInstancia->tamanioEntradas= coordConfig->tamanioEntradas;
 	registrarInstancia->cantEntradasOcupadas=0;
 	list_add(listaDeInstancias,registrarInstancia);
 
-	printf("\n tamaño listaDeInst: %d \n:", list_size(listaDeInstancias));
+//	printf("\n tamaño listaDeInst: %d \n:", list_size(listaDeInstancias));
 	log_info(logger,"\n Se registro instancia");
-	printf("instancias registradas: %d \n", list_size(listaDeInstancias));
+//	printf("instancias registradas: %d \n", list_size(listaDeInstancias));
 
 }
 

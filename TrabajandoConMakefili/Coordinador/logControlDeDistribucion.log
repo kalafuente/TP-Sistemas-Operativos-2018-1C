@@ -464,3 +464,73 @@
 [INFO] 18:17:54:329 logControlDeDistribucion/(13827:13840): NO HAY SET PREVIO DE ESTA CLAVE
 [INFO] 18:17:54:330 logControlDeDistribucion/(13827:13840): el socket de la instancia elegida es 10
 [INFO] 18:17:54:397 logControlDeDistribucion/(13827:13840): Set enviado a Instancia:   10
+[INFO] 19:09:28:827 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:28:841 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:28:927 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:29:253 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:29:254 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:29:295 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:29:594 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:29:595 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:29:657 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:29:965 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:29:969 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:30:29 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:30:333 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:30:333 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:30:416 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:30:723 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:30:724 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:30:800 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:31:70 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:31:75 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:31:144 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:31:441 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:31:442 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:31:513 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:31:809 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:31:811 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:31:881 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:32:186 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:32:187 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:32:258 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:32:550 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:32:551 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:32:624 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:32:921 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:32:922 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:33:20 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:33:308 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:33:309 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:33:384 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:33:699 logControlDeDistribucion/(15698:15715): NO HAY SET PREVIO DE ESTA CLAVE
+[INFO] 19:09:33:700 logControlDeDistribucion/(15698:15715): el socket de la instancia elegida es 8
+[INFO] 19:09:33:773 logControlDeDistribucion/(15698:15715): Set enviado a Instancia:   8
+[INFO] 19:09:58:58 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:58:117 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:09:58:413 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:58:471 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:09:58:773 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:58:826 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:09:59:118 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:59:175 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:09:59:441 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:59:493 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:09:59:758 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:09:59:831 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:00:145 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:00:217 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:00:482 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:00:541 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:00:805 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:00:862 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:01:145 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:01:197 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:01:497 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:01:553 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:01:822 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:01:877 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:02:152 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:02:205 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8
+[INFO] 19:10:02:505 logControlDeDistribucion/(15698:15718): HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: 8
+[INFO] 19:10:02:557 logControlDeDistribucion/(15698:15718): Set enviado a Instancia:   8

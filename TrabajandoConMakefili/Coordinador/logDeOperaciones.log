@@ -291,3 +291,59 @@
 [INFO] 18:17:53:494 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xbox Halo
 [INFO] 18:17:53:887 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xbox360 Halo
 [INFO] 18:17:54:287 logDeOperaciones/(13827:13840): ESI  1 SET microsoft:consola:xboxone Halo
+[INFO] 19:09:24:588 logDeOperaciones/(15698:15715): ESI  1 GET sony:consola:ps1
+[INFO] 19:09:24:881 logDeOperaciones/(15698:15715): ESI  1 GET sony:consola:ps2
+[INFO] 19:09:25:161 logDeOperaciones/(15698:15715): ESI  1 GET sony:consola:ps3
+[INFO] 19:09:25:465 logDeOperaciones/(15698:15715): ESI  1 GET sony:consola:ps4
+[INFO] 19:09:25:761 logDeOperaciones/(15698:15715): ESI  1 GET microsoft:consola:xbox
+[INFO] 19:09:26:54 logDeOperaciones/(15698:15715): ESI  1 GET microsoft:consola:xbox360
+[INFO] 19:09:26:369 logDeOperaciones/(15698:15715): ESI  1 GET microsoft:consola:xboxone
+[INFO] 19:09:26:663 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:nes
+[INFO] 19:09:26:968 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:snes
+[INFO] 19:09:27:272 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:nintendo64
+[INFO] 19:09:27:561 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:gamecube
+[INFO] 19:09:27:869 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:wii
+[INFO] 19:09:28:169 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:wiiu
+[INFO] 19:09:28:437 logDeOperaciones/(15698:15715): ESI  1 GET nintendo:consola:switch
+[INFO] 19:09:28:741 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:nes Mario
+[INFO] 19:09:29:209 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:snes SuperMario
+[INFO] 19:09:29:549 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:nintendo64 Mario64
+[INFO] 19:09:29:921 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:gamecube Mario
+[INFO] 19:09:30:291 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:wii MarioGalaxy
+[INFO] 19:09:30:673 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:wiiu RIP
+[INFO] 19:09:31:27 logDeOperaciones/(15698:15715): ESI  1 SET nintendo:consola:switch MarioOddysey
+[INFO] 19:09:31:396 logDeOperaciones/(15698:15715): ESI  1 SET sony:consola:ps1 FinalFantasy
+[INFO] 19:09:31:764 logDeOperaciones/(15698:15715): ESI  1 SET sony:consola:ps2 GodOfWar
+[INFO] 19:09:32:135 logDeOperaciones/(15698:15715): ESI  1 SET sony:consola:ps3 TLOU
+[INFO] 19:09:32:504 logDeOperaciones/(15698:15715): ESI  1 SET sony:consola:ps4 Bloodborne
+[INFO] 19:09:32:876 logDeOperaciones/(15698:15715): ESI  1 SET microsoft:consola:xbox Halo
+[INFO] 19:09:33:265 logDeOperaciones/(15698:15715): ESI  1 SET microsoft:consola:xbox360 Halo
+[INFO] 19:09:33:653 logDeOperaciones/(15698:15715): ESI  1 SET microsoft:consola:xboxone Halo
+[INFO] 19:09:53:883 logDeOperaciones/(15698:15718): ESI  2 GET sony:consola:ps1
+[INFO] 19:09:54:169 logDeOperaciones/(15698:15718): ESI  2 GET sony:consola:ps2
+[INFO] 19:09:54:470 logDeOperaciones/(15698:15718): ESI  2 GET sony:consola:ps3
+[INFO] 19:09:54:757 logDeOperaciones/(15698:15718): ESI  2 GET sony:consola:ps4
+[INFO] 19:09:55:26 logDeOperaciones/(15698:15718): ESI  2 GET microsoft:consola:xbox
+[INFO] 19:09:55:286 logDeOperaciones/(15698:15718): ESI  2 GET microsoft:consola:xbox360
+[INFO] 19:09:55:572 logDeOperaciones/(15698:15718): ESI  2 GET microsoft:consola:xboxone
+[INFO] 19:09:55:863 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:nes
+[INFO] 19:09:56:172 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:snes
+[INFO] 19:09:56:486 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:nintendo64
+[INFO] 19:09:56:809 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:gamecube
+[INFO] 19:09:57:109 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:wii
+[INFO] 19:09:57:407 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:wiiu
+[INFO] 19:09:57:709 logDeOperaciones/(15698:15718): ESI  2 GET nintendo:consola:switch
+[INFO] 19:09:58:13 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:nes Mario
+[INFO] 19:09:58:368 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:snes SuperMario
+[INFO] 19:09:58:728 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:nintendo64 Mario64
+[INFO] 19:09:59:71 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:gamecube Mario
+[INFO] 19:09:59:396 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:wii MarioGalaxy
+[INFO] 19:09:59:715 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:wiiu RIP
+[INFO] 19:10:00:84 logDeOperaciones/(15698:15718): ESI  2 SET nintendo:consola:switch MarioOddysey
+[INFO] 19:10:00:439 logDeOperaciones/(15698:15718): ESI  2 SET sony:consola:ps1 FinalFantasy
+[INFO] 19:10:00:762 logDeOperaciones/(15698:15718): ESI  2 SET sony:consola:ps2 GodOfWar
+[INFO] 19:10:01:103 logDeOperaciones/(15698:15718): ESI  2 SET sony:consola:ps3 TLOU
+[INFO] 19:10:01:452 logDeOperaciones/(15698:15718): ESI  2 SET sony:consola:ps4 Bloodborne
+[INFO] 19:10:01:778 logDeOperaciones/(15698:15718): ESI  2 SET microsoft:consola:xbox Halo
+[INFO] 19:10:02:100 logDeOperaciones/(15698:15718): ESI  2 SET microsoft:consola:xbox360 Halo
+[INFO] 19:10:02:458 logDeOperaciones/(15698:15718): ESI  2 SET microsoft:consola:xboxone Halo

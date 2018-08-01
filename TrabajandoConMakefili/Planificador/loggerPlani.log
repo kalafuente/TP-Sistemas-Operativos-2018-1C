@@ -11607,3 +11607,2054 @@
 [INFO] 19:06:54:665 loggerPlani/(15550:15550): Se recibieron los datos
 [INFO] 19:06:54:665 loggerPlani/(15550:15550): Se envio el mensaje
 [INFO] 19:06:55:287 loggerPlani/(15550:15555): Iniciada recepcion de consultas del coordi
+[INFO] 19:09:21:650 loggerPlani/(15700:15700): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 19:09:21:707 loggerPlani/(15700:15700): El puerto del Coordinador es: 9191
+
+[INFO] 19:09:21:750 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:21:756 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:21:758 loggerPlani/(15700:15700): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 19:09:21:758 loggerPlani/(15700:15700): El puerto del Coordinador es: 9191
+
+[INFO] 19:09:21:760 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:21:760 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:22:208 loggerPlani/(15700:15712): Iniciada recepcion de consultas del coordi
+[INFO] 19:09:24:486 loggerPlani/(15700:15711): se conecto un esi
+[INFO] 19:09:24:487 loggerPlani/(15700:15711): Se envio el mensaje
+[INFO] 19:09:24:489 loggerPlani/(15700:15711): Se recibieron los datos
+[INFO] 19:09:24:517 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:24:519 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:24:572 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:573 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:24:575 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:24:576 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:24:593 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:594 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:24:631 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:647 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:24:651 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:651 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:24:654 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:24:692 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:692 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:24:694 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:24:695 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:696 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:24:696 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:24:697 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:698 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:09:24:701 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:24:713 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:24:713 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:24:727 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:24:728 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:24:874 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:877 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:24:877 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:24:877 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:24:892 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:893 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:24:930 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:24:932 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:24:937 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:937 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:24:937 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:24:974 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:975 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:24:976 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:24:976 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:976 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:24:977 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:24:978 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:24:980 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:09:24:981 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:24:982 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:24:983 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:24:990 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:24:992 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:25:157 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:157 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:25:158 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:158 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:25:162 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:165 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:25:202 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:204 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:208 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:208 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:25:209 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:25:246 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:247 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:25:250 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:25:253 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:253 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:25:254 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:25:255 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:255 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:09:25:256 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:25:256 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:25:257 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:25:262 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:25:263 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:25:460 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:460 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:25:461 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:462 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:25:472 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:479 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:25:510 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:511 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:515 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:515 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:25:515 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:25:554 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:554 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:25:555 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:25:555 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:556 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:25:556 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:25:557 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:557 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:09:25:558 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:25:558 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:25:559 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:25:563 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:25:563 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:25:757 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:758 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:25:758 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:759 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:25:763 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:763 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:25:803 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:25:803 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:25:807 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:808 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:25:808 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:25:848 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:848 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:25:851 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:25:852 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:852 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:09:25:853 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:25:853 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:25:854 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:09:25:854 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:25:855 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:25:855 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:25:859 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:25:860 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:26:46 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:48 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:26:49 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:52 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:26:60 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:61 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:26:98 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:100 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:117 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:118 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:26:118 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:26:154 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:155 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:26:155 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:26:155 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:156 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:26:156 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:26:157 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:157 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:09:26:158 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:26:159 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:26:159 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:26:163 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:26:164 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:26:364 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:365 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:26:372 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:373 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:26:378 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:379 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:26:415 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:420 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:420 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:26:421 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:26:424 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:458 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:459 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:26:459 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:26:460 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:461 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:26:461 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:26:465 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:465 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:09:26:466 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:26:466 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:26:467 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:26:471 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:26:471 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:26:657 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:658 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:26:659 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:659 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:26:672 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:673 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:26:710 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:713 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:717 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:717 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:26:718 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:26:754 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:754 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:26:755 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:26:755 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:755 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:26:756 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:26:756 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:26:757 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:26:757 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:26:758 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:26:758 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:26:762 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:26:763 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:26:962 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:963 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:26:963 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:26:964 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:26:971 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:26:972 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:27:11 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:12 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:17 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:17 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:27:18 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:27:54 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:55 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:27:55 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:27:56 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:57 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:27:61 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:27:64 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:65 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:27:66 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:27:67 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:27:67 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:27:71 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:27:74 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:27:259 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:259 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:27:260 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:261 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:27:275 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:276 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:27:314 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:315 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:319 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:319 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:27:320 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:27:358 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:359 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:27:359 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:27:359 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:360 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:27:361 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:27:365 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:366 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:27:369 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:27:369 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:27:370 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:27:376 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:27:377 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:27:547 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:548 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:27:551 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:554 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:27:571 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:572 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:27:610 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:611 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:621 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:622 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:27:623 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:27:658 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:659 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:27:659 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:27:660 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:660 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:27:661 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:27:662 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:662 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:27:663 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:27:664 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:27:664 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:27:668 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:27:669 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:27:866 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:866 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:27:867 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:867 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:27:871 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:871 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:27:910 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:27:911 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:27:915 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:915 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:27:915 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:27:954 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:954 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:27:955 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:27:955 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:956 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:27:956 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:27:960 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:27:960 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:27:962 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:27:962 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:27:962 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:27:967 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:27:967 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:28:162 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:164 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:28:164 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:165 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:28:174 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:177 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:28:210 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:211 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:215 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:215 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:28:216 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:28:254 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:254 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:28:255 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:28:255 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:255 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:28:256 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:28:256 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:257 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:28:257 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:28:261 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:28:262 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:28:266 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:28:267 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:28:434 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:434 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:28:435 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:435 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:28:439 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:440 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:28:478 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:479 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:487 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:487 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:28:487 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:28:526 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:526 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:28:527 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:28:528 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:528 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:09:28:529 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:28:529 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:530 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:09:28:531 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:28:531 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:28:532 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:28:534 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:28:535 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:28:737 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:738 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:28:738 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:739 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:28:748 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:751 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:28:787 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:28:789 loggerPlani/(15700:15712): La clave es nintendo:consola:nes
+[INFO] 19:09:28:822 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:28:918 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:919 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:28:919 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:28:958 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:958 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:28:959 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:28:959 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:960 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:28:961 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:28:964 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:964 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:28:965 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:28:966 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:967 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:28:969 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:28:972 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:28:973 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:28:974 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:28:976 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:28:990 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:28:991 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:29:205 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:205 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:29:206 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:29:207 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:29:211 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:212 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:29:250 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:250 loggerPlani/(15700:15712): La clave es nintendo:consola:snes
+[INFO] 19:09:29:251 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:29:292 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:292 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:29:293 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:29:331 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:332 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:29:332 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:29:333 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:334 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:29:334 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:29:335 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:336 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:29:337 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:29:338 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:338 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:29:339 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:29:339 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:340 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 19:09:29:340 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:29:341 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:29:345 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:29:349 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:29:543 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:544 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:29:545 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:29:545 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:29:552 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:552 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:29:591 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:591 loggerPlani/(15700:15712): La clave es nintendo:consola:nintendo64
+[INFO] 19:09:29:592 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:29:655 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:656 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:29:656 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:29:694 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:695 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:29:695 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:29:696 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:696 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:29:696 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:29:697 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:697 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:29:698 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:29:699 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:700 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 19:09:29:701 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:29:702 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:29:703 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 19:09:29:704 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:29:705 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:29:710 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:29:714 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:29:904 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:912 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:29:913 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:29:913 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:29:925 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:925 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:29:962 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:29:962 loggerPlani/(15700:15712): La clave es nintendo:consola:gamecube
+[INFO] 19:09:29:963 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:30:26 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:27 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:30:28 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:30:62 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:63 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:30:63 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:64 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:64 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:30:64 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:67 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:67 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:30:69 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:70 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:71 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:30:72 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:72 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:73 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:30:74 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:75 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:30:80 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:30:81 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:30:286 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:287 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:30:287 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:30:288 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:30:293 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:294 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:30:330 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:331 loggerPlani/(15700:15712): La clave es nintendo:consola:wii
+[INFO] 19:09:30:331 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:30:412 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:413 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:30:413 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:30:450 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:450 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:30:451 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:451 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:452 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:30:453 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:453 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:453 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:30:455 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:456 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:457 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 19:09:30:458 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:459 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:463 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 19:09:30:465 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:467 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:30:474 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:30:479 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:30:664 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:665 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:30:666 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:30:669 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:30:679 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:679 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:30:718 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:30:719 loggerPlani/(15700:15712): La clave es nintendo:consola:wiiu
+[INFO] 19:09:30:720 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:30:794 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:795 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:30:795 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:30:834 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:835 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:30:835 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:836 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:836 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:30:836 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:837 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:837 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:30:839 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:840 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:842 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 4
+
+[INFO] 19:09:30:848 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:849 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:30:850 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: RIP
+
+[INFO] 19:09:30:851 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:852 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:30:864 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:30:865 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:31:20 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:21 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:31:24 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:24 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:31:30 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:30 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:31:66 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:67 loggerPlani/(15700:15712): La clave es nintendo:consola:switch
+[INFO] 19:09:31:67 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:143 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:143 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:31:144 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:31:182 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:182 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:183 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:183 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:184 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:09:31:184 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:185 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:185 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:09:31:185 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:187 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:187 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:09:31:188 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:189 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:191 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: MarioOddysey
+
+[INFO] 19:09:31:192 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:192 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:31:211 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:31:212 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:31:392 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:393 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:31:394 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:394 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:31:399 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:399 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:31:438 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:439 loggerPlani/(15700:15712): La clave es sony:consola:ps1
+[INFO] 19:09:31:439 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:508 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:508 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:31:509 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:31:547 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:547 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:547 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:548 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:548 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:31:549 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:549 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:550 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:09:31:550 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:552 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:553 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:09:31:554 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:555 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:556 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: FinalFantasy
+
+[INFO] 19:09:31:557 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:557 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:31:562 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:31:565 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:31:748 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:748 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:31:755 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:756 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:31:767 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:768 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:31:806 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:31:806 loggerPlani/(15700:15712): La clave es sony:consola:ps2
+[INFO] 19:09:31:807 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:31:878 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:879 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:31:879 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:31:918 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:918 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:919 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:919 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:920 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:31:920 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:921 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:921 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:09:31:922 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:923 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:924 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 9
+
+[INFO] 19:09:31:925 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:927 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:31:927 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: GodOfWar
+
+[INFO] 19:09:31:929 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:929 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:31:939 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:31:941 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:32:121 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:121 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:32:122 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:32:123 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:32:139 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:140 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:32:179 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:179 loggerPlani/(15700:15712): La clave es sony:consola:ps3
+[INFO] 19:09:32:179 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:32:255 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:255 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:32:256 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:32:294 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:295 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:32:295 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:32:296 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:296 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:32:296 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:32:297 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:297 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:09:32:298 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:32:299 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:300 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:32:301 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:32:302 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:303 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: TLOU
+
+[INFO] 19:09:32:303 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:32:304 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:32:313 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:32:322 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:32:497 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:499 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:32:500 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:32:501 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:32:507 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:510 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:32:547 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:547 loggerPlani/(15700:15712): La clave es sony:consola:ps4
+[INFO] 19:09:32:548 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:32:620 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:620 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:32:622 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:32:658 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:659 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:32:659 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:32:660 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:660 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:32:661 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:32:661 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:661 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:09:32:662 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:32:663 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:664 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:32:665 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:32:666 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:32:667 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Bloodborne
+
+[INFO] 19:09:32:667 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:32:668 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:32:677 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:32:678 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:32:870 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:871 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:32:872 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:32:872 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:32:880 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:881 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:32:919 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:32:919 loggerPlani/(15700:15712): La clave es microsoft:consola:xbox
+[INFO] 19:09:32:920 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:33:14 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:14 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:33:15 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:33:54 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:54 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:33:55 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:33:55 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:56 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:09:33:56 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:33:56 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:57 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:09:33:57 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:33:58 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:59 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:33:61 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:33:61 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:62 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:33:63 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:33:64 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:33:69 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:33:70 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:33:257 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:258 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:33:258 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:33:259 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:33:267 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:268 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:33:306 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:306 loggerPlani/(15700:15712): La clave es microsoft:consola:xbox360
+[INFO] 19:09:33:307 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:33:381 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:382 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:33:382 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:33:418 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:418 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:33:419 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:33:424 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:424 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:33:425 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:33:426 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:427 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:09:33:428 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:33:430 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:431 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:33:435 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:33:436 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:436 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:33:437 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:33:438 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:33:451 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:33:452 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:33:650 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:650 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:33:651 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:33:651 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:33:656 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:656 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:33:696 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:33:696 loggerPlani/(15700:15712): La clave es microsoft:consola:xboxone
+[INFO] 19:09:33:697 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:33:771 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:771 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:33:771 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:33:810 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:810 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:33:811 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:33:811 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:812 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:33:812 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:33:812 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:813 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:09:33:813 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:33:814 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:816 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:33:817 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:33:818 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:820 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:33:821 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:33:826 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:33:827 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:33:829 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:33:830 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:33:831 loggerPlani/(15700:15700): se recibio estado 3
+[INFO] 19:09:33:871 loggerPlani/(15700:15700): termino el esi 1
+[INFO] 19:09:43:64 loggerPlani/(15700:15710): La planificacion se detuvo 
+
+[INFO] 19:09:47:45 loggerPlani/(15700:15711): se conecto un esi
+[INFO] 19:09:47:46 loggerPlani/(15700:15711): Se envio el mensaje
+[INFO] 19:09:47:48 loggerPlani/(15700:15711): Se recibieron los datos
+[INFO] 19:09:53:835 loggerPlani/(15700:15710): Resumiendo planificacion 
+
+[INFO] 19:09:53:836 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:53:839 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:53:879 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:53:880 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:53:880 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:53:880 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:53:894 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:53:897 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:53:930 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:53:931 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:53:935 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:53:935 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:53:936 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:53:939 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:53:939 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:53:939 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:53:941 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:53:942 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:53:942 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:53:945 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:53:946 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:09:53:949 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:53:949 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:53:950 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:53:951 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:53:952 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:54:164 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:165 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:54:165 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:166 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:54:180 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:180 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:54:218 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:219 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:222 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:222 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:54:223 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:54:263 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:263 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:54:263 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:54:264 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:264 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:54:265 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:54:265 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:265 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:09:54:266 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:54:266 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:54:267 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:54:271 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:54:272 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:54:465 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:465 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:54:466 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:467 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:54:474 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:475 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:54:510 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:511 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:513 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:513 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:54:514 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:54:551 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:551 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:54:552 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:54:552 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:552 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:54:553 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:54:554 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:554 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:09:54:558 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:54:559 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:54:559 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:54:563 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:54:565 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:54:740 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:742 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:54:743 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:744 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:54:763 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:763 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:54:802 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:54:803 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:54:809 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:809 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:54:810 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:54:848 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:849 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:54:851 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:54:852 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:854 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:54:855 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:54:855 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:54:856 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:09:54:856 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:54:857 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:54:858 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:54:863 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:54:864 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:55:20 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:21 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:55:21 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:21 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:55:29 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:30 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:55:66 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:67 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:69 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:69 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:55:69 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:55:107 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:107 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:55:108 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:55:108 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:109 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:09:55:109 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:55:109 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:110 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:09:55:111 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:55:111 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:55:112 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:55:119 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:55:120 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:55:280 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:281 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:55:281 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:281 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:55:293 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:294 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:55:331 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:332 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:336 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:336 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:55:337 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:55:375 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:376 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:55:376 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:55:376 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:377 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:55:377 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:55:378 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:380 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:09:55:381 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:55:382 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:55:382 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:55:390 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:55:390 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:55:566 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:567 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:55:567 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:568 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:55:575 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:575 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:55:614 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:614 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:617 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:617 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:55:617 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:55:654 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:654 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:55:655 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:55:655 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:656 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:55:656 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:55:656 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:657 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:09:55:657 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:55:658 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:55:663 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:55:669 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:55:671 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:55:855 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:856 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:55:857 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:858 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:55:876 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:877 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:55:914 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:55:915 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:55:917 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:917 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:55:919 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:55:954 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:954 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:55:955 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:55:955 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:956 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:55:956 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:55:957 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:55:957 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:55:957 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:55:958 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:55:958 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:55:962 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:55:963 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:56:148 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:149 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:56:151 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:168 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:56:177 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:181 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:56:215 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:216 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:219 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:220 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:56:221 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:56:258 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:258 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:56:259 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:56:259 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:260 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:56:260 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:56:261 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:261 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:56:261 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:56:262 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:56:263 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:56:267 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:56:268 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:56:480 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:481 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:56:481 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:482 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:56:495 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:496 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:56:536 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:562 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:564 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:565 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:56:568 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:56:602 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:602 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:56:603 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:56:604 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:604 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:56:605 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:56:605 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:605 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:56:606 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:56:607 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:56:607 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:56:614 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:56:619 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:56:799 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:800 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:56:802 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:802 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:56:813 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:814 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:56:850 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:56:851 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:56:854 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:854 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:56:855 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:56:890 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:891 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:56:891 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:56:891 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:892 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:56:895 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:56:896 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:56:896 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:56:897 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:56:897 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:56:898 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:56:902 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:56:903 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:57:90 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:96 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:57:103 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:106 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:57:113 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:113 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:57:151 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:151 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:153 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:154 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:57:157 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:57:190 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:190 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:57:191 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:57:191 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:191 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:57:192 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:57:192 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:193 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:57:193 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:57:194 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:57:194 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:57:198 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:57:199 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:57:387 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:389 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:57:398 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:405 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:57:410 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:411 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:57:450 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:451 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:453 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:454 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:57:454 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:57:491 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:491 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:57:493 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:57:494 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:495 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:57:495 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:57:496 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:496 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:57:497 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:57:497 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:57:498 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:57:503 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:57:504 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:57:703 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:704 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:57:705 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:706 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:57:713 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:714 loggerPlani/(15700:15712): PREGUNTA_CLAVE_DISPONIBLE
+[INFO] 19:09:57:750 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:57:751 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:57:754 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:754 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:57:755 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:57:792 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:792 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:57:793 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:57:793 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:794 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:09:57:797 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:57:798 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:57:798 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:09:57:799 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:57:799 loggerPlani/(15700:15700): empezamos a procesar
+[INFO] 19:09:57:800 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU get
+[INFO] 19:09:57:804 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:57:805 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:58:9 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:9 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:58:9 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:10 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:58:15 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:15 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:58:55 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:55 loggerPlani/(15700:15712): La clave es nintendo:consola:nes
+[INFO] 19:09:58:56 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:113 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:114 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:58:114 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:58:150 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:150 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:151 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:152 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:152 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:58:153 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:154 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:155 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:58:155 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:160 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:161 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:58:162 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:164 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:165 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:58:165 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:166 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:58:171 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:58:173 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:58:362 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:364 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:58:365 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:365 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:58:371 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:371 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:58:410 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:411 loggerPlani/(15700:15712): La clave es nintendo:consola:snes
+[INFO] 19:09:58:411 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:468 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:468 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:58:469 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:58:507 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:507 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:508 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:508 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:509 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:58:509 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:510 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:510 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:58:512 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:512 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:514 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:58:515 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:516 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:517 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 19:09:58:520 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:521 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:58:526 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:58:527 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:58:723 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:724 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:58:724 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:725 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:58:730 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:731 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:58:770 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:58:771 loggerPlani/(15700:15712): La clave es nintendo:consola:nintendo64
+[INFO] 19:09:58:771 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:58:823 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:824 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:58:824 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:58:862 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:862 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:863 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:863 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:864 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:58:864 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:865 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:865 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:58:866 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:872 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:872 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 19:09:58:874 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:874 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:58:876 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 19:09:58:877 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:877 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:58:882 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:58:883 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:59:66 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:66 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:59:67 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:68 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:59:74 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:75 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:59:115 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:116 loggerPlani/(15700:15712): La clave es nintendo:consola:gamecube
+[INFO] 19:09:59:116 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:171 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:171 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:59:172 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:59:212 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:212 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:212 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:213 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:213 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:59:214 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:215 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:215 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:59:216 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:217 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:218 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:59:220 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:221 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:222 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:59:223 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:224 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:59:229 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:59:232 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:59:392 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:392 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:59:393 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:393 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:59:399 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:399 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:59:438 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:439 loggerPlani/(15700:15712): La clave es nintendo:consola:wii
+[INFO] 19:09:59:439 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:491 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:491 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:59:493 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:59:530 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:530 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:531 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:531 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:532 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:59:532 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:533 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:533 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:59:538 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:539 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:540 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 19:09:59:541 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:542 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:543 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 19:09:59:543 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:544 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:59:549 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:59:550 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:09:59:708 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:708 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:09:59:709 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:709 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:09:59:719 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:721 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:09:59:755 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:09:59:755 loggerPlani/(15700:15712): La clave es nintendo:consola:wiiu
+[INFO] 19:09:59:756 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:09:59:815 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:816 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:09:59:818 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:09:59:857 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:858 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:860 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:861 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:861 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:59:862 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:863 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:863 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:59:864 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:865 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:866 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 4
+
+[INFO] 19:09:59:867 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:868 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:09:59:869 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: RIP
+
+[INFO] 19:09:59:871 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:872 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:09:59:888 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:09:59:890 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:00:75 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:76 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:00:77 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:77 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:00:91 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:91 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:00:130 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:130 loggerPlani/(15700:15712): La clave es nintendo:consola:switch
+[INFO] 19:10:00:132 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:203 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:203 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:00:204 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:00:242 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:243 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:244 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:247 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:248 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:10:00:249 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:250 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:251 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:10:00:253 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:255 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:256 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:10:00:257 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:258 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:258 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: MarioOddysey
+
+[INFO] 19:10:00:259 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:261 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:00:279 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:00:281 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:00:435 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:436 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:00:436 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:437 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:00:441 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:442 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:00:478 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:479 loggerPlani/(15700:15712): La clave es sony:consola:ps1
+[INFO] 19:10:00:480 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:538 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:539 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:00:539 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:00:578 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:579 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:579 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:580 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:581 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:00:581 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:582 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:587 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:10:00:588 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:588 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:590 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:10:00:591 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:592 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:592 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: FinalFantasy
+
+[INFO] 19:10:00:593 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:594 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:00:599 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:00:608 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:00:757 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:757 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:00:758 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:758 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:00:765 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:765 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:00:802 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:00:803 loggerPlani/(15700:15712): La clave es sony:consola:ps2
+[INFO] 19:10:00:803 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:00:858 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:859 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:00:859 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:00:901 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:901 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:902 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:903 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:903 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:00:904 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:905 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:906 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:10:00:908 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:909 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:910 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 9
+
+[INFO] 19:10:00:912 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:912 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:00:913 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: GodOfWar
+
+[INFO] 19:10:00:914 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:915 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:00:927 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:00:931 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:01:99 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:99 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:01:99 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:100 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:01:105 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:105 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:01:142 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:143 loggerPlani/(15700:15712): La clave es sony:consola:ps3
+[INFO] 19:10:01:143 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:195 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:195 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:01:195 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:01:234 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:235 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:236 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:236 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:236 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:01:237 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:237 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:238 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:10:01:243 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:244 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:245 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:01:246 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:247 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:248 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: TLOU
+
+[INFO] 19:10:01:248 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:249 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:01:261 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:01:263 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:01:444 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:445 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:01:445 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:447 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:01:455 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:458 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:01:494 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:494 loggerPlani/(15700:15712): La clave es sony:consola:ps4
+[INFO] 19:10:01:495 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:549 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:550 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:01:551 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:01:587 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:587 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:587 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:588 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:588 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:01:589 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:589 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:590 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:10:01:590 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:591 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:592 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:10:01:593 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:595 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:599 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Bloodborne
+
+[INFO] 19:10:01:600 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:601 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:01:607 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:01:607 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:01:772 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:772 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:01:773 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:773 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:01:780 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:781 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:01:818 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:01:819 loggerPlani/(15700:15712): La clave es microsoft:consola:xbox
+[INFO] 19:10:01:819 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:01:875 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:875 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:01:876 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:01:915 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:915 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:920 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:921 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:921 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:10:01:922 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:922 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:923 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:10:01:924 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:926 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:926 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:01:928 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:929 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:01:929 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:01:932 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:933 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:01:945 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:01:953 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:02:96 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:97 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:02:97 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:02:98 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:02:107 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:112 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:02:148 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:148 loggerPlani/(15700:15712): La clave es microsoft:consola:xbox360
+[INFO] 19:10:02:149 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:02:201 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:202 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:02:203 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:02:238 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:239 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:02:239 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:02:240 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:244 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:10:02:244 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:02:245 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:246 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:10:02:250 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:02:251 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:253 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:02:255 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:02:255 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:256 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:02:258 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:02:259 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:02:266 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:02:270 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:02:453 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:454 loggerPlani/(15700:15712): Cordi pidio ID
+[INFO] 19:10:02:455 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:02:455 loggerPlani/(15700:15712): Le mande ID al Coordi
+[INFO] 19:10:02:462 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:463 loggerPlani/(15700:15712): PREGUNTA_ESI_TIENE_CLAVE
+[INFO] 19:10:02:502 loggerPlani/(15700:15712): Se recibieron los datos
+[INFO] 19:10:02:503 loggerPlani/(15700:15712): La clave es microsoft:consola:xboxone
+[INFO] 19:10:02:503 loggerPlani/(15700:15712): Se envio el mensaje
+[INFO] 19:10:02:554 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:555 loggerPlani/(15700:15700): se recibio estado 1
+[INFO] 19:10:02:555 loggerPlani/(15700:15700): Esperando la Instruccion
+
+[INFO] 19:10:02:591 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:591 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:02:591 loggerPlani/(15700:15700): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:02:592 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:592 loggerPlani/(15700:15700): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:10:02:593 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:02:593 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:594 loggerPlani/(15700:15700): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:10:02:594 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:02:604 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:605 loggerPlani/(15700:15700): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:02:606 loggerPlani/(15700:15700): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:02:611 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:612 loggerPlani/(15700:15700): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:02:621 loggerPlani/(15700:15700): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:02:622 loggerPlani/(15700:15700): FINJAMOS QUE PROCESE LA INSTRU set
+[INFO] 19:10:02:623 loggerPlani/(15700:15700): Se envio el mensaje
+[INFO] 19:10:02:624 loggerPlani/(15700:15700): Se envio accion al Esi
+[INFO] 19:10:02:624 loggerPlani/(15700:15700): Se recibieron los datos
+[INFO] 19:10:02:631 loggerPlani/(15700:15700): se recibio estado 3
+[INFO] 19:10:02:632 loggerPlani/(15700:15700): termino el esi 2
+[ERROR] 19:10:09:792 loggerPlani/(15700:15712): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 19:10:09:793 loggerPlani/(15700:15712): SE CORTO LA CONEXION CON EL COORDI

@@ -12550,3 +12550,1928 @@
 
 [INFO] 18:18:15:665 loggerInstancia/(13836:13838): Finalizo el DUMP
 
+[INFO] 19:09:19:641 loggerInstancia/(15699:15699): **************************************** NUEVA ENTRADA ****************************************
+[INFO] 19:09:19:765 loggerInstancia/(15699:15699): El ip del Coordinador es: 127.0.0.1
+
+[INFO] 19:09:19:774 loggerInstancia/(15699:15699): El puerto del Coordinador es: 9191
+
+[INFO] 19:09:19:775 loggerInstancia/(15699:15699): El algoritmo es: CIRC
+
+[INFO] 19:09:19:778 loggerInstancia/(15699:15699): El path es: /home/utnso/inst1/
+
+[INFO] 19:09:19:781 loggerInstancia/(15699:15699): El nombre es: Inst1
+
+[INFO] 19:09:19:798 loggerInstancia/(15699:15699): El intervalo es: 10
+
+[INFO] 19:09:19:798 loggerInstancia/(15699:15699): Intento conectarme al Coordinador
+
+[INFO] 19:09:19:874 loggerInstancia/(15699:15699): Conexion exitosa!
+[INFO] 19:09:19:885 loggerInstancia/(15699:15699): Intentando establecer un handshake con el Coordinador
+
+[INFO] 19:09:19:968 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:19:975 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:19:985 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:19:6 loggerInstancia/(15699:15699): Handshake Exitoso!
+
+[INFO] 19:09:20:7 loggerInstancia/(15699:15699): Esperando configuracion de entradas
+
+[INFO] 19:09:20:296 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:20:334 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:20:335 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:20:336 loggerInstancia/(15699:15699): La configuracion de las Entradas se recibio correctamente!
+
+[INFO] 19:09:20:337 loggerInstancia/(15699:15699): El tamanio de la entrada es: 20
+
+[INFO] 19:09:20:337 loggerInstancia/(15699:15699): La cantidad de entradas es: 50
+
+[INFO] 19:09:20:340 loggerInstancia/(15699:15699): Pedimos memoria para la totalidad de las Entradas
+
+[INFO] 19:09:20:347 loggerInstancia/(15699:15699): Memoria alojada correctamente
+
+[INFO] 19:09:20:347 loggerInstancia/(15699:15699): Inicializamos los valores de las Entradas en 0
+
+[INFO] 19:09:20:348 loggerInstancia/(15699:15699): Inicializacion de Entradas exitosa!
+
+[INFO] 19:09:20:349 loggerInstancia/(15699:15699): Pedimos memoria para el bitArray
+
+[INFO] 19:09:20:350 loggerInstancia/(15699:15699): Memoria alojada correctamente
+
+[INFO] 19:09:20:357 loggerInstancia/(15699:15699): Inicializamos los valores del Array
+
+[INFO] 19:09:20:359 loggerInstancia/(15699:15699): Posiciones requeridas para el Array: 2
+[INFO] 19:09:20:359 loggerInstancia/(15699:15699): Inicializacion del Array de Bits exitosa!
+
+[INFO] 19:09:20:362 loggerInstancia/(15699:15699): Intentando reincorporarse
+[INFO] 19:09:20:370 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:20:374 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:20:413 loggerInstancia/(15699:15699): No hay nada que recuperar
+
+[INFO] 19:09:20:478 loggerInstancia/(15699:15699): Comienzo a recibir sentencias del coordinador
+
+[INFO] 19:09:20:491 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:20:493 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:28:848 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:28:849 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:28:850 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:28:852 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:28:853 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:28:854 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:28:856 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:28:857 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:28:863 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:28:864 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:28:865 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:28:865 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:28:867 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:28:867 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:28:868 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:28:874 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:28:885 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:28:887 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:28:887 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:28:888 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:28:889 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:28:891 loggerInstancia/(15699:15699): La entrada 0 esta libre
+
+[INFO] 19:09:28:892 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:28:892 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:28:894 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:28:895 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:28:895 loggerInstancia/(15699:15699): La posicion actual es: 0
+[INFO] 19:09:28:896 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 6
+[INFO] 19:09:28:897 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:28:897 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:28:905 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:28:923 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:28:925 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:28:966 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:28:967 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:29:254 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:255 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:29:256 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:29:256 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:257 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:29:257 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:29:258 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:259 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:29:259 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:29:261 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:261 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:29:262 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:29:263 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:263 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 19:09:29:264 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:29:273 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:29:274 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:29:275 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:29:275 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:29:276 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:29:276 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:29:277 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:29:278 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:29:278 loggerInstancia/(15699:15699): La entrada 1 esta libre
+
+[INFO] 19:09:29:279 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:29:284 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:29:284 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:29:285 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:29:285 loggerInstancia/(15699:15699): La posicion actual es: 1
+[INFO] 19:09:29:286 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 11
+[INFO] 19:09:29:287 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:29:287 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:29:289 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:29:306 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:29:308 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:29:336 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:29:337 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:29:595 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:596 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:29:596 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:29:634 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:635 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:29:635 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:29:635 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:636 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:29:637 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:29:638 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:639 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 19:09:29:639 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:29:640 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:640 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 19:09:29:641 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:29:641 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:29:644 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:29:644 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:29:645 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:29:645 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:29:645 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:29:646 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:29:647 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:29:647 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:29:647 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:29:648 loggerInstancia/(15699:15699): La entrada 2 esta libre
+
+[INFO] 19:09:29:648 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:29:649 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:29:649 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:29:650 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:29:650 loggerInstancia/(15699:15699): La posicion actual es: 2
+[INFO] 19:09:29:651 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 8
+[INFO] 19:09:29:651 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:29:651 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:29:652 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:29:663 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:29:669 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:29:717 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:29:728 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:29:969 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:29:970 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:29:971 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:6 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:7 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:30:8 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:8 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:9 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:30:9 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:11 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:11 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:30:12 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:12 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:12 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:30:13 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:13 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:30:14 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:30:14 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:30:15 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:30:15 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:30:16 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:30:16 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:16 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:30:17 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:17 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:30:18 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:18 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:30:19 loggerInstancia/(15699:15699): La entrada 3 esta libre
+
+[INFO] 19:09:30:19 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:30:20 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:30:20 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:30:20 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:30:21 loggerInstancia/(15699:15699): La posicion actual es: 3
+[INFO] 19:09:30:21 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 6
+[INFO] 19:09:30:22 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:30:22 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:30:23 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:30:39 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:40 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:100 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:30:101 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:30:334 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:335 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:30:335 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:371 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:372 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:30:373 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:376 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:379 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:30:381 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:382 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:383 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 19:09:30:384 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:384 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:385 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 19:09:30:386 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:387 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:30:388 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:30:388 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:30:389 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:30:390 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:30:391 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:30:392 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:392 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:30:393 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:395 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:30:396 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:397 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:30:397 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:398 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:30:404 loggerInstancia/(15699:15699): La entrada 4 esta libre
+
+[INFO] 19:09:30:404 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:30:405 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:30:405 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:30:406 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:30:407 loggerInstancia/(15699:15699): La posicion actual es: 4
+[INFO] 19:09:30:407 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 12
+[INFO] 19:09:30:408 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:30:408 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:30:409 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:30:417 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:418 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:495 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:30:496 loggerInstancia/(15699:15702): Comienza el DUMP
+
+[INFO] 19:09:30:505 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:30:511 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:30:513 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:30:513 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:30:514 loggerInstancia/(15699:15702): Finalizo el DUMP
+
+[INFO] 19:09:30:725 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:725 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:30:726 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:30:762 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:763 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:30:763 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:30:763 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:764 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:30:764 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:30:765 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:765 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 4
+
+[INFO] 19:09:30:765 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:30:766 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:30:767 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: RIP
+
+[INFO] 19:09:30:767 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:30:768 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:30:768 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:30:769 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:30:770 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:30:771 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:30:771 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:30:772 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:772 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:30:773 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:774 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:30:775 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:775 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:30:776 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:776 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:30:777 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:30:778 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:30:779 loggerInstancia/(15699:15699): La entrada 5 esta libre
+
+[INFO] 19:09:30:779 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:30:779 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:30:780 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:30:781 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:30:782 loggerInstancia/(15699:15699): La posicion actual es: 5
+[INFO] 19:09:30:787 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 4
+[INFO] 19:09:30:788 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:30:789 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:30:789 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:30:800 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:807 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:30:903 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:30:908 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:31:75 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:76 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:77 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:114 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:114 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:09:31:115 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:115 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:116 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:09:31:116 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:117 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:117 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:09:31:118 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:118 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:119 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: MarioOddysey
+
+[INFO] 19:09:31:119 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:120 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:31:120 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:31:121 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:31:121 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:31:122 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:31:122 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:31:123 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:123 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:31:124 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:124 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:31:125 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:125 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:31:126 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:127 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:31:127 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:128 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:31:128 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:129 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:31:129 loggerInstancia/(15699:15699): La entrada 6 esta libre
+
+[INFO] 19:09:31:129 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:31:130 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:31:130 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:31:131 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:31:131 loggerInstancia/(15699:15699): La posicion actual es: 6
+[INFO] 19:09:31:132 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 13
+[INFO] 19:09:31:133 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:31:133 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:31:135 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:31:151 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:152 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:229 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:31:229 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:31:443 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:444 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:444 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:483 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:483 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:31:484 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:484 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:484 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:09:31:485 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:487 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:488 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:09:31:489 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:489 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:490 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: FinalFantasy
+
+[INFO] 19:09:31:490 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:491 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:31:491 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:31:492 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:31:492 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:31:493 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:31:494 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:31:494 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:495 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:31:495 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:496 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:31:496 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:496 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:31:497 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:497 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:31:498 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:498 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:31:499 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:499 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:31:500 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:500 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:31:501 loggerInstancia/(15699:15699): La entrada 7 esta libre
+
+[INFO] 19:09:31:501 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:31:502 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:31:502 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:31:503 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:31:503 loggerInstancia/(15699:15699): La posicion actual es: 7
+[INFO] 19:09:31:504 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 13
+[INFO] 19:09:31:504 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:31:505 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:31:505 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:31:523 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:524 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:612 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:31:613 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:31:811 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:812 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:31:816 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:31:851 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:851 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:31:852 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:31:852 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:853 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:09:31:853 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:31:853 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:854 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 9
+
+[INFO] 19:09:31:855 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:31:855 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:31:855 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: GodOfWar
+
+[INFO] 19:09:31:856 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:31:856 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:31:857 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:31:858 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:31:858 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:31:859 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:31:859 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:31:860 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:860 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:31:861 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:861 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:31:862 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:862 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:31:863 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:863 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:31:864 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:864 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:31:864 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:865 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:31:865 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:866 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:31:866 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:31:867 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:31:867 loggerInstancia/(15699:15699): La entrada 8 esta libre
+
+[INFO] 19:09:31:868 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:31:868 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:31:868 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:31:869 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:31:869 loggerInstancia/(15699:15699): La posicion actual es: 8
+[INFO] 19:09:31:873 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 9
+[INFO] 19:09:31:874 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:31:874 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:31:875 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:31:894 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:895 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:31:998 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:31:998 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:32:187 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:188 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:32:188 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:32:226 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:226 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:32:227 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:32:227 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:228 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:09:32:228 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:32:229 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:229 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:32:229 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:32:230 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:231 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: TLOU
+
+[INFO] 19:09:32:231 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:32:231 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:32:232 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:32:233 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:32:233 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:32:233 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:32:234 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:32:235 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:235 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:32:235 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:236 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:32:236 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:237 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:32:237 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:237 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:32:238 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:239 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:32:239 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:240 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:32:240 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:240 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:32:241 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:241 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:32:242 loggerInstancia/(15699:15699): La entrada 8 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:242 loggerInstancia/(15699:15699): Estamos en la pos: 9
+[INFO] 19:09:32:243 loggerInstancia/(15699:15699): La entrada 9 esta libre
+
+[INFO] 19:09:32:244 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:32:244 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:32:245 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:32:245 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:32:246 loggerInstancia/(15699:15699): La posicion actual es: 9
+[INFO] 19:09:32:246 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 5
+[INFO] 19:09:32:250 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:32:251 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:32:251 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:32:260 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:32:262 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:32:373 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:32:374 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:32:551 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:552 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:32:552 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:32:590 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:590 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:09:32:590 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:32:591 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:591 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:09:32:592 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:32:593 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:593 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:32:593 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:32:594 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:594 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Bloodborne
+
+[INFO] 19:09:32:595 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:32:596 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:32:596 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:32:597 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:32:597 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:32:597 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:32:598 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:32:598 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:599 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:32:599 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:600 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:32:600 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:601 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:32:601 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:601 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:32:602 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:603 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:32:603 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:604 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:32:604 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:605 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:32:605 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:605 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:32:606 loggerInstancia/(15699:15699): La entrada 8 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:607 loggerInstancia/(15699:15699): Estamos en la pos: 9
+[INFO] 19:09:32:607 loggerInstancia/(15699:15699): La entrada 9 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:607 loggerInstancia/(15699:15699): Estamos en la pos: 10
+[INFO] 19:09:32:608 loggerInstancia/(15699:15699): La entrada 10 esta libre
+
+[INFO] 19:09:32:608 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:32:609 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:32:610 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:32:611 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:32:615 loggerInstancia/(15699:15699): La posicion actual es: 10
+[INFO] 19:09:32:616 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 11
+[INFO] 19:09:32:616 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:32:616 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:32:617 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:32:626 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:32:628 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:32:743 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:32:744 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:32:923 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:923 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:32:924 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:32:963 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:964 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:09:32:966 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:32:976 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:978 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:09:32:980 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:32:983 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:988 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:32:989 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:32:989 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:32:990 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:32:990 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:32:991 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:32:992 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:32:992 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:32:993 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:32:994 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:32:994 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:32:995 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:995 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:32:996 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:996 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:32:997 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:997 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:32:998 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:998 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:32:999 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:999 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:32:0 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:1 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:32:1 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:2 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:32:3 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:3 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:32:3 loggerInstancia/(15699:15699): La entrada 8 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:4 loggerInstancia/(15699:15699): Estamos en la pos: 9
+[INFO] 19:09:32:4 loggerInstancia/(15699:15699): La entrada 9 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:5 loggerInstancia/(15699:15699): Estamos en la pos: 10
+[INFO] 19:09:32:5 loggerInstancia/(15699:15699): La entrada 10 esta ocupada, seguimos buscando
+
+[INFO] 19:09:32:5 loggerInstancia/(15699:15699): Estamos en la pos: 11
+[INFO] 19:09:33:6 loggerInstancia/(15699:15699): La entrada 11 esta libre
+
+[INFO] 19:09:33:7 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:33:7 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:33:8 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:33:8 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:33:8 loggerInstancia/(15699:15699): La posicion actual es: 11
+[INFO] 19:09:33:9 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 5
+[INFO] 19:09:33:10 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:33:10 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:33:11 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:33:28 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:33:30 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:33:143 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:33:144 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:33:310 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:311 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:33:311 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:33:313 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:315 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:33:316 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:33:345 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:345 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:09:33:347 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:33:348 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:348 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:33:349 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:33:349 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:350 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:33:351 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:33:351 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:33:352 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:33:352 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:33:353 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:33:353 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:33:353 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:33:354 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:354 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:33:355 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:355 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:33:356 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:356 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:33:357 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:357 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:33:357 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:358 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:33:362 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:363 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:33:363 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:364 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:33:364 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:365 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:33:365 loggerInstancia/(15699:15699): La entrada 8 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:365 loggerInstancia/(15699:15699): Estamos en la pos: 9
+[INFO] 19:09:33:366 loggerInstancia/(15699:15699): La entrada 9 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:367 loggerInstancia/(15699:15699): Estamos en la pos: 10
+[INFO] 19:09:33:367 loggerInstancia/(15699:15699): La entrada 10 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:367 loggerInstancia/(15699:15699): Estamos en la pos: 11
+[INFO] 19:09:33:368 loggerInstancia/(15699:15699): La entrada 11 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:368 loggerInstancia/(15699:15699): Estamos en la pos: 12
+[INFO] 19:09:33:369 loggerInstancia/(15699:15699): La entrada 12 esta libre
+
+[INFO] 19:09:33:369 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:33:369 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:33:374 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:33:374 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:33:375 loggerInstancia/(15699:15699): La posicion actual es: 12
+[INFO] 19:09:33:375 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 5
+[INFO] 19:09:33:377 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:33:377 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:33:378 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:33:386 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:33:398 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:33:528 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:33:528 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:33:700 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:701 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:33:701 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:33:738 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:738 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:33:739 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:33:739 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:739 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:09:33:740 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:33:740 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:741 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:09:33:742 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:33:742 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:33:743 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:09:33:743 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:33:744 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:33:745 loggerInstancia/(15699:15699): La clave no existe
+
+[INFO] 19:09:33:745 loggerInstancia/(15699:15699): Hay suficientes entradas libres para almacenar el valor
+
+[INFO] 19:09:33:745 loggerInstancia/(15699:15699): Empieza ALGORITMO TURBIO
+
+[INFO] 19:09:33:746 loggerInstancia/(15699:15699): Recorremos el bitArray
+
+[INFO] 19:09:33:746 loggerInstancia/(15699:15699): Estamos en la pos: 0
+[INFO] 19:09:33:747 loggerInstancia/(15699:15699): La entrada 0 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:747 loggerInstancia/(15699:15699): Estamos en la pos: 1
+[INFO] 19:09:33:747 loggerInstancia/(15699:15699): La entrada 1 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:748 loggerInstancia/(15699:15699): Estamos en la pos: 2
+[INFO] 19:09:33:748 loggerInstancia/(15699:15699): La entrada 2 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:749 loggerInstancia/(15699:15699): Estamos en la pos: 3
+[INFO] 19:09:33:749 loggerInstancia/(15699:15699): La entrada 3 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:750 loggerInstancia/(15699:15699): Estamos en la pos: 4
+[INFO] 19:09:33:751 loggerInstancia/(15699:15699): La entrada 4 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:751 loggerInstancia/(15699:15699): Estamos en la pos: 5
+[INFO] 19:09:33:752 loggerInstancia/(15699:15699): La entrada 5 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:752 loggerInstancia/(15699:15699): Estamos en la pos: 6
+[INFO] 19:09:33:752 loggerInstancia/(15699:15699): La entrada 6 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:753 loggerInstancia/(15699:15699): Estamos en la pos: 7
+[INFO] 19:09:33:753 loggerInstancia/(15699:15699): La entrada 7 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:754 loggerInstancia/(15699:15699): Estamos en la pos: 8
+[INFO] 19:09:33:754 loggerInstancia/(15699:15699): La entrada 8 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:755 loggerInstancia/(15699:15699): Estamos en la pos: 9
+[INFO] 19:09:33:755 loggerInstancia/(15699:15699): La entrada 9 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:756 loggerInstancia/(15699:15699): Estamos en la pos: 10
+[INFO] 19:09:33:756 loggerInstancia/(15699:15699): La entrada 10 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:757 loggerInstancia/(15699:15699): Estamos en la pos: 11
+[INFO] 19:09:33:757 loggerInstancia/(15699:15699): La entrada 11 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:758 loggerInstancia/(15699:15699): Estamos en la pos: 12
+[INFO] 19:09:33:758 loggerInstancia/(15699:15699): La entrada 12 esta ocupada, seguimos buscando
+
+[INFO] 19:09:33:759 loggerInstancia/(15699:15699): Estamos en la pos: 13
+[INFO] 19:09:33:760 loggerInstancia/(15699:15699): La entrada 13 esta libre
+
+[INFO] 19:09:33:760 loggerInstancia/(15699:15699): Tenemos que ver que las 1 entradas necesarias sean contiguas
+
+[INFO] 19:09:33:761 loggerInstancia/(15699:15699): El valor es atomico y tenemos una entrada libre
+
+[INFO] 19:09:33:761 loggerInstancia/(15699:15699): Salimos del ciclo. Hay que verificar por que
+
+[INFO] 19:09:33:765 loggerInstancia/(15699:15699): Tenemos suficientes entradas CONTIGUAS libres disponibles
+
+[INFO] 19:09:33:765 loggerInstancia/(15699:15699): La posicion actual es: 13
+[INFO] 19:09:33:766 loggerInstancia/(15699:15699): El tamanio del valor a guardar es: 5
+[INFO] 19:09:33:766 loggerInstancia/(15699:15699): El valor ocupa 1 entradas
+
+[INFO] 19:09:33:767 loggerInstancia/(15699:15699): Se procede a guardar el valor en las entradas
+
+[INFO] 19:09:33:768 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:33:776 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:33:783 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:34:57 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:34:57 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:40:517 loggerInstancia/(15699:15702): Comienza el DUMP
+
+[INFO] 19:09:40:518 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:519 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:519 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:520 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:521 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:527 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:528 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:40:529 loggerInstancia/(15699:15702): Finalizo el DUMP
+
+[INFO] 19:09:50:532 loggerInstancia/(15699:15702): Comienza el DUMP
+
+[INFO] 19:09:50:536 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:540 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:548 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:560 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:567 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:568 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:569 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:09:50:570 loggerInstancia/(15699:15702): Finalizo el DUMP
+
+[INFO] 19:09:58:60 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:60 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:60 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:98 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:98 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:58:99 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:99 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:100 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:nes
+
+[INFO] 19:09:58:100 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:101 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:101 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:58:102 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:102 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:103 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:58:104 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:104 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:58:105 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:58:106 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:58:107 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:58:109 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:58:110 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:58:119 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:121 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:255 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:58:255 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:58:414 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:415 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:416 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:454 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:455 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:58:455 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:456 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:457 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:snes
+
+[INFO] 19:09:58:457 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:459 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:459 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:09:58:460 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:461 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:461 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: SuperMario
+
+[INFO] 19:09:58:462 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:463 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:58:463 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:58:463 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:58:464 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:58:464 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:58:465 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:58:473 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:482 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:607 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:58:607 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:58:774 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:775 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:58:775 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:58:811 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:811 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 28
+
+[INFO] 19:09:58:812 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:58:812 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:813 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:nintendo64
+
+[INFO] 19:09:58:813 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:58:814 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:814 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 8
+
+[INFO] 19:09:58:815 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:58:815 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:58:816 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario64
+
+[INFO] 19:09:58:816 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:58:817 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:58:817 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:58:818 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:58:819 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:58:820 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:58:820 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:58:829 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:831 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:58:972 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:58:973 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:59:119 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:120 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:120 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:159 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:159 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:09:59:160 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:161 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:161 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:gamecube
+
+[INFO] 19:09:59:161 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:162 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:163 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 6
+
+[INFO] 19:09:59:163 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:164 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:164 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Mario
+
+[INFO] 19:09:59:165 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:165 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:59:166 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:59:166 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:59:167 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:59:167 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:59:167 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:59:176 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:59:178 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:59:311 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:59:311 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:59:441 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:442 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:443 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:478 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:479 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 21
+
+[INFO] 19:09:59:479 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:480 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:480 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:wii
+
+[INFO] 19:09:59:481 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:481 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:482 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 12
+
+[INFO] 19:09:59:482 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:483 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:483 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: MarioGalaxy
+
+[INFO] 19:09:59:484 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:484 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:59:485 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:59:486 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:59:487 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:59:487 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:59:487 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:59:496 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:59:497 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:59:632 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:09:59:632 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:09:59:759 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:760 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:09:59:761 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:09:59:800 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:800 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 22
+
+[INFO] 19:09:59:801 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:09:59:801 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:802 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:wiiu
+
+[INFO] 19:09:59:805 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:09:59:806 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:806 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 4
+
+[INFO] 19:09:59:807 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:09:59:807 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:09:59:808 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: RIP
+
+[INFO] 19:09:59:808 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:09:59:809 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:09:59:809 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:09:59:809 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:09:59:810 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:09:59:811 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:09:59:811 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:09:59:833 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:09:59:835 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:79 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:00:81 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:00:148 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:148 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:149 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:186 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:187 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 24
+
+[INFO] 19:10:00:187 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:188 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:188 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: nintendo:consola:switch
+
+[INFO] 19:10:00:190 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:191 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:191 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:10:00:192 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:192 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:194 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: MarioOddysey
+
+[INFO] 19:10:00:195 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:195 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:00:196 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:00:196 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:00:198 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:00:199 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:00:199 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:00:218 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:219 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:374 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:00:375 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:00:488 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:489 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:490 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:526 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:526 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:00:527 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:528 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:528 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps1
+
+[INFO] 19:10:00:528 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:529 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:529 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 13
+
+[INFO] 19:10:00:530 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:531 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:531 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: FinalFantasy
+
+[INFO] 19:10:00:531 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:532 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:00:532 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:00:533 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:00:533 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:00:534 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:00:534 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:00:543 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:548 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:693 loggerInstancia/(15699:15702): Comienza el DUMP
+
+[INFO] 19:10:00:694 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:695 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:695 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:696 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:696 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:697 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:697 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:00:698 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:00:699 loggerInstancia/(15699:15702): Finalizo el DUMP
+
+[INFO] 19:10:00:699 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:00:806 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:806 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:00:807 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:00:847 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:847 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:00:848 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:00:848 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:849 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps2
+
+[INFO] 19:10:00:849 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:00:850 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:850 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 9
+
+[INFO] 19:10:00:851 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:00:851 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:00:852 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: GodOfWar
+
+[INFO] 19:10:00:852 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:00:853 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:00:853 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:00:854 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:00:855 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:00:855 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:00:855 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:00:864 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:866 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:00:3 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:00:3 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:01:145 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:146 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:147 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:182 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:183 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:01:183 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:183 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:184 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps3
+
+[INFO] 19:10:01:184 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:186 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:186 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:01:187 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:187 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:188 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: TLOU
+
+[INFO] 19:10:01:188 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:188 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:01:189 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:01:189 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:01:190 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:01:190 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:01:191 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:01:199 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:01:201 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:01:337 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:01:338 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:01:500 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:501 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:502 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:538 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:539 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 17
+
+[INFO] 19:10:01:539 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:540 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:540 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: sony:consola:ps4
+
+[INFO] 19:10:01:540 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:541 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:541 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 11
+
+[INFO] 19:10:01:542 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:543 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:543 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Bloodborne
+
+[INFO] 19:10:01:543 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:544 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:01:544 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:01:545 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:01:545 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:01:545 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:01:546 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:01:555 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:01:556 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:01:696 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:01:696 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:01:822 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:823 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:01:823 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:01:862 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:863 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 23
+
+[INFO] 19:10:01:863 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:01:863 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:864 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xbox
+
+[INFO] 19:10:01:864 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:01:865 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:866 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:01:866 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:01:867 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:01:868 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:01:868 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:01:869 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:01:869 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:01:870 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:01:870 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:01:871 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:01:871 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:01:880 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:01:884 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:02:24 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:02:25 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:02:153 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:154 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:02:155 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:02:190 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:190 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:10:02:191 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:02:191 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:192 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xbox360
+
+[INFO] 19:10:02:192 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:02:193 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:193 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:02:194 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:02:195 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:195 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:02:195 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:02:196 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:02:196 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:02:197 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:02:197 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:02:198 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:02:198 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:02:212 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:02:213 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:02:351 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:02:352 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[INFO] 19:10:02:506 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:506 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida
+
+[INFO] 19:10:02:507 loggerInstancia/(15699:15699): recibirInstruccion:: Pedimos la longitud de la clave
+
+[INFO] 19:10:02:542 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:542 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud de la clave recibida: 26
+
+[INFO] 19:10:02:543 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la clave
+
+[INFO] 19:10:02:543 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:544 loggerInstancia/(15699:15699): recibirInstruccion:: Clave recibida: microsoft:consola:xboxone
+
+[INFO] 19:10:02:544 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos la longitud del valor a almacenar
+
+[INFO] 19:10:02:545 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:546 loggerInstancia/(15699:15699): recibirInstruccion:: Longitud del valor recibida: 5
+
+[INFO] 19:10:02:546 loggerInstancia/(15699:15699): recibirInstruccion:: Esperamos el valor
+
+[INFO] 19:10:02:547 loggerInstancia/(15699:15699): Se recibieron los datos
+[INFO] 19:10:02:547 loggerInstancia/(15699:15699): recibirInstruccion:: Valor recibido: Halo
+
+[INFO] 19:10:02:548 loggerInstancia/(15699:15699): recibirInstruccion:: Instruccion recibida correctamente
+
+[INFO] 19:10:02:548 loggerInstancia/(15699:15699): La operacion es SET
+
+[INFO] 19:10:02:548 loggerInstancia/(15699:15699): La clave existe
+
+[INFO] 19:10:02:549 loggerInstancia/(15699:15699): El valor se puede reemplazar por el nuevo
+
+[INFO] 19:10:02:549 loggerInstancia/(15699:15699): Actualizando valor y estructuras administrativas
+
+[INFO] 19:10:02:550 loggerInstancia/(15699:15699): Valor almacenado correctamente
+
+[INFO] 19:10:02:551 loggerInstancia/(15699:15699): Operacion SET exitosa!
+
+[INFO] 19:10:02:559 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:02:561 loggerInstancia/(15699:15699): Se envio el mensaje
+[INFO] 19:10:02:765 loggerInstancia/(15699:15699): Esperando proxima sentencia...
+
+[INFO] 19:10:02:766 loggerInstancia/(15699:15699): Esperando la Instruccion
+
+[ERROR] 19:10:09:797 loggerInstancia/(15699:15699): recibirMensaje:: SE CORTO LA CONEXION
+[ERROR] 19:10:09:798 loggerInstancia/(15699:15699): SE CORTÓ LA CONEXIÓN CON COORDINADOR
+[ERROR] 19:10:09:799 loggerInstancia/(15699:15699): No se pudo recibir la sentencia
+
+[INFO] 19:10:09:800 loggerInstancia/(15699:15699): Se envio el mensaje
+[ERROR] 19:10:09:803 loggerInstancia/(15699:15699): ERROR AL ENVIAR
+[INFO] 19:10:09:903 loggerInstancia/(15699:15699): Comenzamos a imprimir los valores
+
+[INFO] 19:10:09:904 loggerInstancia/(15699:15699): La clave es: nintendo:consola:nes
+
+[INFO] 19:10:09:905 loggerInstancia/(15699:15699): Su valor asociado es: Mario
+
+[INFO] 19:10:09:906 loggerInstancia/(15699:15699): La clave es: nintendo:consola:snes
+
+[INFO] 19:10:09:909 loggerInstancia/(15699:15699): Su valor asociado es: SuperMario
+
+[INFO] 19:10:09:910 loggerInstancia/(15699:15699): La clave es: nintendo:consola:nintendo64
+
+[INFO] 19:10:09:910 loggerInstancia/(15699:15699): Su valor asociado es: Mario64
+
+[INFO] 19:10:09:911 loggerInstancia/(15699:15699): La clave es: nintendo:consola:gamecube
+
+[INFO] 19:10:09:911 loggerInstancia/(15699:15699): Su valor asociado es: Mario
+
+[INFO] 19:10:09:911 loggerInstancia/(15699:15699): La clave es: nintendo:consola:wii
+
+[INFO] 19:10:09:912 loggerInstancia/(15699:15699): Su valor asociado es: MarioGalaxy
+
+[INFO] 19:10:09:912 loggerInstancia/(15699:15699): La clave es: nintendo:consola:wiiu
+
+[INFO] 19:10:09:913 loggerInstancia/(15699:15699): Su valor asociado es: RIP
+
+[INFO] 19:10:09:913 loggerInstancia/(15699:15699): La clave es: nintendo:consola:switch
+
+[INFO] 19:10:09:916 loggerInstancia/(15699:15699): Su valor asociado es: MarioOddysey
+
+[INFO] 19:10:09:920 loggerInstancia/(15699:15699): La clave es: sony:consola:ps1
+
+[INFO] 19:10:09:921 loggerInstancia/(15699:15699): Su valor asociado es: FinalFantasy
+
+[INFO] 19:10:09:921 loggerInstancia/(15699:15699): La clave es: sony:consola:ps2
+
+[INFO] 19:10:09:922 loggerInstancia/(15699:15699): Su valor asociado es: GodOfWar
+
+[INFO] 19:10:09:924 loggerInstancia/(15699:15699): La clave es: sony:consola:ps3
+
+[INFO] 19:10:09:925 loggerInstancia/(15699:15699): Su valor asociado es: TLOU
+
+[INFO] 19:10:09:925 loggerInstancia/(15699:15699): La clave es: sony:consola:ps4
+
+[INFO] 19:10:09:926 loggerInstancia/(15699:15699): Su valor asociado es: Bloodborne
+
+[INFO] 19:10:09:926 loggerInstancia/(15699:15699): La clave es: microsoft:consola:xbox
+
+[INFO] 19:10:09:927 loggerInstancia/(15699:15699): Su valor asociado es: Halo
+
+[INFO] 19:10:09:927 loggerInstancia/(15699:15699): La clave es: microsoft:consola:xbox360
+
+[INFO] 19:10:09:928 loggerInstancia/(15699:15699): Su valor asociado es: Halo
+
+[INFO] 19:10:09:928 loggerInstancia/(15699:15699): La clave es: microsoft:consola:xboxone
+
+[INFO] 19:10:09:928 loggerInstancia/(15699:15699): Su valor asociado es: Halo
+
+[INFO] 19:10:09:929 loggerInstancia/(15699:15699): Los valores se han impreso correctamente
+
+[INFO] 19:10:10:700 loggerInstancia/(15699:15702): Comienza el DUMP
+
+[INFO] 19:10:10:701 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:702 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:703 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:703 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:704 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:706 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:708 loggerInstancia/(15699:15702): Se pudo mapear correctamente a memoria
+
+[INFO] 19:10:10:708 loggerInstancia/(15699:15702): Finalizo el DUMP
+

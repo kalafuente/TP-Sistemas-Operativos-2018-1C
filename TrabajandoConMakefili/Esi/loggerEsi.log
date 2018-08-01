@@ -6607,3 +6607,1219 @@
 [INFO] 18:17:54:472 loggerEsi/(13839:13839): Se cierra la conexion con el coordinador
 [INFO] 18:17:54:473 loggerEsi/(13839:13839): Se cierra la conexion con el planificador
 [INFO] 18:17:54:477 loggerEsi/(13839:13839): Hasta la vista, ESI
+[INFO] 19:09:24:330 loggerEsi/(15714:15714): Se abrió el archivo pruebas/pruebaMinima/ESI_MultiClave
+[INFO] 19:09:24:440 loggerEsi/(15714:15714): IP COORDINADOR:127.0.0.1
+[INFO] 19:09:24:443 loggerEsi/(15714:15714): PUERTO COORDINADOR:9191
+[INFO] 19:09:24:444 loggerEsi/(15714:15714): IP PLANIFICADOR:127.0.0.1
+[INFO] 19:09:24:446 loggerEsi/(15714:15714): PUERTO COORDINADOR:9192
+[INFO] 19:09:24:477 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:483 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:484 loggerEsi/(15714:15714): Me conecte al Coordinador :)
+[INFO] 19:09:24:488 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:495 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:495 loggerEsi/(15714:15714): Me conecte al Planificador :)
+[INFO] 19:09:24:517 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:24:518 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:519 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:24:538 loggerEsi/(15714:15714): Se parseo la instruccion: <GET sony:consola:ps1
+>
+[INFO] 19:09:24:543 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:544 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:24:556 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:559 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:560 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:563 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:24:565 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:24:649 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:650 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:24:654 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:656 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:24:657 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:659 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:662 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:666 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:24:723 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:725 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:24:725 loggerEsi/(15714:15714): Se parseo la instruccion: <GET sony:consola:ps2
+>
+[INFO] 19:09:24:726 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:727 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:24:727 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:729 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:730 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:730 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:24:737 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:24:935 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:936 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:24:936 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:938 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:24:944 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:949 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:950 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:951 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:24:983 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:24:984 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:24:984 loggerEsi/(15714:15714): Se parseo la instruccion: <GET sony:consola:ps3
+>
+[INFO] 19:09:24:985 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:988 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:24:989 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:989 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:991 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:24:991 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:24:992 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:25:207 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:207 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:25:207 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:209 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:25:209 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:210 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:210 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:211 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:25:257 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:258 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:25:260 loggerEsi/(15714:15714): Se parseo la instruccion: <GET sony:consola:ps4
+>
+[INFO] 19:09:25:260 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:261 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:25:262 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:263 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:264 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:264 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:25:264 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:25:513 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:514 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:25:516 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:516 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:25:517 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:517 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:517 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:518 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:25:559 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:560 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:25:560 loggerEsi/(15714:15714): Se parseo la instruccion: <GET microsoft:consola:xbox
+>
+[INFO] 19:09:25:562 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:562 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:25:564 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:567 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:567 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:567 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:25:568 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:25:806 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:806 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:25:809 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:809 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:25:809 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:810 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:811 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:812 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:25:856 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:25:856 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:25:857 loggerEsi/(15714:15714): Se parseo la instruccion: <GET microsoft:consola:xbox360
+>
+[INFO] 19:09:25:857 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:858 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:25:858 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:859 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:859 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:25:860 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:25:860 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:26:115 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:116 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:26:117 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:119 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:26:120 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:123 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:123 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:124 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:26:160 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:160 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:26:161 loggerEsi/(15714:15714): Se parseo la instruccion: <GET microsoft:consola:xboxone
+>
+[INFO] 19:09:26:161 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:162 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:26:163 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:163 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:164 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:165 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:26:165 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:26:418 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:419 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:26:421 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:422 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:26:423 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:424 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:427 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:435 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:26:467 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:468 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:26:468 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:nes
+>
+[INFO] 19:09:26:469 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:469 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:26:470 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:470 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:470 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:472 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:26:472 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:26:716 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:716 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:26:717 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:718 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:26:719 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:722 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:723 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:723 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:26:759 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:26:759 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:26:760 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:snes
+>
+[INFO] 19:09:26:760 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:761 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:26:762 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:763 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:764 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:26:764 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:26:764 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:27:15 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:16 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:27:16 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:19 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:27:20 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:20 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:20 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:21 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:27:68 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:68 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:27:69 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:nintendo64
+>
+[INFO] 19:09:27:69 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:70 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:27:71 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:71 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:73 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:80 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:27:81 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:27:317 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:318 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:27:319 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:321 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:27:321 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:322 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:329 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:329 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:27:372 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:373 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:27:373 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:gamecube
+>
+[INFO] 19:09:27:374 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:375 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:27:375 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:375 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:376 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:376 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:27:381 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:27:620 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:620 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:27:621 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:622 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:27:623 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:624 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:624 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:624 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:27:665 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:665 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:27:665 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:wii
+>
+[INFO] 19:09:27:666 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:667 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:27:667 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:667 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:668 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:668 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:27:669 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:27:913 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:914 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:27:914 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:916 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:27:916 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:917 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:917 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:918 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:27:963 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:27:963 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:27:964 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:wiiu
+>
+[INFO] 19:09:27:964 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:965 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:27:965 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:966 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:966 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:27:967 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:27:968 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:28:214 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:214 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:28:215 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:216 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:28:217 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:217 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:217 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:218 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:28:262 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:263 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:28:263 loggerEsi/(15714:15714): Se parseo la instruccion: <GET nintendo:consola:switch
+>
+[INFO] 19:09:28:264 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:264 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:28:265 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:265 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:265 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:266 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:28:267 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:28:482 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:483 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:28:488 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:488 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:28:489 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:490 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:491 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:492 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:28:532 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:532 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:28:536 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:nes Mario
+>
+[INFO] 19:09:28:536 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:537 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:28:537 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:538 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:540 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:541 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:546 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:547 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:28:547 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:28:917 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:917 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:28:920 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:920 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:28:921 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:921 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:922 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:923 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:924 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:927 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:28:985 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:28:986 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:28:986 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:snes SuperMario
+>
+[INFO] 19:09:28:987 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:987 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:28:988 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:988 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:988 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:989 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:989 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:28:990 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:28:991 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:29:291 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:29:291 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:29:292 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:293 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:29:294 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:296 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:305 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:305 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:306 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:307 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:29:341 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:29:342 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:29:343 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:nintendo64 Mario64
+>
+[INFO] 19:09:29:344 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:344 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:29:345 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:348 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:350 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:351 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:351 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:355 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:29:356 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:29:654 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:29:655 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:29:655 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:657 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:29:658 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:659 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:663 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:664 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:669 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:671 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:29:705 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:29:706 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:29:707 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:gamecube Mario
+>
+[INFO] 19:09:29:707 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:708 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:29:708 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:708 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:709 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:712 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:713 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:29:714 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:29:715 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:30:24 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:25 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:30:25 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:27 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:30:29 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:33 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:34 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:34 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:34 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:39 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:30:76 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:77 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:30:78 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:wii MarioGalaxy
+>
+[INFO] 19:09:30:78 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:79 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:30:79 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:80 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:80 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:82 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:83 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:84 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:30:84 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:30:411 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:411 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:30:412 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:414 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:30:415 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:415 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:416 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:417 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:417 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:418 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:30:467 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:468 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:30:468 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:wiiu RIP
+>
+[INFO] 19:09:30:469 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:469 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:30:469 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:473 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:473 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:473 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:479 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:480 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:30:481 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:30:792 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:793 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:30:796 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:797 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:30:798 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:799 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:801 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:808 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:810 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:811 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:30:853 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:30:854 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:30:854 loggerEsi/(15714:15714): Se parseo la instruccion: <SET nintendo:consola:switch MarioOddysey
+>
+[INFO] 19:09:30:862 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:862 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:30:863 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:863 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:864 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:864 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:866 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:30:867 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:30:868 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:31:137 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:141 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:31:145 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:145 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:31:146 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:146 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:147 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:151 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:152 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:153 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:31:194 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:194 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:31:195 loggerEsi/(15714:15714): Se parseo la instruccion: <SET sony:consola:ps1 FinalFantasy
+>
+[INFO] 19:09:31:195 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:196 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:31:196 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:196 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:197 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:197 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:208 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:210 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:31:211 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:31:507 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:507 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:31:508 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:510 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:31:512 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:512 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:513 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:523 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:523 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:524 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:31:558 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:559 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:31:560 loggerEsi/(15714:15714): Se parseo la instruccion: <SET sony:consola:ps2 GodOfWar
+>
+[INFO] 19:09:31:561 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:561 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:31:562 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:563 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:564 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:564 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:566 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:567 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:31:568 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:31:877 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:877 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:31:878 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:880 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:31:881 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:881 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:893 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:894 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:895 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:896 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:31:934 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:31:934 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:31:935 loggerEsi/(15714:15714): Se parseo la instruccion: <SET sony:consola:ps3 TLOU
+>
+[INFO] 19:09:31:935 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:936 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:31:936 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:936 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:937 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:937 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:939 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:31:940 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:31:941 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:32:253 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:32:254 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:32:254 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:256 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:32:257 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:258 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:259 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:259 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:260 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:261 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:32:306 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:32:306 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:32:307 loggerEsi/(15714:15714): Se parseo la instruccion: <SET sony:consola:ps4 Bloodborne
+>
+[INFO] 19:09:32:307 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:308 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:32:308 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:312 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:313 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:315 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:323 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:324 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:32:325 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:32:619 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:32:619 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:32:620 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:621 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:32:623 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:623 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:624 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:625 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:625 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:625 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:32:669 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:32:670 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:32:670 loggerEsi/(15714:15714): Se parseo la instruccion: <SET microsoft:consola:xbox Halo
+>
+[INFO] 19:09:32:671 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:671 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:32:672 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:672 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:678 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:679 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:680 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:32:687 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:32:688 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:33:13 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:33:13 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:33:13 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:19 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:33:20 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:21 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:21 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:22 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:22 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:29 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:33:65 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:33:65 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:33:66 loggerEsi/(15714:15714): Se parseo la instruccion: <SET microsoft:consola:xbox360 Halo
+>
+[INFO] 19:09:33:67 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:67 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:33:67 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:68 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:68 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:69 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:69 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:71 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:33:73 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:33:380 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:33:380 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:33:381 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:383 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:33:384 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:385 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:385 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:385 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:386 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:388 loggerEsi/(15714:15714): Esperando la orden del planificador
+[INFO] 19:09:33:440 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:33:440 loggerEsi/(15714:15714): Orden recibida
+[INFO] 19:09:33:441 loggerEsi/(15714:15714): Se parseo la instruccion: <SET microsoft:consola:xboxone Halo>
+[INFO] 19:09:33:441 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:442 loggerEsi/(15714:15714): Enviando instruccion al Coordinador
+[INFO] 19:09:33:449 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:450 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:450 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:452 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:453 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:454 loggerEsi/(15714:15714): Se envió la instrucción
+[INFO] 19:09:33:456 loggerEsi/(15714:15714): Esperando resultado de la operación
+[INFO] 19:09:33:769 loggerEsi/(15714:15714): Se recibieron los datos
+[INFO] 19:09:33:770 loggerEsi/(15714:15714): Resultado recibido
+[INFO] 19:09:33:772 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:773 loggerEsi/(15714:15714): el estado enviado es 1
+[INFO] 19:09:33:774 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:775 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:775 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:775 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:777 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:777 loggerEsi/(15714:15714): No hay más para leer
+[INFO] 19:09:33:786 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:787 loggerEsi/(15714:15714): le dije que terminé al coordi
+[INFO] 19:09:33:788 loggerEsi/(15714:15714): Enviando resultado de la operacion al Planificador 
+[INFO] 19:09:33:790 loggerEsi/(15714:15714): Se envio el mensaje
+[INFO] 19:09:33:803 loggerEsi/(15714:15714): Resultado enviado
+[INFO] 19:09:33:805 loggerEsi/(15714:15714): le dije que terminé al plani
+[INFO] 19:09:33:815 loggerEsi/(15714:15714): Se cierra la conexion con el coordinador
+[INFO] 19:09:33:819 loggerEsi/(15714:15714): Se cierra la conexion con el planificador
+[INFO] 19:09:33:829 loggerEsi/(15714:15714): Hasta la vista, ESI
+[INFO] 19:09:46:894 loggerEsi/(15717:15717): Se abrió el archivo pruebas/pruebaMinima/ESI_MultiClave
+[INFO] 19:09:46:992 loggerEsi/(15717:15717): IP COORDINADOR:127.0.0.1
+[INFO] 19:09:46:996 loggerEsi/(15717:15717): PUERTO COORDINADOR:9191
+[INFO] 19:09:46:997 loggerEsi/(15717:15717): IP PLANIFICADOR:127.0.0.1
+[INFO] 19:09:46:998 loggerEsi/(15717:15717): PUERTO COORDINADOR:9192
+[INFO] 19:09:47:34 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:47:43 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:47:44 loggerEsi/(15717:15717): Me conecte al Coordinador :)
+[INFO] 19:09:47:47 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:47:48 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:47:49 loggerEsi/(15717:15717): Me conecte al Planificador :)
+[INFO] 19:09:47:62 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:53:837 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:53:838 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:53:860 loggerEsi/(15717:15717): Se parseo la instruccion: <GET sony:consola:ps1
+>
+[INFO] 19:09:53:868 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:869 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:53:873 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:877 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:883 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:885 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:53:887 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:53:933 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:53:934 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:53:936 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:937 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:53:940 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:943 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:945 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:948 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:53:951 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:53:952 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:53:953 loggerEsi/(15717:15717): Se parseo la instruccion: <GET sony:consola:ps2
+>
+[INFO] 19:09:53:954 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:955 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:53:955 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:965 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:965 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:53:965 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:53:966 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:54:221 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:221 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:54:222 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:224 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:54:224 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:224 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:225 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:225 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:54:268 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:268 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:54:269 loggerEsi/(15717:15717): Se parseo la instruccion: <GET sony:consola:ps3
+>
+[INFO] 19:09:54:269 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:270 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:54:271 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:272 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:273 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:273 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:54:274 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:54:512 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:512 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:54:513 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:515 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:54:515 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:515 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:516 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:516 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:54:559 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:560 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:54:561 loggerEsi/(15717:15717): Se parseo la instruccion: <GET sony:consola:ps4
+>
+[INFO] 19:09:54:561 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:562 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:54:562 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:563 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:564 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:564 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:54:565 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:54:808 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:808 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:54:809 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:810 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:54:811 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:811 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:812 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:812 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:54:858 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:54:859 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:54:860 loggerEsi/(15717:15717): Se parseo la instruccion: <GET microsoft:consola:xbox
+>
+[INFO] 19:09:54:861 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:862 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:54:863 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:864 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:865 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:54:866 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:54:866 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:55:68 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:68 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:55:68 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:70 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:55:71 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:71 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:72 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:72 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:55:112 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:113 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:55:113 loggerEsi/(15717:15717): Se parseo la instruccion: <GET microsoft:consola:xbox360
+>
+[INFO] 19:09:55:117 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:118 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:55:118 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:119 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:119 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:121 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:55:121 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:55:335 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:335 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:55:335 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:337 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:55:338 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:338 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:339 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:340 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:55:383 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:383 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:55:384 loggerEsi/(15717:15717): Se parseo la instruccion: <GET microsoft:consola:xboxone
+>
+[INFO] 19:09:55:384 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:384 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:55:385 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:385 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:389 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:389 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:55:391 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:55:615 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:616 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:55:616 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:618 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:55:621 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:622 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:625 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:625 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:55:664 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:664 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:55:665 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:nes
+>
+[INFO] 19:09:55:665 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:666 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:55:668 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:669 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:669 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:671 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:55:671 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:55:916 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:916 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:55:916 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:918 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:55:919 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:920 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:921 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:925 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:55:959 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:55:959 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:55:960 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:snes
+>
+[INFO] 19:09:55:960 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:961 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:55:961 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:961 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:962 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:55:963 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:55:963 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:56:218 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:218 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:56:219 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:221 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:56:222 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:223 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:223 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:223 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:56:264 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:264 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:56:264 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:nintendo64
+>
+[INFO] 19:09:56:265 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:265 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:56:266 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:266 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:267 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:267 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:56:268 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:56:552 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:563 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:56:568 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:570 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:56:574 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:575 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:575 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:578 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:56:608 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:608 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:56:609 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:gamecube
+>
+[INFO] 19:09:56:609 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:610 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:56:613 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:614 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:618 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:620 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:56:621 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:56:852 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:853 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:56:855 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:856 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:56:856 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:856 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:857 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:857 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:56:898 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:56:899 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:56:899 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:wii
+>
+[INFO] 19:09:56:900 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:900 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:56:901 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:901 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:902 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:56:904 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:56:904 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:57:152 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:153 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:57:157 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:157 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:57:158 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:159 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:159 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:160 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:57:195 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:195 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:57:196 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:wiiu
+>
+[INFO] 19:09:57:196 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:197 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:57:197 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:197 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:198 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:199 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:57:200 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:57:452 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:452 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:57:453 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:455 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:57:455 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:456 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:456 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:457 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:57:498 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:499 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:57:499 loggerEsi/(15717:15717): Se parseo la instruccion: <GET nintendo:consola:switch
+>
+[INFO] 19:09:57:500 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:500 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:57:501 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:501 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:502 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:503 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:57:504 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:57:752 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:753 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:57:753 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:755 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:57:756 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:756 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:760 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:760 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:57:800 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:57:801 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:57:804 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:nes Mario
+>
+[INFO] 19:09:57:805 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:806 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:57:807 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:807 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:807 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:808 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:809 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:57:809 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:57:810 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:58:112 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:112 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:58:113 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:115 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:58:115 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:116 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:117 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:118 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:118 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:120 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:58:167 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:168 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:58:168 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:snes SuperMario
+>
+[INFO] 19:09:58:169 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:169 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:58:170 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:171 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:171 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:172 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:173 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:174 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:58:183 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:58:467 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:467 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:58:468 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:470 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:58:471 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:472 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:472 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:472 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:476 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:483 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:58:522 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:522 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:58:523 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:nintendo64 Mario64
+>
+[INFO] 19:09:58:523 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:524 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:58:524 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:524 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:525 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:525 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:526 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:528 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:58:539 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:58:822 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:823 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:58:823 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:825 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:58:826 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:827 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:827 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:828 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:828 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:828 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:58:878 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:58:879 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:58:879 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:gamecube Mario
+>
+[INFO] 19:09:58:880 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:880 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:58:881 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:881 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:882 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:891 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:893 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:58:893 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:58:895 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:59:170 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:170 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:59:173 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:173 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:59:174 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:175 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:175 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:176 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:177 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:177 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:59:225 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:226 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:59:226 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:wii MarioGalaxy
+>
+[INFO] 19:09:59:227 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:227 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:59:227 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:228 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:228 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:229 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:229 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:230 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:59:232 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:59:489 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:489 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:59:490 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:493 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:59:494 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:495 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:495 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:495 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:496 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:497 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:59:545 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:546 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:59:547 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:wiiu RIP
+>
+[INFO] 19:09:59:547 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:548 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:59:548 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:548 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:549 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:555 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:559 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:559 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:59:560 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:09:59:814 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:814 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:09:59:816 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:823 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:09:59:832 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:832 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:834 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:835 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:836 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:837 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:09:59:873 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:09:59:873 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:09:59:875 loggerEsi/(15717:15717): Se parseo la instruccion: <SET nintendo:consola:switch MarioOddysey
+>
+[INFO] 19:09:59:876 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:886 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:09:59:887 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:889 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:892 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:893 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:894 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:09:59:896 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:09:59:898 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:00:201 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:202 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:00:204 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:205 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:00:206 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:216 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:217 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:219 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:221 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:222 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:00:263 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:264 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:00:264 loggerEsi/(15717:15717): Se parseo la instruccion: <SET sony:consola:ps1 FinalFantasy
+>
+[INFO] 19:10:00:265 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:265 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:00:265 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:266 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:267 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:278 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:280 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:282 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:00:283 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:00:537 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:538 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:00:540 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:541 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:00:542 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:542 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:543 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:543 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:544 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:555 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:00:596 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:596 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:00:597 loggerEsi/(15717:15717): Se parseo la instruccion: <SET sony:consola:ps2 GodOfWar
+>
+[INFO] 19:10:00:597 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:598 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:00:598 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:599 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:600 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:610 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:610 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:612 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:00:615 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:00:857 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:857 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:00:858 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:861 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:00:862 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:863 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:863 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:864 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:864 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:865 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:00:916 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:00:917 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:00:917 loggerEsi/(15717:15717): Se parseo la instruccion: <SET sony:consola:ps3 TLOU
+>
+[INFO] 19:10:00:918 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:925 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:00:926 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:926 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:931 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:932 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:933 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:00:933 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:00:935 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:01:193 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:194 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:01:194 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:196 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:01:197 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:198 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:198 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:199 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:199 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:200 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:01:251 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:252 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:01:253 loggerEsi/(15717:15717): Se parseo la instruccion: <SET sony:consola:ps4 Bloodborne
+>
+[INFO] 19:10:01:256 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:257 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:01:262 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:264 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:265 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:265 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:266 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:268 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:01:273 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:01:548 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:548 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:01:549 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:550 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:01:552 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:553 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:554 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:554 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:555 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:555 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:01:603 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:603 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:01:603 loggerEsi/(15717:15717): Se parseo la instruccion: <SET microsoft:consola:xbox Halo
+>
+[INFO] 19:10:01:604 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:604 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:01:605 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:605 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:606 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:606 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:607 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:608 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:01:609 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:01:873 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:874 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:01:875 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:876 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:01:877 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:878 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:878 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:879 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:879 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:880 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:01:933 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:01:934 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:01:935 loggerEsi/(15717:15717): Se parseo la instruccion: <SET microsoft:consola:xbox360 Halo
+>
+[INFO] 19:10:01:936 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:936 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:01:937 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:945 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:951 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:953 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:955 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:01:956 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:01:957 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:02:200 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:02:200 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:02:201 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:204 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:02:204 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:205 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:210 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:212 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:219 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:221 loggerEsi/(15717:15717): Esperando la orden del planificador
+[INFO] 19:10:02:259 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:02:260 loggerEsi/(15717:15717): Orden recibida
+[INFO] 19:10:02:261 loggerEsi/(15717:15717): Se parseo la instruccion: <SET microsoft:consola:xboxone Halo>
+[INFO] 19:10:02:261 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:262 loggerEsi/(15717:15717): Enviando instruccion al Coordinador
+[INFO] 19:10:02:262 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:263 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:267 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:269 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:271 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:271 loggerEsi/(15717:15717): Se envió la instrucción
+[INFO] 19:10:02:272 loggerEsi/(15717:15717): Esperando resultado de la operación
+[INFO] 19:10:02:553 loggerEsi/(15717:15717): Se recibieron los datos
+[INFO] 19:10:02:553 loggerEsi/(15717:15717): Resultado recibido
+[INFO] 19:10:02:553 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:555 loggerEsi/(15717:15717): el estado enviado es 1
+[INFO] 19:10:02:556 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:557 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:558 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:559 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:560 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:562 loggerEsi/(15717:15717): No hay más para leer
+[INFO] 19:10:02:565 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:575 loggerEsi/(15717:15717): le dije que terminé al coordi
+[INFO] 19:10:02:576 loggerEsi/(15717:15717): Enviando resultado de la operacion al Planificador 
+[INFO] 19:10:02:577 loggerEsi/(15717:15717): Se envio el mensaje
+[INFO] 19:10:02:583 loggerEsi/(15717:15717): Resultado enviado
+[INFO] 19:10:02:585 loggerEsi/(15717:15717): le dije que terminé al plani
+[INFO] 19:10:02:588 loggerEsi/(15717:15717): Se cierra la conexion con el coordinador
+[INFO] 19:10:02:601 loggerEsi/(15717:15717): Se cierra la conexion con el planificador
+[INFO] 19:10:02:604 loggerEsi/(15717:15717): Hasta la vista, ESI

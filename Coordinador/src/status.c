@@ -62,6 +62,7 @@ void status (int sock){
 	printf("band: %d \n", banderaTerminarHilos);
 	free(claveAPedir);
 	if (banderaTerminarHilos !=0){
+		log_info(logger, "Planificador desconectado");
 		killCoordinador();
 		exit(1);
 	}

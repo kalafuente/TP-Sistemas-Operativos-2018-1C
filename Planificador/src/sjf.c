@@ -54,6 +54,7 @@ void actualizarEstimacionSJF(struct_esi* esi, double alfa){
 
 
 void cambiarEstimacionSJF(struct_esi* esi, int alfa) {
-	esi->estimacion = (esi->estimacion + esi->rafagaActual) * (1 - (alfa / 100))
-			+ (alfa / 100) * esi->rafagaActual;
+	esi->estimacion = (esi->estimacion + esi->rafagaActual)
+			* (1 - (alfa / 100.0)) + (alfa / 100.0) * esi->rafagaActual;
+	esi->rafagaActual = 0;
 }

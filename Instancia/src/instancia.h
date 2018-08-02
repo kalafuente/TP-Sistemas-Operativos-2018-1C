@@ -42,6 +42,7 @@ typedef struct t_tabla_entradas
 //------------Variables globales
 t_log* logger;
 t_log * logOperaciones;
+t_log* logCompactacion;
 int32_t socketCoordinador;
 instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 20; //Lo deje en 20 para probar
@@ -137,6 +138,10 @@ void inicializarMutex();
 //REINCORPORACION
 void reincorporarse();
 
+//COMPACTACION
+void compactacion();
+void protocoloLuegoDeCompactacion(char * clave, char * valor);
+
 
 // ------------------- Funciones bitArray
 void inicializarBitArray();
@@ -145,6 +150,8 @@ void setBit(int numeroEntrada);
 void clearBit(int numeroEntrada);
 int testBit(int numeroEntrada);
 void eliminarBitArray();
+void reiniciarBitArray();
+void actualizarBitArray(int fin);
 
 // ------------------ Metodos de ordenamiento de listas
 bool ordenarPorNumeroDeEntrada(t_tabla_entradas * primerElemento, t_tabla_entradas * segundoElemento);

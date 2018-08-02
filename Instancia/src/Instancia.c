@@ -10,6 +10,9 @@ int main(int argc,char**argv)
 	logOperaciones= crearLogger("logOperaciones.log","logOperaciones");
 	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
 
+	logCompactacion = crearLogger("logCompactacion.log", "logCompactacion");
+	log_info(logCompactacion, "**************************************** NUEVA ENTRADA ****************************************");
+
 	//t_config * config = config_create("configuracionInstancia.config");
 	t_config * config = abrirArchivoConfig(argc,argv,logger,destruirLogger);
 
@@ -369,7 +372,7 @@ int procesarSentencias()
 					break;
 
 				case COMPACTAR:
-					//COMPACTACION
+					compactacion();
 					respuesta = COMPACTACION_EXITOSA;
 					break;
 
@@ -610,11 +613,16 @@ int procesarSET(t_instruccion* inst)
 
 			if(sentencia->instruccion != COMPACTAR)
 			{
+				log_error(logCompactacion, "Fallo al recibir el OK del Coordi para Compactar\n");
+				perror("Fallo al recibir el OK del Coordi para Compactar\n");
 				return -42;
 			}
 
 			destruirInstruccion(sentencia);
 			//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
+
+			compactacion();
+			protocoloLuegoDeCompactacion(inst->clave, inst->valor);
 
 			respuesta = COMPACTACION_EXITOSA;
 			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
@@ -804,12 +812,17 @@ int procesarSET(t_instruccion* inst)
 
 				if(sentencia->instruccion != COMPACTAR)
 				{
+					log_error(logCompactacion, "Fallo al recibir el OK del Coordi para Compactar\n");
+					perror("Fallo al recibir el OK del Coordi para Compactar\n");
 					return -42;
 				}
 
 				destruirInstruccion(sentencia);
 
 				//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
+
+				compactacion();
+				protocoloLuegoDeCompactacion(inst->clave, inst->valor);
 
 				respuesta = COMPACTACION_EXITOSA;
 				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
@@ -1192,7 +1205,7 @@ int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad])
 
 	int i = 0;
 
-	while(i < (cantidad - 2))
+	while(i <= (cantidad - 2))
 	{
 		if(entradasParaComprobar[i + 1] == (entradasParaComprobar[i] + 1))
 		{
@@ -2112,5 +2125,147 @@ bool ordenarPorEspacioUsado(t_tabla_entradas * primerElemento, t_tabla_entradas 
 	return (primerElemento->tamanioValor > segundoElemento->tamanioValor);
 }
 
+void protocoloLuegoDeCompactacion(char * clave, char * valor)
+{
+	log_info(logger, "Comienza protocolo pos compactacion\n");
 
+	int noEncontrado = 1;
+	int pos = 0;
+
+	while(pos < cantidadEntradas && noEncontrado)
+	{
+		if(testBit(pos))
+		{
+			pos++;
+		}
+		else
+		{
+			noEncontrado = 0;
+		}
+	}
+
+	guardarValorEnEntradas(clave, valor, pos);
+
+	log_info(logger, "Termino el protocolo\n");
+}
+
+void compactacion()
+{
+	log_info(logger, "Comienza COMPACTACION\n");
+	log_info(logCompactacion, "Se comienza a compactar\n");
+
+	//Primero debemos ordenar la lista por numero de entrada por las dudas
+	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
+
+	t_link_element * actual = tablaEntradas->head;
+	t_link_element * anterior = NULL;
+	int array[2] = {0, 0};
+	int corrimiento = 0;
+	int cambios = 0;
+
+	while(actual != NULL)
+	{
+		corrimiento = 0;
+
+		if(anterior == NULL)
+		{
+			//No hago nada
+		}
+		else
+		{
+			//Hay que ver si las dos entradas son contiguas
+			array[0] = ((t_tabla_entradas*)actual->data)->numeroEntrada;
+			array[1] = ((t_tabla_entradas*)anterior->data)->numeroEntrada;
+
+			if(sonEntradasContiguas(2, array))
+			{
+				//Si son contiguas no hay que compactar nada, seguimos explorando
+			}
+			else
+			{
+				cambios = 1;
+				corrimiento = corrimiento + (array[1] - (array[0] + 1));
+
+				//Ya sabemos cuanto para atras nos tenemos que mover
+				//Antes de actualizarlos hay que guardar lo que esta en las entradas en un buffer para poder desplazarlo a la nueva posicion
+
+				char * buffer = (char*)malloc(sizeof(char) * ((t_tabla_entradas*)actual->data)->tamanioValor);
+				memcpy((void*)buffer, (void*)&entradas[tamanioEntrada * (((t_tabla_entradas*)actual->data)->numeroEntrada)], ((t_tabla_entradas*)actual->data)->tamanioValor);
+
+				//Ahora hay que ver cuales nodos tienen la misma clave para actualizarlos a todos
+
+				char * key = ((t_tabla_entradas*)actual->data)->clave;
+
+				t_link_element * auxiliar = actual;
+
+				while(auxiliar != NULL && (strcmp(((t_tabla_entradas*)auxiliar->data)->clave, key) == 0))
+				{
+					((t_tabla_entradas*)auxiliar->data)->numeroEntrada -= corrimiento;
+					auxiliar = auxiliar->next;
+				}
+
+				//Actualizamos el valor en las entradas en la posicion correspondiente
+
+				memcpy((void*)&entradas[tamanioEntrada * (((t_tabla_entradas*)actual->data)->numeroEntrada)], (void*)buffer, ((t_tabla_entradas*)actual->data)->tamanioValor);
+				free(buffer);
+
+			}
+		}
+
+		anterior = actual;
+		actual = actual->next;
+
+	}
+
+	if(cambios)
+	{
+		//Se compacto, por lo que hay que actualizar el array de bits
+
+		int ultimaPosicion = ((t_tabla_entradas*)anterior->data)->numeroEntrada;
+		reiniciarBitArray();
+		actualizarBitArray(ultimaPosicion);
+
+	}
+
+	log_info(logCompactacion, "Se realizaron los corrimientos necesarios\n");
+	log_info(logCompactacion, "Las entradas quedaron asi\n");
+	imprimirContenidoEntradas(logCompactacion);
+	log_info(logCompactacion, "El array de bits quedo asi\n");
+
+	int i;
+	int fin = tamanioBitArray();
+
+	for(i=0; i < fin; i++)
+	{
+		log_info(logCompactacion, "La posicion %d del array de enteros contiene %d\n", (i+1), bitArray[i]);
+	}
+
+	log_info(logCompactacion, "La compactacion ha finalizado\n");
+	log_info(logger, "Finalizo COMPACTACION\n");
+
+}
+
+void reiniciarBitArray()
+{
+	int i;
+	int fin = tamanioBitArray();
+
+	for(i = 0; i < fin; i++)
+	{
+		bitArray[i] = 0;
+	}
+}
+
+void actualizarBitArray(int fin)
+{
+	if(fin < cantidadEntradas)
+	{
+		int i;
+
+		for(i=0; i <=fin; i++)
+		{
+			setBit(i);
+		}
+	}
+}
 

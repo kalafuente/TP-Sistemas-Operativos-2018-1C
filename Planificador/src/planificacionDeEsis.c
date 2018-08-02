@@ -67,6 +67,10 @@ void planificarESIs(){
 				break;
 			}
 
+
+			log_info(logger, "la estimacion del esi %d es %d \n", esiActual->ID,esiActual->estimacion);
+
+
 			ordenarActuar(esiActual);
 			if (recibirMensaje(logger, sizeof(PROTOCOLO_ESI_A_PLANIFICADOR),&estadoEsi, esiActual->socket) <= 0) {
 				log_error(logger, "ERROR ESI DESCONECTADO");

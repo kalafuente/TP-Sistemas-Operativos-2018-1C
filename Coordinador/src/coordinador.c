@@ -10,12 +10,11 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-
 void terminarHilos(){
 
-	void cerrarHilos(pthread_t elem){
-			pthread_cancel(elem);
-			printf("cierro hilo");
+	void cerrarHilos(pthread_t * elem){
+			pthread_cancel(*elem);
+			printf("cierro hilo %lu \n",*elem);
 		}
 	list_iterate(hilos, (void *) cerrarHilos);
 	list_destroy(hilos);
@@ -74,10 +73,10 @@ void crearServidorMultiHilo() {
 
 	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
 
-		puts("Cliente conectado. Esperando mensajes prueba:\n");
+		puts("Cliente conectado. \n");
 
 		if (pthread_create(&thread_id, NULL, manejadorDeConexiones, (void*) &socketCliente) < 0) {
-			perror("No se pudo crear el hilo");
+			log_error(logger,"No se pudo crear el hilo");
 			exit(1);
 		}
 
@@ -87,10 +86,8 @@ void crearServidorMultiHilo() {
 				break;
 			}
 		 */
-		puts("Manejador de conexiones asignado");
-		printf("la bandera es: %d \n", banderaTerminarHilos);
-
-
+		puts("Manejador de conexiones asignado \n");
+		//printf("la bandera es: %d \n", banderaTerminarHilos);
 	}
 
 	if (socketCliente < 0) {
@@ -101,9 +98,9 @@ void crearServidorMultiHilo() {
 
 
 void *manejadorDeConexiones(void *socket_desc) {
-	pthread_t  id = pthread_self();
 	int sock = *(int*) socket_desc;
-
+	pthread_t  idHilo = pthread_self();
+	//printf ("hilo: %lu \n", idHilo);
 	t_instruccion* instruccionAGuardar;
 	saludar(sock);
 
@@ -116,14 +113,13 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 
 		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
-			log_info(logger, "Se espera el pedido de status");
+			//list_add(hilos, &idHilo);
+			//log_info(logger, "Se espera el pedido de status");
 			status(sock);
 			close(sock);
 			break;
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
-
-			//list_add(hilos, &id);
 			log_info(logger, "Se me conectó una Instancia");
 
 			char * id = recibirID(sock, logger);
@@ -132,23 +128,24 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 			if(existeID(id,listaDeInstancias)){
 
-				printf("Se reconecta instancia, socket nuevo: %d \n", sock);
-				printf("instancias viejas: \n");
-				mostrarListaIntancias(listaDeInstancias);
+				//printf("Se reconecta instancia, socket nuevo: %d \n", sock);
+				//printf("instancias viejas: \n");
+				//mostrarListaIntancias(listaDeInstancias);
 				actualizarSocketInstancia(sock, id, listaDeInstancias);
-				printf("instancias actualizadas: \n");
-				mostrarListaIntancias(listaDeInstancias);
+				//printf("instancias actualizadas: \n");
+				//mostrarListaIntancias(listaDeInstancias);
 			}
 			else{
-						printf("Nueva instancia");
+						printf("Nueva instancia \n");
 						registrarInstancia(sock, id);
-						mostrarListaIntancias(listaDeInstancias);
+						//mostrarListaIntancias(listaDeInstancias);
 					}
 
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
-			list_add(hilos, &id);
+
+			list_add(hilos, &idHilo);
 			log_info(logger, "Se me conectó un Esi");
 			PROTOCOLO_ESI_A_COORDI esi;
 
@@ -175,13 +172,29 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 
 			close(sock);
+			eliminarEsteHilo(idHilo);
 			break;
 	}
 
-	printf("\n termino el hilo\n ");
+	//printf("\n termino el hilo\n ");
 	pthread_exit(EXIT_SUCCESS);
 }
 
+void eliminarEsteHilo(pthread_t hilo){
+	bool equal(pthread_t * item) {
+			if ( pthread_equal(hilo,*item)){
+				printf("\n elimino el hilo\n %lu", *item);
+				return true;
+			}
+
+			else{
+				printf("\n no se elimino el hilo\n ");
+				return false;
+			}
+
+		}
+	list_remove_by_condition(hilos, (void *) equal);
+}
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
 

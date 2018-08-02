@@ -47,6 +47,7 @@ double calcularRafagaSJF(struct_esi* esi, double alfa){
 
 void actualizarEstimacionSJF(struct_esi* esi, double alfa){
 	esi->estimacion = calcularRafagaSJF(esi, alfa);
+	log_info(logger, "la estimacion actualizada del esi %d, es %d \n", esi->ID,esi->estimacion);
 	//esi->duracionRafaga = 0;
 }
 

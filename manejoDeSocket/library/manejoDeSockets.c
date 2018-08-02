@@ -120,7 +120,7 @@ int enviarMensaje(t_log* logger, size_t len, const void* msg, int unsocket){
 		//log_info(logger,"Se enviaron %d bytes",total);
 		bytes_left-=total;
 	}
-log_info(logger,"Se envio el mensaje");
+//log_info(logger,"Se envio el mensaje");
 return total;
 
 
@@ -149,6 +149,6 @@ int recibirMensaje(t_log* logger, size_t len, void* buffer, int unsocket){
 
 
 	}
-	log_info(logger,"Se recibieron los datos");
+	//log_info(logger,"Se recibieron los datos");
 	return bytesHeader;
 }

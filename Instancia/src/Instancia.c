@@ -723,11 +723,13 @@ int procesarSET(t_instruccion* inst)
 
 					log_info(logger, "Encontramos el nodo");
 
-						if(punteroReempAlgCirc == actual)
-						{
-							log_info(logger, "El puntero apunta al nodo a eliminar, entonces lo movemos\n");
-							moverPunteroReempAlgCirc();
-						}
+					actualizarPunteroCIRC();
+
+					if(punteroReempAlgCirc == actual)
+					{
+						log_info(logger, "El puntero apunta al nodo a eliminar, entonces lo movemos\n");
+						moverPunteroReempAlgCirc();
+					}
 
 					int entradaActual = datos->numeroEntrada; //Para actualizar el bitArray
 					log_info(logger, "Eliminamos el campo data del nodo");
@@ -1133,6 +1135,16 @@ int victimaBSU()
 
 int desempatePorCIRC(int tamanio, int array[tamanio])
 {
+	log_info(logger, "Hay empate entre las victimas\n");
+	log_info(logger, "El puntero CIRC apunta a la entrada %d", posCIRC);
+
+	int j;
+
+	for(j=0; j < tamanio; j++)
+	{
+		log_info(logger, "La victima %d es la entrada %d", (j+1), array[j]);
+	}
+
 	actualizarPunteroCIRC();
 
 	int i = 0;
@@ -1146,31 +1158,30 @@ int desempatePorCIRC(int tamanio, int array[tamanio])
 		}
 		else
 		{
+			moverPunteroReempAlgCirc();
 			return array[i];
 		}
 	}
 
 	//Todas las entradas estan antes, entonces devolvemos la primera del array
 
+	moverPunteroReempAlgCirc();
 	return array[0];
 }
 
 void ordenarArray(int tamanio, int array[tamanio])
 {
-	int i, j, auxiliar;
+	qsort(array, (size_t)tamanio, sizeof(int), compararEnteros);
+}
 
-	for(i = 0; i < tamanio; i ++)
-	{
-		for(j = 1; j < (tamanio - 1); j ++)
-		{
-			if(array[j] < array[j-1])
-			{
-				auxiliar = array[j-1];
-				array[j-1] = array[j];
-				array[j] =  auxiliar;
-			}
-		}
-	}
+int compararEnteros(const void * primero, const void * segundo)
+{
+    if( *(int*)primero == *(int*)segundo )
+    {
+    	return 0;
+    }
+
+    return *(int*)primero < *(int*)segundo ? -1 : 1;
 }
 
 int sonEntradasContiguas(int cantidad, int entradasParaComprobar[cantidad])
@@ -1324,6 +1335,8 @@ void actualizarValorEnEntradas(t_link_element * nodo, char * nuevoValor, int ent
 
 	for(; i < entradasViejoValor; i++)
 	{
+		actualizarPunteroCIRC();
+
 		if(punteroReempAlgCirc == actual)
 		{
 			log_info(logger, "El puntero apunta al nodo a eliminar, lo movemos\n");
@@ -1713,6 +1726,8 @@ void moverPunteroReempAlgCirc()
 	}
 
 	actualizarPunteroCIRC();
+
+	log_info(logger, "Se movio el puntero CIRC\n");
 }
 
 /* OTRA ACTUALIZADA

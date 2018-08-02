@@ -102,6 +102,8 @@ int procesarSTORE(t_instruccion * sentencia);
 
 void ordenarArray(int tamanio, int array[tamanio]);
 
+int compararEnteros(const void * primero, const void * segundo);
+
 void almacenarValor(int entradaInicial, char * valor);
 
 void crearyAgregarElementoTDE(char * clave, int32_t tamanioValor, int32_t numeroEntrada);

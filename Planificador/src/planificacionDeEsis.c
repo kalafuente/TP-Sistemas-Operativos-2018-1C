@@ -216,4 +216,5 @@ void procesarInstruccion(t_instruccion* instruccion, struct_esi*esi) {
 	default:
 		log_error(logger, "!!!!! ERRRORRRR  !!!!  INTRUCCION INVALIDA");
 	}
+	free(clave);
 }

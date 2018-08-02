@@ -68,7 +68,8 @@ void planificarESIs(){
 			}
 
 
-			log_info(logger, "la estimacion del esi %d es %d \n", esiActual->ID,esiActual->estimacion);
+			log_info(logger, "la estimacion del esi %d es %f \n", esiActual->ID,
+					esiActual->estimacion);
 
 
 			ordenarActuar(esiActual);
@@ -103,8 +104,8 @@ void planificarESIs(){
 					agregarEnListaBloqueado(esiActual, instruccion->clave);
 					pthread_mutex_unlock(&mutex);
 					destruirInstruccion(instruccion);
-					log_info(logger, "esi %d bloqueado", esiActual->ID);
-
+				log_info(logger, "Esi %d bloqueado", esiActual->ID);
+				log_info(logger, "Nueva estimacion: %f", esiActual->estimacion);
 					break;
 				case TERMINE:
 					pthread_mutex_lock(&mutex);

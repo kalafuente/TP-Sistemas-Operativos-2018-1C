@@ -9,8 +9,7 @@ int main(int argc, char **argv) {
 	crearListas();
 
 	cargarClavesPrebloqueadas();
-	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[0]);
-	//log_info(logger, "%s", planiConfig->clavesPrebloqueadas[1]);
+
 
 	pthread_t tid;
 	pthread_mutex_init(&mutexConsolaEnEspera, NULL);
@@ -26,6 +25,7 @@ int main(int argc, char **argv) {
 	int socketStatus = conectarseAlCoordinador(planiConfig,
 			HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR);
 //-----------RECEPTOR DE ESI´S----------------------
+
 	pthread_create(&tid, NULL, consola, (void*) &socketStatus);
 
 
@@ -497,7 +497,7 @@ void* consola(void* socket) {
 void prepararConfiguracion(int argc, char **argv){
 	config=abrirArchivoConfig(argc,argv,logger,destruirLogger);
 	//config = config_create("configPlanificador.config");
-	planiConfig=  init_planificaorConfig();
+	planiConfig=  init_planificadorConfig();
 	crearConfiguracion(planiConfig,config);
 }
 

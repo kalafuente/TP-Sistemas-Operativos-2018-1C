@@ -1,6 +1,6 @@
 #include "Planificador.h"
 
-planificador_config * init_planificaorConfig(){
+planificador_config * init_planificadorConfig(){
 	planificador_config* planificador = malloc(sizeof (planificador_config));
 	planificador->ipCoordinador=string_new();
 	planificador->puertoCoordinador=string_new();
@@ -9,7 +9,7 @@ planificador_config * init_planificaorConfig(){
 	planificador->algoritmoPlanificacion=SJF_SD;
 	planificador->entradas= 0;
 	planificador->estimacionInicial=0;
-	planificador->clavesPrebloqueadas = (char**) calloc(30, sizeof(char*));
+	//planificador->clavesPrebloqueadas= (char**) calloc(30, sizeof(char*));
 	return planificador;
 }
 
@@ -24,13 +24,18 @@ void crearConfiguracion(planificador_config* planificador, t_config* config){
 	planificador->estimacionInicial = config_get_double_value(config,"ESTIMACION");
 	planificador->entradas = 500;
 	planificador->algoritmoPlanificacion = i;
-
-	while (config_get_array_value(config, "CLAVES_PREBLOQUEADAS")[aux] != NULL) {
-		planificador->clavesPrebloqueadas[aux] = string_new();
+	planificador->clavesPrebloqueadas=config_get_array_value(config, "CLAVES_PREBLOQUEADAS");
+	log_info(logger,"Claves bloqueadas: %s",config_get_string_value(config,"CLAVES_PREBLOQUEADAS"));
+	/*while (config_get_array_value(config, "CLAVES_PREBLOQUEADAS")[aux] != NULL) {
+	planificador->clavesPrebloqueadas[aux] = string_new();
 		string_append(&(planificador->clavesPrebloqueadas[aux]),
 				config_get_array_value(config, "CLAVES_PREBLOQUEADAS")[aux]);
+
+
 		aux++;
 	}
+	*/
+
 
 }
 

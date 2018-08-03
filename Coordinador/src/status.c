@@ -5,6 +5,7 @@ void status (int sock){
 	claveAPedir = recibirID(sock,logger);
 
 	while(claveAPedir!=NULL){
+		pthread_mutex_lock(&mutexCompactacion);
 		printf("Se requiere status de la clave: %s \n", claveAPedir);
 		if (contieneClave(listaDeClavesConInstancia,claveAPedir)){
 		claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
@@ -19,6 +20,8 @@ void status (int sock){
 				falsa->clave = "null";
 				falsa->valor = "null";
 				PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
+
+
 				if (enviarInstruccion(logger,falsa,instanciaALlamar->instancia->socket)==-1){
 					enviarID(sock,"no hay valor, se cayó la instancia",logger);
 					enviarID(sock,instanciaALlamar->instancia->identificador,logger);
@@ -44,14 +47,16 @@ void status (int sock){
 				int32_t entradasEnUsoDeLaInstancia;
 				recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->instancia->socket);
 				free(falsa);
+
+
 			}
 
 		}
 		else
 			enviarID(sock,"ClaveInexistente",logger);
 
+		pthread_mutex_unlock(&mutexCompactacion);
 		claveAPedir = recibirID(sock,logger);
-
 
 		if (claveAPedir == NULL){
 			break;

@@ -2,6 +2,7 @@
 
 int main(int argc, char **argv) {
 	banderaTerminarHilos = 0;
+	pthread_mutex_init(&mutexCompactacion, NULL);
 	prepararLoggers();
 	prepararConfiguracion(argc,argv);
 	crearListas();
@@ -130,8 +131,11 @@ void *manejadorDeConexiones(void *socket_desc) {
 			log_info(logger, "Se me conectó una Instancia");
 
 			char * id = recibirID(sock, logger);
+
+			pthread_mutex_lock(&mutexCompactacion);
 			mandarConfiguracionAInstancia(sock);
 			enviarClavesCorrespondientes(sock,id,listaDeClavesConInstancia);
+			pthread_mutex_unlock(&mutexCompactacion);
 
 			if(existeID(id,listaDeInstancias)){
 
@@ -151,7 +155,6 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
-
 			list_add(hilos, &idHilo);
 			log_info(logger, "Se me conectó un Esi");
 			PROTOCOLO_ESI_A_COORDI esi;
@@ -174,7 +177,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 
 			if (instruccionAGuardar== NULL)
-				log_info(logger, "no me puedo conectar con esi");
+				//log_info(logger, "no me puedo conectar con esi");
+
 
 
 

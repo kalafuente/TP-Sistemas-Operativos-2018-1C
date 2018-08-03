@@ -24,10 +24,10 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 			case SE_PUDO_GUARDAR_VALOR:
 							log_info(logger, "instancia guardo valor");
 							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
-							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 							break;
 
 
@@ -50,8 +50,12 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 
 
 			case SE_NECESITA_COMPACTAR:
-							log_info(logger,"me llegó que se necesita compactar");
+							log_info(logger,"INSTANCIA NECESITA COMPACTAR");
+
+							pthread_mutex_lock(&mutexCompactacion);
+
 							pedirCompactar(listaDeInstancias,instruccion);
+
 							recibirMensaje(logger,sizeof(rtaCompactar),&rtaCompactar, instanciaALlamar->socket);
 							if (rtaCompactar != SE_PUDO_GUARDAR_VALOR){
 								log_error(logger, "NO ME LLEGO SE_PUDO_GUARDAR_VALOR DSP DE MANDAR LA COMPACTACION");
@@ -59,17 +63,21 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 								killCoordinador();
 								exit(1);
 							}
+
 							log_info(logger,"instancia guardo valor");
 
 							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
-							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
-							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
 
+							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
 
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
-							log_info(logger,"entradas registradas FIN DE COMPACTACIÓN!!!!!!!!");
 
+							log_info(logger,"------FIN DE COMPACTACIÓN------");
+
+							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
+
+							pthread_mutex_unlock(&mutexCompactacion);
 
 							break;
 
@@ -99,7 +107,9 @@ void pedirCompactar(t_list* lista,t_instruccion * instruccion){
 		void compactar(instancia * elem){
 			if (enviarInstruccion(logger,falsa,elem->socket)==-1){
 				log_error (logger, "no se pudo pedir compactar");
+				return;
 			}
+			//sleep(10); para probar más facil qué tal los mutex
 			int32_t entradasEnUsoDeLaInstancia;
 			PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
 			recibirMensaje(logger,sizeof(rta),&rta, elem->socket);

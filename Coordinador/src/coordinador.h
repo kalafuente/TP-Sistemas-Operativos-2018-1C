@@ -80,7 +80,7 @@ int banderaTerminarHilos;
 int32_t socketPlani;
 int listenningSocket;
 
-pthread_mutex_t mutex;
+pthread_mutex_t mutexCompactacion;
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 void prepararConfiguracion(int argc, char **argv);

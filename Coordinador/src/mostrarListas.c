@@ -13,7 +13,7 @@ void mostrarListaDeClaves(t_list* lista){
 			list_iterate(lista, (void *) mostrar);
 	}
 
-}
+}*/
 
 void mostrarListaIntancias(t_list* listaDeInstancias){
 	if (list_size(listaDeInstancias)==0){
@@ -27,7 +27,7 @@ void mostrarListaIntancias(t_list* listaDeInstancias){
 	}
 }
 
-*/
+
 
 void mostrarEntradasOcupadasActualmente(t_list* listaDeInstancias, t_log* logControlDeDistribucion){
 	void mostrar(instancia * elem){

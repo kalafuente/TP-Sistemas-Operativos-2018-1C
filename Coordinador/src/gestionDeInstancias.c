@@ -146,7 +146,7 @@ void eliminarInstancia(int socket, t_list* listaDeInstancias){
 			}
 	list_remove_and_destroy_by_condition(listaDeInstancias,(void *) equals, (void *)destruirInstancia );
 	printf("la nueva lista de instancias es: \n");
-	//mostrarListaIntancias(listaDeInstancias);
+	mostrarListaIntancias(listaDeInstancias);
 }
 
 

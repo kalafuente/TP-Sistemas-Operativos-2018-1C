@@ -2,7 +2,11 @@
 
 int main(int argc, char **argv) {
 	banderaTerminarHilos = 0;
+
 	pthread_mutex_init(&mutexCompactacion, NULL);
+	pthread_mutex_init(&mutexlistaInstancias, NULL);
+	sem_init(&terminoCompactacion, 0, 0);
+
 	prepararLoggers();
 	prepararConfiguracion(argc,argv);
 	crearListas();
@@ -121,37 +125,37 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
 			list_add(hilos, &idHilo);
-			//log_info(logger, "Se espera el pedido de status");
 			status(sock);
-			//printf ("ciero socket status");
 			close(sock);
 			break;
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
 			log_info(logger, "Se me conectó una Instancia");
-
 			char * id = recibirID(sock, logger);
-
 			pthread_mutex_lock(&mutexCompactacion);
 			mandarConfiguracionAInstancia(sock);
 			enviarClavesCorrespondientes(sock,id,listaDeClavesConInstancia);
 			pthread_mutex_unlock(&mutexCompactacion);
 
 			if(existeID(id,listaDeInstancias)){
+				log_info(logger,"Se reconecta instancia, socket nuevo: %d \n", sock);
+				//printf("instancias viejas: \n");mostrarListaIntancias(listaDeInstancias);
 
-				//printf("Se reconecta instancia, socket nuevo: %d \n", sock);
-				//printf("instancias viejas: \n");
-				//mostrarListaIntancias(listaDeInstancias);
+				pthread_mutex_lock(&mutexlistaInstancias);
 				actualizarSocketInstancia(sock, id, listaDeInstancias);
-				//printf("instancias actualizadas: \n");
-				//mostrarListaIntancias(listaDeInstancias);
+				pthread_mutex_unlock(&mutexlistaInstancias);
+
+				//printf("instancias actualizadas: \n");mostrarListaIntancias(listaDeInstancias);
 			}
 			else{
-						printf("Nueva instancia \n");
-						registrarInstancia(sock, id);
-						//mostrarListaIntancias(listaDeInstancias);
-					}
+				log_info(logger,"Nueva instancia");
 
+				pthread_mutex_lock(&mutexlistaInstancias);
+				registrarInstancia(sock, id);
+				pthread_mutex_unlock(&mutexlistaInstancias);
+
+				//mostrarListaIntancias(listaDeInstancias);
+			}
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
@@ -175,12 +179,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 			if (esi == TERMINE_INSTRUCCIONES)
 				log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
 
-
 			if (instruccionAGuardar== NULL)
 				//log_info(logger, "no me puedo conectar con esi");
-
-
-
 
 			close(sock);
 			eliminarEsteHilo(idHilo);

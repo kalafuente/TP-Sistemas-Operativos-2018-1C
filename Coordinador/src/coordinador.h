@@ -81,6 +81,10 @@ int32_t socketPlani;
 int listenningSocket;
 
 pthread_mutex_t mutexCompactacion;
+pthread_mutex_t mutexlistaInstancias;
+sem_t terminoCompactacion;
+
+
 
 //---------------------------DECLARACION FUNCIONES-----------------------------
 void prepararConfiguracion(int argc, char **argv);
@@ -98,7 +102,7 @@ void destruirLoggers();
 void killCoordinador();
 void mostrarValoresArchConfig(coordinador_config* config);
 void eliminarEsteHilo(pthread_t hilo);
-
+void *compactar(void * elemento);
 //Sockets
 
 void crearServidorMultiHilo();

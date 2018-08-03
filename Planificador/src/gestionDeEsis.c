@@ -71,8 +71,14 @@ void sacarStructDeListaEsiClave(char*clave) {
 	int esSuClaveIgual(struct_esiClaves*elesi) {
 		return string_equals_ignore_case(clave, elesi->clave);
 	}
+	void destroy_esi_clave(struct_esiClaves* esi){
+			free(esi->clave);
+			free(esi);
+		}
 
-	list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual);
+		//list_remove_by_condition(listaEsiClave, (void*) esSuClaveIgual);
+		list_remove_and_destroy_by_condition(listaEsiClave,(void*)esSuClaveIgual,
+				(void*)destroy_esi_clave);
 }
 void sumarUnoDeEspera(struct_esi* esi) {
 	esi->tiempoDeEspera++;

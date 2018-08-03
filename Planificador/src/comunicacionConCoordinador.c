@@ -49,7 +49,7 @@ void * manejarConexionCoordi(void * socket) {
 			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
 					&respuesta, *socketCoordinador);
 			free(CLAVE);
-			CLAVE = string_new();
+			//CLAVE = string_new();
 			break;
 		case PREGUNTA_CLAVE_DISPONIBLE:
 			log_info(logger, "PREGUNTA_CLAVE_DISPONIBLE");
@@ -62,7 +62,7 @@ void * manejarConexionCoordi(void * socket) {
 			enviarMensaje(logger, sizeof(PROTOCOLO_PLANIFICADOR_A_COORDINADOR),
 					&respuesta, *socketCoordinador);
 			free(CLAVE);
-			CLAVE = string_new();
+			//CLAVE = string_new();
 			break;
 
 		default:

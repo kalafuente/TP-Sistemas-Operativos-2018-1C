@@ -2,7 +2,7 @@
 void planificarESIs(){
 
 	struct_esi *esiActual;
-	t_instruccion* instruccion = calloc(1, sizeof(t_instruccion));
+	t_instruccion* instruccion;/* = calloc(1, sizeof(t_instruccion));*/
 	PROTOCOLO_ESI_A_PLANIFICADOR estadoEsi;
 
 

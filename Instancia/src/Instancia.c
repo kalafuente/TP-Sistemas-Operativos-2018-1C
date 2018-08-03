@@ -7,12 +7,6 @@ int main(int argc,char**argv)
 	logger= crearLogger("loggerInstancia.log","loggerInstancia");
 	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
 
-	logOperaciones= crearLogger("logOperaciones.log","logOperaciones");
-	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
-
-	logCompactacion = crearLogger("logCompactacion.log", "logCompactacion");
-	log_info(logCompactacion, "**************************************** NUEVA ENTRADA ****************************************");
-
 	//t_config * config = config_create("configuracionInstancia.config");
 	t_config * config = abrirArchivoConfig(argc,argv,logger,destruirLogger);
 
@@ -23,6 +17,7 @@ int main(int argc,char**argv)
 	handShakeConElCoordinador(); //CHECK, PERO enviarID no CHECK
 	recibirConfiguracionDeEntradas(); //CHECK
 	imprimirConfiguracionDeEntradas(); //CHECK
+	levantarLoggs();
 	inicializarMutex();
 	inicializarEntradas(); //CHECK
 	inicializarBitArray(); //CHECK
@@ -44,6 +39,32 @@ int main(int argc,char**argv)
 
 	return 0;
 
+}
+
+void levantarLoggs()
+{
+	char * op = string_new();
+	char * comp = string_new();
+	char * reinc = string_new();
+	string_append(&op, instanciaConfig->nombre);
+	string_append(&comp, instanciaConfig->nombre);
+	string_append(&reinc, instanciaConfig->nombre);
+	string_append(&op, "_logOperaciones.log");
+	string_append(&comp, "_logCompactacion.log");
+	string_append(&reinc, "_logReincorporacion.log");
+
+	logOperaciones= crearLogger(op,"logOperaciones");
+	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
+
+	logCompactacion = crearLogger(comp, "logCompactacion");
+	log_info(logCompactacion, "**************************************** NUEVA ENTRADA ****************************************");
+
+	logReincorporacion = crearLogger(reinc, "logReincorporacion");
+	log_info(logReincorporacion, "**************************************** NUEVA ENTRADA ****************************************");
+
+	free(op);
+	free(comp);
+	free(reinc);
 }
 
 void destruirLogger(){
@@ -346,6 +367,7 @@ int procesarSentencias()
 					}
 					else
 					{
+						log_info(logOperaciones, "OPERACION SET\n");
 						respuesta = SE_PUDO_GUARDAR_VALOR;
 						break;
 					}
@@ -361,6 +383,7 @@ int procesarSentencias()
 					else
 					{
 
+						log_info(logOperaciones, "OPERACION STORE\n");
 						log_info(logger, "Operacion STORE exitosa!\n");
 						respuesta = SE_CREO_EL_ARCHIVO;
 						break;
@@ -2001,13 +2024,13 @@ void reincorporarse()
 {
 	// --------- PIDO LAS CLAVES AL COORDINADOR ------------
 
-	log_info(logger, "Intentando reincorporarse");
+	log_info(logReincorporacion, "Intentando reincorporarse");
 
 	PROTOCOLO_INSTANCIA_A_COORDINADOR pedidoClaves = PEDIDO_DE_CLAVES;
 
 	if(enviarMensaje(logger, sizeof(pedidoClaves), &pedidoClaves, socketCoordinador) < 0)
 	{
-		log_error(logger, "No se pudo reincorporar");
+		log_error(logReincorporacion, "No se pudo reincorporar");
 		return;
 	}
 
@@ -2016,7 +2039,7 @@ void reincorporarse()
 
 	if(strcmp(clave, "null") == 0)
 	{
-		log_info(logger, "No hay nada que recuperar\n");
+		log_info(logReincorporacion, "No hay nada que recuperar\n");
 		free(clave);
 		return;
 	}
@@ -2053,7 +2076,7 @@ void reincorporarse()
 
 				if(fp == NULL)
 				{
-					log_error(logger, "No se pudo abrir el archivo");
+					log_error(logReincorporacion, "No se pudo abrir el archivo");
 					free(clave);
 					free(nombreCompleto);
 					free(rutaAbsoluta);
@@ -2071,9 +2094,9 @@ void reincorporarse()
 				guardarValorEnEntradas(clave, valor, pos);
 				pos += cuantasEntradasOcupaElValor(longitudValor);
 
-				log_info(logger, "Se guardo el valor %s, cuya clave es %s en la entrada %d\n", valor, clave, pos);
+				log_info(logReincorporacion, "Se guardo el valor %s, cuya clave es %s en la entrada %d\n", valor, clave, pos);
 
-				free(nombreCompleto);
+				//free(nombreCompleto);
 				free(rutaAbsoluta);
 				free(valor);
 				fclose(fp);
@@ -2089,19 +2112,22 @@ void reincorporarse()
 		}
 		else
 		{
-		  perror ("No se puede abrir el directorio\n");
-		  return;
+			free(nombreCompleto);
+			perror ("No se puede abrir el directorio\n");
+			return;
 		}
 
 
 		char * key = clave;
 		clave =recibirID(socketCoordinador, logger);
 		free(key);
+		free(nombreCompleto);
 	}
 
 	// -----------------------------------------------------
 
-	log_info(logger, "Reincorporacion terminada\n");
+	imprimirContenidoEntradas(logReincorporacion);
+	log_info(logReincorporacion, "Reincorporacion terminada\n");
 
 }
 

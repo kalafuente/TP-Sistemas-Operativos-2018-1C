@@ -43,6 +43,7 @@ typedef struct t_tabla_entradas
 t_log* logger;
 t_log * logOperaciones;
 t_log* logCompactacion;
+t_log* logReincorporacion;
 int32_t socketCoordinador;
 instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 20; //Lo deje en 20 para probar
@@ -68,6 +69,7 @@ extern int errno ;
 
 
 void destruirLogger();
+void levantarLoggs();
 //------------Declaraciones de funciones
 instancia_config * init_instanciaConfig();
 void crearConfiguracion(instancia_config *, t_config*);

@@ -59,15 +59,22 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 								killCoordinador();
 								exit(1);
 							}
+							log_info(logger,"instancia guardo valor");
+
+							modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
+							enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
+							log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
+
+
 							recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
 							registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+							log_info(logger,"entradas registradas FIN DE COMPACTACIÓN!!!!!!!!");
+
+
 							break;
 
 			default:
 							log_error(logger, "ERROR EN RTA AL SET");
-							destruirInstruccion(instruccion);
-							killCoordinador();
-							exit(1);
 							break;
 
 			}
@@ -96,15 +103,19 @@ void pedirCompactar(t_list* lista,t_instruccion * instruccion){
 			int32_t entradasEnUsoDeLaInstancia;
 			PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
 			recibirMensaje(logger,sizeof(rta),&rta, elem->socket);
-			if (rta != COMPACTACION_EXITOSA){
+			if (rta == COMPACTACION_EXITOSA){
+				recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, elem->socket);
+				log_info(logger, "compactacion exitosa");
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,elem);
+				log_info(logger, "entradas registradas");
+			}
+			else{
 				log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN O NO LLEGÓ EL MSJ COMPACTACION_EXITOSA, una pena, pero metanle garra a la proxima entrega no todo está perdido... o sí");
 				destruirInstruccion(instruccion);
 				free (falsa);
 				killCoordinador();
 				exit(1);
 			}
-			recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, elem->socket);
-			registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,elem);
 
 		}
 			list_iterate(lista, (void *) compactar);

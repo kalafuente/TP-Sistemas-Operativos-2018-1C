@@ -4,8 +4,8 @@
 #include "coordinador.h"
 
 
-void mostrarListaDeClaves(t_list* lista);
-void mostrarListaIntancias(t_list* listaDeInstancias);
+//void mostrarListaDeClaves(t_list* lista);
+//void mostrarListaIntancias(t_list* listaDeInstancias);
 void mostrarEntradasOcupadasActualmente(t_list* listaDeInstancias, t_log* logControlDeDistribucion);
 
 #endif /* MOSTRARLISTAS_H_ */

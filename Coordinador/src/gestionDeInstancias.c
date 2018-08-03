@@ -36,7 +36,7 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 		{
 		if (strcmp(coordConfig->algoritmo, "LSU")==0){
 		log_info(logger, "ALGORITMO LSU-----------------------------------");
-		mostrarListaIntancias(listaDeInstancias);
+		//mostrarListaIntancias(listaDeInstancias);
 		instancia* instanciaElegida =  LSU(listaDeInstancias, logControlDeDistribucion);
 		log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
 		return instanciaElegida;
@@ -46,7 +46,7 @@ instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* lo
 				log_info(logger, "ALGORITMO KE-----------------------------------");
 				letrasDeLaInstancia = list_create();
 				alfabeto = crearAlfabeto();
-				mostrarListaIntancias(listaDeInstancias);
+				//mostrarListaIntancias(listaDeInstancias);
 				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia, alfabeto);
 				log_info(logControlDeDistribucion, "el socket de la instancia elegida es %d",instanciaElegida->socket);
 				destruirLetrasDeLaInstancia(letrasDeLaInstancia);
@@ -69,7 +69,7 @@ instancia*  simulacionElegirInstanciaSegunAlgoritmo(char * clave, t_list* letras
 	}
 	else{
 		if (strcmp(coordConfig->algoritmo, "LSU")==0){
-			mostrarListaIntancias(listaDeInstancias);
+			//mostrarListaIntancias(listaDeInstancias);
 			instancia* instanciaElegida =  LSU(listaDeInstancias, logControlDeDistribucion);
 			return instanciaElegida;
 		}
@@ -77,7 +77,7 @@ instancia*  simulacionElegirInstanciaSegunAlgoritmo(char * clave, t_list* letras
 			if (strcmp(coordConfig->algoritmo, "KE")==0){
 				letrasDeLaInstancia = list_create();
 				alfabeto = crearAlfabeto();
-				mostrarListaIntancias(listaDeInstancias);
+				//mostrarListaIntancias(listaDeInstancias);
 				instancia* instanciaElegida =  KeyExplicit(listaDeInstancias, logControlDeDistribucion,clave,letrasDeLaInstancia, alfabeto);
 				destruirLetrasDeLaInstancia(letrasDeLaInstancia);
 				destruirAlfabeto(alfabeto);
@@ -120,7 +120,7 @@ void registrarEntradasOcupadasDeLaInstancia(int entradasOcupadas, instancia * in
 
 void eliminarClave(t_list* listaDeClavesConInstancia, char * clave ){
 	printf("la lista de claves vieja es: \n");
-	mostrarListaDeClaves(listaDeClavesConInstancia);
+	//mostrarListaDeClaves(listaDeClavesConInstancia);
 
 	bool equals(claveConInstancia* item) {
 			int rta = strcmp(clave, item->clave);
@@ -132,7 +132,7 @@ void eliminarClave(t_list* listaDeClavesConInstancia, char * clave ){
 
 	list_remove_and_destroy_by_condition(listaDeClavesConInstancia,(void *) equals, (void *)destruirClaveConInstancia );
 
-	mostrarListaDeClaves(listaDeClavesConInstancia);
+	//mostrarListaDeClaves(listaDeClavesConInstancia);
 
 	}
 
@@ -146,7 +146,7 @@ void eliminarInstancia(int socket, t_list* listaDeInstancias){
 			}
 	list_remove_and_destroy_by_condition(listaDeInstancias,(void *) equals, (void *)destruirInstancia );
 	printf("la nueva lista de instancias es: \n");
-	mostrarListaIntancias(listaDeInstancias);
+	//mostrarListaIntancias(listaDeInstancias);
 }
 
 

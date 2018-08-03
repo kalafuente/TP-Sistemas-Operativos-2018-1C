@@ -14,10 +14,11 @@ void terminarHilos(){
 
 	void cerrarHilos(pthread_t * elem){
 			pthread_cancel(*elem);
-			printf("cierro hilo %lu \n",*elem);
+		//	printf("cierro hilo %lu \n",*elem);
 		}
 	list_iterate(hilos, (void *) cerrarHilos);
 	list_destroy(hilos);
+	log_info(logger, "se cerraron los hilos");
 }
 
 
@@ -71,7 +72,7 @@ void crearServidorMultiHilo() {
 	int socketCliente;
 	pthread_t thread_id;
 
-	while ((socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))) {
+	while (banderaTerminarHilos ==0 && (socketCliente = accept(listenningSocket, (struct sockaddr *) &addr,	&addrlen))>0) {
 
 		puts("Cliente conectado. \n");
 
@@ -90,9 +91,14 @@ void crearServidorMultiHilo() {
 		//printf("la bandera es: %d \n", banderaTerminarHilos);
 	}
 
+
 	if (socketCliente < 0) {
-		perror("falló la aceptación");
-		exit(1);
+
+		if (banderaTerminarHilos == 1){
+				log_info(logger, "Planificador desconectado, se cierra el sistema");
+			}
+		else
+		log_error(logger,"falló la aceptación");
 	}
 }
 
@@ -113,9 +119,10 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 
 		case HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR:
-			//list_add(hilos, &idHilo);
+			list_add(hilos, &idHilo);
 			//log_info(logger, "Se espera el pedido de status");
 			status(sock);
+			//printf ("ciero socket status");
 			close(sock);
 			break;
 
@@ -176,19 +183,23 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 	}
 
-	//printf("\n termino el hilo\n ");
+
+	if (banderaTerminarHilos == 1){
+		shutdown(listenningSocket,SHUT_RD);
+	}
+
 	pthread_exit(EXIT_SUCCESS);
 }
 
 void eliminarEsteHilo(pthread_t hilo){
 	bool equal(pthread_t * item) {
 			if ( pthread_equal(hilo,*item)){
-				printf("\n elimino el hilo\n %lu", *item);
+				//printf("\n elimino el hilo\n %lu", *item);
 				return true;
 			}
 
 			else{
-				printf("\n no se elimino el hilo\n ");
+				//printf("\n no se elimino el hilo\n ");
 				return false;
 			}
 
@@ -207,7 +218,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			log_info(logger, "ESI ENVIO UN GET");
 			if (contieneClave(listaDeClavesConInstancia,instruccion->clave)){
 				log_info(logger, "La lista de claves contiene este GET");
-				mostrarListaDeClaves(listaDeClavesConInstancia);
+				//mostrarListaDeClaves(listaDeClavesConInstancia);
 				switch(estadoEsi(logger,PREGUNTA_CLAVE_DISPONIBLE, socketPlani,instruccion)){
 					case CLAVE_DISPONIBLE:
 						enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
@@ -228,7 +239,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 									clavenueva =  nuevaClaveConInstancia(instruccion->clave);
 									list_add(listaDeClavesConInstancia, clavenueva);
 									log_info(logger, "Se agrego esta clave: %s", clavenueva->clave);
-									mostrarListaDeClaves(listaDeClavesConInstancia);
+									//mostrarListaDeClaves(listaDeClavesConInstancia);
 									enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
 
 									break;
@@ -335,6 +346,10 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 			else
 				enviarRespuestaAlEsi(ERROR_CLAVE_NO_IDENTIFICADA, sock, logger);
 			break;
+		default:
+			log_error(logger, "ERROR MENSAJE NO ANTICIPADO ");
+			break;
+
 		}
 }
 

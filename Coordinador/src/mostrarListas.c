@@ -1,5 +1,5 @@
 #include "mostrarListas.h"
-
+/*
 void mostrarListaDeClaves(t_list* lista){
 	printf ("\n La lista de claves es\n ");
 
@@ -27,7 +27,7 @@ void mostrarListaIntancias(t_list* listaDeInstancias){
 	}
 }
 
-
+*/
 
 void mostrarEntradasOcupadasActualmente(t_list* listaDeInstancias, t_log* logControlDeDistribucion){
 	void mostrar(instancia * elem){

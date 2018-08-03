@@ -99,7 +99,6 @@ void killCoordinador();
 void mostrarValoresArchConfig(coordinador_config* config);
 void eliminarEsteHilo(pthread_t hilo);
 
-
 //Sockets
 
 void crearServidorMultiHilo();

@@ -374,6 +374,7 @@ int procesarSentencias()
 				case COMPACTAR:
 					compactacion();
 					respuesta = COMPACTACION_EXITOSA;
+					log_info(logCompactacion, "rta: compactacion exitosa");
 					break;
 
 				default:
@@ -384,9 +385,22 @@ int procesarSentencias()
 			}
 		}
 
+		if (respuesta == COMPACTACION_EXITOSA){
+			log_info(logCompactacion, "INTENTO ENVIAR COMPACTACION_EXITOSA");
+		}
 		enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+		if (respuesta == COMPACTACION_EXITOSA){
+			log_info(logCompactacion, "ENVIADO Y AHORA INTENTO ENTRADAS EN USO ");
+		}
+
+
 		int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
 		enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+
+		if (respuesta == COMPACTACION_EXITOSA){
+					log_info(logCompactacion, "MANDÉ ENTRADAS EN USO");
+				}
+
 		if(sentencia != NULL)
 		{
 			destruirInstruccion(sentencia);
@@ -606,7 +620,7 @@ int procesarSET(t_instruccion* inst)
 			PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta = SE_NECESITA_COMPACTAR;
 			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 			int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
-			enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+			//enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 
 			t_instruccion * sentencia = NULL;
 			sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
@@ -622,12 +636,17 @@ int procesarSET(t_instruccion* inst)
 			//ACA COMPACTARIA Y GUARDARIA EL VALOR EN LA NUEVA ENTRADA LIBRE Y QUE SIGA NOMA
 
 			compactacion();
+
 			protocoloLuegoDeCompactacion(inst->clave, inst->valor);
 
 			respuesta = COMPACTACION_EXITOSA;
+			log_info(logCompactacion, "rta COMPACTACION_EXITOSA");
+
 			enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+			log_info(logCompactacion, "envie COMPACTACION_EXITOSA");
 			entradasEnUso = (int32_t) list_size(tablaEntradas);
 			enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+			log_info(logCompactacion, "envie entradas");
 		}
 		else
 		{
@@ -805,7 +824,7 @@ int procesarSET(t_instruccion* inst)
 				PROTOCOLO_INSTANCIA_A_COORDINADOR respuesta = SE_NECESITA_COMPACTAR;
 				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 				int32_t entradasEnUso = (int32_t) list_size(tablaEntradas);
-				enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+				//enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
 
 				t_instruccion * sentencia = NULL;
 				sentencia = recibirInstruccion(logger, socketCoordinador, "COORDINADOR");
@@ -825,9 +844,15 @@ int procesarSET(t_instruccion* inst)
 				protocoloLuegoDeCompactacion(inst->clave, inst->valor);
 
 				respuesta = COMPACTACION_EXITOSA;
+				log_info(logCompactacion, "rta COMPACTACION_EXITOSA");
+
 				enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
+				log_info(logCompactacion, "envie COMPACTACION_EXITOSA");
 				entradasEnUso = (int32_t) list_size(tablaEntradas);
 				enviarMensaje(logger, sizeof(entradasEnUso), &entradasEnUso, socketCoordinador);
+				log_info(logCompactacion, "envie entradas");
+
+
 			}
 
 		}

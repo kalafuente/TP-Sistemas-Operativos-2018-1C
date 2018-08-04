@@ -32,6 +32,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 
 
 			case NO_SE_PUDO_GUARDAR_VALOR:
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
 				instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
 				bool seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
 

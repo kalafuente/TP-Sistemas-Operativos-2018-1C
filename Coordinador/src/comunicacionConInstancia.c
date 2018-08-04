@@ -159,7 +159,7 @@ void pedirCompactar(t_list* lista){
 			}
 			list_iterate(lista, (void *) crearHilosCompactacion);
 
-			sleep(10); //para probar más facil qué tal los mutex
+			//sleep(10); //para probar más facil qué tal los mutex
 
 
 			for(int i =0; i< list_size(listaDeInstancias); i++){

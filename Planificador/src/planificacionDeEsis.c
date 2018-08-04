@@ -80,14 +80,13 @@ void planificarESIs(){
 			log_info(logger, "se recibio estado %d", estadoEsi);
 				//estadoEsi=recibirResultado(esiActual);
 
-			pthread_mutex_lock(&mutex);
 
-			sumarEspera();
-
-			pthread_mutex_unlock(&mutex);
 
 			switch (estadoEsi) {
 				case TERMINE_BIEN:
+					pthread_mutex_lock(&mutex);
+					sumarEspera();
+					pthread_mutex_unlock(&mutex);
 					esiActual->estimacion--;
 					esiActual->rafagaActual++;
 					instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
@@ -95,6 +94,9 @@ void planificarESIs(){
 					destruirInstruccion(instruccion);
 					break;
 				case BLOQUEADO_CON_CLAVE:
+					pthread_mutex_lock(&mutex);
+					sumarEspera();
+					pthread_mutex_unlock(&mutex);
 					esiActual->estimacion--;
 					esiActual->rafagaActual++;
 					instruccion = recibirInstruccion(logger, esiActual->socket, "ESI");
@@ -106,14 +108,20 @@ void planificarESIs(){
 					destruirInstruccion(instruccion);
 				log_info(logger, "Esi %d bloqueado", esiActual->ID);
 				log_info(logger, "Nueva estimacion: %f", esiActual->estimacion);
+				log_info(logger,"Tiempo esperando: %d		ResponseRatio:%f",esiActual->tiempoDeEspera,(esiActual->estimacion+esiActual->tiempoDeEspera)/esiActual->estimacion );
+				
 					break;
 				case TERMINE:
 					pthread_mutex_lock(&mutex);
 					list_remove(listaEjecutando, 0);
 					list_add(listaTerminados, esiActual);
 					pthread_mutex_unlock(&mutex);
-				liberarTodasLasClavesDeEsi(esiActual);
+					liberarTodasLasClavesDeEsi(esiActual);
+					cambiarEstimacionSJF(esiActual,planiConfig->alfaPlanificacion);
 					log_info(logger, "termino el esi %d", esiActual->ID);
+					log_info(logger, "Nueva estimacion: %f", esiActual->estimacion);
+					log_info(logger,"Tiempo esperando: %d		ResponseRatio:%f",esiActual->tiempoDeEspera,(esiActual->estimacion+esiActual->tiempoDeEspera)/esiActual->estimacion );
+				
 					close(esiActual->socket);
 					break;
 				case ERROR:

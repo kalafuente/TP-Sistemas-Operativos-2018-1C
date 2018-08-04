@@ -382,6 +382,8 @@ int procesarSentencias()
 					else
 					{
 						log_info(logOperaciones, "OPERACION SET\n");
+						log_info(logOperaciones, "La clave es: %s\n", sentencia->clave);
+						log_info(logOperaciones, "El valor es: %s\n", sentencia->valor);
 						respuesta = SE_PUDO_GUARDAR_VALOR;
 						break;
 					}
@@ -398,6 +400,7 @@ int procesarSentencias()
 					{
 
 						log_info(logOperaciones, "OPERACION STORE\n");
+						log_info(logOperaciones, "La clave es: %s\n", sentencia->clave);
 						log_info(logger, "Operacion STORE exitosa!\n");
 						respuesta = SE_CREO_EL_ARCHIVO;
 						break;
@@ -2051,6 +2054,7 @@ void reincorporarse()
 
 	char * clave = recibirID(socketCoordinador, logger);
 	int pos = 0;
+	//int ocupadas = 0;
 
 	if(strcmp(clave, "null") == 0)
 	{
@@ -2062,82 +2066,108 @@ void reincorporarse()
 	while(strcmp(clave, "null") != 0)
 	{
 		//char * key = recibirID(socketCoordinador, logger); //Necesito que quede igual para guardarlo despues
-		char * nombreCompleto = string_new();
-		string_append(&nombreCompleto, clave);
-		string_append(&nombreCompleto, ".txt");
-
-		DIR *dir;
-		struct dirent *ent;
-
-		if ((dir = opendir (instanciaConfig->path)) != NULL)
+		if(pos < cantidadEntradas)
 		{
-		  //El directorio existe, vamos a ir recorriendo todo lo que hay en el
 
-		  while ((ent = readdir (dir)) != NULL)
-		  {
+			char * nombreCompleto = string_new();
+			string_append(&nombreCompleto, clave);
+			string_append(&nombreCompleto, ".txt");
 
-			  if(strcmp(ent->d_name, nombreCompleto) != 0)
-			  {
-				  //Este no es el archivo que estoy buscando. Seguimos recorriendo el directorio
-			  }
-			  else
-			  {
-				//Encontramos el archivo. Hay que abrirlo y guardar su contenido
-				  char * rutaAbsoluta = string_new();
-				  string_append(&rutaAbsoluta, instanciaConfig->path);
-				  string_append(&rutaAbsoluta, nombreCompleto);
+			DIR *dir;
+			struct dirent *ent;
 
-				FILE *fp = fopen(rutaAbsoluta, "r+"); //Hay que pasarle el path absoluto.
+			if ((dir = opendir (instanciaConfig->path)) != NULL)
+			{
+				//El directorio existe, vamos a ir recorriendo todo lo que hay en el
 
-				if(fp == NULL)
+				while ((ent = readdir (dir)) != NULL)
 				{
-					log_error(logReincorporacion, "No se pudo abrir el archivo");
-					free(clave);
-					free(nombreCompleto);
-					free(rutaAbsoluta);
-					closedir(dir);
-					return;
+
+					if(strcmp(ent->d_name, nombreCompleto) != 0)
+					{
+						//Este no es el archivo que estoy buscando. Seguimos recorriendo el directorio
+					}
+					else
+					{
+						//Encontramos el archivo. Hay que abrirlo y guardar su contenido
+						char * rutaAbsoluta = string_new();
+						string_append(&rutaAbsoluta, instanciaConfig->path);
+						string_append(&rutaAbsoluta, nombreCompleto);
+
+						FILE *fp = fopen(rutaAbsoluta, "r+"); //Hay que pasarle el path absoluto.
+
+						if(fp == NULL)
+						{
+							log_error(logReincorporacion, "No se pudo abrir el archivo");
+							free(clave);
+							free(nombreCompleto);
+							free(rutaAbsoluta);
+							closedir(dir);
+							return;
+						}
+
+						fseek(fp, 0, SEEK_END);
+						int32_t longitudValor = ftell(fp);
+						int aux = pos;
+						aux += cuantasEntradasOcupaElValor(longitudValor);
+
+						if(aux < cantidadEntradas)
+						{
+							//Quiere decir que el valor nuevo entra en las entradas
+							char * valor = (char *) malloc((longitudValor + 1) * sizeof(char));
+							fseek(fp, 0, SEEK_SET);
+							fread(valor, sizeof(char), longitudValor, fp);
+							valor[longitudValor] = '\0';
+
+							guardarValorEnEntradas(clave, valor, pos);
+							pos += cuantasEntradasOcupaElValor(longitudValor);
+
+							log_info(logReincorporacion, "Se guardo el valor %s, cuya clave es %s en la entrada %d\n", valor, clave, pos);
+
+							//free(nombreCompleto);
+							free(rutaAbsoluta);
+							free(valor);
+							fclose(fp);
+
+							break;
+
+						}
+						else
+						{
+							//El nuevo valor sobrepasaria la capacidad de las entradas. Entonces no guardamos nada
+							free(rutaAbsoluta);
+							fclose(fp);
+						}
+
+					}
+
 				}
 
-				fseek(fp, 0, SEEK_END);
-				int32_t longitudValor = ftell(fp);
-				char * valor = (char *) malloc((longitudValor + 1) * sizeof(char));
-				fseek(fp, 0, SEEK_SET);
-				fread(valor, sizeof(char), longitudValor, fp);
-				valor[longitudValor] = '\0';
+				closedir (dir);
 
-				guardarValorEnEntradas(clave, valor, pos);
-				pos += cuantasEntradasOcupaElValor(longitudValor);
+			}
+			else
+			{
+				free(nombreCompleto);
+				perror ("No se puede abrir el directorio\n");
+				return;
+			}
 
-				log_info(logReincorporacion, "Se guardo el valor %s, cuya clave es %s en la entrada %d\n", valor, clave, pos);
 
-				//free(nombreCompleto);
-				free(rutaAbsoluta);
-				free(valor);
-				fclose(fp);
-
-				break;
-
-			  }
-
-		  }
-
-		  closedir (dir);
-
-		}
-		else
-		{
+			//char * key = clave;
+			//clave =recibirID(socketCoordinador, logger);
+			//free(key);
 			free(nombreCompleto);
-			perror ("No se puede abrir el directorio\n");
-			return;
-		}
 
+		}
 
 		char * key = clave;
 		clave =recibirID(socketCoordinador, logger);
 		free(key);
-		free(nombreCompleto);
 	}
+
+	//Cuando sale por null no libera la clave
+	free(clave);
 
 	// -----------------------------------------------------
 

@@ -372,6 +372,9 @@ int procesarSentencias()
 					if(procesarSET(sentencia) < 0)
 					{
 						log_error(logger, "Fallo en la operacion SET\n");
+						log_error(logger, "La clave es: %s\n", sentencia->clave);
+						log_error(logger, "El valor es: %s\n", sentencia->valor);
+						log_error(logger, "El valor ocupa %d entradas\n", cuantasEntradasOcupaElValor(strlen(sentencia->valor)));
 						respuesta = NO_SE_PUDO_GUARDAR_VALOR;
 						//finInstancia = 0;
 						break;
@@ -902,6 +905,7 @@ int procesarSET(t_instruccion* inst)
 		{
 			//Quiere decir que se necesitan mas entradas para almacenar el nuevo valor. No alcanza con las que tenia antes, lo que no se puede hacer
 			//Hay que avisar al Coordi que el nuevo valor no entra en las entradas asignadas al anterior
+			log_error(logger, "El nuevo valor ocupa mas entradas que el valor almacenado anteriormente. No se puede guardar\n");
 			return -2;
 		}
 		else

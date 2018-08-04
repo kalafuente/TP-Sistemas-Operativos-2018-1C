@@ -434,9 +434,17 @@ int procesarSentencias()
 		if (respuesta == COMPACTACION_EXITOSA){
 			log_info(logCompactacion, "INTENTO ENVIAR COMPACTACION_EXITOSA");
 		}
+		if(respuesta == VALOR_ENVIADO)
+		{
+			log_info(logPedidoDeValor, "Envio respuesta, se pudo enviar el valor\n");
+		}
 		enviarMensaje(logger, sizeof(respuesta), &respuesta, socketCoordinador);
 		if (respuesta == COMPACTACION_EXITOSA){
 			log_info(logCompactacion, "ENVIADO Y AHORA INTENTO ENTRADAS EN USO ");
+		}
+		if(respuesta == VALOR_ENVIADO)
+		{
+			log_info(logPedidoDeValor, "Enviado correctamente. Mando entradas en uso\n");
 		}
 
 
@@ -446,6 +454,10 @@ int procesarSentencias()
 		if (respuesta == COMPACTACION_EXITOSA){
 					log_info(logCompactacion, "MANDÉ ENTRADAS EN USO");
 				}
+		if(respuesta == VALOR_ENVIADO)
+		{
+			log_info(logPedidoDeValor, "Entradas en uso enviadas\n");
+		}
 
 		if(sentencia != NULL)
 		{
@@ -460,11 +472,13 @@ int procesarSentencias()
 	return 1;
 }
 
-void peticionValor()
+int peticionValor()
 {
+	int rta = 1;
+
 	list_sort(tablaEntradas, (void*)ordenarPorNumeroDeEntrada);
 
-	char * clavePeticionada = recibirID(socketCoordinador, logger);
+	char * clavePeticionada = recibirID(socketCoordinador, logPedidoDeValor);
 
 	log_info(logPedidoDeValor, "Nos piden el valor de la siguiente clave: %s", clavePeticionada);
 
@@ -499,10 +513,16 @@ void peticionValor()
 
 	log_info(logger, "Enviando valor: %s", valor);
 
-	enviarID(socketCoordinador, valor, logger);
+	if(enviarID(socketCoordinador, valor, logPedidoDeValor) < 0)
+	{
+		log_error(logPedidoDeValor, "No se pudo enviar en valor %s\n", valor);
+		rta = -1;
+	}
 
 	free(valor);
 	free(clavePeticionada);
+
+	return rta;
 }
 
 int procesarSET(t_instruccion* inst)

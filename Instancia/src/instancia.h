@@ -127,7 +127,7 @@ int victimaLRU();
 int victimaBSU();
 int desempatePorCIRC(int tamanio, int array[tamanio]);
 
-void peticionValor();
+int peticionValor();
 
 int almacenarArchivo(char * pathAbsoluto, char * clave, int32_t tamanioValor, int32_t numeroEntrada);
 

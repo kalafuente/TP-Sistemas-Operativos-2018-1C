@@ -288,6 +288,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 							if (instanciaALlamar == NULL){
 								enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
 								log_info(logger, "le dije al esi que no hay más instancias");
+								pthread_mutex_unlock(&mutexConexionInstancias);
 								break;
 							}
 
@@ -300,6 +301,7 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 								if (instanciaALlamar == NULL){
 									enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
 									log_info(logger, "le dije al esi que no hay más instancias");
+									pthread_mutex_unlock(&mutexConexionInstancias);
 									break;
 								}
 

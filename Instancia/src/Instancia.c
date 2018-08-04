@@ -2094,9 +2094,11 @@ void reincorporarse()
 	while(strcmp(clave, "null") != 0)
 	{
 		//char * key = recibirID(socketCoordinador, logger); //Necesito que quede igual para guardarlo despues
+
+		log_info(logReincorporacion, "La clave recibida es: %s\n", clave);
+
 		if(pos < cantidadEntradas)
 		{
-
 			char * nombreCompleto = string_new();
 			string_append(&nombreCompleto, clave);
 			string_append(&nombreCompleto, ".txt");
@@ -2118,6 +2120,7 @@ void reincorporarse()
 					else
 					{
 						//Encontramos el archivo. Hay que abrirlo y guardar su contenido
+						log_info(logReincorporacion, "Encontramos el archivo con el nombre de la clave. Lo abrimos\n");
 						char * rutaAbsoluta = string_new();
 						string_append(&rutaAbsoluta, instanciaConfig->path);
 						string_append(&rutaAbsoluta, nombreCompleto);
@@ -2139,9 +2142,10 @@ void reincorporarse()
 						int aux = pos;
 						aux += cuantasEntradasOcupaElValor(longitudValor);
 
-						if(aux < cantidadEntradas)
+						if(aux <= cantidadEntradas)
 						{
 							//Quiere decir que el valor nuevo entra en las entradas
+							log_info(logReincorporacion, "El valor almacenado en el archivo entra en las entradas\n");
 							char * valor = (char *) malloc((longitudValor + 1) * sizeof(char));
 							fseek(fp, 0, SEEK_SET);
 							fread(valor, sizeof(char), longitudValor, fp);
@@ -2163,8 +2167,10 @@ void reincorporarse()
 						else
 						{
 							//El nuevo valor sobrepasaria la capacidad de las entradas. Entonces no guardamos nada
+							log_info(logReincorporacion, "El nuevo valor sobrepasaria la capacidad de las entradas. No lo guardamos\n");
 							free(rutaAbsoluta);
 							fclose(fp);
+							break;
 						}
 
 					}
@@ -2187,6 +2193,10 @@ void reincorporarse()
 			//free(key);
 			free(nombreCompleto);
 
+		}
+		else
+		{
+			log_info(logReincorporacion, "No hay mas espacio, por lo que no se almacena el valor\n");
 		}
 
 		char * key = clave;

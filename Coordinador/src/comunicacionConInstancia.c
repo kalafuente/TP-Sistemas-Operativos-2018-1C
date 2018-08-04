@@ -76,7 +76,75 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 	return true;
 }
 
+bool enviarSETaInstanciaConSETPrevio(instancia * instanciaALlamar, int sock, t_instruccion * instruccion, bool avisarClaveInaccesible){
+	int32_t entradasEnUsoDeLaInstancia;
 
+
+	if (enviarInstruccion(logger, instruccion, instanciaALlamar->socket)==-1)
+	{
+		if (avisarClaveInaccesible){
+			instanciaCaida(instruccion->clave, sock);
+		}
+		eliminarInstancia(instanciaALlamar->socket, listaDeInstancias);
+		return false;
+	}
+
+	else{
+		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
+		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaCompactar;
+		recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+		instancia* instanciaNUEVAALlamar;
+		switch (rtaInstancia){
+
+
+			case SE_PUDO_GUARDAR_VALOR:
+				log_info(logger, "instancia guardo valor");
+				modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
+				log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
+				recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+				enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
+				break;
+
+
+			case NO_SE_PUDO_GUARDAR_VALOR:
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+				enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
+				log_warning(logger, "Se aborta al esi porque no se puede sobreescribir el valor de la clave debido a que el nuevo valor ocupa más ENTRADAS que el viejo, y eso no debería ser posible por enunciado. ISSUE #1182");
+				break;
+
+
+			case SE_NECESITA_COMPACTAR:
+				log_info(logger,"INSTANCIA NECESITA COMPACTAR");
+
+				pthread_mutex_lock(&mutexCompactacion);
+				pedirCompactar(listaDeInstancias);
+				recibirMensaje(logger,sizeof(rtaCompactar),&rtaCompactar, instanciaALlamar->socket);
+					if (rtaCompactar != SE_PUDO_GUARDAR_VALOR){
+						log_error(logger, "NO ME LLEGO SE_PUDO_GUARDAR_VALOR DSP DE MANDAR LA COMPACTACION");
+						destruirInstruccion(instruccion);
+						killCoordinador();
+						exit(1);
+				}
+				log_info(logger,"instancia guardo valor");
+				modificarInstanciaListaDeClavesConInstancia(instruccion->clave,instanciaALlamar, listaDeClavesConInstancia);
+				log_info(logControlDeDistribucion,"Set enviado a Instancia:  % d", instanciaALlamar->socket);
+				recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, instanciaALlamar->socket);
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,instanciaALlamar);
+				log_info(logger,"------FIN DE COMPACTACIÓN------");
+				enviarRespuestaAlEsi(TODO_OK_ESI, sock, logger);
+				pthread_mutex_unlock(&mutexCompactacion);
+
+				break;
+
+			default:
+				log_error(logger, "ERROR EN RTA AL SET");
+				break;
+			}
+	}
+
+	return true;
+}
 
 
 void pedirCompactar(t_list* lista){

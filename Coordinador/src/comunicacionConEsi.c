@@ -21,9 +21,9 @@ void enviarRespuestaAlEsi(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI rta, int sock, t
 	case ERROR_CLAVE_NO_IDENTIFICADA:
 		log_info(logger, "La lista de claves no contiene esta clave");
 		break;
-	default:
+	case ERROR_NO_HAY_INSTANCIAS:
+		log_info(logger, "No hay instancias o error no estipulado por consigna");
 		break;
-
 }
 }
 

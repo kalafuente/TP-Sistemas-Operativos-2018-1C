@@ -17,6 +17,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaInstancia;
 		PROTOCOLO_INSTANCIA_A_COORDINADOR rtaCompactar;
 		recibirMensaje(logger,sizeof(rtaInstancia),&rtaInstancia, instanciaALlamar->socket);
+
 		instancia* instanciaNUEVAALlamar;
 		switch (rtaInstancia){
 
@@ -68,7 +69,18 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 				break;
 
 			default:
-				log_error(logger, "ERROR EN RTA AL SET");
+				//log_error(logger, "ERROR EN RTA AL SET");
+				eliminarClave(listaDeClavesConInstancia, instruccion->clave);
+				eliminarInstancia(instanciaALlamar->socket, listaDeInstancias);
+
+
+				instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+				bool seEnvio2 = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
+
+				while(!seEnvio2){
+					instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+					seEnvio2 = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
+				}
 				break;
 			}
 	}

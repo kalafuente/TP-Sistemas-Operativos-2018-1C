@@ -44,6 +44,7 @@ t_log* logger;
 t_log * logOperaciones;
 t_log* logCompactacion;
 t_log* logReincorporacion;
+t_log* logGral; //<----------------- Este no sirve. Solo esta para poder usar las funciones de mensajes porque piden loggers
 int32_t socketCoordinador;
 instancia_config * instanciaConfig;
 int32_t cantidadEntradas = 20; //Lo deje en 20 para probar

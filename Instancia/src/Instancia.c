@@ -4,11 +4,11 @@
 int main(int argc,char**argv)
 {
 
-	logger= crearLogger("loggerInstancia.log","loggerInstancia");
-	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
+	logGral= crearLogger("loggerInstanciaGeneral.log","loggerInstancia");
+	log_info(logGral, "**************************************** NUEVA ENTRADA ****************************************");
 
 	//t_config * config = config_create("configuracionInstancia.config");
-	t_config * config = abrirArchivoConfig(argc,argv,logger,destruirLogger);
+	t_config * config = abrirArchivoConfig(argc,argv,logGral,destruirLogger);
 
 	instanciaConfig = init_instanciaConfig(); //CHECK
 	crearConfiguracion(instanciaConfig, config); //CHECK
@@ -16,8 +16,10 @@ int main(int argc,char**argv)
 	conectarseAlCoordinador(); //CHECK
 	handShakeConElCoordinador(); //CHECK, PERO enviarID no CHECK
 	recibirConfiguracionDeEntradas(); //CHECK
-	imprimirConfiguracionDeEntradas(); //CHECK
 	levantarLoggs();
+
+
+	imprimirConfiguracionDeEntradas(); //CHECK
 	inicializarMutex();
 	inicializarEntradas(); //CHECK
 	inicializarBitArray(); //CHECK
@@ -46,12 +48,15 @@ void levantarLoggs()
 	char * op = string_new();
 	char * comp = string_new();
 	char * reinc = string_new();
+	char * nuevo = string_new();
 	string_append(&op, instanciaConfig->nombre);
 	string_append(&comp, instanciaConfig->nombre);
 	string_append(&reinc, instanciaConfig->nombre);
+	string_append(&nuevo, instanciaConfig->nombre);
 	string_append(&op, "_logOperaciones.log");
 	string_append(&comp, "_logCompactacion.log");
 	string_append(&reinc, "_logReincorporacion.log");
+	string_append(&nuevo, "_logInstancia.log");
 
 	logOperaciones= crearLogger(op,"logOperaciones");
 	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
@@ -62,9 +67,15 @@ void levantarLoggs()
 	logReincorporacion = crearLogger(reinc, "logReincorporacion");
 	log_info(logReincorporacion, "**************************************** NUEVA ENTRADA ****************************************");
 
+	logger= crearLogger(nuevo,"logInstancia");
+	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
+
+
+
 	free(op);
 	free(comp);
 	free(reinc);
+	free(nuevo);
 }
 
 void destruirLogger(){
@@ -75,30 +86,30 @@ int recibirConfiguracionDeEntradas()
 {
 	PROTOCOLO_COORDINADOR_A_INSTANCIA entradas;
 
-	log_info(logger, "Esperando configuracion de entradas\n");
+	log_info(logGral, "Esperando configuracion de entradas\n");
 
-	if (recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador) <= 0)
+	if (recibirMensaje(logGral,sizeof(PROTOCOLO_COORDINADOR_A_INSTANCIA),&entradas,socketCoordinador) <= 0)
 	{
-		log_error(logger, "No se pudo recibir la configuracion de las Entradas\n");
+		log_error(logGral, "No se pudo recibir la configuracion de las Entradas\n");
 
 		return -1;
 	}
 
-	if(recibirMensaje(logger,sizeof(int32_t),&cantidadEntradas,socketCoordinador) <= 0)
+	if(recibirMensaje(logGral,sizeof(int32_t),&cantidadEntradas,socketCoordinador) <= 0)
 	{
-		log_error(logger, "No se pudo establecer la cantidad de entradas\n");
+		log_error(logGral, "No se pudo establecer la cantidad de entradas\n");
 
 		return -1;
 	}
 
-	if(recibirMensaje(logger,sizeof(int32_t),&tamanioEntrada,socketCoordinador) <= 0 )
+	if(recibirMensaje(logGral,sizeof(int32_t),&tamanioEntrada,socketCoordinador) <= 0 )
 	{
-		log_error(logger, "No se pudo establecer el tamanio de las entradas\n");
+		log_error(logGral, "No se pudo establecer el tamanio de las entradas\n");
 
 		return -1;
 	}
 
-	log_info(logger, "La configuracion de las Entradas se recibio correctamente!\n");
+	log_info(logGral, "La configuracion de las Entradas se recibio correctamente!\n");
 
 	return 1;
 
@@ -110,16 +121,16 @@ int conectarseAlCoordinador()
 
 	//while(socketCoordinador == 0)
 	//{
-		log_info(logger, "Intento conectarme al Coordinador\n");
-		socketCoordinador = conectarseAlServidor(logger,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
+		log_info(logGral, "Intento conectarme al Coordinador\n");
+		socketCoordinador = conectarseAlServidor(logGral,&instanciaConfig->ipCoordi, &instanciaConfig->puertoCoordi);
 		if(socketCoordinador == -1)
 		{
-			log_error(logger, "Conexion fallida, no se pudo crear el socket\n");
+			log_error(logGral, "Conexion fallida, no se pudo crear el socket\n");
 			return -1;
 		}
 	//}
 
-	log_info(logger, "Conexion exitosa!");
+	log_info(logGral, "Conexion exitosa!");
 
 	return 1;
 
@@ -127,26 +138,26 @@ int conectarseAlCoordinador()
 
 int handShakeConElCoordinador()
 {
-	log_info(logger, "Intentando establecer un handshake con el Coordinador\n");
+	log_info(logGral, "Intentando establecer un handshake con el Coordinador\n");
 
 	PROTOCOLO_COORDINADOR_A_CLIENTES handshakeCoordi;
 
-	if(recibirMensaje(logger,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador) <= 0)
+	if(recibirMensaje(logGral,sizeof(PROTOCOLO_COORDINADOR_A_CLIENTES),&handshakeCoordi,socketCoordinador) <= 0)
 	{
-		log_error(logger, "Handshake fallido\n");
+		log_error(logGral, "Handshake fallido\n");
 		return -1;
 	}
 
 	PROTOCOLO_HANDSHAKE_CLIENTE handshakeINSTANCIA = HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR;
 
-	if(enviarMensaje(logger,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeINSTANCIA,socketCoordinador) <= 0)
+	if(enviarMensaje(logGral,sizeof(PROTOCOLO_HANDSHAKE_CLIENTE),&handshakeINSTANCIA,socketCoordinador) <= 0)
 	{
-		log_error(logger, "Handshake fallido\n");
+		log_error(logGral, "Handshake fallido\n");
 		return -1;
 	}
 
-	enviarID(socketCoordinador,instanciaConfig->nombre,logger); //Aca le enviamos el nombre de la instancia al Coordi para identificarnos. enviarID NO CHECKEADO
-	log_info(logger, "Handshake Exitoso!\n");
+	enviarID(socketCoordinador,instanciaConfig->nombre,logGral); //Aca le enviamos el nombre de la instancia al Coordi para identificarnos. enviarID NO CHECKEADO
+	log_info(logGral, "Handshake Exitoso!\n");
 	return 1;
 }
 
@@ -192,12 +203,12 @@ void destroy_instanciaConfig(instancia_config * instancia)
 
 void imprimirConfiguracion(instancia_config* instancia)
 {
-	log_info(logger, "El ip del Coordinador es: %s\n", instancia->ipCoordi);
-	log_info(logger, "El puerto del Coordinador es: %s\n", instancia->puertoCoordi);
-	log_info(logger, "El algoritmo es: %s\n", instancia->algoritmo);
-	log_info(logger, "El path es: %s\n", instancia->path);
-	log_info(logger, "El nombre es: %s\n", instancia->nombre);
-	log_info(logger, "El intervalo es: %d\n", instancia->intervalo);
+	log_info(logGral, "El ip del Coordinador es: %s\n", instancia->ipCoordi);
+	log_info(logGral, "El puerto del Coordinador es: %s\n", instancia->puertoCoordi);
+	log_info(logGral, "El algoritmo es: %s\n", instancia->algoritmo);
+	log_info(logGral, "El path es: %s\n", instancia->path);
+	log_info(logGral, "El nombre es: %s\n", instancia->nombre);
+	log_info(logGral, "El intervalo es: %d\n", instancia->intervalo);
 }
 
 

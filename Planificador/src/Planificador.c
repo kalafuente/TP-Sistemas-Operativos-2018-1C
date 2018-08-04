@@ -25,11 +25,17 @@ int main(int argc, char **argv) {
 	int socketStatus = conectarseAlCoordinador(planiConfig,
 			HANDSHAKE_CONECTAR_STATUS_A_COORDINADOR);
 //-----------RECEPTOR DE ESI´S----------------------
+	int listenningSocket = crearSocketQueEscucha(&planiConfig->puertoEscucha,
+			&planiConfig->entradas);
 
-	pthread_create(&tid, NULL, consola, (void*) &socketStatus);
+	struct_socketsImportantes sockets;
+	sockets.socketCoordi = socketCoordinador;
+	sockets.socketStatus = socketStatus;
+	sockets.socketListen = listenningSocket;
+	pthread_create(&tid, NULL, consola, (void*) &sockets);
 
 
-	int listenningSocket = crearSocketQueEscucha(&planiConfig->puertoEscucha, &planiConfig->entradas);
+
 	pthread_t thread_id;
 	pthread_create(&thread_id, NULL, recibirEsi, (void*) &listenningSocket);
 	pthread_t thread_coordi;
@@ -42,6 +48,7 @@ int main(int argc, char **argv) {
 //Cerrar sockets de los esis que quedaron en el valhalla
 	close(listenningSocket);
 	close(socketCoordinador);
+	cerrarSockets();
 	destuirListas();
 	destroy_planificadorConfig(planiConfig);
 	config_destroy(config);
@@ -50,12 +57,16 @@ int main(int argc, char **argv) {
 
 }
 
+void cerrarSockets() {
+	cerrarSocketsDeLista(listaReady);
+	cerrarSocketsDeLista(listaEjecutando);
+	cerrarSocketsDeListaBloqueado(listaBloqueado);
+}
 
 void destuirListas() {
 	destruirListaEsiClave(listaEsiClave);
 	destruirListaEsi(listaReady);
 	destruirListaEsi(listaTerminados);
-	destruirListaEsi(listaEjecutando);
 	destruirListaEsi(listaEjecutando);
 	destruirListaEsiClave(listaBloqueado);
 
@@ -236,10 +247,14 @@ void listarTerminados(){
 }
 
 
-void* consola(void* socket) {
+void* consola(void* sockets) {
+	struct_socketsImportantes losSockets =
+			*(struct_socketsImportantes *) sockets;
 	consolaOn = 0;
 	int enPausa = 0;
-	int *socketStatus = (int*) socket;
+	int socketCoordi = losSockets.socketCoordi;
+	int socketListen = losSockets.socketListen;
+	int socketStatus = losSockets.socketStatus;
 	int IDaux;
 	char* Auxid;
 	char * valor;
@@ -270,6 +285,11 @@ void* consola(void* socket) {
 			free(comando);
 			free(parametros);
 			PlanificadorON = 0;
+			close(socketListen);
+			close(socketCoordi);
+			close(socketStatus);
+			cerrarSockets();
+			destuirListas();
 			exit(1);
 			break;
 		}
@@ -439,16 +459,16 @@ void* consola(void* socket) {
 			log_info(logger, "la clave que se preguntara al cordi es %s \n",
 					Auxid);
 
-			if (enviarID(*socketStatus, Auxid, logger)==-1){
+			if (enviarID(socketStatus, Auxid, logger) == -1) {
 				log_info(logger, "no se pudo enviar %s \n", Auxid);
 			}
 
-			valor = recibirID(*socketStatus, logger);
+			valor = recibirID(socketStatus, logger);
 			if (strcmp(valor,"ClaveInexistente") == 0){
 				log_info(logger, "La clave %s no existe \n", Auxid);
 			}
 			else {
-				char * instancia = recibirID(*socketStatus, logger);
+				char * instancia = recibirID(socketStatus, logger);
 
 				if (strcmp(valor, "no hay valor, pero hay get")==0){
 					log_info(logger, "La clave %s no tiene valor seteado \n", Auxid);

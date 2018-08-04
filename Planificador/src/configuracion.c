@@ -14,7 +14,6 @@ planificador_config * init_planificadorConfig(){
 }
 
 void crearConfiguracion(planificador_config* planificador, t_config* config){
-	int aux = 0;
 	ALGORITMO_PLANIFICACION i = traducir(config_get_string_value(config, "ALGORITMO"));
 
 	string_append(&(planificador->ipCoordinador), config_get_string_value(config, "IP_COORDINADOR"));

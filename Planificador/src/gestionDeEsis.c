@@ -88,4 +88,17 @@ void sumarEspera() {
 	list_iterate(listaReady, (void*) sumarUnoDeEspera);
 }
 
+void cerrarSocketsDeLista(t_list*lista) {
+	void cerrarSocket(struct_esi*esi) {
+		close(esi->socket);
+	}
 
+	list_iterate(lista, (void*) cerrarSocket);
+}
+void cerrarSocketsDeListaBloqueado(t_list*lista) {
+	void cerrarSocket(struct_esiClaves*esi) {
+		close(esi->ESI->socket);
+	}
+	list_iterate(lista, (void*) cerrarSocket);
+
+}

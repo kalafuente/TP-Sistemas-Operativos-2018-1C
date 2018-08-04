@@ -48,6 +48,12 @@ typedef struct {
 	char* clave;
 } struct_esiClaves;
 
+typedef struct {
+	int socketCoordi;
+	int socketStatus;
+	int socketListen;
+} struct_socketsImportantes;
+
 #include "configuracion.h"
 #include "comunicacionConCoordinador.h"
 #include "sjf.h"
@@ -74,7 +80,7 @@ sem_t huboDesalojoClaves;
 t_list *listaReady, *listaBloqueado, *listaEjecutando, *listaTerminados, *listaClaves,*listaEsiClave;
 pthread_mutex_t mutex, mutexKillEsi, mutexConsola, mutexConsolaEnEspera,
 		mutexPlanificacion;
-
+void cerrarSockets();
 void destuirListas();
 void inicializar();
 void prepararConfiguracion(int argc, char **argv);

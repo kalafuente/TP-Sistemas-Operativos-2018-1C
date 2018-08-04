@@ -11,4 +11,6 @@ void sacarStructDeListaEsiClave(char*clave);
 void agregarEnListaBloqueado(struct_esi *esiActual, char*clave);
 void sumarUnoDeEspera(struct_esi* esi);
 void sumarEspera();
+void cerrarSocketsDeLista(t_list*lista);
+void cerrarSocketsDeListaBloqueado(t_list*lista);
 #endif /* GESTIONDEESIS_H_ */

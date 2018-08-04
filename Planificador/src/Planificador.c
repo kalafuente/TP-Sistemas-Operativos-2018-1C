@@ -225,6 +225,16 @@ bool contains(t_list* lista, int elemento){
 	return list_any_satisfy(lista, (void*) tieneMismoId);
 }
 
+void listarTerminados(){
+
+	void esiTermino(struct_esi* esi){
+		log_info(logger, "Esi %d", esi->ID);
+	}
+	list_iterate(listaTerminados, (void*) esiTermino);
+
+
+}
+
 
 void* consola(void* socket) {
 	consolaOn = 0;
@@ -478,6 +488,14 @@ void* consola(void* socket) {
 		if (string_equals_ignore_case(comando, "deadlock")) {
 			log_info(logger, "Detección de deadlocks \n");
 			mostrarEsisEnDeadlock(listaBloqueado, listaEsiClave);
+		}
+		if (string_equals_ignore_case(comando, "terminado")){
+			if(list_size(listaTerminados)<1){
+				log_info(logger, "No termino ningun ESI todavia \n");
+			}else{
+			log_info(logger, "Los ESIs terminaron en el siguiente orden: \n");
+			listarTerminados();
+			}
 		}
 		if (consolaOn == 0) {
 			pthread_mutex_unlock(&mutexConsola);

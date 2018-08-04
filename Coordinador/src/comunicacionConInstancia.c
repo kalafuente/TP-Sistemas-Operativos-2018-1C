@@ -202,7 +202,7 @@ void *compactar(void *elemento){
 
 	free (falsa);
 	sem_post(&terminoCompactacion);
-	printf ("hice signal \n");
+	//printf ("hice signal \n");
 	pthread_exit(EXIT_SUCCESS);
 
 	}

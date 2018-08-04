@@ -7,6 +7,6 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 void mandarConfiguracionAInstancia(int sock);
 void enviarClavesCorrespondientes(int sock,char * id, t_list* listaDeClavesConInstancia);
 t_list* clavesDeLaInstancia(t_list* list, void* value);
-void pedirCompactar(t_list* lista,t_instruccion * instruccion);
+void pedirCompactar(t_list* lista);
 
 #endif /* COMUNICACIONCONINSTANCIA_H_ */

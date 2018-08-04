@@ -11,7 +11,11 @@ void status (int sock){
 		claveConInstancia * instanciaALlamar = instanciaQueTieneLaClave(claveAPedir,listaDeClavesConInstancia);
 			if (instanciaALlamar->instancia == NULL){
 				enviarID(sock,"no hay valor, pero hay get",logger);
+
+				pthread_mutex_lock(&mutexConexionInstancias);
 				instancia * instanciaElegida = simulacionElegirInstanciaSegunAlgoritmo(claveAPedir,letrasDeLaInstancia);
+				pthread_mutex_unlock(&mutexConexionInstancias);
+
 				enviarID(sock,instanciaElegida->identificador,logger);
 			}
 			else{

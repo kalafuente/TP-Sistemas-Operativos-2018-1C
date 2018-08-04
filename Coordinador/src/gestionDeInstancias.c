@@ -12,7 +12,7 @@ void registrarInstancia(int sock, char * id){
 	list_add(listaDeInstancias,registrarInstancia);
 
 //	printf("\n tamaño listaDeInst: %d \n:", list_size(listaDeInstancias));
-	log_info(logger,"\n Se registro instancia");
+	log_info(logger,"Se registro instancia");
 //	printf("instancias registradas: %d \n", list_size(listaDeInstancias));
 
 }
@@ -24,6 +24,11 @@ void modificarInstanciaListaDeClavesConInstancia(char* clave, instancia* instanc
 }
 
 instancia*  elegirInstanciaSegunAlgoritmo(char * clave, t_log* logger, t_log* logControlDeDistribucion, t_list* letrasDeLaInstancia){
+
+	if (list_size(listaDeInstancias) == 0){
+		log_error(logger, "NO HAY MÁS INSTANCIAS");
+		return NULL;
+	}
 
 
 	if (strcmp(coordConfig->algoritmo, "EL") == 0){

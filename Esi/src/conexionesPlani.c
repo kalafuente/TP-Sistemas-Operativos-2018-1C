@@ -88,6 +88,9 @@ void evaluarRespuestaDelCoordinador(PROTOCOLO_RESPUESTA_DEL_COORDI_AL_ESI result
 			log_error(logger,"Clave %s no bloquead",instruccion->clave);
 
 		}
+		else if ((resultado)==ERROR_NO_HAY_INSTANCIAS){
+			log_error(logger,"NO HAY MAS INSTANCIAS");
+		}
 		else{
 			log_error(logger,"Clave %s no identificada",instruccion->clave);
 		}

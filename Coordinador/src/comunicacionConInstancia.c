@@ -33,19 +33,13 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 
 			case NO_SE_PUDO_GUARDAR_VALOR:
 				instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
-				if (instanciaNUEVAALlamar == NULL){
-					log_error(logger, "NO HAY MÁS INSTANCIAS");
-					destruirInstruccion(instruccion);
-					killCoordinador();
-					exit(1);
+				bool seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
+
+				while(!seEnvio){
+				instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+				seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
 				}
-				else{
-					bool seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
-					while(!seEnvio){
-					instanciaNUEVAALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
-					seEnvio = enviarSETaInstancia(instanciaNUEVAALlamar,sock, instruccion, false);
-					}
-				}
+
 				break;
 
 
@@ -53,7 +47,7 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 				log_info(logger,"INSTANCIA NECESITA COMPACTAR");
 
 				pthread_mutex_lock(&mutexCompactacion);
-				pedirCompactar(listaDeInstancias,instruccion);
+				pedirCompactar(listaDeInstancias);
 				recibirMensaje(logger,sizeof(rtaCompactar),&rtaCompactar, instanciaALlamar->socket);
 					if (rtaCompactar != SE_PUDO_GUARDAR_VALOR){
 						log_error(logger, "NO ME LLEGO SE_PUDO_GUARDAR_VALOR DSP DE MANDAR LA COMPACTACION");
@@ -84,22 +78,22 @@ bool enviarSETaInstancia(instancia * instanciaALlamar, int sock, t_instruccion *
 
 
 
-void pedirCompactar(t_list* lista,t_instruccion * instruccion){
+void pedirCompactar(t_list* lista){
 	printf ("pedir compactar \n");
 	if (list_size(lista)==0){
 			printf("No hay instancias \n");
 		}
 	else {
 			void crearHilosCompactacion (instancia * elemento) {
-				printf ("entre \n");
 				pthread_t compactacion_id;
 				pthread_create(&compactacion_id, NULL, compactar, (void*) elemento);
-				printf ("sali \n");
 			}
 			list_iterate(lista, (void *) crearHilosCompactacion);
+
+			//sleep(10); //para probar más facil qué tal los mutex
+
+
 			for(int i =0; i< list_size(listaDeInstancias); i++){
-				printf("la cantidad de instancias es: %d", list_size(listaDeInstancias));
-				printf ("voy a esperar el wait \n");
 				sem_wait(&terminoCompactacion);
 			}
 		}
@@ -120,18 +114,21 @@ void *compactar(void *elemento){
 			sem_post(&terminoCompactacion);
 			pthread_exit(EXIT_SUCCESS);
 		}
-		//sleep(10); para probar más facil qué tal los mutex
 		int32_t entradasEnUsoDeLaInstancia;
 		PROTOCOLO_INSTANCIA_A_COORDINADOR rta;
-		recibirMensaje(logger,sizeof(rta),&rta, elem->socket);
-		if (rta == COMPACTACION_EXITOSA){
-			recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, elem->socket);
-			log_info(logger, "compactacion exitosa");
-			registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,elem);
-			log_info(logger, "entradas registradas");
+		if (recibirMensaje(logger,sizeof(rta),&rta, elem->socket)>0){
+			if (rta == COMPACTACION_EXITOSA){
+				recibirMensaje(logger,sizeof(entradasEnUsoDeLaInstancia),&entradasEnUsoDeLaInstancia, elem->socket);
+				log_info(logger, "compactacion exitosa");
+				registrarEntradasOcupadasDeLaInstancia(entradasEnUsoDeLaInstancia,elem);
+				log_info(logger, "entradas registradas");
 		}
 		else{
-			log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN");
+			log_error(logger, "LA COMPACTACTACIÓN NO SALIÓ BIEN"); //no debería pasar
+			}
+		}
+		else{
+			log_warning(logger, "instancia desconectada, por lo tanto no hubo compactación en esa instancia");
 		}
 
 	free (falsa);
@@ -180,11 +177,17 @@ void enviarClavesCorrespondientes(int sock,char * id, t_list* listaDeClavesConIn
 t_list* clavesDeLaInstancia(t_list* list, void* value){
 
 	bool equals(claveConInstancia* item) {
-		int rta = strcmp(value, item->instancia->identificador);
-		if (rta == 0)
-				return true;
-		else
-				return false;
+		if (item->instancia == NULL){
+			return false;
+		}
+		else{
+			int rta = strcmp(value, item->instancia->identificador);
+			if (rta == 0)
+						return true;
+			else
+						return false;
+		}
+
 	}
 
 	return list_filter(list, (void *) equals);

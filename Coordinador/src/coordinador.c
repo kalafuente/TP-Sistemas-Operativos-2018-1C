@@ -5,6 +5,8 @@ int main(int argc, char **argv) {
 
 	pthread_mutex_init(&mutexCompactacion, NULL);
 	pthread_mutex_init(&mutexlistaInstancias, NULL);
+	pthread_mutex_init(&mutexConexionInstancias, NULL);
+
 	sem_init(&terminoCompactacion, 0, 0);
 
 	prepararLoggers();
@@ -130,6 +132,8 @@ void *manejadorDeConexiones(void *socket_desc) {
 			break;
 
 		case HANDSHAKE_CONECTAR_INSTANCIA_A_COORDINADOR:
+			pthread_mutex_lock(&mutexConexionInstancias);
+
 			log_info(logger, "Se me conectó una Instancia");
 			char * id = recibirID(sock, logger);
 			pthread_mutex_lock(&mutexCompactacion);
@@ -156,6 +160,9 @@ void *manejadorDeConexiones(void *socket_desc) {
 
 				//mostrarListaIntancias(listaDeInstancias);
 			}
+
+			pthread_mutex_unlock(&mutexConexionInstancias);
+
 			break;
 
 		case HANDSHAKE_CONECTAR_ESI_A_COORDINADOR:
@@ -166,6 +173,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 			recibirMensaje(logger,sizeof(esi), &esi, sock);
 			instruccionAGuardar=recibirInstruccionDelEsi(sock);
 
+
 			while (esi == MANDO_INTRUCCIONES && instruccionAGuardar != NULL) {
 
 				procesarInstruccion(instruccionAGuardar,sock);
@@ -175,6 +183,7 @@ void *manejadorDeConexiones(void *socket_desc) {
 				instruccionAGuardar=recibirInstruccionDelEsi(sock);
 
 			}
+
 
 			if (esi == TERMINE_INSTRUCCIONES)
 				log_info(logger, "ESI TERMINÓ DE MANDAR LAS INSTRUCCIONES, YUPI");
@@ -270,19 +279,40 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						instancia * instanciaQueTieneSetClave = instanciaQueTieneLaClave(instruccion->clave, listaDeClavesConInstancia)->instancia;
 						if (instanciaQueTieneSetClave == NULL){
 							log_info(logControlDeDistribucion,"NO HAY SET PREVIO DE ESTA CLAVE");
+
+							//printf("intenta ahora conectar instancia \n");
+							pthread_mutex_lock(&mutexConexionInstancias);
+							//sleep(5);
 							instancia* instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
 
+							if (instanciaALlamar == NULL){
+								enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
+								log_info(logger, "le dije al esi que no hay más instancias");
+								break;
+							}
+
 							bool seEnvio = enviarSETaInstancia(instanciaALlamar,sock, instruccion, false);
+
+
 							while(!seEnvio){
 								instanciaALlamar = elegirInstanciaSegunAlgoritmo(instruccion->clave, logger, logControlDeDistribucion, letrasDeLaInstancia);
+
+								if (instanciaALlamar == NULL){
+									enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
+									log_info(logger, "le dije al esi que no hay más instancias");
+									break;
+								}
+
 								seEnvio = enviarSETaInstancia(instanciaALlamar,sock, instruccion, false);
 							}
+
 						}
 						else {
 							log_info(logControlDeDistribucion,"HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: %d",instanciaQueTieneSetClave->socket );
 							enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion, true);
 						}
 
+						pthread_mutex_unlock(&mutexConexionInstancias);
 
 
 						break;

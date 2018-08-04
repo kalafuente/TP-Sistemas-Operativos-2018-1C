@@ -82,6 +82,8 @@ int listenningSocket;
 
 pthread_mutex_t mutexCompactacion;
 pthread_mutex_t mutexlistaInstancias;
+pthread_mutex_t mutexConexionInstancias;
+
 sem_t terminoCompactacion;
 
 

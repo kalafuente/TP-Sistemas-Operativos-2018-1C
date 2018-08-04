@@ -222,7 +222,7 @@ void eliminarEsteHilo(pthread_t hilo){
 
 void procesarInstruccion(t_instruccion * instruccion, int sock){
 
-	log_info(logger,"entro a procesarInstruccion");
+	//log_info(logger,"entro a procesarInstruccion");
 	claveConInstancia* instanciaConLaClave;
 
 	switch(instruccion->instruccion){
@@ -287,7 +287,6 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 
 							if (instanciaALlamar == NULL){
 								enviarRespuestaAlEsi(ERROR_NO_HAY_INSTANCIAS, sock, logger);
-								log_info(logger, "le dije al esi que no hay más instancias");
 								pthread_mutex_unlock(&mutexConexionInstancias);
 								break;
 							}
@@ -311,7 +310,9 @@ void procesarInstruccion(t_instruccion * instruccion, int sock){
 						}
 						else {
 							log_info(logControlDeDistribucion,"HAY SET PREVIO DE ESTA CLAVE, LA CLAVE ESTÁ EN EL SOCKET: %d",instanciaQueTieneSetClave->socket );
-							enviarSETaInstancia(instanciaQueTieneSetClave,sock, instruccion, true);
+							enviarSETaInstanciaConSETPrevio(instanciaQueTieneSetClave,sock, instruccion, true);
+
+
 						}
 
 						pthread_mutex_unlock(&mutexConexionInstancias);

@@ -2220,7 +2220,38 @@ void compactacion()
 
 		if(anterior == NULL)
 		{
-			//No hago nada
+			//Tengo que corroborar que el primer nodo tenga asignada la pos 0 para que no se rompa nada
+			if(((t_tabla_entradas *)actual->data)->numeroEntrada == 0)
+			{
+				//Esta todo bien, no hay que hacer nada
+			}
+			else
+			{
+				//Aca se pudre porque no arranca el almacenamiento de valores desde el principio
+				//Tengo que moverlo
+
+				t_link_element * primero = actual;
+				int pos = 0;
+				char * primeraClave = ((t_tabla_entradas*)primero->data)->clave;
+
+				//Copiamos a un buffer el valor que hay que desplazar a la primera posicion
+
+				char * buffer = (char*)malloc(sizeof(char) * ((t_tabla_entradas*)actual->data)->tamanioValor);
+				memcpy((void*)buffer, (void*)&entradas[tamanioEntrada * (((t_tabla_entradas*)actual->data)->numeroEntrada)], ((t_tabla_entradas*)actual->data)->tamanioValor);
+
+				while(primero != NULL && (strcmp(primeraClave, ((t_tabla_entradas*)primero->data)->clave) == 0))
+				{
+					((t_tabla_entradas*)primero->data)->numeroEntrada = pos;
+					pos++;
+					primero = primero->next;
+				}
+
+				memcpy((void*)&entradas[tamanioEntrada * (((t_tabla_entradas*)actual->data)->numeroEntrada)], (void*)buffer, ((t_tabla_entradas*)actual->data)->tamanioValor);
+				free(buffer);
+
+				cambios = 1;
+
+			}
 		}
 		else
 		{

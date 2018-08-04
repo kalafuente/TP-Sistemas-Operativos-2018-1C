@@ -362,7 +362,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion SET\n");
 						respuesta = NO_SE_PUDO_GUARDAR_VALOR;
-						finInstancia = 0;
+						//finInstancia = 0;
 						break;
 					}
 					else
@@ -377,7 +377,7 @@ int procesarSentencias()
 					{
 						log_error(logger, "Fallo en la operacion STORE\n");
 						respuesta = NO_SE_CREO_EL_ARCHIVO;
-						finInstancia = 0;
+						//finInstancia = 0;
 						break;
 					}
 					else

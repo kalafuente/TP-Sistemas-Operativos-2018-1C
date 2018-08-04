@@ -49,14 +49,17 @@ void levantarLoggs()
 	char * comp = string_new();
 	char * reinc = string_new();
 	char * nuevo = string_new();
+	char * pedidoValor = string_new();
 	string_append(&op, instanciaConfig->nombre);
 	string_append(&comp, instanciaConfig->nombre);
 	string_append(&reinc, instanciaConfig->nombre);
 	string_append(&nuevo, instanciaConfig->nombre);
+	string_append(&pedidoValor, instanciaConfig->nombre);
 	string_append(&op, "_logOperaciones.log");
 	string_append(&comp, "_logCompactacion.log");
 	string_append(&reinc, "_logReincorporacion.log");
 	string_append(&nuevo, "_logInstancia.log");
+	string_append(&pedidoValor, "_logPedidoValores.log");
 
 	logOperaciones= crearLogger(op,"logOperaciones");
 	log_info(logOperaciones, "**************************************** NUEVA ENTRADA ****************************************");
@@ -70,12 +73,15 @@ void levantarLoggs()
 	logger= crearLogger(nuevo,"logInstancia");
 	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
 
+	logPedidoDeValor = crearLogger(pedidoValor, "logPedidoValores");
+	log_info(logger, "**************************************** NUEVA ENTRADA ****************************************");
 
 
 	free(op);
 	free(comp);
 	free(reinc);
 	free(nuevo);
+	free(pedidoValor);
 }
 
 void destruirLogger(){
@@ -460,7 +466,7 @@ void peticionValor()
 
 	char * clavePeticionada = recibirID(socketCoordinador, logger);
 
-	log_info(logger, "Nos piden el valor de la siguiente clave: %s", clavePeticionada);
+	log_info(logPedidoDeValor, "Nos piden el valor de la siguiente clave: %s", clavePeticionada);
 
 	t_link_element * actual = tablaEntradas->head;
 
@@ -474,6 +480,7 @@ void peticionValor()
 
 		if(strcmp(dato->clave, clavePeticionada) == 0)
 		{
+			log_info(logPedidoDeValor, "Clave encontrada!\n");
 			valor = (char*)malloc(sizeof(char) * (dato->tamanioValor + 1));
 			memcpy((void*)valor, (void*)&entradas[dato->numeroEntrada * tamanioEntrada], dato->tamanioValor);
 			valor[dato->tamanioValor] = '\0';
@@ -485,6 +492,7 @@ void peticionValor()
 
 	if(noEncontrado)
 	{
+		log_info(logPedidoDeValor, "La clave no existe. Enviamos null\n");
 		valor = string_new();
 		string_append(&valor, "null");
 	}

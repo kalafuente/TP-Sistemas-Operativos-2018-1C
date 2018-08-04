@@ -12,8 +12,8 @@ void ordenarPorSJF(t_list *listaAOrdenar) {
 }
 
 bool mayorResponseRatio(struct_esi* esi1, struct_esi* esi2) {
-	return (1 + esi1->estimacion / esi1->estimacion)
-			>= (1 + esi2->estimacion / esi2->estimacion);
+	return (esi1->tiempoDeEspera + esi1->estimacion / esi1->estimacion)
+			>= (esi2->tiempoDeEspera + esi2->estimacion / esi2->estimacion);
 }
 
 void ordenarPorHRRN(t_list *listaAOrdenar) {
